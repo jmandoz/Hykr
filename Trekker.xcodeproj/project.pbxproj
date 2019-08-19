@@ -19,6 +19,12 @@
 		A4508A67230B057A002ED843 /* SignUpInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A66230B057A002ED843 /* SignUpInfoViewController.swift */; };
 		A4508A69230B0791002ED843 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4508A68230B0791002ED843 /* Home.storyboard */; };
 		A4508A6C230B082D002ED843 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A6B230B082D002ED843 /* HomePageViewController.swift */; };
+		A4508A6E230B1879002ED843 /* HikeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A6D230B1879002ED843 /* HikeDetailsViewController.swift */; };
+		A4508A72230B3CD3002ED843 /* SavedHikesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A71230B3CD3002ED843 /* SavedHikesViewController.swift */; };
+		A4508A74230B3D12002ED843 /* SavedHikesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A73230B3D12002ED843 /* SavedHikesTableViewCell.swift */; };
+		A4508A77230B3ED0002ED843 /* HikeAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4508A76230B3ED0002ED843 /* HikeAnnotationView.xib */; };
+		A4508A7E230B43EA002ED843 /* HikeLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A7D230B43EA002ED843 /* HikeLogViewController.swift */; };
+		A4508A80230B4505002ED843 /* HikeLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A7F230B4505002ED843 /* HikeLogTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +42,12 @@
 		A4508A66230B057A002ED843 /* SignUpInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfoViewController.swift; sourceTree = "<group>"; };
 		A4508A68230B0791002ED843 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		A4508A6B230B082D002ED843 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		A4508A6D230B1879002ED843 /* HikeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeDetailsViewController.swift; sourceTree = "<group>"; };
+		A4508A71230B3CD3002ED843 /* SavedHikesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedHikesViewController.swift; sourceTree = "<group>"; };
+		A4508A73230B3D12002ED843 /* SavedHikesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedHikesTableViewCell.swift; sourceTree = "<group>"; };
+		A4508A76230B3ED0002ED843 /* HikeAnnotationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HikeAnnotationView.xib; sourceTree = "<group>"; };
+		A4508A7D230B43EA002ED843 /* HikeLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeLogViewController.swift; sourceTree = "<group>"; };
+		A4508A7F230B4505002ED843 /* HikeLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeLogTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +112,9 @@
 		A4508A5D230AF030002ED843 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A4508A4A230AEF80002ED843 /* SignUp.storyboard */,
-				A4508A68230B0791002ED843 /* Home.storyboard */,
+				A4508A75230B3D37002ED843 /* Stroyboards */,
+				A4508A73230B3D12002ED843 /* SavedHikesTableViewCell.swift */,
+				A4508A7F230B4505002ED843 /* HikeLogTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -126,7 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				A4508A6A230B07B9002ED843 /* SignUp */,
-				A4508A6B230B082D002ED843 /* HomePageViewController.swift */,
+				A4508A70230B3CA4002ED843 /* Home Tab */,
+				A4508A78230B40C6002ED843 /* Saved Tab */,
+				A4508A7C230B43C5002ED843 /* Hike Log Tab */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -147,6 +162,41 @@
 				A4508A66230B057A002ED843 /* SignUpInfoViewController.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		A4508A70230B3CA4002ED843 /* Home Tab */ = {
+			isa = PBXGroup;
+			children = (
+				A4508A6B230B082D002ED843 /* HomePageViewController.swift */,
+				A4508A6D230B1879002ED843 /* HikeDetailsViewController.swift */,
+			);
+			path = "Home Tab";
+			sourceTree = "<group>";
+		};
+		A4508A75230B3D37002ED843 /* Stroyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A4508A4A230AEF80002ED843 /* SignUp.storyboard */,
+				A4508A68230B0791002ED843 /* Home.storyboard */,
+				A4508A76230B3ED0002ED843 /* HikeAnnotationView.xib */,
+			);
+			path = Stroyboards;
+			sourceTree = "<group>";
+		};
+		A4508A78230B40C6002ED843 /* Saved Tab */ = {
+			isa = PBXGroup;
+			children = (
+				A4508A71230B3CD3002ED843 /* SavedHikesViewController.swift */,
+			);
+			path = "Saved Tab";
+			sourceTree = "<group>";
+		};
+		A4508A7C230B43C5002ED843 /* Hike Log Tab */ = {
+			isa = PBXGroup;
+			children = (
+				A4508A7D230B43EA002ED843 /* HikeLogViewController.swift */,
+			);
+			path = "Hike Log Tab";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4508A77230B3ED0002ED843 /* HikeAnnotationView.xib in Resources */,
 				A4508A54230AEF81002ED843 /* LaunchScreen.storyboard in Resources */,
 				A4508A51230AEF80002ED843 /* Assets.xcassets in Resources */,
 				A4508A4C230AEF80002ED843 /* SignUp.storyboard in Resources */,
@@ -225,8 +276,13 @@
 				A4508A63230B011C002ED843 /* LandingViewController.swift in Sources */,
 				A4508A6C230B082D002ED843 /* HomePageViewController.swift in Sources */,
 				A4508A67230B057A002ED843 /* SignUpInfoViewController.swift in Sources */,
+				A4508A74230B3D12002ED843 /* SavedHikesTableViewCell.swift in Sources */,
 				A4508A65230B026F002ED843 /* SignUpViewController.swift in Sources */,
 				A4508A47230AEF80002ED843 /* AppDelegate.swift in Sources */,
+				A4508A6E230B1879002ED843 /* HikeDetailsViewController.swift in Sources */,
+				A4508A80230B4505002ED843 /* HikeLogTableViewCell.swift in Sources */,
+				A4508A7E230B43EA002ED843 /* HikeLogViewController.swift in Sources */,
+				A4508A72230B3CD3002ED843 /* SavedHikesViewController.swift in Sources */,
 				3A14B673230B04B300DE2DCE /* Hike.swift in Sources */,
 				3A14B671230AFDE200DE2DCE /* User.swift in Sources */,
 			);
