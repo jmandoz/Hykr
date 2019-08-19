@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GNe-mX-MQP">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Saved-->
+        <scene sceneID="KH4-Lh-JH2">
+            <objects>
+                <viewController id="89m-oo-Eep" customClass="SavedHikesViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1co-c5-qnL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hVY-kt-UHJ">
+                                <rect key="frame" x="0.0" y="172.5" width="414" height="640.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SavedHikeCell" rowHeight="151" id="T2l-iN-vCZ" customClass="SavedHikesTableViewCell" customModule="Trekker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="151"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T2l-iN-vCZ" id="wUN-5M-Z7W">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="150.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PcE-Xc-tgb">
+                                                    <rect key="frame" x="20" y="11" width="374" height="129"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jwT-Ia-9gl">
+                                                            <rect key="frame" x="0.0" y="0.0" width="129" height="129"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="129" id="fZy-PS-zMR"/>
+                                                                <constraint firstAttribute="width" constant="129" id="fst-Y0-XRd"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="hid-aK-L6e">
+                                                            <rect key="frame" x="139" y="32" width="235" height="65"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Hike" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfV-H5-Jzr">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="235" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wba-xx-BS4">
+                                                                    <rect key="frame" x="0.0" y="44.5" width="235" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="wba-xx-BS4" secondAttribute="trailing" id="Kx8-U0-NRN"/>
+                                                                <constraint firstAttribute="trailing" secondItem="GfV-H5-Jzr" secondAttribute="trailing" id="TEK-XC-Xla"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PcE-Xc-tgb" firstAttribute="bottom" secondItem="wUN-5M-Z7W" secondAttribute="bottomMargin" id="A2a-cW-6nG"/>
+                                                <constraint firstItem="PcE-Xc-tgb" firstAttribute="top" secondItem="wUN-5M-Z7W" secondAttribute="topMargin" id="gWz-E1-QwB"/>
+                                                <constraint firstItem="PcE-Xc-tgb" firstAttribute="trailing" secondItem="wUN-5M-Z7W" secondAttribute="trailingMargin" id="r2z-sg-fyD"/>
+                                                <constraint firstItem="PcE-Xc-tgb" firstAttribute="leading" secondItem="wUN-5M-Z7W" secondAttribute="leadingMargin" id="zid-IT-IZc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="hikeImageView" destination="jwT-Ia-9gl" id="jLy-ya-Ehr"/>
+                                            <outlet property="hikeNameLabel" destination="GfV-H5-Jzr" id="qFK-wm-c06"/>
+                                            <outlet property="hikeRatingLabel" destination="wba-xx-BS4" id="Iyd-Ii-z8K"/>
+                                            <segue destination="0MI-Pa-N3g" kind="show" id="aGK-wW-x0e"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyc-qy-j7W">
+                                <rect key="frame" x="183.5" y="79" width="47" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hVY-kt-UHJ" firstAttribute="trailing" secondItem="261-vM-eDP" secondAttribute="trailing" id="4t1-NS-3st"/>
+                            <constraint firstItem="hVY-kt-UHJ" firstAttribute="bottom" secondItem="261-vM-eDP" secondAttribute="bottom" id="DbG-zH-0E5"/>
+                            <constraint firstItem="hVY-kt-UHJ" firstAttribute="centerY" secondItem="1co-c5-qnL" secondAttribute="centerY" multiplier="1.1" id="eCI-8L-ws6"/>
+                            <constraint firstItem="tyc-qy-j7W" firstAttribute="centerY" secondItem="1co-c5-qnL" secondAttribute="centerY" multiplier="0.2" id="gI0-tS-SrM"/>
+                            <constraint firstItem="tyc-qy-j7W" firstAttribute="centerX" secondItem="1co-c5-qnL" secondAttribute="centerX" id="rkZ-JO-gOt"/>
+                            <constraint firstItem="hVY-kt-UHJ" firstAttribute="leading" secondItem="261-vM-eDP" secondAttribute="leading" id="sDt-lM-QCf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="261-vM-eDP"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Saved" id="0um-bt-AnY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gAl-gK-kxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1298.5507246376812" y="-575.22321428571422"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="fke-sb-vZp">
+            <objects>
+                <viewController id="Sux-N7-rO9" customClass="HomePageViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d0e-Nn-QlE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lNr-er-lXK">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                            </mapView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jt7-NL-6fR">
+                                <rect key="frame" x="10" y="61.5" width="394" height="56"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lNr-er-lXK" firstAttribute="trailing" secondItem="fZ3-tl-MSX" secondAttribute="trailing" id="7cS-RZ-pZb"/>
+                            <constraint firstItem="lNr-er-lXK" firstAttribute="bottom" secondItem="fZ3-tl-MSX" secondAttribute="bottom" id="CYd-Ut-oJE"/>
+                            <constraint firstItem="jt7-NL-6fR" firstAttribute="centerX" secondItem="d0e-Nn-QlE" secondAttribute="centerX" id="Had-bm-wsf"/>
+                            <constraint firstItem="jt7-NL-6fR" firstAttribute="centerY" secondItem="d0e-Nn-QlE" secondAttribute="centerY" multiplier="0.2" id="Iaw-lk-79D"/>
+                            <constraint firstItem="jt7-NL-6fR" firstAttribute="leading" secondItem="fZ3-tl-MSX" secondAttribute="leading" constant="10" id="nmq-g3-uY0"/>
+                            <constraint firstItem="lNr-er-lXK" firstAttribute="leading" secondItem="fZ3-tl-MSX" secondAttribute="leading" id="qlL-9o-1S8"/>
+                            <constraint firstItem="lNr-er-lXK" firstAttribute="top" secondItem="d0e-Nn-QlE" secondAttribute="top" id="yoO-Ua-nBS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fZ3-tl-MSX"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" id="uJw-bd-J48"/>
+                    <connections>
+                        <outlet property="mapView" destination="lNr-er-lXK" id="wGd-lE-dtK"/>
+                        <outlet property="searchBar" destination="jt7-NL-6fR" id="Jwd-z5-7f0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wio-fL-ehr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1299" y="-1397"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="e5N-Ky-0cP">
+            <objects>
+                <tabBarController storyboardIdentifier="HomeVC" id="GNe-mX-MQP" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N40-Nw-ih6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Sux-N7-rO9" kind="relationship" relationship="viewControllers" id="haZ-de-Ybf"/>
+                        <segue destination="89m-oo-Eep" kind="relationship" relationship="viewControllers" id="2SS-KP-goH"/>
+                        <segue destination="B5O-UR-H7u" kind="relationship" relationship="viewControllers" id="Hpj-0d-SSE"/>
+                        <segue destination="WT4-Km-Ah3" kind="relationship" relationship="viewControllers" id="mDH-N3-wRf"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Heg-zb-D5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1544" y="83"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="Q9l-Vz-BP1">
+            <objects>
+                <viewController id="WT4-Km-Ah3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zQH-Z0-40N">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="7Yr-3a-Fup"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" id="Tlg-D1-MC8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LTo-L2-4E5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1062" y="1383"/>
+        </scene>
+        <!--Hikes-->
+        <scene sceneID="2Pv-V8-4YN">
+            <objects>
+                <viewController id="B5O-UR-H7u" customClass="HikeLogViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GZL-do-zfj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BCw-eD-7Lh">
+                                <rect key="frame" x="0.0" y="172.5" width="414" height="640.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="115" id="qZB-Bd-9Oi" customClass="HikeLogTableViewCell" customModule="Trekker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qZB-Bd-9Oi" id="wEO-c3-HeI">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hike Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5D8-16-bhU">
+                                                    <rect key="frame" x="20" y="11" width="374" height="93"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5D8-16-bhU" firstAttribute="leading" secondItem="wEO-c3-HeI" secondAttribute="leadingMargin" id="Dd4-iQ-Ja0"/>
+                                                <constraint firstItem="5D8-16-bhU" firstAttribute="top" secondItem="wEO-c3-HeI" secondAttribute="topMargin" id="W3H-uA-Q0f"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5D8-16-bhU" secondAttribute="trailing" id="qCq-ob-XXG"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5D8-16-bhU" secondAttribute="bottom" id="sbD-WJ-fJ0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="hikeNameLabel" destination="5D8-16-bhU" id="I3Y-WE-hcn"/>
+                                            <segue destination="0MI-Pa-N3g" kind="show" id="QN4-ec-fAh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hike Log" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKW-8f-Zck">
+                                <rect key="frame" x="173.5" y="79" width="67" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BCw-eD-7Lh" firstAttribute="centerY" secondItem="GZL-do-zfj" secondAttribute="centerY" multiplier="1.1" id="Fyv-AE-GfA"/>
+                            <constraint firstItem="BCw-eD-7Lh" firstAttribute="leading" secondItem="ves-sa-CpX" secondAttribute="leading" id="PoH-wA-ZVa"/>
+                            <constraint firstItem="UKW-8f-Zck" firstAttribute="centerY" secondItem="GZL-do-zfj" secondAttribute="centerY" multiplier="0.2" id="bWm-MX-USy"/>
+                            <constraint firstItem="BCw-eD-7Lh" firstAttribute="bottom" secondItem="ves-sa-CpX" secondAttribute="bottom" id="bi7-uD-xeP"/>
+                            <constraint firstItem="UKW-8f-Zck" firstAttribute="centerX" secondItem="GZL-do-zfj" secondAttribute="centerX" id="kTi-U4-FMz"/>
+                            <constraint firstItem="BCw-eD-7Lh" firstAttribute="trailing" secondItem="ves-sa-CpX" secondAttribute="trailing" id="yhQ-Py-L0z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ves-sa-CpX"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Hikes" id="fIP-l1-KO1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ncf-ko-kUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1483" y="518"/>
+        </scene>
+        <!--Hike Details View Controller-->
+        <scene sceneID="KwQ-ME-Tnd">
+            <objects>
+                <viewController id="0MI-Pa-N3g" customClass="HikeDetailsViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xe1-Xj-ssg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oCP-YV-Z66">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="br2-HK-hbV">
+                                <rect key="frame" x="30" y="234" width="354" height="618"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Hike" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vW5-oj-h7e">
+                                        <rect key="frame" x="0.0" y="0.0" width="103" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqP-n5-J6w">
+                                        <rect key="frame" x="0.0" y="36.5" width="49" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lcx-FJ-R8a">
+                                        <rect key="frame" x="0.0" y="73" width="224" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2B-a9-gCP">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
+                                                <state key="normal" title="Directions"/>
+                                                <connections>
+                                                    <action selector="directionsButtonTapped:" destination="0MI-Pa-N3g" eventType="touchUpInside" id="4E8-1g-aUj"/>
+                                                    <segue destination="Sux-N7-rO9" kind="show" id="i77-Zh-ORv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W20-St-iKq">
+                                                <rect key="frame" x="98" y="0.0" width="34" height="30"/>
+                                                <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="saveButtonTapped:" destination="0MI-Pa-N3g" eventType="touchUpInside" id="Zac-Yf-cS2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWs-Yu-uWZ">
+                                                <rect key="frame" x="160" y="0.0" width="64" height="30"/>
+                                                <state key="normal" title="Hike map"/>
+                                                <connections>
+                                                    <action selector="hikeMapButtonTapped:" destination="0MI-Pa-N3g" eventType="touchUpInside" id="gt7-Ng-Jhr"/>
+                                                    <segue destination="Sux-N7-rO9" kind="show" id="Rgi-RE-38C"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tg1-aY-gjO">
+                                        <rect key="frame" x="0.0" y="119" width="54" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gcr-4s-e7m">
+                                        <rect key="frame" x="0.0" y="155.5" width="354" height="462.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2hx-65-1c5">
+                                            <size key="itemSize" width="281" height="283.5"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                    </collectionView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gcr-4s-e7m" firstAttribute="leading" secondItem="br2-HK-hbV" secondAttribute="leading" id="19Z-h3-OAp"/>
+                                    <constraint firstAttribute="bottom" secondItem="gcr-4s-e7m" secondAttribute="bottom" id="tEy-Fe-kqf"/>
+                                    <constraint firstAttribute="trailing" secondItem="gcr-4s-e7m" secondAttribute="trailing" id="tqE-bB-6X1"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="br2-HK-hbV" secondAttribute="bottom" constant="10" id="Obp-8w-JMB"/>
+                            <constraint firstItem="oCP-YV-Z66" firstAttribute="centerY" secondItem="xe1-Xj-ssg" secondAttribute="centerY" multiplier="0.25" id="SpE-bi-t08"/>
+                            <constraint firstAttribute="trailing" secondItem="oCP-YV-Z66" secondAttribute="trailing" id="U7Q-rf-IXh"/>
+                            <constraint firstItem="oCP-YV-Z66" firstAttribute="top" secondItem="xe1-Xj-ssg" secondAttribute="top" id="a5l-JW-f1S"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="br2-HK-hbV" secondAttribute="trailing" constant="10" id="kYT-vU-6BG"/>
+                            <constraint firstItem="br2-HK-hbV" firstAttribute="top" secondItem="oCP-YV-Z66" secondAttribute="bottom" constant="10" id="nPq-dd-IKF"/>
+                            <constraint firstItem="oCP-YV-Z66" firstAttribute="leading" secondItem="xe1-Xj-ssg" secondAttribute="leading" id="r9B-DB-eHQ"/>
+                            <constraint firstItem="br2-HK-hbV" firstAttribute="leading" secondItem="xe1-Xj-ssg" secondAttribute="leadingMargin" constant="10" id="wvc-Tb-Xcj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="afj-uh-N0j"/>
+                    </view>
+                    <connections>
+                        <outlet property="directionsButton" destination="O2B-a9-gCP" id="w02-Ur-h5f"/>
+                        <outlet property="hikeMapButton" destination="vWs-Yu-uWZ" id="Lxl-BZ-bvy"/>
+                        <outlet property="imageView" destination="oCP-YV-Z66" id="mpd-oe-ko4"/>
+                        <outlet property="pitcureCollectionView" destination="gcr-4s-e7m" id="3Ze-SN-9rh"/>
+                        <outlet property="saveButton" destination="W20-St-iKq" id="3bQ-y5-fIs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zr0-S0-osM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2958" y="-976"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="QN4-ec-fAh"/>
+        <segue reference="Rgi-RE-38C"/>
+    </inferredMetricsTieBreakers>
+</document>
