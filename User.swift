@@ -19,11 +19,12 @@ class User {
     var hikeDistance: [Int]
     var savedHikes: [Hike]
     var hikeLog: [Hike]
+    var unitsInMiles: Bool
     // Cloudkit Properties
     let recordID: CKRecord.ID
     let appleUserReference: CKRecord.Reference
     
-    init(email: String, firstName: String, lastName: String, gender: String, age: Int, hikeDistance: [Int] = [], savedHikes: [Hike] = [], hikeLog: [Hike] = [], recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), appleUserReference: CKRecord.Reference) {
+    init(email: String, firstName: String, lastName: String, gender: String, age: Int, hikeDistance: [Int] = [], savedHikes: [Hike] = [], hikeLog: [Hike] = [], unitsInMiles: Bool = true, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), appleUserReference: CKRecord.Reference) {
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
@@ -32,6 +33,7 @@ class User {
         self.hikeDistance = hikeDistance
         self.savedHikes = savedHikes
         self.hikeLog = hikeLog
+        self.unitsInMiles = unitsInMiles
         self.recordID = recordID
         self.appleUserReference = appleUserReference
     }
@@ -46,13 +48,14 @@ extension User {
         let gender = record[UserConstants.genderKey] as? String,
         let age = record[UserConstants.ageKey] as? Int,
         let hikeDistance = record[UserConstants.hikeDistanceKey] as? [Int],
+        let unitsInMiles = record[UserConstants.unitsInMilesKey] as? Bool,
         let appleUserReference = record[UserConstants.appleUserReferenceKey] as? CKRecord.Reference
             else { return nil }
         
         let savedHikes = record[UserConstants.savedHikesKey] as? [Hike] ?? []
         let hikeLog = record[UserConstants.hikeLogKey] as? [Hike] ?? []
         
-        self.init(email: email, firstName: firstName, lastName: lastName, gender: gender, age: age, hikeDistance: hikeDistance, savedHikes: savedHikes, hikeLog: hikeLog, recordID: record.recordID, appleUserReference: appleUserReference)
+        self.init(email: email, firstName: firstName, lastName: lastName, gender: gender, age: age, hikeDistance: hikeDistance, savedHikes: savedHikes, hikeLog: hikeLog, unitsInMiles: unitsInMiles, recordID: record.recordID, appleUserReference: appleUserReference)
     }
 }
 
@@ -69,6 +72,7 @@ extension CKRecord {
         self.setValue(user.hikeDistance, forKey: UserConstants.hikeDistanceKey)
         //self.setValue(user.savedHikes, forKey: UserConstants.savedHikesKey)
         //self.setValue(user.hikeLog, forKey: UserConstants.hikeLogKey)
+        self.setValue(user.unitsInMiles, forKey: UserConstants.unitsInMilesKey)
         self.setValue(user.appleUserReference, forKey: UserConstants.appleUserReferenceKey)
         // Checks if user has any hikes, if not, user record is not initialized with the savedHikes and hikeLog properties
         if !user.savedHikes.isEmpty {
@@ -90,5 +94,6 @@ struct UserConstants {
     fileprivate static let hikeDistanceKey = "hikeDistance"
     fileprivate static let savedHikesKey = "savedHikes"
     fileprivate static let hikeLogKey = "hikeLog"
+    fileprivate static let unitsInMilesKey = "unitsInMiles"
     fileprivate static let appleUserReferenceKey = "appleUserReference"
 }

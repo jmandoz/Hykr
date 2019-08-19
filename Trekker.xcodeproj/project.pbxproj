@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A14B671230AFDE200DE2DCE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B670230AFDE200DE2DCE /* User.swift */; };
 		3A14B673230B04B300DE2DCE /* Hike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B672230B04B300DE2DCE /* Hike.swift */; };
+		3A14B677230B47FF00DE2DCE /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B676230B47FF00DE2DCE /* Weather.swift */; };
 		A4508A47230AEF80002ED843 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A46230AEF80002ED843 /* AppDelegate.swift */; };
 		A4508A4C230AEF80002ED843 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4508A4A230AEF80002ED843 /* SignUp.storyboard */; };
 		A4508A4F230AEF80002ED843 /* Trekker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4508A4D230AEF80002ED843 /* Trekker.xcdatamodeld */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		3A14B670230AFDE200DE2DCE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = SOURCE_ROOT; };
 		3A14B672230B04B300DE2DCE /* Hike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hike.swift; sourceTree = SOURCE_ROOT; };
+		3A14B676230B47FF00DE2DCE /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = SOURCE_ROOT; };
 		A4508A43230AEF80002ED843 /* Trekker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trekker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4508A46230AEF80002ED843 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4508A4B230AEF80002ED843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				3A14B670230AFDE200DE2DCE /* User.swift */,
 				3A14B672230B04B300DE2DCE /* Hike.swift */,
+				3A14B676230B47FF00DE2DCE /* Weather.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				A4508A67230B057A002ED843 /* SignUpInfoViewController.swift in Sources */,
 				A4508A74230B3D12002ED843 /* SavedHikesTableViewCell.swift in Sources */,
 				A4508A65230B026F002ED843 /* SignUpViewController.swift in Sources */,
+				3A14B677230B47FF00DE2DCE /* Weather.swift in Sources */,
 				A4508A47230AEF80002ED843 /* AppDelegate.swift in Sources */,
 				A4508A6E230B1879002ED843 /* HikeDetailsViewController.swift in Sources */,
 				A4508A80230B4505002ED843 /* HikeLogTableViewCell.swift in Sources */,
