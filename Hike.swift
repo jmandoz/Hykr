@@ -6,9 +6,8 @@
 //  Copyright © 2019 Jason Mandozzi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CloudKit
-import MapKit
 
 class Hike {
     let longitude: Double
@@ -59,9 +58,7 @@ extension CKRecord {
         self.setValue(hike.hikeRating, forKey: HikeConstants.hikeRatingKey)
         self.setValue(hike.hikeRoute, forKey: HikeConstants.hikeRouteKey)
         self.setValue(hike.apiID, forKey: HikeConstants.apiIDKey)
-//        if !hike.userPhotos.isEmpty {
-//            self.setValue(hike.userPhotos, forKey: HikeConstants.userPhotosKey)
-//        }
+        //TODO: Find out if we need userPhotos CKRecord
     }
 }
 
@@ -74,4 +71,42 @@ struct HikeConstants {
     fileprivate static let hikeRouteKey = "hikeRoute"
     fileprivate static let userPhotosKey = "userPhotos"
     fileprivate static let apiIDKey = "apiID"
+}
+
+
+// MARK: - API Structs
+
+
+// Primary hike JSON
+struct HikeJSON: Decodable {
+    let coordinates: Coordinates
+    let hikeName: String
+    let apiID: Int
+    let hikeImages: [HikeImagesJSON?]
+    
+    enum CodingKeys: String, CodingKey {
+        case coordinates = "starting_trailhead_id"
+        case hikeName = "name"
+        case apiID = "id"
+        case hikeImages = "medium"
+    }
+}
+
+struct Coordinates: Decodable {
+    let latitude: Double
+    let longitude: Double
+}
+
+// Route coordinates JSON
+struct HikeRouteJSON: Decodable {
+    let route: String
+}
+
+// Hike images JSON
+struct HikeImagesJSON: Decodable {
+    let imageURLAsString: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case imageURLAsString = "medium"
+    }
 }
