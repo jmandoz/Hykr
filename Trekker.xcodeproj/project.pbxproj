@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		A4508A47230AEF80002ED843 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A46230AEF80002ED843 /* AppDelegate.swift */; };
-		A4508A4C230AEF80002ED843 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4508A4A230AEF80002ED843 /* Main.storyboard */; };
+		A4508A4C230AEF80002ED843 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4508A4A230AEF80002ED843 /* SignUp.storyboard */; };
 		A4508A4F230AEF80002ED843 /* Trekker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4508A4D230AEF80002ED843 /* Trekker.xcdatamodeld */; };
 		A4508A51230AEF80002ED843 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4508A50230AEF80002ED843 /* Assets.xcassets */; };
 		A4508A54230AEF81002ED843 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4508A52230AEF81002ED843 /* LaunchScreen.storyboard */; };
+		A4508A63230B011C002ED843 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A62230B011C002ED843 /* LandingViewController.swift */; };
+		A4508A65230B026F002ED843 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A64230B026F002ED843 /* SignUpViewController.swift */; };
+		A4508A67230B057A002ED843 /* SignUpInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A66230B057A002ED843 /* SignUpInfoViewController.swift */; };
+		A4508A69230B0791002ED843 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4508A68230B0791002ED843 /* Home.storyboard */; };
+		A4508A6C230B082D002ED843 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A6B230B082D002ED843 /* HomePageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A4508A43230AEF80002ED843 /* Trekker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trekker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4508A46230AEF80002ED843 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A4508A4B230AEF80002ED843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A4508A4B230AEF80002ED843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
 		A4508A4E230AEF80002ED843 /* Trekker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Trekker.xcdatamodel; sourceTree = "<group>"; };
 		A4508A50230AEF80002ED843 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4508A53230AEF81002ED843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4508A55230AEF81002ED843 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4508A62230B011C002ED843 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		A4508A64230B026F002ED843 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		A4508A66230B057A002ED843 /* SignUpInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfoViewController.swift; sourceTree = "<group>"; };
+		A4508A68230B0791002ED843 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		A4508A6B230B082D002ED843 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +96,8 @@
 		A4508A5D230AF030002ED843 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A4508A4A230AEF80002ED843 /* Main.storyboard */,
+				A4508A4A230AEF80002ED843 /* SignUp.storyboard */,
+				A4508A68230B0791002ED843 /* Home.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -108,6 +119,8 @@
 		A4508A60230AF06B002ED843 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A4508A6A230B07B9002ED843 /* SignUp */,
+				A4508A6B230B082D002ED843 /* HomePageViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -118,6 +131,16 @@
 				A4508A4D230AEF80002ED843 /* Trekker.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		A4508A6A230B07B9002ED843 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				A4508A62230B011C002ED843 /* LandingViewController.swift */,
+				A4508A64230B026F002ED843 /* SignUpViewController.swift */,
+				A4508A66230B057A002ED843 /* SignUpInfoViewController.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,7 +203,8 @@
 			files = (
 				A4508A54230AEF81002ED843 /* LaunchScreen.storyboard in Resources */,
 				A4508A51230AEF80002ED843 /* Assets.xcassets in Resources */,
-				A4508A4C230AEF80002ED843 /* Main.storyboard in Resources */,
+				A4508A4C230AEF80002ED843 /* SignUp.storyboard in Resources */,
+				A4508A69230B0791002ED843 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +216,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4508A4F230AEF80002ED843 /* Trekker.xcdatamodeld in Sources */,
+				A4508A63230B011C002ED843 /* LandingViewController.swift in Sources */,
+				A4508A6C230B082D002ED843 /* HomePageViewController.swift in Sources */,
+				A4508A67230B057A002ED843 /* SignUpInfoViewController.swift in Sources */,
+				A4508A65230B026F002ED843 /* SignUpViewController.swift in Sources */,
 				A4508A47230AEF80002ED843 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,12 +227,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A4508A4A230AEF80002ED843 /* Main.storyboard */ = {
+		A4508A4A230AEF80002ED843 /* SignUp.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A4508A4B230AEF80002ED843 /* Base */,
 			);
-			name = Main.storyboard;
+			name = SignUp.storyboard;
 			sourceTree = "<group>";
 		};
 		A4508A52230AEF81002ED843 /* LaunchScreen.storyboard */ = {
@@ -340,7 +368,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZLX8VSJT3;
-				INFOPLIST_FILE = Trekker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Trekker/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,7 +386,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZLX8VSJT3;
-				INFOPLIST_FILE = Trekker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Trekker/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
