@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B5O-UR-H7u">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Hikes-->
+        <scene sceneID="2Pv-V8-4YN">
+            <objects>
+                <viewController id="B5O-UR-H7u" customClass="HikeLogViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GZL-do-zfj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BCw-eD-7Lh">
+                                <rect key="frame" x="0.0" y="123.5" width="414" height="738.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="115" id="qZB-Bd-9Oi" customClass="HikeLogTableViewCell" customModule="Trekker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="115"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qZB-Bd-9Oi" id="wEO-c3-HeI">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hike Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5D8-16-bhU">
+                                                    <rect key="frame" x="20" y="11" width="374" height="93"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5D8-16-bhU" firstAttribute="leading" secondItem="wEO-c3-HeI" secondAttribute="leadingMargin" id="Dd4-iQ-Ja0"/>
+                                                <constraint firstItem="5D8-16-bhU" firstAttribute="top" secondItem="wEO-c3-HeI" secondAttribute="topMargin" id="W3H-uA-Q0f"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5D8-16-bhU" secondAttribute="trailing" id="qCq-ob-XXG"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5D8-16-bhU" secondAttribute="bottom" id="sbD-WJ-fJ0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="hikeNameLabel" destination="5D8-16-bhU" id="I3Y-WE-hcn"/>
+                                            <segue destination="iBT-vQ-9Av" kind="show" id="QN4-ec-fAh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hike Log" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKW-8f-Zck">
+                                <rect key="frame" x="173.5" y="79" width="67" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BCw-eD-7Lh" firstAttribute="centerY" secondItem="GZL-do-zfj" secondAttribute="centerY" multiplier="1.1" id="Fyv-AE-GfA"/>
+                            <constraint firstItem="BCw-eD-7Lh" firstAttribute="leading" secondItem="ves-sa-CpX" secondAttribute="leading" id="PoH-wA-ZVa"/>
+                            <constraint firstItem="UKW-8f-Zck" firstAttribute="centerY" secondItem="GZL-do-zfj" secondAttribute="centerY" multiplier="0.2" id="bWm-MX-USy"/>
+                            <constraint firstItem="BCw-eD-7Lh" firstAttribute="bottom" secondItem="ves-sa-CpX" secondAttribute="bottom" id="bi7-uD-xeP"/>
+                            <constraint firstItem="UKW-8f-Zck" firstAttribute="centerX" secondItem="GZL-do-zfj" secondAttribute="centerX" id="kTi-U4-FMz"/>
+                            <constraint firstItem="BCw-eD-7Lh" firstAttribute="trailing" secondItem="ves-sa-CpX" secondAttribute="trailing" id="yhQ-Py-L0z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ves-sa-CpX"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Hikes" id="fIP-l1-KO1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ncf-ko-kUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1483" y="518"/>
+        </scene>
+        <!--HikeDetails-->
+        <scene sceneID="vdr-Je-RkU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HikeDetails" id="iBT-vQ-9Av" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g67-Xo-Adr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2120" y="518"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,23 +1,24 @@
 //
-//  HikeDetailsViewController.swift
+//  AccountViewController.swift
 //  Trekker
 //
-//  Created by Jason Mandozzi on 8/19/19.
+//  Created by Jason Mandozzi on 8/20/19.
 //  Copyright © 2019 Jason Mandozzi. All rights reserved.
 //
 
 import UIKit
 
-class HikeDetailsViewController: UIViewController {
+class AccountViewController: UIViewController {
     
     //Outlets
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var pitcureCollectionView: UICollectionView!
-    @IBOutlet weak var directionsButton: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var hikeMapButton: UIButton!
+    @IBOutlet weak var proPicImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var changeUnitsButton: UIButton!
+    @IBOutlet weak var milesButton: UIButton!
+    @IBOutlet weak var kiloButton: UIButton!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,16 +26,21 @@ class HikeDetailsViewController: UIViewController {
     }
     
     //Actions
-    @IBAction func directionsButtonTapped(_ sender: Any) {
+    @IBAction func changeUnitsButtonTapped(_ sender: Any) {
+        
     }
     
-    @IBAction func saveButtonTapped(_ sender: Any) {
+    @IBAction func milesButtonTapped(_ sender: Any) {
+        
     }
     
-    @IBAction func hikeMapButtonTapped(_ sender: Any) {
+    @IBAction func kiloButtonTapped(_ sender: Any) {
+        
     }
     
     
+    
+
     /*
     // MARK: - Navigation
 
