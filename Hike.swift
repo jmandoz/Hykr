@@ -49,6 +49,14 @@ extension Hike {
     }
 }
 
+extension Hike: Equatable {
+    static func == (lhs: Hike, rhs: Hike) -> Bool {
+        return lhs.recordID == rhs.recordID
+    }
+    
+    
+}
+
 extension CKRecord {
     convenience init(hike: Hike) {
         self.init(recordType: HikeConstants.typeKey, recordID: hike.recordID)
