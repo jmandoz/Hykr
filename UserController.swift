@@ -13,9 +13,9 @@ class UserController {
     
     static let sharedInstance = UserController()
     
-    // User data/SOTs
+
     var currentUser: User?
-    var currentHike: Hike?
+    
     
     // Database instances
     let publicDB = "insert CK database instance here"
