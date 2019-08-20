@@ -16,7 +16,7 @@ class User {
     var lastName: String
     var gender: String
     var age: Int
-    var hikeDistance: [Int]
+    var hikeDistance: Int
     var savedHikes: [Hike]
     var hikeLog: [Hike]
     var unitsInMiles: Bool
@@ -24,7 +24,7 @@ class User {
     let recordID: CKRecord.ID
     let appleUserReference: CKRecord.Reference
     
-    init(email: String, firstName: String, lastName: String, gender: String, age: Int, hikeDistance: [Int] = [], savedHikes: [Hike] = [], hikeLog: [Hike] = [], unitsInMiles: Bool = true, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), appleUserReference: CKRecord.Reference) {
+    init(email: String, firstName: String, lastName: String, gender: String, age: Int, hikeDistance: Int, savedHikes: [Hike] = [], hikeLog: [Hike] = [], unitsInMiles: Bool = true, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), appleUserReference: CKRecord.Reference) {
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
@@ -47,7 +47,7 @@ extension User {
         let lastName = record[UserConstants.lastNameKey] as? String,
         let gender = record[UserConstants.genderKey] as? String,
         let age = record[UserConstants.ageKey] as? Int,
-        let hikeDistance = record[UserConstants.hikeDistanceKey] as? [Int],
+        let hikeDistance = record[UserConstants.hikeDistanceKey] as? Int,
         let unitsInMiles = record[UserConstants.unitsInMilesKey] as? Bool,
         let appleUserReference = record[UserConstants.appleUserReferenceKey] as? CKRecord.Reference
             else { return nil }
