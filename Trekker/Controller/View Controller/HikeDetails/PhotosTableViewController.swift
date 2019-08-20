@@ -32,6 +32,9 @@ class PhotosTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as? PhotoTableViewCell else {return UITableViewCell()}
+        let pic = picArray[indexPath.row]
+        cell.photoImageView.contentMode = .scaleAspectFill
+        cell.photoImageView.image = pic
         // Configure the cell...
         
         return cell

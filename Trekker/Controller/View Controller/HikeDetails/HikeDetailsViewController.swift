@@ -17,6 +17,15 @@ class HikeDetailsViewController: UIViewController {
     @IBOutlet weak var directionsButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var hikeMapButton: UIButton!
+    @IBOutlet weak var heartButton: UIButton!
+    @IBOutlet weak var hikeNameLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var difficultyLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var currentWeatherLabel: UILabel!
+    
+    
 
     
 
@@ -29,12 +38,11 @@ class HikeDetailsViewController: UIViewController {
     @IBAction func directionsButtonTapped(_ sender: Any) {
     }
     
-    @IBAction func saveButtonTapped(_ sender: Any) {
-    }
-    
     @IBAction func hikeMapButtonTapped(_ sender: Any) {
     }
     
+    @IBAction func completeButtonTapped(_ sender: Any) {
+    }
     
     /*
     // MARK: - Navigation
