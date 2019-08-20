@@ -20,9 +20,10 @@ class Hike {
     let apiID: Int
     // Cloudkit Properties
     let recordID: CKRecord.ID
+    var reference: CKRecord.Reference
     
     init(longitude: Double, latitude: Double, hikeName: String, hikeRating: Int, numberOfRatings: Int = 0, hikeRoute: [[Double]], userPhotos: [UIImage] = [],
-         apiID: Int, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+         apiID: Int, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), reference: CKRecord.Reference) {
         
         self.longitude = longitude
         self.latitude = latitude
@@ -33,6 +34,7 @@ class Hike {
         self.userPhotos = userPhotos
         self.apiID = apiID
         self.recordID = recordID
+        self.reference = reference
     }
 }
 
@@ -44,11 +46,12 @@ extension Hike {
         let hikeRating = record[HikeConstants.hikeRatingKey] as? Int,
         let numberOfRatings = record[HikeConstants.numberOfRatingsKey] as? Int,
         let hikeRoute = record[HikeConstants.hikeRouteKey] as? [[Double]],
-        let apiID = record[HikeConstants.apiIDKey] as? Int
+        let apiID = record[HikeConstants.apiIDKey] as? Int,
+        let reference = record[HikeConstants.referenceKey] as? CKRecord.Reference
             else { return nil }
         
         
-        self.init(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, numberOfRatings: numberOfRatings, hikeRoute: hikeRoute, apiID: apiID, recordID: record.recordID)
+        self.init(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, numberOfRatings: numberOfRatings, hikeRoute: hikeRoute, apiID: apiID, recordID: record.recordID, reference: reference)
     }
 }
 
@@ -70,6 +73,7 @@ extension CKRecord {
         self.setValue(hike.numberOfRatings, forKey: HikeConstants.numberOfRatingsKey)
         self.setValue(hike.hikeRoute, forKey: HikeConstants.hikeRouteKey)
         self.setValue(hike.apiID, forKey: HikeConstants.apiIDKey)
+        self.setValue(hike.reference, forKey: HikeConstants.referenceKey)
         //TODO: Find out if we need userPhotos CKRecord
     }
 }
@@ -84,42 +88,5 @@ struct HikeConstants {
     fileprivate static let hikeRouteKey = "hikeRoute"
     fileprivate static let userPhotosKey = "userPhotos"
     fileprivate static let apiIDKey = "apiID"
-}
-
-
-// MARK: - API Structs
-
-
-// Primary hike JSON
-struct HikeJSON: Decodable {
-    let coordinates: Coordinates
-    let hikeName: String
-    let apiID: Int
-    let hikeImages: [HikeImagesJSON?]
-    
-    enum CodingKeys: String, CodingKey {
-        case coordinates = "starting_trailhead_id"
-        case hikeName = "name"
-        case apiID = "id"
-        case hikeImages = "medium"
-    }
-}
-
-struct Coordinates: Decodable {
-    let latitude: Double
-    let longitude: Double
-}
-
-// Route coordinates JSON
-struct HikeRouteJSON: Decodable {
-    let route: String
-}
-
-// Hike images JSON
-struct HikeImagesJSON: Decodable {
-    let imageURLAsString: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case imageURLAsString = "medium"
-    }
+    fileprivate static let referenceKey = "reference"
 }
