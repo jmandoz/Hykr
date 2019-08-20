@@ -49,7 +49,7 @@
                                         <rect key="frame" x="275" y="0.0" width="67" height="30"/>
                                         <state key="normal" title="Complete"/>
                                         <connections>
-                                            <action selector="saveButtonTapped:" destination="0MI-Pa-N3g" eventType="touchUpInside" id="Zac-Yf-cS2"/>
+                                            <action selector="completeButtonTapped:" destination="0MI-Pa-N3g" eventType="touchUpInside" id="YMn-em-7ny"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -178,9 +178,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="Hike Details" id="QAg-8n-NIs"/>
                     <connections>
+                        <outlet property="currentWeatherLabel" destination="Hba-rs-GZS" id="CQe-CN-NGL"/>
+                        <outlet property="difficultyLabel" destination="7YZ-VE-SFz" id="k9l-gu-7x5"/>
                         <outlet property="directionsButton" destination="O2B-a9-gCP" id="w02-Ur-h5f"/>
+                        <outlet property="distanceLabel" destination="HMm-ba-Rwd" id="cvH-Qq-5Yo"/>
+                        <outlet property="durationLabel" destination="QfC-t6-2K9" id="EGe-Qz-0YL"/>
+                        <outlet property="heartButton" destination="bdy-vD-HNM" id="faN-Af-RCV"/>
                         <outlet property="hikeMapButton" destination="vWs-Yu-uWZ" id="Lxl-BZ-bvy"/>
+                        <outlet property="hikeNameLabel" destination="vW5-oj-h7e" id="caQ-y6-RbI"/>
                         <outlet property="imageView" destination="oCP-YV-Z66" id="mpd-oe-ko4"/>
+                        <outlet property="ratingLabel" destination="BqP-n5-J6w" id="1ei-ti-0b0"/>
                         <outlet property="saveButton" destination="W20-St-iKq" id="3bQ-y5-fIs"/>
                     </connections>
                 </viewController>
@@ -205,14 +212,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mGC-ks-Jno">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="413.5"/>
+                                            <rect key="frame" x="0.5" y="0.0" width="413.5" height="413.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="mGC-ks-Jno" secondAttribute="height" multiplier="1:1" id="uUF-mM-Y1A"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="mGC-ks-Jno" firstAttribute="leading" secondItem="RNu-nJ-sGn" secondAttribute="leading" id="QAr-17-D2B"/>
-                                        <constraint firstItem="mGC-ks-Jno" firstAttribute="top" secondItem="RNu-nJ-sGn" secondAttribute="top" id="aOC-RO-j7k"/>
-                                        <constraint firstAttribute="bottom" secondItem="mGC-ks-Jno" secondAttribute="bottom" id="n4K-AJ-LSo"/>
-                                        <constraint firstAttribute="trailing" secondItem="mGC-ks-Jno" secondAttribute="trailing" id="u1c-AZ-cOu"/>
+                                        <constraint firstItem="mGC-ks-Jno" firstAttribute="centerX" secondItem="RNu-nJ-sGn" secondAttribute="centerX" id="1wh-oW-SeL"/>
+                                        <constraint firstItem="mGC-ks-Jno" firstAttribute="top" secondItem="RNu-nJ-sGn" secondAttribute="top" id="caN-Kn-jpI"/>
+                                        <constraint firstItem="mGC-ks-Jno" firstAttribute="centerY" secondItem="RNu-nJ-sGn" secondAttribute="centerY" id="yfx-AX-oPX"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
