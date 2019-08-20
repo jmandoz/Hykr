@@ -36,6 +36,7 @@
 		A4508A97230C54CA002ED843 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A96230C54CA002ED843 /* AccountViewController.swift */; };
 		A4E7E824230C82BF00805E31 /* PhotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E7E823230C82BF00805E31 /* PhotosTableViewController.swift */; };
 		A4E7E826230C837600805E31 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E7E825230C837600805E31 /* PhotoTableViewCell.swift */; };
+		A4E7E829230C8E6300805E31 /* CloudKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E7E828230C8E6300805E31 /* CloudKitController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		A4508A96230C54CA002ED843 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		A4E7E823230C82BF00805E31 /* PhotosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewController.swift; sourceTree = "<group>"; };
 		A4E7E825230C837600805E31 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		A4E7E828230C8E6300805E31 /* CloudKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				A4508A5E230AF036002ED843 /* Model */,
 				A4508A5D230AF030002ED843 /* View */,
 				A4508A5C230AF02E002ED843 /* Controller */,
+				A4E7E827230C8E3E00805E31 /* Helpers+Extensions */,
 				A4508A61230AF07D002ED843 /* CoreData */,
 				A4508A5B230AF02B002ED843 /* Resources */,
 			);
@@ -304,6 +307,14 @@
 			path = AccountTab;
 			sourceTree = "<group>";
 		};
+		A4E7E827230C8E3E00805E31 /* Helpers+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A4E7E828230C8E6300805E31 /* CloudKitController.swift */,
+			);
+			path = "Helpers+Extensions";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -384,6 +395,7 @@
 			files = (
 				A4E7E826230C837600805E31 /* PhotoTableViewCell.swift in Sources */,
 				A4508A4F230AEF80002ED843 /* Trekker.xcdatamodeld in Sources */,
+				A4E7E829230C8E6300805E31 /* CloudKitController.swift in Sources */,
 				A4508A63230B011C002ED843 /* LandingViewController.swift in Sources */,
 				A4508A6C230B082D002ED843 /* HomePageViewController.swift in Sources */,
 				A4508A67230B057A002ED843 /* SignUpInfoViewController.swift in Sources */,

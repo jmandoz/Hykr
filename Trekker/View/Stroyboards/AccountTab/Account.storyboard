@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WT4-Km-Ah3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Ea-E8-bbe">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
+        <!--Account View Controller-->
         <scene sceneID="Q9l-Vz-BP1">
             <objects>
                 <viewController id="WT4-Km-Ah3" customClass="AccountViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
@@ -68,11 +68,20 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMa-TL-EU5">
+                                <rect key="frame" x="169.5" y="769" width="75" height="30"/>
+                                <state key="normal" title="Edit Profile"/>
+                                <connections>
+                                    <segue destination="Zdw-Nc-kws" kind="show" id="UNa-VM-ux7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="qR7-2v-jiq" firstAttribute="centerX" secondItem="zQH-Z0-40N" secondAttribute="centerX" id="C3i-QI-MbU"/>
+                            <constraint firstItem="iMa-TL-EU5" firstAttribute="centerY" secondItem="zQH-Z0-40N" secondAttribute="centerY" multiplier="1.75" id="G81-1U-56c"/>
                             <constraint firstItem="qR7-2v-jiq" firstAttribute="centerY" secondItem="zQH-Z0-40N" secondAttribute="centerY" multiplier="1.4" id="IQS-5y-nDW"/>
+                            <constraint firstItem="iMa-TL-EU5" firstAttribute="centerX" secondItem="zQH-Z0-40N" secondAttribute="centerX" id="Nck-a2-C5E"/>
                             <constraint firstItem="AxS-3X-aKH" firstAttribute="centerY" secondItem="zQH-Z0-40N" secondAttribute="centerY" multiplier="0.55" id="PA0-X3-WGa"/>
                             <constraint firstItem="SDf-bp-Kkc" firstAttribute="centerX" secondItem="zQH-Z0-40N" secondAttribute="centerX" id="ZVw-Pk-fHr"/>
                             <constraint firstItem="siL-mI-GL7" firstAttribute="centerX" secondItem="zQH-Z0-40N" secondAttribute="centerX" id="bIT-4Y-5OK"/>
@@ -82,7 +91,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Yr-3a-Fup"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="Tlg-D1-MC8"/>
+                    <navigationItem key="navigationItem" id="ESJ-qF-Xch"/>
                     <connections>
                         <outlet property="changeUnitsButton" destination="qR7-2v-jiq" id="4bs-v5-p3e"/>
                         <outlet property="emailLabel" destination="djb-Ww-SHB" id="Eq8-x6-XsD"/>
@@ -93,6 +102,40 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LTo-L2-4E5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-152.17391304347828" y="1382.8125"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ipr-au-3e3">
+            <objects>
+                <viewController id="Zdw-Nc-kws" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="koV-4C-ex4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rRF-4b-Sm7"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OUP-iH-I6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="634.78260869565224" y="1382.8125"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="2mo-G5-i5A">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Ea-E8-bbe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" id="Tlg-D1-MC8"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0ye-fL-IZh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WT4-Km-Ah3" kind="relationship" relationship="rootViewController" id="3j0-RQ-hdc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AHy-4s-Frf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1062.3188405797102" y="1382.8125"/>
         </scene>
