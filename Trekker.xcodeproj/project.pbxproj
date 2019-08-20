@@ -39,6 +39,7 @@
 		A4E7E824230C82BF00805E31 /* PhotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E7E823230C82BF00805E31 /* PhotosTableViewController.swift */; };
 		A4E7E826230C837600805E31 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E7E825230C837600805E31 /* PhotoTableViewCell.swift */; };
 		A4E7E829230C8E6300805E31 /* CloudKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E7E828230C8E6300805E31 /* CloudKitController.swift */; };
+		A4E7E82B230C966600805E31 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E7E82A230C966600805E31 /* EditAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		A4E7E823230C82BF00805E31 /* PhotosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewController.swift; sourceTree = "<group>"; };
 		A4E7E825230C837600805E31 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		A4E7E828230C8E6300805E31 /* CloudKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitController.swift; sourceTree = "<group>"; };
+		A4E7E82A230C966600805E31 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				A4508A96230C54CA002ED843 /* AccountViewController.swift */,
+				A4E7E82A230C966600805E31 /* EditAccountViewController.swift */,
 			);
 			path = AccountTab;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				A4E7E826230C837600805E31 /* PhotoTableViewCell.swift in Sources */,
 				A4508A4F230AEF80002ED843 /* Trekker.xcdatamodeld in Sources */,
 				A4E7E829230C8E6300805E31 /* CloudKitController.swift in Sources */,
+				A4E7E82B230C966600805E31 /* EditAccountViewController.swift in Sources */,
 				A4508A63230B011C002ED843 /* LandingViewController.swift in Sources */,
 				A4508A6C230B082D002ED843 /* HomePageViewController.swift in Sources */,
 				A4508A67230B057A002ED843 /* SignUpInfoViewController.swift in Sources */,

@@ -11,7 +11,6 @@ import UIKit
 class SavedHikesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var hikeNameLabel: UILabel!
-    @IBOutlet weak var hikeRatingLabel: UILabel!
     @IBOutlet weak var hikeImageView: UIImageView!
     
     override func awakeFromNib() {

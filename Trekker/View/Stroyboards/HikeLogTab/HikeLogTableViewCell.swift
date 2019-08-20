@@ -10,7 +10,9 @@ import UIKit
 
 class HikeLogTableViewCell: UITableViewCell {
 
+    //Outlets
     @IBOutlet weak var hikeNameLabel: UILabel!
+    @IBOutlet weak var hikeImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,5 +24,4 @@ class HikeLogTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

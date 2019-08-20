@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="89m-oo-Eep">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o8w-RQ-UHy">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Saved-->
+        <!--Saved Hikes-->
         <scene sceneID="KH4-Lh-JH2">
             <objects>
                 <viewController id="89m-oo-Eep" customClass="SavedHikesViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hVY-kt-UHJ">
-                                <rect key="frame" x="0.0" y="123.5" width="414" height="738.5"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SavedHikeCell" rowHeight="151" id="T2l-iN-vCZ" customClass="SavedHikesTableViewCell" customModule="Trekker" customModuleProvider="target">
@@ -29,79 +29,48 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="150.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PcE-Xc-tgb">
-                                                    <rect key="frame" x="20" y="11" width="374" height="129"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jwT-Ia-9gl">
-                                                            <rect key="frame" x="0.0" y="0.0" width="129" height="129"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="129" id="fZy-PS-zMR"/>
-                                                                <constraint firstAttribute="width" constant="129" id="fst-Y0-XRd"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="hid-aK-L6e">
-                                                            <rect key="frame" x="139" y="32" width="235" height="65"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Hike" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfV-H5-Jzr">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="235" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wba-xx-BS4">
-                                                                    <rect key="frame" x="0.0" y="44.5" width="235" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="wba-xx-BS4" secondAttribute="trailing" id="Kx8-U0-NRN"/>
-                                                                <constraint firstAttribute="trailing" secondItem="GfV-H5-Jzr" secondAttribute="trailing" id="TEK-XC-Xla"/>
-                                                            </constraints>
-                                                        </stackView>
-                                                    </subviews>
-                                                </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jwT-Ia-9gl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="150.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Hike" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfV-H5-Jzr">
+                                                    <rect key="frame" x="155.5" y="65" width="103" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="PcE-Xc-tgb" firstAttribute="bottom" secondItem="wUN-5M-Z7W" secondAttribute="bottomMargin" id="A2a-cW-6nG"/>
-                                                <constraint firstItem="PcE-Xc-tgb" firstAttribute="top" secondItem="wUN-5M-Z7W" secondAttribute="topMargin" id="gWz-E1-QwB"/>
-                                                <constraint firstItem="PcE-Xc-tgb" firstAttribute="trailing" secondItem="wUN-5M-Z7W" secondAttribute="trailingMargin" id="r2z-sg-fyD"/>
-                                                <constraint firstItem="PcE-Xc-tgb" firstAttribute="leading" secondItem="wUN-5M-Z7W" secondAttribute="leadingMargin" id="zid-IT-IZc"/>
+                                                <constraint firstItem="GfV-H5-Jzr" firstAttribute="centerX" secondItem="wUN-5M-Z7W" secondAttribute="centerX" id="G2K-0M-qFz"/>
+                                                <constraint firstItem="jwT-Ia-9gl" firstAttribute="leading" secondItem="wUN-5M-Z7W" secondAttribute="leading" id="Jtr-Fe-GyI"/>
+                                                <constraint firstItem="jwT-Ia-9gl" firstAttribute="top" secondItem="wUN-5M-Z7W" secondAttribute="top" id="bzh-xa-pb8"/>
+                                                <constraint firstItem="GfV-H5-Jzr" firstAttribute="centerY" secondItem="wUN-5M-Z7W" secondAttribute="centerY" id="sQh-ho-96Q"/>
+                                                <constraint firstAttribute="bottom" secondItem="jwT-Ia-9gl" secondAttribute="bottom" id="uuL-0R-bPC"/>
+                                                <constraint firstAttribute="trailing" secondItem="jwT-Ia-9gl" secondAttribute="trailing" id="zno-Ab-CfZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="hikeImageView" destination="jwT-Ia-9gl" id="jLy-ya-Ehr"/>
                                             <outlet property="hikeNameLabel" destination="GfV-H5-Jzr" id="qFK-wm-c06"/>
-                                            <outlet property="hikeRatingLabel" destination="wba-xx-BS4" id="Iyd-Ii-z8K"/>
                                             <segue destination="iBT-vQ-9Av" kind="show" id="aGK-wW-x0e"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyc-qy-j7W">
-                                <rect key="frame" x="183.5" y="79" width="47" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hVY-kt-UHJ" firstAttribute="trailing" secondItem="261-vM-eDP" secondAttribute="trailing" id="4t1-NS-3st"/>
+                            <constraint firstItem="hVY-kt-UHJ" firstAttribute="top" secondItem="261-vM-eDP" secondAttribute="top" id="6Gy-ve-i2f"/>
                             <constraint firstItem="hVY-kt-UHJ" firstAttribute="bottom" secondItem="261-vM-eDP" secondAttribute="bottom" id="DbG-zH-0E5"/>
-                            <constraint firstItem="hVY-kt-UHJ" firstAttribute="centerY" secondItem="1co-c5-qnL" secondAttribute="centerY" multiplier="1.1" id="eCI-8L-ws6"/>
-                            <constraint firstItem="tyc-qy-j7W" firstAttribute="centerY" secondItem="1co-c5-qnL" secondAttribute="centerY" multiplier="0.2" id="gI0-tS-SrM"/>
-                            <constraint firstItem="tyc-qy-j7W" firstAttribute="centerX" secondItem="1co-c5-qnL" secondAttribute="centerX" id="rkZ-JO-gOt"/>
                             <constraint firstItem="hVY-kt-UHJ" firstAttribute="leading" secondItem="261-vM-eDP" secondAttribute="leading" id="sDt-lM-QCf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="261-vM-eDP"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Saved" id="0um-bt-AnY"/>
+                    <navigationItem key="navigationItem" title="Saved Hikes" id="EjF-NC-7gd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAl-gK-kxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1298.5507246376812" y="-575.22321428571422"/>
+            <point key="canvasLocation" x="2207.2463768115945" y="-575.22321428571422"/>
         </scene>
         <!--HikeDetails-->
         <scene sceneID="vdr-Je-RkU">
@@ -109,7 +78,26 @@
                 <viewControllerPlaceholder storyboardName="HikeDetails" id="iBT-vQ-9Av" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g67-Xo-Adr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1954" y="-575"/>
+            <point key="canvasLocation" x="2863.04347826087" y="-575.22321428571422"/>
+        </scene>
+        <!--Saved-->
+        <scene sceneID="uQd-in-ERp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o8w-RQ-UHy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Saved" id="0um-bt-AnY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="lYR-2w-jUd">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="89m-oo-Eep" kind="relationship" relationship="rootViewController" id="Ttp-b9-zLZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8b1-vt-Vhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1298.5507246376812" y="-575.22321428571422"/>
         </scene>
     </scenes>
 </document>

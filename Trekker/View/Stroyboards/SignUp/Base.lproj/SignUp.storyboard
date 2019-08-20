@@ -218,7 +218,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DX-fE-amY">
-                                <rect key="frame" x="182.5" y="791.5" width="49" height="30"/>
+                                <rect key="frame" x="182.5" y="746.5" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitButtonTapped:" destination="9Z3-Cg-jGO" eventType="touchUpInside" id="MtX-3Z-yNT"/>
@@ -228,7 +228,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Hfx-c7-dMJ" firstAttribute="centerX" secondItem="9XO-py-nan" secondAttribute="centerX" id="17D-GU-lyK"/>
-                            <constraint firstItem="8DX-fE-amY" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" multiplier="1.8" id="C6e-93-ZCj"/>
+                            <constraint firstItem="8DX-fE-amY" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" multiplier="1.7" id="C6e-93-ZCj"/>
                             <constraint firstItem="Hfx-c7-dMJ" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" id="T9e-1p-8Ae"/>
                             <constraint firstItem="8DX-fE-amY" firstAttribute="centerX" secondItem="9XO-py-nan" secondAttribute="centerX" id="bh4-ly-xuI"/>
                             <constraint firstItem="LCv-IW-cGx" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" multiplier="0.3" id="jkC-Od-1Ge"/>
