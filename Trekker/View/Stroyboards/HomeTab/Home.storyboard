@@ -29,19 +29,11 @@
             </objects>
             <point key="canvasLocation" x="-1544" y="83"/>
         </scene>
-        <!--HikeDetails-->
-        <scene sceneID="vdr-Je-RkU">
-            <objects>
-                <viewControllerPlaceholder storyboardName="HikeDetails" id="iBT-vQ-9Av" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g67-Xo-Adr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2958" y="-976"/>
-        </scene>
         <!--HikeMap-->
         <scene sceneID="OO2-J2-Cxa">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="HikeMap" storyboardName="HikeMap" referencedIdentifier="HikeMap" id="eOf-kC-vWS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="UEE-m3-liJ"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="UEE-m3-liJ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RlL-BK-BJz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,7 +43,7 @@
         <scene sceneID="b2w-SP-KPl">
             <objects>
                 <viewControllerPlaceholder storyboardName="Saved" id="AxU-9N-iC8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ll1-tv-bwf"/>
+                    <tabBarItem key="tabBarItem" title="Saved" id="ll1-tv-bwf"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Abn-hL-ALY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -61,7 +53,7 @@
         <scene sceneID="uve-zD-Nka">
             <objects>
                 <viewControllerPlaceholder storyboardName="HikeLog" id="21X-V8-JxO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="inp-O6-tva"/>
+                    <tabBarItem key="tabBarItem" title="Log" id="inp-O6-tva"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N0x-7Z-exW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,7 +63,7 @@
         <scene sceneID="08O-am-X3n">
             <objects>
                 <viewControllerPlaceholder storyboardName="Account" id="Rdl-0f-0DY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="oPj-UD-3Xj"/>
+                    <tabBarItem key="tabBarItem" title="Account" id="oPj-UD-3Xj"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Yt-x8-nHN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

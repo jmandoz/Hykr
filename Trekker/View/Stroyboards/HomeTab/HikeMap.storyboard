@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home Page View Controller-->
+        <!--Home-->
         <scene sceneID="fke-sb-vZp">
             <objects>
                 <viewController storyboardIdentifier="HikeMap" id="Sux-N7-rO9" customClass="HomePageViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lNr-er-lXK">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                             </mapView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jt7-NL-6fR">
                                 <rect key="frame" x="10" y="61.5" width="394" height="56"/>
@@ -39,7 +39,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fZ3-tl-MSX"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" id="SKs-s5-50s"/>
                     <navigationItem key="navigationItem" id="ln6-d1-Uu4"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="lNr-er-lXK" id="wGd-lE-dtK"/>
                         <outlet property="searchBar" destination="jt7-NL-6fR" id="Jwd-z5-7f0"/>
