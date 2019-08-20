@@ -12,6 +12,8 @@
 		3A14B677230B47FF00DE2DCE /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B676230B47FF00DE2DCE /* Weather.swift */; };
 		3A14B679230C4C0C00DE2DCE /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B678230C4C0C00DE2DCE /* UserController.swift */; };
 		3A14B67B230C5DD800DE2DCE /* HikeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B67A230C5DD800DE2DCE /* HikeController.swift */; };
+		3A14B683230C87B100DE2DCE /* HikeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B682230C87B100DE2DCE /* HikeAPI.swift */; };
+		3A14B685230C88F400DE2DCE /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B684230C88F300DE2DCE /* NetworkController.swift */; };
 		A4508A47230AEF80002ED843 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A46230AEF80002ED843 /* AppDelegate.swift */; };
 		A4508A4C230AEF80002ED843 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4508A4A230AEF80002ED843 /* SignUp.storyboard */; };
 		A4508A4F230AEF80002ED843 /* Trekker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4508A4D230AEF80002ED843 /* Trekker.xcdatamodeld */; };
@@ -45,6 +47,8 @@
 		3A14B676230B47FF00DE2DCE /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = SOURCE_ROOT; };
 		3A14B678230C4C0C00DE2DCE /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = SOURCE_ROOT; };
 		3A14B67A230C5DD800DE2DCE /* HikeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeController.swift; sourceTree = SOURCE_ROOT; };
+		3A14B682230C87B100DE2DCE /* HikeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeAPI.swift; sourceTree = "<group>"; };
+		3A14B684230C88F300DE2DCE /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		A4508A43230AEF80002ED843 /* Trekker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trekker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4508A46230AEF80002ED843 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4508A4B230AEF80002ED843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
@@ -85,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A14B686230C88FA00DE2DCE /* HelpersAndExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				3A14B684230C88F300DE2DCE /* NetworkController.swift */,
+			);
+			path = HelpersAndExtensions;
+			sourceTree = "<group>";
+		};
 		A4508A3A230AEF80002ED843 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +142,7 @@
 			children = (
 				A4508A60230AF06B002ED843 /* View Controller */,
 				A4508A5F230AF063002ED843 /* Model Controller */,
+				3A14B686230C88FA00DE2DCE /* HelpersAndExtensions */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -148,6 +161,7 @@
 				3A14B670230AFDE200DE2DCE /* User.swift */,
 				3A14B672230B04B300DE2DCE /* Hike.swift */,
 				3A14B676230B47FF00DE2DCE /* Weather.swift */,
+				3A14B682230C87B100DE2DCE /* HikeAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -399,8 +413,10 @@
 				A4508A63230B011C002ED843 /* LandingViewController.swift in Sources */,
 				A4508A6C230B082D002ED843 /* HomePageViewController.swift in Sources */,
 				A4508A67230B057A002ED843 /* SignUpInfoViewController.swift in Sources */,
+				3A14B685230C88F400DE2DCE /* NetworkController.swift in Sources */,
 				3A14B67B230C5DD800DE2DCE /* HikeController.swift in Sources */,
 				A4508A74230B3D12002ED843 /* SavedHikesTableViewCell.swift in Sources */,
+				3A14B683230C87B100DE2DCE /* HikeAPI.swift in Sources */,
 				A4E7E824230C82BF00805E31 /* PhotosTableViewController.swift in Sources */,
 				A4508A65230B026F002ED843 /* SignUpViewController.swift in Sources */,
 				3A14B677230B47FF00DE2DCE /* Weather.swift in Sources */,
