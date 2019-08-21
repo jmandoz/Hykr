@@ -15,19 +15,30 @@ class LandingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUpUI()
+        UserController.sharedInstance.fetchUser { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.presentHomeView()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.signUpButton.alpha = 1
+                }
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func presentHomeView() {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+        self.present(viewController, animated: true)
     }
-    */
+}
 
+extension LandingViewController {
+    func setUpUI() {
+        signUpButton.alpha = 0
+    }
 }

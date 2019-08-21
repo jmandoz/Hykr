@@ -95,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				3A14B684230C88F300DE2DCE /* NetworkController.swift */,
+				A4E7E828230C8E6300805E31 /* CloudKitController.swift */,
 			);
 			path = HelpersAndExtensions;
 			sourceTree = "<group>";
@@ -121,7 +122,6 @@
 				A4508A5E230AF036002ED843 /* Model */,
 				A4508A5D230AF030002ED843 /* View */,
 				A4508A5C230AF02E002ED843 /* Controller */,
-				A4E7E827230C8E3E00805E31 /* Helpers+Extensions */,
 				A4508A61230AF07D002ED843 /* CoreData */,
 				A4508A5B230AF02B002ED843 /* Resources */,
 			);
@@ -322,14 +322,6 @@
 				A4E7E82A230C966600805E31 /* EditAccountViewController.swift */,
 			);
 			path = AccountTab;
-			sourceTree = "<group>";
-		};
-		A4E7E827230C8E3E00805E31 /* Helpers+Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				A4E7E828230C8E6300805E31 /* CloudKitController.swift */,
-			);
-			path = "Helpers+Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
