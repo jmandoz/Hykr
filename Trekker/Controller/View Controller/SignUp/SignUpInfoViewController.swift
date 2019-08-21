@@ -160,7 +160,7 @@ extension SignUpInfoViewController {
             twentyPlusMileButton.isSelected = false
         case 5:
             twentyPlusMileButton.setTitleColor(.green, for: .selected)
-            hikeDistance = 1
+            hikeDistance = 25
             oneMileButton.isSelected = false
             twoMileButton.isSelected = false
             fiveMileButton.isSelected = false
