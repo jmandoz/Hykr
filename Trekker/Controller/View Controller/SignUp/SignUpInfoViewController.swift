@@ -10,6 +10,11 @@ import UIKit
 
 class SignUpInfoViewController: UIViewController {
     
+    //User Info Landing
+    var emailLanding: String?
+    var firstNameLanding: String?
+    var lastNameLanding: String?
+    
     //TextField Outlet
     @IBOutlet weak var ageTextField: UITextField!
     

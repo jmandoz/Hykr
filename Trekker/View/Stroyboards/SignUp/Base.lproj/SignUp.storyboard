@@ -90,7 +90,7 @@
                                 <rect key="frame" x="182.5" y="702" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
-                                    <segue destination="9Z3-Cg-jGO" kind="show" id="4EF-Bx-ien"/>
+                                    <segue destination="9Z3-Cg-jGO" kind="show" identifier="toSignUpInfoVC" id="4EF-Bx-ien"/>
                                 </connections>
                             </button>
                         </subviews>
