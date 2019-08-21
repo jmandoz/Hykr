@@ -67,8 +67,20 @@ class HikeController {
     
     // Read
     
-    func fetchHike(completion: @escaping (Bool) -> Void) {
+    func fetchHike(predicate: NSCompoundPredicate, completion: @escaping ([Hike]?) -> Void) {
         
+        CloudKitController.shared.fetchRecords(ofType: HikeConstants.typeKey, withPredicate: predicate, database: self.publicDB) { (foundRecords) in
+            guard let foundRecords = foundRecords else { completion(nil) ; return }
+            // Loops through array of records and inits a hike from each, appends it to the temp array.
+//            var hikeRecords: [Hike] = []
+//            for record in foundRecords {
+//                guard let hike = Hike(record: record) else { continue }
+//                hikeRecords.append(hike)
+//            }
+            // Same as above just using .compactMap
+            let hikes = foundRecords.compactMap({ Hike(record: $0) })
+            completion(hikes)
+        }
     }
     
     // Update
@@ -79,6 +91,15 @@ class HikeController {
         hike.numberOfRatings += 1
         
         let recordToSave = CKRecord(hike: hike)
+        let database = self.publicDB
+        
+        CloudKitController.shared.update(record: recordToSave, database: database) { (success) in
+            if success {
+                print("Rating updated successfully")
+            } else {
+                print ("Rating failed to update")
+            }
+        }
         
     }
     

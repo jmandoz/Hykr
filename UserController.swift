@@ -82,6 +82,9 @@ class UserController {
     // Delete
     
     func deleteUser(user: User, completion: @escaping (Bool) -> Void) {
-        
+        CloudKitController.shared.delete(recordID: user.recordID, database: self.publicDB) { (success) in
+            self.currentUser = nil
+            completion(success ? true : false)
+        }
     }
 }
