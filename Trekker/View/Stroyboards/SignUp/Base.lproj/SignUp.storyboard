@@ -147,14 +147,23 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBw-L8-1BL">
                                                 <rect key="frame" x="0.0" y="0.0" width="33" height="30"/>
                                                 <state key="normal" title="Male"/>
+                                                <connections>
+                                                    <action selector="genderButtonTappedWithSender:" destination="9Z3-Cg-jGO" eventType="touchUpInside" id="ZDn-xP-5db"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqO-zq-ofM">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqO-zq-ofM">
                                                 <rect key="frame" x="63" y="0.0" width="50" height="30"/>
                                                 <state key="normal" title="Female"/>
+                                                <connections>
+                                                    <action selector="genderButtonTappedWithSender:" destination="9Z3-Cg-jGO" eventType="touchUpInside" id="pli-0o-gmf"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p31-Sb-BtQ">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p31-Sb-BtQ">
                                                 <rect key="frame" x="143" y="0.0" width="40" height="30"/>
                                                 <state key="normal" title="Other"/>
+                                                <connections>
+                                                    <action selector="genderButtonTappedWithSender:" destination="9Z3-Cg-jGO" eventType="touchUpInside" id="ltk-qB-yB0"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -185,31 +194,49 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sem-3f-BWf">
                                                         <rect key="frame" x="0.0" y="0.0" width="49" height="30"/>
                                                         <state key="normal" title="1 Mile"/>
+                                                        <connections>
+                                                            <action selector="hikeDistanceButtonTaooedWithSender:" destination="9Z3-Cg-jGO" eventType="touchUpInside" id="w0K-fo-mJl"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZw-RW-dU6">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZw-RW-dU6">
                                                         <rect key="frame" x="0.0" y="59" width="49" height="30"/>
                                                         <state key="normal" title="2 Miles"/>
+                                                        <connections>
+                                                            <action selector="hikeDistanceButtonTaooedWithSender:" destination="9Z3-Cg-jGO" eventType="touchUpInside" id="Isi-0e-gt6"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgG-Hh-AsT">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgG-Hh-AsT">
                                                         <rect key="frame" x="0.0" y="118" width="49" height="30"/>
                                                         <state key="normal" title="5 Miles"/>
+                                                        <connections>
+                                                            <action selector="hikeDistanceButtonTaooedWithSender:" destination="9Z3-Cg-jGO" eventType="touchUpInside" id="wQP-Nq-YAl"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="X58-9p-gMF">
                                                 <rect key="frame" x="139" y="0.0" width="68" height="148"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDN-iX-SHI">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDN-iX-SHI">
                                                         <rect key="frame" x="0.0" y="0.0" width="68" height="30"/>
                                                         <state key="normal" title="10 Miles"/>
+                                                        <connections>
+                                                            <action selector="hikeDistanceButtonTaooedWithSender:" destination="9Z3-Cg-jGO" eventType="touchUpInside" id="uXh-Rc-X11"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWJ-mz-GQU">
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWJ-mz-GQU">
                                                         <rect key="frame" x="0.0" y="59" width="68" height="30"/>
                                                         <state key="normal" title="15 Miles"/>
+                                                        <connections>
+                                                            <action selector="hikeDistanceButtonTaooedWithSender:" destination="9Z3-Cg-jGO" eventType="touchUpInside" id="f2S-gJ-HiO"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XhW-NU-iKK">
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XhW-NU-iKK">
                                                         <rect key="frame" x="0.0" y="118" width="68" height="30"/>
                                                         <state key="normal" title="20+ Miles"/>
+                                                        <connections>
+                                                            <action selector="hikeDistanceButtonTaooedWithSender:" destination="9Z3-Cg-jGO" eventType="touchUpInside" id="Ru9-ZB-A7A"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -237,7 +264,7 @@
                         <viewLayoutGuide key="safeArea" id="ppX-GU-ciC"/>
                     </view>
                     <connections>
-                        <outlet property="ageTextField" destination="3Dw-ZW-6Eq" id="ABc-SM-hmO"/>
+                        <outlet property="ageTextField" destination="3Dw-ZW-6Eq" id="pJZ-fX-2dT"/>
                         <outlet property="femaleButton" destination="gqO-zq-ofM" id="BjT-7N-fWg"/>
                         <outlet property="fifteenMileButton" destination="nWJ-mz-GQU" id="Hef-EE-xum"/>
                         <outlet property="fiveMileButton" destination="vgG-Hh-AsT" id="HFK-ir-Adj"/>
@@ -252,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xhC-eo-wg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1535" y="-79"/>
+            <point key="canvasLocation" x="1534.7826086956522" y="-79.017857142857139"/>
         </scene>
     </scenes>
 </document>

@@ -14,6 +14,7 @@
 		3A14B67B230C5DD800DE2DCE /* HikeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B67A230C5DD800DE2DCE /* HikeController.swift */; };
 		3A14B683230C87B100DE2DCE /* HikeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B682230C87B100DE2DCE /* HikeAPI.swift */; };
 		3A14B685230C88F400DE2DCE /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B684230C88F300DE2DCE /* NetworkController.swift */; };
+		A42C6380230D9D7E0023D7CE /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42C637F230D9D7E0023D7CE /* CloudKit.framework */; };
 		A4508A47230AEF80002ED843 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A46230AEF80002ED843 /* AppDelegate.swift */; };
 		A4508A4C230AEF80002ED843 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4508A4A230AEF80002ED843 /* SignUp.storyboard */; };
 		A4508A4F230AEF80002ED843 /* Trekker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4508A4D230AEF80002ED843 /* Trekker.xcdatamodeld */; };
@@ -50,6 +51,8 @@
 		3A14B67A230C5DD800DE2DCE /* HikeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeController.swift; sourceTree = SOURCE_ROOT; };
 		3A14B682230C87B100DE2DCE /* HikeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeAPI.swift; sourceTree = "<group>"; };
 		3A14B684230C88F300DE2DCE /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		A42C637D230D9D7B0023D7CE /* Trekker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Trekker.entitlements; sourceTree = "<group>"; };
+		A42C637F230D9D7E0023D7CE /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A4508A43230AEF80002ED843 /* Trekker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trekker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4508A46230AEF80002ED843 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4508A4B230AEF80002ED843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A42C6380230D9D7E0023D7CE /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,11 +104,20 @@
 			path = HelpersAndExtensions;
 			sourceTree = "<group>";
 		};
+		A42C637E230D9D7E0023D7CE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A42C637F230D9D7E0023D7CE /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A4508A3A230AEF80002ED843 = {
 			isa = PBXGroup;
 			children = (
 				A4508A45230AEF80002ED843 /* Trekker */,
 				A4508A44230AEF80002ED843 /* Products */,
+				A42C637E230D9D7E0023D7CE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +132,7 @@
 		A4508A45230AEF80002ED843 /* Trekker */ = {
 			isa = PBXGroup;
 			children = (
+				A42C637D230D9D7B0023D7CE /* Trekker.entitlements */,
 				A4508A5E230AF036002ED843 /* Model */,
 				A4508A5D230AF030002ED843 /* View */,
 				A4508A5C230AF02E002ED843 /* Controller */,
@@ -356,6 +370,14 @@
 				TargetAttributes = {
 					A4508A42230AEF80002ED843 = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -570,6 +592,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Trekker/Trekker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZLX8VSJT3;
 				INFOPLIST_FILE = "$(SRCROOT)/Trekker/Resources/Info.plist";
@@ -588,6 +611,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Trekker/Trekker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZLX8VSJT3;
 				INFOPLIST_FILE = "$(SRCROOT)/Trekker/Resources/Info.plist";
