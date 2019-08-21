@@ -12,16 +12,16 @@ import Foundation
 
 struct TopLevelJSON: Decodable {
     
-    let trails: [HikeJSON]
+    let trails: [HikeJSON]?
 }
 
 struct HikeJSON: Decodable {
-    let longitude: Double
-    let latitude: Double
-    let hikeName: String
-    let apiID: Int
-    let hikeImageURLAsString: String
-    let hikeRating: Double
+    let longitude: Double?
+    let latitude: Double?
+    let hikeName: String?
+    let apiID: Int?
+    let hikeImageURLAsString: String?
+    let hikeRating: Double?
     
     enum CodingKeys: String, CodingKey {
         case longitude

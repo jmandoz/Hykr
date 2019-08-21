@@ -14,6 +14,8 @@ class HomePageViewController: UIViewController {
     let currentLongitude = CoreLocationController.shared.locationManager.location?.coordinate.longitude
     let currentLatitude = CoreLocationController.shared.locationManager.location?.coordinate.latitude
     
+    var searchResults: [HikeJSON] = []
+    
     //Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
@@ -22,9 +24,35 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         CoreLocationController.shared.activateLocationServices()
+        fetchHikes()
+        
+        
         // Do any additional setup after loading the view.
     }
     
+    func fetchHikes() {
+        guard let currentLat = currentLatitude,
+        let currentLon = currentLongitude
+        else { return }
+        guard let url = NetworkController.sharedInstance.buildURL(baseURL: HikeAPIStrings.baseURL, components: [HikeAPIStrings.components], queryItems: [HikeAPIStrings.latitudeQuery : "\(currentLat)", HikeAPIStrings.longitudeQuery : "\(currentLon)", HikeAPIStrings.apiKey : HikeAPIStrings.apiKeyValue]) else { return }
+        NetworkController.sharedInstance.getDataFromURL(url: url) { (data) in
+            
+            guard let data = data else { return }
+            
+            do {
+                let decoder = JSONDecoder()
+                let topLevelJSON = try decoder.decode(TopLevelJSON.self, from: data)
+                guard let trails = topLevelJSON.trails else { return }
+                self.searchResults = trails
+                
+            } catch {
+                print ("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
+                return
+            }
+        }
+    }
+    
+
 
     /*
     // MARK: - Navigation
