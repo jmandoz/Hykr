@@ -34,9 +34,11 @@ struct HikeJSON: Decodable {
 }
 
 struct HikeAPIStrings {
-    static let baseURL = "https://www.hikingproject.com/data/get-trails"
+    static let baseURL = "https://www.hikingproject.com/data"
+    static let components = "get-trails"
+    static let maxDistanceQuery = "maxDistance"
     static let latitudeQuery = "lat"
     static let longitudeQuery = "lon"
-   static let apiKey = "key"
-   static let apiKeyValue = "200558723-bb50c93f3346f8a98fefed60f3a8b2dc"
+    static let apiKey = "key"
+    static let apiKeyValue = "200558723-bb50c93f3346f8a98fefed60f3a8b2dc"
 }
