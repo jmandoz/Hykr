@@ -10,9 +10,7 @@ import Foundation
 
 struct NetworkController {
     
-    let baseURL = HikeAPIStrings.baseURL
-    let components = [HikeAPIStrings.tripsComponent]
-    let queryItems = [HikeAPIStrings.apiKey: HikeAPIStrings.apiKeyValue]
+    static let sharedInstance = NetworkController()
     
     func buildURL(baseURL: String, components: [String], queryItems: [String : String], completion: @escaping (URL?) -> Void) {
         guard var url = URL(string: baseURL) else { completion(nil); return }
@@ -26,5 +24,19 @@ struct NetworkController {
         
         guard let finalURL = components?.url else { completion(nil); return }
         completion(finalURL)
+    }
+    
+    func getDataFromURL(url: URL, completion: @escaping (Data?) -> Void) {
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                print ("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
+                completion(nil)
+                return
+            }
+            
+            guard let data = data else { completion(nil); return }
+            completion(data)
+            
+        }.resume()
     }
 }
