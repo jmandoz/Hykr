@@ -9,6 +9,7 @@
 import UIKit
 import CloudKit
 
+//TODO: Figure out if hike is completed property
 class Hike {
     let longitude: Double
     let latitude: Double
@@ -20,10 +21,10 @@ class Hike {
     let apiID: Int
     // Cloudkit Properties
     let recordID: CKRecord.ID
-    var reference: CKRecord.Reference
+    var references: [CKRecord.Reference]
     
     init(longitude: Double, latitude: Double, hikeName: String, hikeRating: Int, numberOfRatings: Int = 0, hikeRoute: [[Double]], userPhotos: [UIImage] = [],
-         apiID: Int, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), reference: CKRecord.Reference) {
+         apiID: Int, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), reference: [CKRecord.Reference]) {
         
         self.longitude = longitude
         self.latitude = latitude
@@ -34,7 +35,7 @@ class Hike {
         self.userPhotos = userPhotos
         self.apiID = apiID
         self.recordID = recordID
-        self.reference = reference
+        self.references = reference
     }
 }
 
@@ -47,11 +48,11 @@ extension Hike {
         let numberOfRatings = record[HikeConstants.numberOfRatingsKey] as? Int,
         let hikeRoute = record[HikeConstants.hikeRouteKey] as? [[Double]],
         let apiID = record[HikeConstants.apiIDKey] as? Int,
-        let reference = record[HikeConstants.referenceKey] as? CKRecord.Reference
+        let references = record[HikeConstants.referenceKey] as? [CKRecord.Reference]
             else { return nil }
         
         
-        self.init(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, numberOfRatings: numberOfRatings, hikeRoute: hikeRoute, apiID: apiID, recordID: record.recordID, reference: reference)
+        self.init(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, numberOfRatings: numberOfRatings, hikeRoute: hikeRoute, apiID: apiID, recordID: record.recordID, reference: references)
     }
 }
 
@@ -73,7 +74,7 @@ extension CKRecord {
         self.setValue(hike.numberOfRatings, forKey: HikeConstants.numberOfRatingsKey)
         self.setValue(hike.hikeRoute, forKey: HikeConstants.hikeRouteKey)
         self.setValue(hike.apiID, forKey: HikeConstants.apiIDKey)
-        self.setValue(hike.reference, forKey: HikeConstants.referenceKey)
+        self.setValue(hike.references, forKey: HikeConstants.referenceKey)
         //TODO: Find out if we need userPhotos CKRecord
     }
 }
