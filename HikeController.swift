@@ -22,7 +22,7 @@ class HikeController {
     //Create
     
     // After completion, append that hike to User's hike array
-    func createHikeWith(longitude: Double, latitude: Double, hikeName: String, hikeRating: Int, hikeRoute: [[Double]], apiID: Int, completion: @escaping (Hike?) -> Void) {
+    func createHikeWith(longitude: Double, latitude: Double, hikeName: String, hikeRating: Double, hikeRoute: [[Double]], apiID: Int, completion: @escaping (Hike?) -> Void) {
         
         guard let user = UserController.sharedInstance.currentUser else { completion(nil) ; return }
         let reference = CKRecord.Reference(recordID: user.recordID, action: .deleteSelf)
@@ -86,7 +86,7 @@ class HikeController {
     // Update
     
     // Currently only set to work for the user, not global rating
-    func updateRating(hike: Hike, hikeRating: Int) {
+    func updateRating(hike: Hike, hikeRating: Double) {
         hike.hikeRating = hikeRating
         hike.numberOfRatings += 1
         
