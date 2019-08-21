@@ -11,6 +11,9 @@ import MapKit
 
 class HomePageViewController: UIViewController {
     
+    let currentLongitude = CoreLocationController.shared.locationManager.location?.coordinate.longitude
+    let currentLatitude = CoreLocationController.shared.locationManager.location?.coordinate.latitude
+    
     //Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
@@ -18,7 +21,7 @@ class HomePageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        CoreLocationController.shared.activateLocationServices()
         // Do any additional setup after loading the view.
     }
     
