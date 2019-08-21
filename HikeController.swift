@@ -67,7 +67,7 @@ class HikeController {
     
     // Read
     
-    func fetchHike(predicate: NSCompoundPredicate, completion: @escaping ([Hike]?) -> Void) {
+    func fetchHikes(predicate: NSCompoundPredicate, completion: @escaping ([Hike]?) -> Void) {
         
         CloudKitController.shared.fetchRecords(ofType: HikeConstants.typeKey, withPredicate: predicate, database: self.publicDB) { (foundRecords) in
             guard let foundRecords = foundRecords else { completion(nil) ; return }
