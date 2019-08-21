@@ -14,6 +14,8 @@ class SignUpInfoViewController: UIViewController {
     var emailLanding: String?
     var firstNameLanding: String?
     var lastNameLanding: String?
+    var gender: String?
+    var hikeDistance: Int?
     
     //TextField Outlet
     @IBOutlet weak var ageTextField: UITextField!
@@ -37,9 +39,33 @@ class SignUpInfoViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //Button Action
+    @IBAction func genderButtonTapped(sender: UIButton) {
+        sender.isSelected = true
+        setGenderValue(buttonTag: sender.tag)
+    }
+    
+    @IBAction func hikeDistanceButtonTaooed(sender: UIButton) {
+        sender.isSelected = true
+        setHikeDistanceValue(buttonTag: sender.tag)
+    }
+    
+    
     //Actions
     @IBAction func submitButtonTapped(_ sender: Any) {
-        presentHomePageView()
+        guard let email = emailLanding,
+            let firstName = firstNameLanding,
+            let lastName = lastNameLanding,
+            let age = ageTextField.text, !age.isEmpty, let ageAsInt = Int(age),
+            let genderValue = gender,
+            let hikeDist = hikeDistance
+            else {return}
+        
+        UserController.sharedInstance.createUserWith(email: email, firstName: firstName, lastName: lastName, gender: genderValue, age: ageAsInt, hikeDistance: hikeDist) { (user) in
+            if user != nil {
+                self.presentHomePageView()
+            }
+        }
     }
     
     
@@ -61,4 +87,87 @@ class SignUpInfoViewController: UIViewController {
     }
     */
 
+}
+
+extension SignUpInfoViewController {
+    func setGenderValue(buttonTag: Int) {
+        switch buttonTag {
+        //Male Button
+        case 0:
+            maleButton.setTitleColor(.green, for: .selected)
+            gender = "Male"
+            femaleButton.isSelected = false
+            otherButton.isSelected = false
+        //Female Button
+        case 1:
+            femaleButton.setTitleColor(.green, for: .selected)
+            gender = "Female"
+            maleButton.isSelected = false
+            otherButton.isSelected = false
+        //Other Button
+        case 2:
+            otherButton.setTitleColor(.green, for: .selected)
+            gender = "other"
+            maleButton.isSelected = false
+            femaleButton.isSelected = false
+        default:
+            print("Error with buttons")
+            
+        }
+    }
+    
+    func setHikeDistanceValue(buttonTag: Int) {
+        switch buttonTag {
+        case 0:
+            oneMileButton.setTitleColor(.green, for: .selected)
+            hikeDistance = 1
+            twoMileButton.isSelected = false
+            fiveMileButton.isSelected = false
+            tenMileButton.isSelected = false
+            fifteenMileButton.isSelected = false
+            twentyPlusMileButton.isSelected = false
+        case 1:
+            twoMileButton.setTitleColor(.green, for: .selected)
+            hikeDistance = 2
+            oneMileButton.isSelected = false
+            fiveMileButton.isSelected = false
+            tenMileButton.isSelected = false
+            fifteenMileButton.isSelected = false
+            twentyPlusMileButton.isSelected = false
+        case 2:
+            fiveMileButton.setTitleColor(.green, for: .selected)
+            hikeDistance = 5
+            oneMileButton.isSelected = false
+            twoMileButton.isSelected = false
+            tenMileButton.isSelected = false
+            fifteenMileButton.isSelected = false
+            twentyPlusMileButton.isSelected = false
+        case 3:
+            tenMileButton.setTitleColor(.green, for: .selected)
+            hikeDistance = 10
+            oneMileButton.isSelected = false
+            twoMileButton.isSelected = false
+            fiveMileButton.isSelected = false
+            fifteenMileButton.isSelected = false
+            twentyPlusMileButton.isSelected = false
+        case 4:
+            fifteenMileButton.setTitleColor(.green, for: .selected)
+            hikeDistance = 15
+            oneMileButton.isSelected = false
+            twoMileButton.isSelected = false
+            fiveMileButton.isSelected = false
+            tenMileButton.isSelected = false
+            twentyPlusMileButton.isSelected = false
+        case 5:
+            twentyPlusMileButton.setTitleColor(.green, for: .selected)
+            hikeDistance = 1
+            oneMileButton.isSelected = false
+            twoMileButton.isSelected = false
+            fiveMileButton.isSelected = false
+            tenMileButton.isSelected = false
+            fifteenMileButton.isSelected = false
+        default:
+            print("Error with Distance buttons")
+        }
+    }
 }
