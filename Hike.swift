@@ -14,7 +14,7 @@ class Hike {
     let longitude: Double
     let latitude: Double
     let hikeName: String
-    var hikeRating: Int
+    var hikeRating: Double
     var numberOfRatings: Int
     let hikeRoute: [[Double]]
     var userPhotos: [UIImage]
@@ -23,7 +23,7 @@ class Hike {
     let recordID: CKRecord.ID
     var references: [CKRecord.Reference]
     
-    init(longitude: Double, latitude: Double, hikeName: String, hikeRating: Int, numberOfRatings: Int = 0, hikeRoute: [[Double]], userPhotos: [UIImage] = [],
+    init(longitude: Double, latitude: Double, hikeName: String, hikeRating: Double, numberOfRatings: Int = 0, hikeRoute: [[Double]], userPhotos: [UIImage] = [],
          apiID: Int, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), reference: [CKRecord.Reference]) {
         
         self.longitude = longitude
@@ -44,7 +44,7 @@ extension Hike {
         guard let longitude = record[HikeConstants.longitudeKey] as? Double,
         let latitude = record[HikeConstants.latitudeKey] as? Double,
         let hikeName = record[HikeConstants.hikeNameKey] as? String,
-        let hikeRating = record[HikeConstants.hikeRatingKey] as? Int,
+        let hikeRating = record[HikeConstants.hikeRatingKey] as? Double,
         let numberOfRatings = record[HikeConstants.numberOfRatingsKey] as? Int,
         let hikeRoute = record[HikeConstants.hikeRouteKey] as? [[Double]],
         let apiID = record[HikeConstants.apiIDKey] as? Int,
