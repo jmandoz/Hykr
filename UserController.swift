@@ -79,58 +79,9 @@ class UserController {
         }
     }
     
-    func saveHike(user: User, hike: Hike, completion: @escaping (Bool) -> Void) {
-        
-        user.savedHikes.append(hike)
-        
-        let recordToSave = CKRecord(user: user)
-        let database = self.publicDB
-        
-        CloudKitController.shared.update(record: recordToSave, database: database) { (success) in
-            if success {
-                print("Hike saved succesfully")
-            } else {
-                print("Hike failed to save")
-            }
-        }
-        
-    }
-    
-    func addToHikeLog(user: User, hike: Hike, completion: @escaping (Bool) -> Void) {
-        
-        user.hikeLog.append(hike)
-        
-        let recordToSave = CKRecord(user: user)
-        let database = self.publicDB
-        
-        CloudKitController.shared.update(record: recordToSave, database: database) { (success) in
-            if success {
-                print("Hike log updated succesfully")
-            } else {
-                print("Hike log failed to update")
-            }
-        }
-    }
-    
     // Delete
     
-    func removeSavedHike(user: User, hike: Hike, completion: @escaping (Bool) -> Void) {
-        guard let index = user.savedHikes.firstIndex(of: hike) else { return }
-        user.savedHikes.remove(at: index)
+    func deleteUser(user: User, completion: @escaping (Bool) -> Void) {
         
-        let database = self.publicDB
-        CloudKitController.shared.delete(recordID: hike.recordID, database: database) { (success) in
-            completion(success ? true : false)
-        }
-    }
-    
-    func removeHikeFromLog(user: User, hike: Hike, completion: @escaping (Bool) -> Void) {
-        guard let index = user.hikeLog.firstIndex(of: hike) else { return }
-        user.hikeLog.remove(at: index)
-        
-        let database = self.publicDB
-        CloudKitController.shared.delete(recordID: hike.recordID, database: database) { (success) in
-            completion(success ? true : false)
-        }
     }
 }
