@@ -16,12 +16,15 @@ struct TopLevelJSON: Decodable {
 }
 
 struct HikeJSON: Decodable {
-    let longitude: Double?
-    let latitude: Double?
-    let hikeName: String?
-    let apiID: Int?
+    let longitude: Double
+    let latitude: Double
+    let hikeName: String
+    let apiID: Int
     let hikeImageURLAsString: String?
     let hikeRating: Double?
+    let ascent: Int
+    let difficulty: String
+    let distance: Double
     
     enum CodingKeys: String, CodingKey {
         case longitude
@@ -30,6 +33,9 @@ struct HikeJSON: Decodable {
         case apiID = "id"
         case hikeImageURLAsString = "imgSmallMed"
         case hikeRating = "stars"
+        case ascent
+        case difficulty
+        case distance = "length"
     }
 }
 

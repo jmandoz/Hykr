@@ -98,7 +98,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="n9G-sA-uEC">
                                         <rect key="frame" x="0.0" y="243" width="350" height="21"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3n-wM-SRM">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Ascent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3n-wM-SRM">
                                                 <rect key="frame" x="0.0" y="0.0" width="292" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -178,11 +178,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Hike Details" id="QAg-8n-NIs"/>
                     <connections>
+                        <outlet property="ascentLabel" destination="QfC-t6-2K9" id="kiK-6Y-jme"/>
                         <outlet property="currentWeatherLabel" destination="Hba-rs-GZS" id="CQe-CN-NGL"/>
                         <outlet property="difficultyLabel" destination="7YZ-VE-SFz" id="k9l-gu-7x5"/>
                         <outlet property="directionsButton" destination="O2B-a9-gCP" id="w02-Ur-h5f"/>
                         <outlet property="distanceLabel" destination="HMm-ba-Rwd" id="cvH-Qq-5Yo"/>
-                        <outlet property="durationLabel" destination="QfC-t6-2K9" id="EGe-Qz-0YL"/>
                         <outlet property="heartButton" destination="bdy-vD-HNM" id="faN-Af-RCV"/>
                         <outlet property="hikeMapButton" destination="vWs-Yu-uWZ" id="Lxl-BZ-bvy"/>
                         <outlet property="hikeNameLabel" destination="vW5-oj-h7e" id="caQ-y6-RbI"/>
