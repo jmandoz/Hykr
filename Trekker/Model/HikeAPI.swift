@@ -16,8 +16,8 @@ struct TopLevelJSON: Decodable {
 }
 
 struct HikeJSON: Decodable {
-    let longitude: Double
-    let latitude: Double
+    let longitude: Double?
+    let latitude: Double?
     let hikeName: String
     let apiID: Int
     let hikeImageURLAsString: String?

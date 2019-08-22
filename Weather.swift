@@ -42,7 +42,7 @@ struct WindSpeed: Decodable {
 }
 
 struct WeatherAPIStrings {
-    static let baseURL = "api.openweathermap.org/data/2.5"
+    static let baseURL = "https://api.openweathermap.org/data/2.5"
     static let components = "weather"
     static let latitudeQuery = "lat"
     static let longitudeQuery = "lon"
