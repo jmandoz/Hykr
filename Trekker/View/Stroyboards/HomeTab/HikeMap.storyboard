@@ -30,7 +30,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvd-Cm-IvJ">
                                 <rect key="frame" x="0.0" y="569" width="414" height="244"/>
                                 <connections>
-                                    <segue destination="Gi1-jT-wLN" kind="embed" id="X2u-pI-z29"/>
+                                    <segue destination="Gi1-jT-wLN" kind="embed" identifier="containerViewEmbedSegue" id="X2u-pI-z29"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -122,7 +122,7 @@
                                         <state key="normal" title="Hike Details"/>
                                         <connections>
                                             <action selector="hikeDetailsButtonTapped:" destination="Gi1-jT-wLN" eventType="touchUpInside" id="HYj-3D-rei"/>
-                                            <segue destination="5tT-EE-K8y" kind="show" id="1S9-St-TgJ"/>
+                                            <segue destination="5tT-EE-K8y" kind="show" identifier="toHikeDetailsVC" id="1S9-St-TgJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xz2-0K-09Q">
@@ -145,6 +145,7 @@
                             <constraint firstItem="kNG-MO-Aw4" firstAttribute="leading" secondItem="TVz-DP-M8k" secondAttribute="leadingMargin" constant="20" id="ttA-nq-vP6"/>
                             <constraint firstAttribute="trailing" secondItem="CJJ-Om-cek" secondAttribute="trailing" constant="40" id="uei-JW-66J"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Pgq-En-Dek"/>
                     </view>
                     <connections>
                         <outlet property="directionsButton" destination="V2c-FB-1Vf" id="RF0-ag-cZc"/>

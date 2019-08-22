@@ -9,9 +9,13 @@
 import UIKit
 import MapKit
 
-class HomePageViewController: UIViewController {
+class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegate {
     
     let screenSize = UIScreen.main.bounds.size
+    
+    var selectedHikeVC = SlidingDetailsViewController()
+    
+    var selectedHike: HikeJSON?
     
     let currentLongitude = CoreLocationController.shared.locationManager.location?.coordinate.longitude
     let currentLatitude = CoreLocationController.shared.locationManager.location?.coordinate.latitude
@@ -33,13 +37,13 @@ class HomePageViewController: UIViewController {
         mapView.delegate = self
         CoreLocationController.shared.activateLocationServices()
         getMyRegion()
-        fetchHikes ()
 
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        fetchHikes()
         
     }
     
@@ -56,10 +60,9 @@ class HomePageViewController: UIViewController {
     func createAnnotations(hikeArray: [HikeJSON]) {
         for hike in hikeArray {
             DispatchQueue.main.async {
-                guard let long = hike.longitude, let lat = hike.latitude else {return}
-                let annotations = MKPointAnnotation()
-                annotations.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                self.mapView.addAnnotation(annotations)
+                let annotation = HikeAnnotation(hike: hike)
+                annotation.coordinate = CLLocationCoordinate2D(latitude: hike.latitude!, longitude: hike.longitude!)
+                self.mapView.addAnnotation(annotation)
             }
         }
     }
@@ -85,15 +88,21 @@ class HomePageViewController: UIViewController {
         }
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "containerViewEmbedSegue" {
+            if let destinationVC = segue.destination as? SlidingDetailsViewController {
+                selectedHikeVC = destinationVC
+                selectedHikeVC.delegate = self
+            }
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
 
@@ -106,6 +115,7 @@ extension HomePageViewController: MKMapViewDelegate {
 //                self.slidingDetailView.alpha = 1
                 let distance = self.slidingDetailView.frame.height
                 self.slidingDetailView.frame = self.slidingDetailView.frame.offsetBy(dx: 0, dy: -distance)
+                self.selectedHikeVC.selectedHikeLanding = self.selectedHike
             }, completion: nil)
     }
     
@@ -114,13 +124,31 @@ extension HomePageViewController: MKMapViewDelegate {
 //            self.slidingDetailView.alpha = 0
             let distance = self.slidingDetailView.frame.height
             self.slidingDetailView.frame = self.slidingDetailView.frame.offsetBy(dx: 0, dy: distance)
+            self.selectedHikeVC.selectedHikeLanding = nil
         }, completion: nil)
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? HikeAnnotation {
+            
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            let size = CGSize(width: 37, height: 37)
+            annotationView.image = #imageLiteral(resourceName: "pin").resizeImage(targetSize: size)
+            annotationView.centerOffset = CGPoint(x: 0, y: -10)
+            return annotationView
+        }
+        return nil
+    }
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        guard let selectedAnnotation = view.annotation as? HikeAnnotation else { return }
+        selectedHike = selectedAnnotation.hike
+        
         DispatchQueue.main.async {
             self.showDetailView()
         }
+        
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
