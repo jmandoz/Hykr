@@ -22,11 +22,11 @@ class HikeController {
     //Create
     
     // After completion, append that hike to User's hike array
-    func createHikeWith(longitude: Double, latitude: Double, hikeName: String, hikeRating: Double, hikeRoute: [[Double]], apiID: Int, completion: @escaping (Hike?) -> Void) {
+    func createHikeWith(longitude: Double, latitude: Double, hikeName: String, hikeRating: Double, hikeRoute: [[Double]], apiID: Int, hikeAscent: Int, hikeDifficulty: String, hikeDistance: Double, completion: @escaping (Hike?) -> Void) {
         
         guard let user = UserController.sharedInstance.currentUser else { completion(nil) ; return }
         let reference = CKRecord.Reference(recordID: user.recordID, action: .deleteSelf)
-        let hike = Hike(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, hikeRoute: hikeRoute, apiID: apiID, reference: [reference])
+        let hike = Hike(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, hikeRoute: hikeRoute, apiID: apiID, hikeAscent: hikeAscent, hikeDifficulty: hikeDifficulty, hikeDistance: hikeDistance, reference: [reference])
         let record = CKRecord(hike: hike)
         let database = self.publicDB
         

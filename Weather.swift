@@ -40,3 +40,14 @@ struct Temp: Decodable {
 struct WindSpeed: Decodable {
     let speed: Double
 }
+
+struct WeatherAPIStrings {
+    static let baseURL = "api.openweathermap.org/data/2.5"
+    static let components = "weather"
+    static let latitudeQuery = "lat"
+    static let longitudeQuery = "lon"
+    static let unitsQuery = "units"
+    static let unitsQueryValue = "imperial"
+    static let apiKey = "APPID"
+    static let apiKeyValue = "f33676465250529f194d06f3183a648b"
+}
