@@ -21,18 +21,29 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lNr-er-lXK">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                             </mapView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jt7-NL-6fR">
+                            <searchBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jt7-NL-6fR">
                                 <rect key="frame" x="10" y="61.5" width="394" height="56"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvd-Cm-IvJ">
+                                <rect key="frame" x="0.0" y="569" width="414" height="244"/>
+                                <connections>
+                                    <segue destination="Gi1-jT-wLN" kind="embed" id="X2u-pI-z29"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="trailing" secondItem="fZ3-tl-MSX" secondAttribute="trailing" id="7cS-RZ-pZb"/>
+                            <constraint firstItem="fZ3-tl-MSX" firstAttribute="bottom" secondItem="hvd-Cm-IvJ" secondAttribute="bottom" id="8H7-MH-AAF"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="bottom" secondItem="fZ3-tl-MSX" secondAttribute="bottom" id="CYd-Ut-oJE"/>
+                            <constraint firstItem="hvd-Cm-IvJ" firstAttribute="width" secondItem="lNr-er-lXK" secondAttribute="width" id="DKC-es-43s"/>
+                            <constraint firstItem="hvd-Cm-IvJ" firstAttribute="height" secondItem="lNr-er-lXK" secondAttribute="height" multiplier="0.3" id="FWf-QD-Gwl"/>
                             <constraint firstItem="jt7-NL-6fR" firstAttribute="centerX" secondItem="d0e-Nn-QlE" secondAttribute="centerX" id="Had-bm-wsf"/>
                             <constraint firstItem="jt7-NL-6fR" firstAttribute="centerY" secondItem="d0e-Nn-QlE" secondAttribute="centerY" multiplier="0.2" id="Iaw-lk-79D"/>
+                            <constraint firstItem="hvd-Cm-IvJ" firstAttribute="centerX" secondItem="d0e-Nn-QlE" secondAttribute="centerX" id="hBd-G2-4BN"/>
                             <constraint firstItem="jt7-NL-6fR" firstAttribute="leading" secondItem="fZ3-tl-MSX" secondAttribute="leading" constant="10" id="nmq-g3-uY0"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="leading" secondItem="fZ3-tl-MSX" secondAttribute="leading" id="qlL-9o-1S8"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="top" secondItem="d0e-Nn-QlE" secondAttribute="top" id="yoO-Ua-nBS"/>
@@ -45,11 +56,108 @@
                     <connections>
                         <outlet property="mapView" destination="lNr-er-lXK" id="wGd-lE-dtK"/>
                         <outlet property="searchBar" destination="jt7-NL-6fR" id="Jwd-z5-7f0"/>
+                        <outlet property="slidingDetailView" destination="hvd-Cm-IvJ" id="CWl-Bb-jCH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wio-fL-ehr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2208.695652173913" y="-1397.5446428571429"/>
+        </scene>
+        <!--HikeDetails-->
+        <scene sceneID="Ght-hU-YmO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HikeDetails" id="5tT-EE-K8y" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ev0-cx-DhZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3260" y="-966"/>
+        </scene>
+        <!--Sliding Details View Controller-->
+        <scene sceneID="oPK-Sn-CNA">
+            <objects>
+                <viewController id="Gi1-jT-wLN" customClass="SlidingDetailsViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TVz-DP-M8k">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="244"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="CJJ-Om-cek">
+                                <rect key="frame" x="40" y="44" width="334" height="106"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Hike Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaV-Sg-9nW">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Biv-iA-hBi">
+                                        <rect key="frame" x="0.0" y="54" width="334" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance to hike" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pz0-f0-MDF">
+                                        <rect key="frame" x="0.0" y="85.5" width="334" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="jaV-Sg-9nW" secondAttribute="trailing" id="RyW-J3-D2f"/>
+                                    <constraint firstAttribute="trailing" secondItem="Biv-iA-hBi" secondAttribute="trailing" id="Sbd-N7-Qoj"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pz0-f0-MDF" secondAttribute="trailing" id="rV2-C8-uJC"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kNG-MO-Aw4">
+                                <rect key="frame" x="40" y="160" width="334" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2c-FB-1Vf">
+                                        <rect key="frame" x="0.0" y="0.0" width="98" height="30"/>
+                                        <state key="normal" title="Directions"/>
+                                        <connections>
+                                            <action selector="directionsButtonTapped:" destination="Gi1-jT-wLN" eventType="touchUpInside" id="u2Z-SO-rXF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0k-BP-gaF">
+                                        <rect key="frame" x="118" y="0.0" width="98" height="30"/>
+                                        <state key="normal" title="Hike Details"/>
+                                        <connections>
+                                            <action selector="hikeDetailsButtonTapped:" destination="Gi1-jT-wLN" eventType="touchUpInside" id="HYj-3D-rei"/>
+                                            <segue destination="5tT-EE-K8y" kind="show" id="1S9-St-TgJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xz2-0K-09Q">
+                                        <rect key="frame" x="236" y="0.0" width="98" height="30"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="Gi1-jT-wLN" eventType="touchUpInside" id="lpg-jk-6Vo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kNG-MO-Aw4" firstAttribute="top" secondItem="CJJ-Om-cek" secondAttribute="bottom" constant="10" id="7uc-ql-Iky"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kNG-MO-Aw4" secondAttribute="trailing" constant="20" id="KBp-rc-jO2"/>
+                            <constraint firstItem="CJJ-Om-cek" firstAttribute="top" secondItem="TVz-DP-M8k" secondAttribute="topMargin" id="SkH-9X-QZj"/>
+                            <constraint firstItem="CJJ-Om-cek" firstAttribute="leading" secondItem="TVz-DP-M8k" secondAttribute="leading" constant="40" id="av1-R8-Gv1"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="CJJ-Om-cek" secondAttribute="bottom" constant="60" id="bi9-iL-QhW"/>
+                            <constraint firstItem="kNG-MO-Aw4" firstAttribute="leading" secondItem="TVz-DP-M8k" secondAttribute="leadingMargin" constant="20" id="ttA-nq-vP6"/>
+                            <constraint firstAttribute="trailing" secondItem="CJJ-Om-cek" secondAttribute="trailing" constant="40" id="uei-JW-66J"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="directionsButton" destination="V2c-FB-1Vf" id="RF0-ag-cZc"/>
+                        <outlet property="hikeDetailsButton" destination="C0k-BP-gaF" id="h7q-Mr-qvY"/>
+                        <outlet property="hikeDistanceLabel" destination="Pz0-f0-MDF" id="JSY-mP-H51"/>
+                        <outlet property="hikeNameLabel" destination="jaV-Sg-9nW" id="vRK-DP-7l4"/>
+                        <outlet property="hikeRatingLabel" destination="Biv-iA-hBi" id="jJp-pq-e8u"/>
+                        <outlet property="saveButton" destination="Xz2-0K-09Q" id="BHs-wf-kNe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jxh-Gy-9uk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2209" y="-893"/>
         </scene>
     </scenes>
 </document>

@@ -21,7 +21,12 @@ class HomePageViewController: UIViewController {
     //Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var slidingDetailView: UIView!
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        hideDetailView()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +34,13 @@ class HomePageViewController: UIViewController {
         CoreLocationController.shared.activateLocationServices()
         getMyRegion()
         fetchHikes ()
-        detailView.alpha = 1
-        detailView.frame = CGRect(x: 0, y: self.screenSize.height, width: self.screenSize.width, height: self.screenSize.height / 3.5)
+
         // Do any additional setup after loading the view.
     }
     
-    override func loadView() {
-        super.loadView()
-        addSubViews()
-        setUpMainStackView()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     func getMyRegion() {
@@ -81,44 +84,6 @@ class HomePageViewController: UIViewController {
             self.createAnnotations(hikeArray: self.searchResults)
         }
     }
-    
-    //Hike Detail View
-    let detailView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .green
-        return view
-    }()
-    
-    let mainStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.distribution = .equalCentering
-        stackView.spacing = 15
-        return stackView
-    }()
-    
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Helvetca", size: 14)
-        label.text = "Hike Name"
-        label.textColor = .black
-        return label
-    }()
-    
-    func addSubViews() {
-        self.view.addSubview(detailView)
-        self.view.addSubview(mainStackView)
-    }
-    
-    func setUpMainStackView() {
-        mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        mainStackView.addArrangedSubview(nameLabel)
-    }
-    
-    func constrainView() {
-        mainStackView.anchor(top: detailView.topAnchor, bottom: detailView.bottomAnchor, leading: detailView.leadingAnchor, trailing: detailView.trailingAnchor, topPadding: 5, bottomPadding: -5, leadingPadding: 5, trailingPadding: -5)
-    }
 
     /*
     // MARK: - Navigation
@@ -138,14 +103,17 @@ extension HomePageViewController: MKMapViewDelegate {
     
     func showDetailView() {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseIn, animations: {
-                self.detailView.alpha = 1
-                self.detailView.frame = CGRect(x: 0, y: self.screenSize.height - (self.screenSize.height/3), width: self.screenSize.width, height: self.screenSize.height / 3)
+//                self.slidingDetailView.alpha = 1
+                let distance = self.slidingDetailView.frame.height
+                self.slidingDetailView.frame = self.slidingDetailView.frame.offsetBy(dx: 0, dy: -distance)
             }, completion: nil)
     }
     
     func hideDetailView() {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: {
-            self.detailView.frame = CGRect(x: 0, y: self.screenSize.height, width: self.screenSize.width, height: 0)
+//            self.slidingDetailView.alpha = 0
+            let distance = self.slidingDetailView.frame.height
+            self.slidingDetailView.frame = self.slidingDetailView.frame.offsetBy(dx: 0, dy: distance)
         }, completion: nil)
     }
     
@@ -154,6 +122,7 @@ extension HomePageViewController: MKMapViewDelegate {
             self.showDetailView()
         }
     }
+    
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         DispatchQueue.main.async {
             self.hideDetailView()
