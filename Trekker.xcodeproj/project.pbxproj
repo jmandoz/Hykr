@@ -16,6 +16,7 @@
 		3A14B685230C88F400DE2DCE /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B684230C88F300DE2DCE /* NetworkController.swift */; };
 		A42C6380230D9D7E0023D7CE /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42C637F230D9D7E0023D7CE /* CloudKit.framework */; };
 		A42C6382230DEB880023D7CE /* CoreLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C6381230DEB880023D7CE /* CoreLocationController.swift */; };
+		A42C6384230E397A0023D7CE /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C6383230E397A0023D7CE /* UIViewExtension.swift */; };
 		A4508A47230AEF80002ED843 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A46230AEF80002ED843 /* AppDelegate.swift */; };
 		A4508A4C230AEF80002ED843 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4508A4A230AEF80002ED843 /* SignUp.storyboard */; };
 		A4508A4F230AEF80002ED843 /* Trekker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4508A4D230AEF80002ED843 /* Trekker.xcdatamodeld */; };
@@ -55,6 +56,7 @@
 		A42C637D230D9D7B0023D7CE /* Trekker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Trekker.entitlements; sourceTree = "<group>"; };
 		A42C637F230D9D7E0023D7CE /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A42C6381230DEB880023D7CE /* CoreLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationController.swift; sourceTree = "<group>"; };
+		A42C6383230E397A0023D7CE /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		A4508A43230AEF80002ED843 /* Trekker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trekker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4508A46230AEF80002ED843 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4508A4B230AEF80002ED843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				3A14B684230C88F300DE2DCE /* NetworkController.swift */,
 				A4E7E828230C8E6300805E31 /* CloudKitController.swift */,
 				A42C6381230DEB880023D7CE /* CoreLocationController.swift */,
+				A42C6383230E397A0023D7CE /* UIViewExtension.swift */,
 			);
 			path = HelpersAndExtensions;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				A4508A7E230B43EA002ED843 /* HikeLogViewController.swift in Sources */,
 				A4508A97230C54CA002ED843 /* AccountViewController.swift in Sources */,
 				A4508A72230B3CD3002ED843 /* SavedHikesViewController.swift in Sources */,
+				A42C6384230E397A0023D7CE /* UIViewExtension.swift in Sources */,
 				3A14B679230C4C0C00DE2DCE /* UserController.swift in Sources */,
 				A42C6382230DEB880023D7CE /* CoreLocationController.swift in Sources */,
 				3A14B673230B04B300DE2DCE /* Hike.swift in Sources */,
