@@ -16,30 +16,30 @@ class Hike {
     let hikeName: String
     var hikeRating: Double
     var numberOfRatings: Int
-    let hikeRoute: [[Double]]
     var userPhotos: [UIImage]
     let apiID: Int
     let hikeAscent: Int
     let hikeDifficulty: String
     let hikeDistance: Double
+    let hikeApiImage: UIImage
     // Cloudkit Properties
     let recordID: CKRecord.ID
     var references: [CKRecord.Reference]
     
-    init(longitude: Double, latitude: Double, hikeName: String, hikeRating: Double, numberOfRatings: Int = 0, hikeRoute: [[Double]], userPhotos: [UIImage] = [],
-         apiID: Int, hikeAscent: Int, hikeDifficulty: String, hikeDistance: Double, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), reference: [CKRecord.Reference]) {
+    init(longitude: Double, latitude: Double, hikeName: String, hikeRating: Double, numberOfRatings: Int = 0, userPhotos: [UIImage] = [],
+         apiID: Int, hikeAscent: Int, hikeDifficulty: String, hikeDistance: Double, hikeApiImage: UIImage, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), reference: [CKRecord.Reference]) {
         
         self.longitude = longitude
         self.latitude = latitude
         self.hikeName = hikeName
         self.hikeRating = hikeRating
         self.numberOfRatings = numberOfRatings
-        self.hikeRoute = hikeRoute
         self.userPhotos = userPhotos
         self.apiID = apiID
         self.hikeAscent = hikeAscent
         self.hikeDifficulty = hikeDifficulty
         self.hikeDistance = hikeDistance
+        self.hikeApiImage = hikeApiImage
         self.recordID = recordID
         self.references = reference
     }
@@ -52,16 +52,16 @@ extension Hike {
         let hikeName = record[HikeConstants.hikeNameKey] as? String,
         let hikeRating = record[HikeConstants.hikeRatingKey] as? Double,
         let numberOfRatings = record[HikeConstants.numberOfRatingsKey] as? Int,
-        let hikeRoute = record[HikeConstants.hikeRouteKey] as? [[Double]],
         let apiID = record[HikeConstants.apiIDKey] as? Int,
         let hikeAscent = record[HikeConstants.hikeAscentKey] as? Int,
         let hikeDifficulty = record[HikeConstants.hikeDifficultyKey] as? String,
         let hikeDistance = record[HikeConstants.hikeDistanceKey] as? Double,
+        let hikeApiImage = record[HikeConstants.hikeApiImageKey] as? UIImage,
         let references = record[HikeConstants.referenceKey] as? [CKRecord.Reference]
             else { return nil }
         
         
-        self.init(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, numberOfRatings: numberOfRatings, hikeRoute: hikeRoute, apiID: apiID, hikeAscent: hikeAscent, hikeDifficulty: hikeDifficulty, hikeDistance: hikeDistance,  recordID: record.recordID, reference: references)
+        self.init(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, numberOfRatings: numberOfRatings, apiID: apiID, hikeAscent: hikeAscent, hikeDifficulty: hikeDifficulty, hikeDistance: hikeDistance, hikeApiImage: hikeApiImage, recordID: record.recordID, reference: references)
     }
 }
 
@@ -81,11 +81,11 @@ extension CKRecord {
         self.setValue(hike.hikeName, forKey: HikeConstants.hikeNameKey)
         self.setValue(hike.hikeRating, forKey: HikeConstants.hikeRatingKey)
         self.setValue(hike.numberOfRatings, forKey: HikeConstants.numberOfRatingsKey)
-        self.setValue(hike.hikeRoute, forKey: HikeConstants.hikeRouteKey)
         self.setValue(hike.apiID, forKey: HikeConstants.apiIDKey)
         self.setValue(hike.hikeAscent, forKey: HikeConstants.hikeAscentKey)
         self.setValue(hike.hikeDifficulty, forKey: HikeConstants.hikeDifficultyKey)
         self.setValue(hike.hikeDistance, forKey: HikeConstants.hikeDistanceKey)
+        self.setValue(hike.hikeApiImage, forKey: HikeConstants.hikeApiImageKey)
         self.setValue(hike.references, forKey: HikeConstants.referenceKey)
         //TODO: Find out if we need userPhotos CKRecord
     }
@@ -98,11 +98,11 @@ struct HikeConstants {
     fileprivate static let hikeNameKey = "hikeName"
     fileprivate static let hikeRatingKey = "hikeRating"
     fileprivate static let numberOfRatingsKey = "numberOfRatings"
-    fileprivate static let hikeRouteKey = "hikeRoute"
     fileprivate static let userPhotosKey = "userPhotos"
     fileprivate static let apiIDKey = "apiID"
     fileprivate static let hikeAscentKey = "hikeAscent"
     fileprivate static let hikeDifficultyKey = "hikeDifficulty"
     fileprivate static let hikeDistanceKey = "hikeDistance"
+    fileprivate static let hikeApiImageKey = "hikeApiImage"
     fileprivate static let referenceKey = "reference"
 }

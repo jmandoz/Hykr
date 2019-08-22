@@ -6,7 +6,7 @@
 //  Copyright © 2019 Jason Mandozzi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CloudKit
 
 class HikeController {
@@ -22,11 +22,11 @@ class HikeController {
     //Create
     
     // After completion, append that hike to User's hike array
-    func createHikeWith(longitude: Double, latitude: Double, hikeName: String, hikeRating: Double, hikeRoute: [[Double]], apiID: Int, hikeAscent: Int, hikeDifficulty: String, hikeDistance: Double, completion: @escaping (Hike?) -> Void) {
+    func createHikeWith(longitude: Double, latitude: Double, hikeName: String, hikeRating: Double, apiID: Int, hikeAscent: Int, hikeDifficulty: String, hikeDistance: Double, hikeApiImage: UIImage, completion: @escaping (Hike?) -> Void) {
         
         guard let user = UserController.sharedInstance.currentUser else { completion(nil) ; return }
         let reference = CKRecord.Reference(recordID: user.recordID, action: .deleteSelf)
-        let hike = Hike(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, hikeRoute: hikeRoute, apiID: apiID, hikeAscent: hikeAscent, hikeDifficulty: hikeDifficulty, hikeDistance: hikeDistance, reference: [reference])
+        let hike = Hike(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, apiID: apiID, hikeAscent: hikeAscent, hikeDifficulty: hikeDifficulty, hikeDistance: hikeDistance, hikeApiImage: hikeApiImage, reference: [reference])
         let record = CKRecord(hike: hike)
         let database = self.publicDB
         
@@ -50,6 +50,7 @@ class HikeController {
                 if let hike = hike {
                     let reference = CKRecord.Reference(recordID: user.recordID, action: .none)
                     hike.references.append(reference)
+                    user.savedHikes.append(hike)
                     // Update the hike here
                     self.update(hike: hike, completion: { (success) in
                         if success {
