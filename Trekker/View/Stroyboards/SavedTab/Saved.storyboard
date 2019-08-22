@@ -67,6 +67,9 @@
                         <viewLayoutGuide key="safeArea" id="261-vM-eDP"/>
                     </view>
                     <navigationItem key="navigationItem" title="Saved Hikes" id="EjF-NC-7gd"/>
+                    <connections>
+                        <outlet property="savedHikesTableView" destination="hVY-kt-UHJ" id="ewn-s1-N6I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAl-gK-kxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
