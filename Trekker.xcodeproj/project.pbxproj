@@ -18,6 +18,8 @@
 		A42C6382230DEB880023D7CE /* CoreLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C6381230DEB880023D7CE /* CoreLocationController.swift */; };
 		A42C6384230E397A0023D7CE /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C6383230E397A0023D7CE /* UIViewExtension.swift */; };
 		A42C6388230EF5350023D7CE /* SlidingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C6387230EF5350023D7CE /* SlidingDetailsViewController.swift */; };
+		A42C638A230F1CF50023D7CE /* MKAnnotationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C6389230F1CF50023D7CE /* MKAnnotationExtension.swift */; };
+		A42C638C230F26C50023D7CE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C638B230F26C50023D7CE /* UIImageExtension.swift */; };
 		A4508A47230AEF80002ED843 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A46230AEF80002ED843 /* AppDelegate.swift */; };
 		A4508A4C230AEF80002ED843 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4508A4A230AEF80002ED843 /* SignUp.storyboard */; };
 		A4508A4F230AEF80002ED843 /* Trekker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4508A4D230AEF80002ED843 /* Trekker.xcdatamodeld */; };
@@ -59,6 +61,8 @@
 		A42C6381230DEB880023D7CE /* CoreLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationController.swift; sourceTree = "<group>"; };
 		A42C6383230E397A0023D7CE /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		A42C6387230EF5350023D7CE /* SlidingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingDetailsViewController.swift; sourceTree = "<group>"; };
+		A42C6389230F1CF50023D7CE /* MKAnnotationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKAnnotationExtension.swift; sourceTree = "<group>"; };
+		A42C638B230F26C50023D7CE /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		A4508A43230AEF80002ED843 /* Trekker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trekker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4508A46230AEF80002ED843 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4508A4B230AEF80002ED843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				A4E7E828230C8E6300805E31 /* CloudKitController.swift */,
 				A42C6381230DEB880023D7CE /* CoreLocationController.swift */,
 				A42C6383230E397A0023D7CE /* UIViewExtension.swift */,
+				A42C6389230F1CF50023D7CE /* MKAnnotationExtension.swift */,
+				A42C638B230F26C50023D7CE /* UIImageExtension.swift */,
 			);
 			path = HelpersAndExtensions;
 			sourceTree = "<group>";
@@ -456,7 +462,9 @@
 				A4508A72230B3CD3002ED843 /* SavedHikesViewController.swift in Sources */,
 				A42C6384230E397A0023D7CE /* UIViewExtension.swift in Sources */,
 				3A14B679230C4C0C00DE2DCE /* UserController.swift in Sources */,
+				A42C638C230F26C50023D7CE /* UIImageExtension.swift in Sources */,
 				A42C6382230DEB880023D7CE /* CoreLocationController.swift in Sources */,
+				A42C638A230F1CF50023D7CE /* MKAnnotationExtension.swift in Sources */,
 				3A14B673230B04B300DE2DCE /* Hike.swift in Sources */,
 				3A14B671230AFDE200DE2DCE /* User.swift in Sources */,
 			);
