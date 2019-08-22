@@ -10,11 +10,9 @@ import UIKit
 
 class HikeDetailsViewController: UIViewController {
     
-    let hike = HikeJSON(longitude: -105.2979, latitude: 40.02, hikeName: "Sunshine Lion's Lair Loop", apiID: 7004226, hikeImageURLAsString: "https://cdn-files.apstatic.com/hike/7039883_smallMed_1555092747.jpg", hikeRating: 4.5, ascent: 1261, difficulty: "blue", distance: 5.3)
+    let mockHike = HikeJSON(longitude: -105.2979, latitude: 40.02, hikeName: "Sunshine Lion's Lair Loop", apiID: 7004226, hikeImageURLAsString: "https://cdn-files.apstatic.com/hike/7039883_smallMed_1555092747.jpg", hikeRating: 4.5, ascent: 1261, difficulty: "blue", distance: 5.3)
     
-    
-    // Rename this back to hike
-    var temphike: HikeJSON?
+    var hike: HikeJSON?
     
     //Outlets
     @IBOutlet weak var imageView: UIImageView!
@@ -35,14 +33,15 @@ class HikeDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayHikeInfo(hike: hike)
-        fetchWeatherInfo(hike: hike)
+        displayHikeInfo()
+        fetchWeatherInfo()
     }
     
-    func fetchWeatherInfo(hike: HikeJSON) {
-       // guard let hike = hike else { return }
-        let queryItems = [WeatherAPIStrings.latitudeQuery : "\(hike.latitude)", WeatherAPIStrings.longitudeQuery : "\(hike.longitude)", WeatherAPIStrings.unitsQuery : WeatherAPIStrings.unitsQueryValue, WeatherAPIStrings.apiKey : WeatherAPIStrings.apiKeyValue]
+    func fetchWeatherInfo() {
+        guard let hike = hike else { return }
+        let queryItems = [WeatherAPIStrings.latitudeQuery : "\(hike.latitude ?? 0)", WeatherAPIStrings.longitudeQuery : "\(hike.longitude ?? 0)", WeatherAPIStrings.unitsQuery : WeatherAPIStrings.unitsQueryValue, WeatherAPIStrings.apiKey : WeatherAPIStrings.apiKeyValue]
         guard let url = NetworkController.sharedInstance.buildURL(baseURL: WeatherAPIStrings.baseURL, components: [WeatherAPIStrings.components], queryItems: queryItems) else { return }
+        print (url)
         NetworkController.sharedInstance.getDataFromURL(url: url) { (data) in
             
             guard let data = data else { return }
@@ -52,7 +51,9 @@ class HikeDetailsViewController: UIViewController {
                 let topLevelJSON = try decoder.decode(Weather.self, from: data)
                 let weatherConditions = topLevelJSON.conditions
                 
-                self.currentWeatherLabel.text = weatherConditions[0].conditionsDescription
+                DispatchQueue.main.async {
+                    self.currentWeatherLabel.text = weatherConditions[0].conditionsDescription
+                }
             } catch {
                 print ("Error decoding data: \(error.localizedDescription)")
                 return
@@ -75,11 +76,13 @@ class HikeDetailsViewController: UIViewController {
         }
     }
     
-    func displayHikeInfo(hike: HikeJSON) {
-        //guard let hike = hike else { return }
+    func displayHikeInfo() {
+        guard let hike = hike else { return }
         fetchHikeImage(hike: hike) { (image) in
             if image != nil{
-                self.imageView.image = image
+                DispatchQueue.main.async {
+                    self.imageView.image = image
+                }
             }
         }
         hikeNameLabel.text = hike.hikeName
