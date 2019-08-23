@@ -9,6 +9,8 @@
 import UIKit
 
 class EditAccountViewController: UIViewController {
+    
+    
 
     //Outlets
     @IBOutlet weak var changeEmailTextField: UITextField!
@@ -29,6 +31,11 @@ class EditAccountViewController: UIViewController {
     }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
+        
+        guard let user = UserController.sharedInstance.currentUser else { return }
+        deleteUserAlert(user: user)
+        
+        
     }
     
     
@@ -45,4 +52,26 @@ class EditAccountViewController: UIViewController {
     }
     */
 
+}
+
+extension EditAccountViewController {
+    func deleteUserAlert(user: User) {
+        let alertController = UIAlertController(title: "Delete your account?", message: "This will delete all your saved hikes, hike log, and any pictures taken within the app. Are you sure you want to do this?", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Delete Account", style: .destructive) { (_) in
+            UserController.sharedInstance.deleteUser(user: user, completion: { (success) in
+                if success {
+                    let alertAlertController = UIAlertController(title: "Account successfully deleted", message: "Please restart the app if you'd like to make a new account.", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Ok", style: .default)
+                    alertAlertController.addAction(okAction)
+                    
+                    self.present(alertAlertController, animated: true)
+                }
+            })
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true)
+    }
 }
