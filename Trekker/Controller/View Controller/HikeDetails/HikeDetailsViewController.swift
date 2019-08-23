@@ -10,8 +10,6 @@ import UIKit
 
 class HikeDetailsViewController: UIViewController {
     
-    let mockHike = HikeJSON(longitude: -105.2979, latitude: 40.02, hikeName: "Sunshine Lion's Lair Loop", apiID: 7004226, hikeImageURLAsString: "https://cdn-files.apstatic.com/hike/7039883_smallMed_1555092747.jpg", hikeRating: 4.5, ascent: 1261, difficulty: "blue", distance: 5.3)
-    
     var hike: HikeJSON?
     
     //Outlets
@@ -26,10 +24,6 @@ class HikeDetailsViewController: UIViewController {
     @IBOutlet weak var ascentLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var currentWeatherLabel: UILabel!
-    
-    
-
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +89,7 @@ class HikeDetailsViewController: UIViewController {
     
     //Actions
     @IBAction func directionsButtonTapped(_ sender: Any) {
+        print("debug step")
     }
     
     @IBAction func hikeMapButtonTapped(_ sender: Any) {

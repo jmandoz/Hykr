@@ -18,7 +18,7 @@ class HikeAnnotation: MKPointAnnotation {
     }
     
     var name: String {
-        return hike.hikeName!
+        return hike.hikeName
     }
     
     init(hike: HikeJSON) {
