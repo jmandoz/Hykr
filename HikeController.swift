@@ -22,17 +22,16 @@ class HikeController {
     //Create
     
     // After completion, append that hike to User's hike array
-    func createHikeWith(longitude: Double, latitude: Double, hikeName: String, hikeRating: Double, apiID: Int, hikeAscent: Int, hikeDifficulty: String, hikeDistance: Double, hikeApiImage: UIImage, completion: @escaping (Hike?) -> Void) {
+    func createHikeWith(longitude: Double, latitude: Double, hikeName: String, hikeRating: Double, apiID: Int, hikeAscent: Int, hikeDifficulty: String, hikeDistance: Double, hikeApiImage: UIImage, user: User, completion: @escaping (Hike?) -> Void) {
         
         guard let user = UserController.sharedInstance.currentUser else { completion(nil) ; return }
-        let reference = CKRecord.Reference(recordID: user.recordID, action: .deleteSelf)
-        let hike = Hike(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, apiID: apiID, hikeAscent: hikeAscent, hikeDifficulty: hikeDifficulty, hikeDistance: hikeDistance, hikeApiImage: hikeApiImage, reference: [reference])
+        let hike = Hike(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, apiID: apiID, hikeAscent: hikeAscent, hikeDifficulty: hikeDifficulty, hikeDistance: hikeDistance, hikeApiImage: hikeApiImage, user: user)
         let record = CKRecord(hike: hike)
         let database = self.publicDB
         
         CloudKitController.shared.save(record: record, database: database) { (record) in
             if let record = record {
-                let savedHike = Hike(record: record)
+                let savedHike = Hike(record: record, user: user)
                 completion(savedHike)
             } else {
                 completion(nil)
@@ -41,34 +40,35 @@ class HikeController {
         }
     }
     
-    func checkHikeStatus(apiID: Int, completion: @escaping (Bool) -> Void) {
-        guard let user = UserController.sharedInstance.currentUser else { completion(false) ; return }
-        let predicate = NSPredicate(format: "apiID == %@", apiID)
-        CloudKitController.shared.fetchRecords(ofType: HikeConstants.typeKey, withPredicate: predicate, database: self.publicDB) { (records) in
-            if let records = records {
-                let hike = Hike(record: records.first!)
-                if let hike = hike {
-                    let reference = CKRecord.Reference(recordID: user.recordID, action: .none)
-                    hike.references.append(reference)
-                    user.savedHikes.append(hike)
-                    // Update the hike here
-                    self.update(hike: hike, completion: { (success) in
-                        if success {
-                            completion(true)
-                        }
-                    })
-                }
-            } else {
-                completion(false)
-                return
-                // if completion false call the save function
-            }
-        }
-    }
+//    func checkHikeStatus(apiID: Int, completion: @escaping (Bool) -> Void) {
+//        guard let user = UserController.sharedInstance.currentUser else { completion(false) ; return }
+//       // let predicate = NSPredicate(format: "apiID == %@", apiID)
+//        let predicate = NSPredicate(value: true)
+//        CloudKitController.shared.fetchRecords(ofType: HikeConstants.typeKey, withPredicate: predicate, database: self.publicDB) { (records) in
+//            if let records = records {
+//                let hike = Hike(record: records.first!)
+//                if let hike = hike {
+//                    let reference = CKRecord.Reference(recordID: user.recordID, action: .none)
+//                    hike.references.append(reference)
+//                    user.savedHikes.append(hike)
+//                    // Update the hike here
+//                    self.update(hike: hike, completion: { (success) in
+//                        if success {
+//                            completion(true)
+//                        }
+//                    })
+//                }
+//            } else {
+//                completion(false)
+//                return
+//                // if completion false call the save function
+//            }
+//        }
+//    }
     
     // Read
     
-    func fetchHikes(predicate: NSCompoundPredicate, completion: @escaping ([Hike]?) -> Void) {
+    func fetchHikes(user: User, predicate: NSCompoundPredicate, completion: @escaping ([Hike]?) -> Void) {
         
         CloudKitController.shared.fetchRecords(ofType: HikeConstants.typeKey, withPredicate: predicate, database: self.publicDB) { (foundRecords) in
             guard let foundRecords = foundRecords else { completion(nil) ; return }
@@ -79,7 +79,7 @@ class HikeController {
 //                hikeRecords.append(hike)
 //            }
             // Same as above just using .compactMap
-            let hikes = foundRecords.compactMap({ Hike(record: $0) })
+            let hikes = foundRecords.compactMap({ Hike(record: $0, user: user) })
             completion(hikes)
         }
     }

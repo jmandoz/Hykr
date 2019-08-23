@@ -105,22 +105,33 @@ class HikeDetailsViewController: UIViewController {
         guard let hikeImage = hikeImage else { return }
         guard let user = UserController.sharedInstance.currentUser,
             let hike = hike else { return }
-        
-        HikeController.sharedInstance.checkHikeStatus(apiID: hike.apiID) { (success) in
-            if success {
-                UserController.sharedInstance.updateUserInfo(user: user)
-            } else {
-                guard let longitude = hike.longitude,
-                    let latitude = hike.latitude,
-                    let hikeRating = hike.hikeRating else { return }
-                HikeController.sharedInstance.createHikeWith(longitude: longitude, latitude: latitude, hikeName: hike.hikeName, hikeRating: hikeRating, apiID: hike.apiID, hikeAscent: hike.ascent, hikeDifficulty: hike.difficulty, hikeDistance: hike.distance, hikeApiImage: hikeImage, completion: { (hike) in
-                    if let hike = hike {
-                        user.savedHikes.append(hike)
-                        UserController.sharedInstance.updateUserInfo(user: user)
-                    }
-                })
+        guard let longitude = hike.longitude,
+            let latitude = hike.latitude,
+            let hikeRating = hike.hikeRating else { return }
+        HikeController.sharedInstance.createHikeWith(longitude: longitude, latitude: latitude, hikeName: hike.hikeName, hikeRating: hikeRating, apiID: hike.apiID, hikeAscent: hike.ascent, hikeDifficulty: hike.difficulty, hikeDistance: hike.distance, hikeApiImage: hikeImage, user: user) { (hike) in
+            if let hike = hike {
+              //  user.savedHikes.append(hike)
+                //UserController.sharedInstance.updateUserInfo(user: user)
+                print ("Succesfully created hike")
             }
         }
+
+        
+//        HikeController.sharedInstance.checkHikeStatus(apiID: hike.apiID) { (success) in
+//            if success {
+//                UserController.sharedInstance.updateUserInfo(user: user)
+//            } else {
+//                guard let longitude = hike.longitude,
+//                    let latitude = hike.latitude,
+//                    let hikeRating = hike.hikeRating else { return }
+//                HikeController.sharedInstance.createHikeWith(longitude: longitude, latitude: latitude, hikeName: hike.hikeName, hikeRating: hikeRating, apiID: hike.apiID, hikeAscent: hike.ascent, hikeDifficulty: hike.difficulty, hikeDistance: hike.distance, hikeApiImage: hikeImage, completion: { (hike) in
+//                    if let hike = hike {
+//                        user.savedHikes.append(hike)
+//                        UserController.sharedInstance.updateUserInfo(user: user)
+//                    }
+//                })
+//            }
+//        }
     }
     /*
     // MARK: - Navigation

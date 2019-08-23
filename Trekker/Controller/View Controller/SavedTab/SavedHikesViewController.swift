@@ -18,11 +18,14 @@ class SavedHikesViewController: UIViewController, UITableViewDelegate, UITableVi
         savedHikesTableView.dataSource = self
         savedHikesTableView.delegate = self
         guard let user = UserController.sharedInstance.currentUser else { return }
-        let userPredicate = NSPredicate(format: "reference == %@", user.recordID)
+        let userPredicate = NSPredicate(format: "userReference == %@", user.recordID)
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [userPredicate])
-        HikeController.sharedInstance.fetchHikes(predicate: compoundPredicate) { (hikes) in
+        HikeController.sharedInstance.fetchHikes(user: user, predicate: compoundPredicate) { (hikes) in
             guard let userHikeArray = hikes else { return }
             UserController.sharedInstance.currentUser?.savedHikes = userHikeArray
+            DispatchQueue.main.async {
+                self.savedHikesTableView.reloadData()
+            }
         }
         
         // Do any additional setup after loading the view.
