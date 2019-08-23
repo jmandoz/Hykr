@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sux-N7-rO9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h6L-7o-flx">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Home Page View Controller-->
         <scene sceneID="fke-sb-vZp">
             <objects>
-                <viewController storyboardIdentifier="HikeMap" id="Sux-N7-rO9" customClass="HomePageViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Sux-N7-rO9" customClass="HomePageViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d0e-Nn-QlE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,37 +21,35 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lNr-er-lXK">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                             </mapView>
-                            <searchBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jt7-NL-6fR">
-                                <rect key="frame" x="10" y="61.5" width="394" height="56"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvd-Cm-IvJ">
                                 <rect key="frame" x="0.0" y="569" width="414" height="244"/>
                                 <connections>
                                     <segue destination="Gi1-jT-wLN" kind="embed" identifier="containerViewEmbedSegue" id="X2u-pI-z29"/>
                                 </connections>
                             </containerView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jt7-NL-6fR">
+                                <rect key="frame" x="25" y="77" width="349" height="56"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="jt7-NL-6fR" firstAttribute="leading" secondItem="fZ3-tl-MSX" secondAttribute="leading" constant="25" id="3UI-vk-FRa"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="trailing" secondItem="fZ3-tl-MSX" secondAttribute="trailing" id="7cS-RZ-pZb"/>
                             <constraint firstItem="fZ3-tl-MSX" firstAttribute="bottom" secondItem="hvd-Cm-IvJ" secondAttribute="bottom" id="8H7-MH-AAF"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="bottom" secondItem="fZ3-tl-MSX" secondAttribute="bottom" id="CYd-Ut-oJE"/>
                             <constraint firstItem="hvd-Cm-IvJ" firstAttribute="width" secondItem="lNr-er-lXK" secondAttribute="width" id="DKC-es-43s"/>
                             <constraint firstItem="hvd-Cm-IvJ" firstAttribute="height" secondItem="lNr-er-lXK" secondAttribute="height" multiplier="0.3" id="FWf-QD-Gwl"/>
-                            <constraint firstItem="jt7-NL-6fR" firstAttribute="centerX" secondItem="d0e-Nn-QlE" secondAttribute="centerX" id="Had-bm-wsf"/>
-                            <constraint firstItem="jt7-NL-6fR" firstAttribute="centerY" secondItem="d0e-Nn-QlE" secondAttribute="centerY" multiplier="0.2" id="Iaw-lk-79D"/>
+                            <constraint firstItem="jt7-NL-6fR" firstAttribute="trailing" secondItem="fZ3-tl-MSX" secondAttribute="trailing" constant="-40" id="b16-ge-Gke"/>
                             <constraint firstItem="hvd-Cm-IvJ" firstAttribute="centerX" secondItem="d0e-Nn-QlE" secondAttribute="centerX" id="hBd-G2-4BN"/>
-                            <constraint firstItem="jt7-NL-6fR" firstAttribute="leading" secondItem="fZ3-tl-MSX" secondAttribute="leading" constant="10" id="nmq-g3-uY0"/>
+                            <constraint firstItem="jt7-NL-6fR" firstAttribute="top" secondItem="fZ3-tl-MSX" secondAttribute="top" constant="-11" id="pb1-FP-ZSs"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="leading" secondItem="fZ3-tl-MSX" secondAttribute="leading" id="qlL-9o-1S8"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="top" secondItem="d0e-Nn-QlE" secondAttribute="top" id="yoO-Ua-nBS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fZ3-tl-MSX"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="SKs-s5-50s"/>
-                    <navigationItem key="navigationItem" id="ln6-d1-Uu4"/>
+                    <navigationItem key="navigationItem" id="66F-Ri-0ZK"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="lNr-er-lXK" id="wGd-lE-dtK"/>
@@ -61,15 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wio-fL-ehr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2208.695652173913" y="-1397.5446428571429"/>
-        </scene>
-        <!--HikeDetails-->
-        <scene sceneID="Ght-hU-YmO">
-            <objects>
-                <viewControllerPlaceholder storyboardName="HikeDetails" id="5tT-EE-K8y" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ev0-cx-DhZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3260" y="-966"/>
+            <point key="canvasLocation" x="3117.3913043478265" y="-1397.5446428571429"/>
         </scene>
         <!--Sliding Details View Controller-->
         <scene sceneID="oPK-Sn-CNA">
@@ -122,7 +112,7 @@
                                         <state key="normal" title="Hike Details"/>
                                         <connections>
                                             <action selector="hikeDetailsButtonTapped:" destination="Gi1-jT-wLN" eventType="touchUpInside" id="HYj-3D-rei"/>
-                                            <segue destination="5tT-EE-K8y" kind="show" identifier="toHikeDetailsVC" id="1S9-St-TgJ"/>
+                                            <segue destination="5Zj-Gs-PT2" kind="show" identifier="toHikeDetailsVC" id="3bc-Ic-0s5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xz2-0K-09Q">
@@ -158,7 +148,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jxh-Gy-9uk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2209" y="-893"/>
+            <point key="canvasLocation" x="3116" y="-891"/>
+        </scene>
+        <!--HikeDetails-->
+        <scene sceneID="Fbk-p5-xwv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HikeDetails" id="5Zj-Gs-PT2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kBt-xF-BjX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3796" y="-891"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="DzE-S1-4t5">
+            <objects>
+                <navigationController storyboardIdentifier="HikeMap" automaticallyAdjustsScrollViewInsets="NO" id="h6L-7o-flx" customClass="CustomNavigationController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="SKs-s5-50s"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="M4V-GA-6TM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Sux-N7-rO9" kind="relationship" relationship="rootViewController" id="arL-QP-9be"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="81E-Oa-ZTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2207.2463768115945" y="-1397.5446428571429"/>
         </scene>
     </scenes>
 </document>

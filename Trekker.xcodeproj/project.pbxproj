@@ -46,6 +46,7 @@
 		A4E7E826230C837600805E31 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E7E825230C837600805E31 /* PhotoTableViewCell.swift */; };
 		A4E7E829230C8E6300805E31 /* CloudKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E7E828230C8E6300805E31 /* CloudKitController.swift */; };
 		A4E7E82B230C966600805E31 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E7E82A230C966600805E31 /* EditAccountViewController.swift */; };
+		A4EF0573230F907400729B0E /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EF0572230F907400729B0E /* CustomNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		A4E7E825230C837600805E31 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		A4E7E828230C8E6300805E31 /* CloudKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitController.swift; sourceTree = "<group>"; };
 		A4E7E82A230C966600805E31 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
+		A4EF0572230F907400729B0E /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +243,7 @@
 			children = (
 				A4508A6B230B082D002ED843 /* HomePageViewController.swift */,
 				A42C6387230EF5350023D7CE /* SlidingDetailsViewController.swift */,
+				A4EF0572230F907400729B0E /* CustomNavigationController.swift */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				A4508A63230B011C002ED843 /* LandingViewController.swift in Sources */,
 				A4508A6C230B082D002ED843 /* HomePageViewController.swift in Sources */,
 				A4508A67230B057A002ED843 /* SignUpInfoViewController.swift in Sources */,
+				A4EF0573230F907400729B0E /* CustomNavigationController.swift in Sources */,
 				3A14B685230C88F400DE2DCE /* NetworkController.swift in Sources */,
 				3A14B67B230C5DD800DE2DCE /* HikeController.swift in Sources */,
 				A4508A74230B3D12002ED843 /* SavedHikesTableViewCell.swift in Sources */,

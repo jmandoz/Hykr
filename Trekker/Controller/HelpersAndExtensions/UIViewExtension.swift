@@ -37,4 +37,19 @@ extension UIView {
             self.widthAnchor.constraint(equalToConstant: width).isActive = true
         }
     }
+    
+    func addShadow() {
+        self.clipsToBounds = true
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = .zero
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowRadius = 1
+        self.layer.masksToBounds = false
+        self.layer.shouldRasterize = true
+    }
+    
+    func cornerRadius(_ radius: CGFloat = 4) {
+        self.layer.cornerRadius = radius
+    }
 }
