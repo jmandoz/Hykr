@@ -25,6 +25,9 @@ struct HikeJSON: Decodable {
     let ascent: Int
     let difficulty: String
     let distance: Double
+    var wackyUUID: String {
+        return "\(hikeName)_\(hikeRating ?? 0)_\(distance)"
+    }
     
     enum CodingKeys: String, CodingKey {
         case longitude

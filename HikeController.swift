@@ -31,7 +31,8 @@ class HikeController {
         
         CloudKitController.shared.save(record: record, database: database) { (record) in
             if let record = record {
-                let savedHike = Hike(record: record, user: user)
+                guard let savedHike = Hike(record: record, user: user) else {return}
+                user.savedHikes.append(savedHike)
                 completion(savedHike)
             } else {
                 completion(nil)

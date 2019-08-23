@@ -18,6 +18,14 @@ class LandingViewController: UIViewController {
         setUpUI()
         UserController.sharedInstance.fetchUser { (success) in
             if success {
+                guard let user = UserController.sharedInstance.currentUser else { return }
+                let predicate = NSPredicate(format: "userReference == %@", user.recordID)
+                let compPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate])
+                HikeController.sharedInstance.fetchHikes(user: user, predicate: compPredicate, completion: { (hikes) in
+                    if let hikes = hikes {
+                        UserController.sharedInstance.currentUser?.savedHikes = hikes
+                    }
+                })
                 DispatchQueue.main.async {
                     self.presentHomeView()
                 }

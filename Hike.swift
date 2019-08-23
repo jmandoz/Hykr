@@ -23,6 +23,9 @@ class Hike {
     var hikeDistance: Double
     var isCompleted: Bool
     var hikeApiImageData: Data?
+    var wackyUUID: String {
+        return "\(hikeName)_\(hikeRating)_\(hikeDistance)"
+    }
     var hikeApiImage: UIImage? {
         get {
             guard let hikeApiImageData = hikeApiImageData else { return nil }
