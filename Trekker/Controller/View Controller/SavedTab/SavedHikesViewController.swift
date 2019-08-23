@@ -9,8 +9,7 @@
 import UIKit
 
 class SavedHikesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    //TODO: Remove this var after bot extension is moved over to HikeDetailVC
-    var hike: HikeJSON?
+
     
     @IBOutlet weak var savedHikesTableView: UITableView!
     
@@ -19,11 +18,14 @@ class SavedHikesViewController: UIViewController, UITableViewDelegate, UITableVi
         savedHikesTableView.dataSource = self
         savedHikesTableView.delegate = self
         guard let user = UserController.sharedInstance.currentUser else { return }
-        let userPredicate = NSPredicate(format: "reference == %@", user.recordID)
+        let userPredicate = NSPredicate(format: "userReference == %@", user.recordID)
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [userPredicate])
-        HikeController.sharedInstance.fetchHikes(predicate: compoundPredicate) { (hikes) in
+        HikeController.sharedInstance.fetchHikes(user: user, predicate: compoundPredicate) { (hikes) in
             guard let userHikeArray = hikes else { return }
             UserController.sharedInstance.currentUser?.savedHikes = userHikeArray
+            DispatchQueue.main.async {
+                self.savedHikesTableView.reloadData()
+            }
         }
         
         // Do any additional setup after loading the view.
@@ -57,31 +59,3 @@ class SavedHikesViewController: UIViewController, UITableViewDelegate, UITableVi
 
 }
 
-// TODO: Move this code over to HikeDetailsViewController under saveButtonTapped func
-extension SavedHikesViewController {
-    
-    
-    func saveButtonTapped() {
-        
-        // Set image from fetch image func here
-        guard let image: UIImage = UIImage(named: "pic1") else { return }
-        guard let user = UserController.sharedInstance.currentUser,
-        let hike = hike else { return }
-        
-        HikeController.sharedInstance.checkHikeStatus(apiID: hike.apiID) { (success) in
-            if success {
-                UserController.sharedInstance.updateUserInfo(user: user)
-            } else {
-                guard let longitude = hike.longitude,
-                    let latitude = hike.latitude,
-                let hikeRating = hike.hikeRating else { return }
-                HikeController.sharedInstance.createHikeWith(longitude: longitude, latitude: latitude, hikeName: hike.hikeName, hikeRating: hikeRating, apiID: hike.apiID, hikeAscent: hike.ascent, hikeDifficulty: hike.difficulty, hikeDistance: hike.distance, hikeApiImage: image, completion: { (hike) in
-                    if let hike = hike {
-                        user.savedHikes.append(hike)
-                        UserController.sharedInstance.updateUserInfo(user: user)
-                    }
-                })
-            }
-        }
-    }
-}
