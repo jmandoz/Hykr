@@ -21,8 +21,15 @@ class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        guard let user = UserController.sharedInstance.currentUser else { return }
+        nameLabel.text = user.firstName + " " + user.lastName
+        emailLabel.text = user.email
     }
     
     //Actions

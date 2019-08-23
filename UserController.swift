@@ -66,15 +66,17 @@ class UserController {
     // Update
     
     // TODO: Grab user values to update outside of this function
-    func updateUserInfo(user: User) {
+    func updateUserInfo(user: User, completion: @escaping (Bool) -> Void) {
         let recordToSave = CKRecord(user: user)
         let database = self.publicDB
         
         CloudKitController.shared.update(record: recordToSave, database: database) { (success) in
             if success {
                 print("User updated succesfully")
+                completion(true)
             } else {
                 print("User failed to update")
+                completion(false)
             }
         }
     }
