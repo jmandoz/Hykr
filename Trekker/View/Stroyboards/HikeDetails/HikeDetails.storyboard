@@ -43,6 +43,9 @@
                                                 <rect key="frame" x="84.5" y="0.0" width="30" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="♥︎"/>
+                                                <connections>
+                                                    <action selector="heartButtonTapped:" destination="0MI-Pa-N3g" eventType="touchUpInside" id="tet-fS-CwC"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
