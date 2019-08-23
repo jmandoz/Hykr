@@ -46,6 +46,20 @@ class SavedHikesViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell ?? UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let savedHike = UserController.sharedInstance.currentUser?.savedHikes[indexPath.row] else { return }
+            HikeController.sharedInstance.deleteSavedHike(hike: savedHike) { (success) in
+                if success {
+                    print ("Succesfully deleted hike")
+                } else {
+                    print ("Failed to delete hike")
+                }
+            }
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 
     /*
     // MARK: - Navigation
