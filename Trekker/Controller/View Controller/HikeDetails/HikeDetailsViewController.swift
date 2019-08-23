@@ -12,6 +12,8 @@ class HikeDetailsViewController: UIViewController {
     
     var hike: HikeJSON?
     
+    var savedHikesTempArray: [Hike]?
+    
     var hikeImage: UIImage?
     
     //Outlets
@@ -31,6 +33,8 @@ class HikeDetailsViewController: UIViewController {
         super.viewDidLoad()
         displayHikeInfo()
         fetchWeatherInfo()
+        guard let user = UserController.sharedInstance.currentUser else {return}
+        checkHikesSavedHikes(Hikes: user.savedHikes)
     }
     
     func fetchWeatherInfo() {
@@ -88,6 +92,21 @@ class HikeDetailsViewController: UIViewController {
         difficultyLabel.text = hike.difficulty
         distanceLabel.text = "\(hike.distance)"
         ascentLabel.text = "\(hike.ascent)"
+    }
+    
+    func fetchHikesForTempArray() {
+        
+    }
+    
+    func checkHikesSavedHikes(Hikes: [Hike]) {
+        guard let hike = self.hike else {return}
+        for savedHike in Hikes {
+            if savedHike.wackyUUID == hike.wackyUUID {
+                DispatchQueue.main.async {
+                    self.heartButton.alpha = 0
+                }
+            }
+        }
     }
     
     //Actions
