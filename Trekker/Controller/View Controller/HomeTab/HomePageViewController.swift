@@ -34,14 +34,10 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+        searchBar.delegate = self
         mapView.delegate = self
         CoreLocationController.shared.activateLocationServices()
         getMyRegion()
@@ -63,7 +59,8 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
     
     func getMyRegion() {
         DispatchQueue.main.async {
-            guard let latitude = CoreLocationController.shared.locationManager.location?.coordinate.latitude, let longitude = CoreLocationController.shared.locationManager.location?.coordinate.longitude else {return}
+            guard let latitude = CoreLocationController.shared.locationManager.location?.coordinate.latitude,
+                let longitude = CoreLocationController.shared.locationManager.location?.coordinate.longitude else {return}
             let userCoordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             let mySpan = MKCoordinateSpan(latitudeDelta: 0.4, longitudeDelta: 0.4)
             let myRegion = MKCoordinateRegion(center: userCoordinates, span: mySpan)
@@ -114,6 +111,20 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
     }
 }
 
+extension HomePageViewController: UISearchBarDelegate {
+    
+        func hideKeyboardWhenTappedAround() {
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomePageViewController.dismissKeyboard))
+            tap.cancelsTouchesInView = false
+            view.addGestureRecognizer(tap)
+        }
+        
+        @objc func dismissKeyboard() {
+            view.endEditing(true)
+        }
+    
+}
+
 extension HomePageViewController: MKMapViewDelegate {
     func showDetailView() {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseIn, animations: {
@@ -148,7 +159,6 @@ extension HomePageViewController: MKMapViewDelegate {
         guard let selectedAnnotation = view.annotation as? HikeAnnotation else { return }
         selectedHike = selectedAnnotation.hike
         view.centerOffset = CGPoint(x: 0, y: -10)
-        
         DispatchQueue.main.async {
             self.showDetailView()
         }
