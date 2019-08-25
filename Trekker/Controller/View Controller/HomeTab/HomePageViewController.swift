@@ -8,10 +8,15 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegate {
     
+    
     //Properties
+    var sourceLocation = CLLocationCoordinate2D()
+    var destinationLocation = CLLocationCoordinate2D()
+    var directionsArray: [MKDirections] = []
     let screenSize = UIScreen.main.bounds.size
     var selectedHikeVC = SlidingDetailsViewController()
     var selectedHike: HikeJSON?
@@ -21,7 +26,7 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
     var searchResults: [HikeJSON] = []
     
     //Outlets
-    @IBOutlet weak var searchBar: UISearchBar!
+
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var slidingDetailView: UIView!
     
@@ -36,8 +41,6 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
-        searchBar.delegate = self
         mapView.delegate = self
         CoreLocationController.shared.activateLocationServices()
         getMyRegion()
@@ -46,10 +49,14 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
         // Do any additional setup after loading the view.
     }
     
+    
     func setUpUI() {
         slidingDetailView.cornerRadius(50)
-        searchBar.tintColor = .clear
-        searchBar.backgroundColor = .clear
+        let searchController = UISearchController(searchResultsController: nil)
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationItem.searchController?.searchBar.tintColor = .white
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,6 +105,53 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
             }
             self.createAnnotations(hikeArray: self.searchResults)
         }
+    }
+    
+    func directionsButtonTapped() {
+        getDirections()
+    }
+    
+    func getDirections() {
+        guard let hikeLat = selectedHike?.latitude,
+            let hikeLong = selectedHike?.longitude,
+            let userLat = CoreLocationController.shared.locationManager.location?.coordinate.latitude,
+            let userLong = CoreLocationController.shared.locationManager.location?.coordinate.longitude
+            else {return}
+        let sourceCoordinate = CLLocationCoordinate2DMake(userLat, userLong)
+        let destinationCoordinate = CLLocationCoordinate2DMake(hikeLat, hikeLong)
+        sourceLocation = sourceCoordinate
+        destinationLocation = destinationCoordinate
+        let request = createDirectionRequest()
+        let directions = MKDirections(request: request)
+        resetMapWithNew(directions: directions)
+        directions.calculate { [unowned self] (response, error) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+                return
+            }
+            guard let directionResponse = response else {return}
+            let route = directionResponse.routes[0]
+            self.mapView.addOverlay(route.polyline, level: .aboveRoads)
+            self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+        }
+    }
+    
+    func resetMapWithNew(directions: MKDirections) {
+        mapView.removeOverlays(mapView.overlays)
+        directionsArray.append(directions)
+        let _ = directionsArray.map {($0.cancel())}
+        directionsArray.removeAll()
+    }
+    
+    func createDirectionRequest() -> MKDirections.Request {
+        let startingLocatin = MKPlacemark(coordinate: sourceLocation)
+        let destinationCoordinate = MKPlacemark(coordinate: destinationLocation)
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: startingLocatin)
+        request.destination = MKMapItem(placemark: destinationCoordinate)
+        request.transportType = .automobile
+        request.requestsAlternateRoutes = true
+        return request
     }
     
     // MARK: - Navigation
@@ -153,6 +207,13 @@ extension HomePageViewController: MKMapViewDelegate {
             return annotationView
         }
         return nil
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)
+        renderer.strokeColor = .blue
+        renderer.fillColor = .blue
+        return renderer
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {

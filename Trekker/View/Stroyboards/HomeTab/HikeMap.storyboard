@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home Page View Controller-->
+        <!--Trekker-->
         <scene sceneID="fke-sb-vZp">
             <objects>
                 <viewController id="Sux-N7-rO9" customClass="HomePageViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
@@ -27,33 +27,24 @@
                                     <segue destination="Gi1-jT-wLN" kind="embed" identifier="containerViewEmbedSegue" id="X2u-pI-z29"/>
                                 </connections>
                             </containerView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jt7-NL-6fR">
-                                <rect key="frame" x="25" y="77" width="349" height="56"/>
-                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jt7-NL-6fR" firstAttribute="leading" secondItem="fZ3-tl-MSX" secondAttribute="leading" constant="25" id="3UI-vk-FRa"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="trailing" secondItem="fZ3-tl-MSX" secondAttribute="trailing" id="7cS-RZ-pZb"/>
                             <constraint firstItem="fZ3-tl-MSX" firstAttribute="bottom" secondItem="hvd-Cm-IvJ" secondAttribute="bottom" id="8H7-MH-AAF"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="bottom" secondItem="fZ3-tl-MSX" secondAttribute="bottom" id="CYd-Ut-oJE"/>
                             <constraint firstItem="hvd-Cm-IvJ" firstAttribute="width" secondItem="lNr-er-lXK" secondAttribute="width" id="DKC-es-43s"/>
                             <constraint firstItem="hvd-Cm-IvJ" firstAttribute="height" secondItem="lNr-er-lXK" secondAttribute="height" multiplier="0.3" id="FWf-QD-Gwl"/>
-                            <constraint firstItem="jt7-NL-6fR" firstAttribute="trailing" secondItem="fZ3-tl-MSX" secondAttribute="trailing" constant="-40" id="b16-ge-Gke"/>
                             <constraint firstItem="hvd-Cm-IvJ" firstAttribute="centerX" secondItem="d0e-Nn-QlE" secondAttribute="centerX" id="hBd-G2-4BN"/>
-                            <constraint firstItem="jt7-NL-6fR" firstAttribute="top" secondItem="fZ3-tl-MSX" secondAttribute="top" constant="-11" id="pb1-FP-ZSs"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="leading" secondItem="fZ3-tl-MSX" secondAttribute="leading" id="qlL-9o-1S8"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="top" secondItem="d0e-Nn-QlE" secondAttribute="top" id="yoO-Ua-nBS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fZ3-tl-MSX"/>
                     </view>
-                    <navigationItem key="navigationItem" id="66F-Ri-0ZK"/>
+                    <navigationItem key="navigationItem" title="Trekker" id="66F-Ri-0ZK"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="lNr-er-lXK" id="wGd-lE-dtK"/>
-                        <outlet property="searchBar" destination="jt7-NL-6fR" id="Jwd-z5-7f0"/>
                         <outlet property="slidingDetailView" destination="hvd-Cm-IvJ" id="CWl-Bb-jCH"/>
                     </connections>
                 </viewController>
@@ -164,8 +155,8 @@
                 <navigationController storyboardIdentifier="HikeMap" automaticallyAdjustsScrollViewInsets="NO" id="h6L-7o-flx" customClass="CustomNavigationController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="SKs-s5-50s"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="M4V-GA-6TM">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="M4V-GA-6TM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
