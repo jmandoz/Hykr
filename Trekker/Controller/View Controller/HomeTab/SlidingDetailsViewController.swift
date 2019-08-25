@@ -16,7 +16,7 @@ class SlidingDetailsViewController: UIViewController {
             guard let hike = selectedHikeLanding else {return}
             hikeNameLabel.text = hike.hikeName
             hikeRatingLabel.text = "\(String(describing: hike.hikeRating))"
-            hikeDistanceLabel.text = "Need to get distance"
+            hikeDistanceLabel.alpha = 0
         }
     }
     
@@ -36,7 +36,7 @@ class SlidingDetailsViewController: UIViewController {
     }
     
     @IBAction func directionsButtonTapped(_ sender: Any) {
-        delegate?.directionsButtonTapped()
+        delegate?.directionsButtonTapped(view: self)
     }
     
     @IBAction func hikeDetailsButtonTapped(_ sender: Any) {
@@ -60,5 +60,5 @@ class SlidingDetailsViewController: UIViewController {
 }
 
 protocol HikeDetailsViewControllerDelegate: class {
-    func directionsButtonTapped()
+    func directionsButtonTapped(view: SlidingDetailsViewController)
 }
