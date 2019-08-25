@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SlidingDetailsViewController: UIViewController {
     
@@ -35,7 +36,7 @@ class SlidingDetailsViewController: UIViewController {
     }
     
     @IBAction func directionsButtonTapped(_ sender: Any) {
-       
+        delegate?.directionsButtonTapped()
     }
     
     @IBAction func hikeDetailsButtonTapped(_ sender: Any) {
@@ -59,4 +60,5 @@ class SlidingDetailsViewController: UIViewController {
 }
 
 protocol HikeDetailsViewControllerDelegate: class {
+    func directionsButtonTapped()
 }
