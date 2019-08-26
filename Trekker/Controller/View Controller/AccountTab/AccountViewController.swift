@@ -21,6 +21,8 @@ class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let user = UserController.sharedInstance.currentUser else { return }
+        proPicImageView.image = user.profileImage
         
         
         // Do any additional setup after loading the view.
@@ -41,10 +43,32 @@ class AccountViewController: UIViewController {
     }
     
     @IBAction func milesButtonTapped(_ sender: Any) {
+        guard let user = UserController.sharedInstance.currentUser else { return }
+        if user.unitsInMiles != true {
+            user.unitsInMiles = false
+            UserController.sharedInstance.updateUserInfo(user: user) { (success) in
+                if success {
+                    print ("User units updated succesfully")
+                } else {
+                    print ("User units not updated for some reason")
+                }
+            }
+        }
         
     }
     
     @IBAction func kiloButtonTapped(_ sender: Any) {
+        guard let user = UserController.sharedInstance.currentUser else { return }
+        if user.unitsInMiles == true {
+            user.unitsInMiles = false
+            UserController.sharedInstance.updateUserInfo(user: user) { (success) in
+                if success {
+                    print ("User units updated succesfully")
+                } else {
+                    print ("User units not updated for some reason")
+                }
+            }
+        }
         
     }
     
@@ -100,6 +124,13 @@ extension AccountViewController: UIImagePickerControllerDelegate, UINavigationCo
         picker.dismiss(animated: true, completion: nil)
         if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             proPicImageView.image = photo
+            guard let user = UserController.sharedInstance.currentUser else { return }
+            user.profileImage = photo
+            UserController.sharedInstance.updateUserInfo(user: user) { (success) in
+                if success {
+                    
+                }
+            }
         }
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
