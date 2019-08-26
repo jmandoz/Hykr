@@ -100,12 +100,6 @@ extension Hike {
         guard let photo = UIImage(data: hikeApiImageData) else { return nil }
         
         self.init(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, numberOfRatings: numberOfRatings, apiID: apiID, hikeAscent: hikeAscent, hikeDifficulty: hikeDifficulty, hikeDistance: hikeDistance, isCompleted: isCompleted, hikeApiImage: photo, user: user, recordID: record.recordID)
-//        self.longitude = longitude
-//        self.latitude = latitude
-//        self.hikeName = hikeName
-//        self.hikeRating = hikeRating
-//        self.numberOfRatings = numberOfRatings
-        
     }
     
     

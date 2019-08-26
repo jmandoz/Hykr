@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AxS-3X-aKH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile no pic" translatesAutoresizingMaskIntoConstraints="NO" id="AxS-3X-aKH">
                                 <rect key="frame" x="87" y="171" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="8w2-tu-jGF"/>
@@ -75,6 +75,13 @@
                                     <segue destination="Zdw-Nc-kws" kind="show" id="UNa-VM-ux7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHs-FM-mJu">
+                                <rect key="frame" x="281" y="181" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="changeProfilePicButtonTapped:" destination="WT4-Km-Ah3" eventType="touchUpInside" id="aIL-I1-c2l"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -83,9 +90,11 @@
                             <constraint firstItem="qR7-2v-jiq" firstAttribute="centerY" secondItem="zQH-Z0-40N" secondAttribute="centerY" multiplier="1.4" id="IQS-5y-nDW"/>
                             <constraint firstItem="iMa-TL-EU5" firstAttribute="centerX" secondItem="zQH-Z0-40N" secondAttribute="centerX" id="Nck-a2-C5E"/>
                             <constraint firstItem="AxS-3X-aKH" firstAttribute="centerY" secondItem="zQH-Z0-40N" secondAttribute="centerY" multiplier="0.65" id="PA0-X3-WGa"/>
+                            <constraint firstItem="YHs-FM-mJu" firstAttribute="top" secondItem="AxS-3X-aKH" secondAttribute="top" constant="10" id="ZAF-5v-Ygr"/>
                             <constraint firstItem="SDf-bp-Kkc" firstAttribute="centerX" secondItem="zQH-Z0-40N" secondAttribute="centerX" id="ZVw-Pk-fHr"/>
                             <constraint firstItem="siL-mI-GL7" firstAttribute="centerX" secondItem="zQH-Z0-40N" secondAttribute="centerX" id="bIT-4Y-5OK"/>
                             <constraint firstItem="siL-mI-GL7" firstAttribute="centerY" secondItem="zQH-Z0-40N" secondAttribute="centerY" multiplier="1.1" id="dNk-zc-Ug4"/>
+                            <constraint firstItem="YHs-FM-mJu" firstAttribute="trailing" secondItem="AxS-3X-aKH" secondAttribute="trailing" id="dSA-Q0-Jxw"/>
                             <constraint firstItem="SDf-bp-Kkc" firstAttribute="top" secondItem="qR7-2v-jiq" secondAttribute="bottom" constant="25" id="gRw-b5-xzm"/>
                             <constraint firstItem="AxS-3X-aKH" firstAttribute="centerX" secondItem="zQH-Z0-40N" secondAttribute="centerX" id="rsJ-Lr-715"/>
                         </constraints>
@@ -93,6 +102,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="Fm1-ni-0Vh"/>
                     <connections>
+                        <outlet property="changeProfilePicButton" destination="YHs-FM-mJu" id="75N-Qb-YqM"/>
                         <outlet property="changeUnitsButton" destination="qR7-2v-jiq" id="4bs-v5-p3e"/>
                         <outlet property="emailLabel" destination="djb-Ww-SHB" id="Eq8-x6-XsD"/>
                         <outlet property="kiloButton" destination="qMV-M9-GYb" id="f3n-kB-xmP"/>
@@ -237,4 +247,7 @@
             <point key="canvasLocation" x="-1062.3188405797102" y="1382.8125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profile no pic" width="506" height="350"/>
+    </resources>
 </document>
