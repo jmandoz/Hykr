@@ -27,15 +27,24 @@
                                     <segue destination="Gi1-jT-wLN" kind="embed" identifier="containerViewEmbedSegue" id="X2u-pI-z29"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJZ-gP-vVN">
+                                <rect key="frame" x="10" y="150" width="48" height="48"/>
+                                <state key="normal" image="target home"/>
+                                <connections>
+                                    <action selector="centerLocationButtonTapped:" destination="Sux-N7-rO9" eventType="touchUpInside" id="fRD-2U-nUv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fJZ-gP-vVN" firstAttribute="leading" secondItem="fZ3-tl-MSX" secondAttribute="leading" constant="10" id="58W-lI-Xuv"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="trailing" secondItem="fZ3-tl-MSX" secondAttribute="trailing" id="7cS-RZ-pZb"/>
                             <constraint firstItem="fZ3-tl-MSX" firstAttribute="bottom" secondItem="hvd-Cm-IvJ" secondAttribute="bottom" id="8H7-MH-AAF"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="bottom" secondItem="fZ3-tl-MSX" secondAttribute="bottom" id="CYd-Ut-oJE"/>
                             <constraint firstItem="hvd-Cm-IvJ" firstAttribute="width" secondItem="lNr-er-lXK" secondAttribute="width" id="DKC-es-43s"/>
                             <constraint firstItem="hvd-Cm-IvJ" firstAttribute="height" secondItem="lNr-er-lXK" secondAttribute="height" multiplier="0.3" id="FWf-QD-Gwl"/>
                             <constraint firstItem="hvd-Cm-IvJ" firstAttribute="centerX" secondItem="d0e-Nn-QlE" secondAttribute="centerX" id="hBd-G2-4BN"/>
+                            <constraint firstItem="fJZ-gP-vVN" firstAttribute="top" secondItem="fZ3-tl-MSX" secondAttribute="top" constant="10" id="jIm-EX-p8B"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="leading" secondItem="fZ3-tl-MSX" secondAttribute="leading" id="qlL-9o-1S8"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="top" secondItem="d0e-Nn-QlE" secondAttribute="top" id="yoO-Ua-nBS"/>
                         </constraints>
@@ -44,6 +53,7 @@
                     <navigationItem key="navigationItem" title="Trekker" id="66F-Ri-0ZK"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="centerLocationButton" destination="fJZ-gP-vVN" id="l8u-1E-p1x"/>
                         <outlet property="mapView" destination="lNr-er-lXK" id="wGd-lE-dtK"/>
                         <outlet property="slidingDetailView" destination="hvd-Cm-IvJ" id="CWl-Bb-jCH"/>
                     </connections>
@@ -170,4 +180,7 @@
             <point key="canvasLocation" x="2207.2463768115945" y="-1397.5446428571429"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="target home" width="48" height="48"/>
+    </resources>
 </document>

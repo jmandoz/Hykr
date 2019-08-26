@@ -12,6 +12,7 @@ import CoreLocation
 
 class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegate {
     
+    @IBOutlet weak var centerLocationButton: UIButton!
     
     
     //Properties
@@ -28,9 +29,10 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
     var directionsArray: [MKDirections] = []
     var selectedHikeVC = SlidingDetailsViewController()
     var annotationSelected: Bool = false
-    let currentLongitude = CoreLocationController.shared.locationManager.location?.coordinate.longitude
-    let currentLatitude = CoreLocationController.shared.locationManager.location?.coordinate.latitude
+    var currentLongitude = CoreLocationController.shared.locationManager.location?.coordinate.longitude
+    var currentLatitude = CoreLocationController.shared.locationManager.location?.coordinate.latitude
     let screenSize = UIScreen.main.bounds.size
+    var searchBar: UISearchBar?
     
     //Outlets
     
@@ -48,12 +50,22 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       // CoreLocationController.shared.locationManager.delegate = self
         mapView.delegate = self
+        centerLocationButton.isHidden = true
         CoreLocationController.shared.activateLocationServices()
         getMyRegion()
         setUpUI()
         
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func centerLocationButtonTapped(_ sender: Any) {
+        self.currentLongitude = CoreLocationController.shared.locationManager.location?.coordinate.longitude
+        self.currentLatitude = CoreLocationController.shared.locationManager.location?.coordinate.latitude
+        getMyRegion()
+        fetchHikes()
+        centerLocationButton.isHidden = true
     }
     
     func setUpUI() {
@@ -62,7 +74,8 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
         self.navigationItem.searchController?.searchBar.tintColor = .white
-        
+        self.searchBar = searchController.searchBar
+        self.searchBar?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,8 +85,8 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
     
     func getMyRegion() {
         DispatchQueue.main.async {
-            guard let latitude = CoreLocationController.shared.locationManager.location?.coordinate.latitude,
-                let longitude = CoreLocationController.shared.locationManager.location?.coordinate.longitude else {return}
+            guard let latitude = self.currentLatitude,
+                let longitude = self.currentLongitude else {return}
             let userCoordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             let mySpan = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
             let myRegion = MKCoordinateRegion(center: userCoordinates, span: mySpan)
@@ -204,6 +217,48 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
 }
 
 extension HomePageViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        updateSearchResultsForSearchController(searchBar: searchBar)
+    }
+    
+    func updateSearchResultsForSearchController(searchBar: UISearchBar) {
+        guard let mapView = mapView,
+            let searchBarText = searchBar.text else { return }
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = searchBarText
+        request.region = mapView.region
+        let search = MKLocalSearch(request: request)
+        search.start { (response, error) in
+            guard let response = response else {
+                print("Error: \(error?.localizedDescription ?? "Unknown error").")
+                return
+            }
+            
+            self.currentLongitude = response.mapItems[0].placemark.coordinate.longitude
+            self.currentLatitude = response.mapItems[0].placemark.coordinate.latitude
+            self.centerLocationButton.isHidden = false
+            self.getMyRegion()
+            self.fetchHikes()
+        }
+    }
+    
+    func getCoordinate(addressString: String, completionHandler: @escaping(CLLocationCoordinate2D, NSError?) -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(addressString) { (placemarks, error) in
+            if error == nil {
+                if let placemark = placemarks?[0] {
+                    let location = placemark.location!
+                    
+                    completionHandler(location.coordinate, nil)
+                    return
+                }
+            }
+            
+            completionHandler(kCLLocationCoordinate2DInvalid, error as NSError?)
+        }
+    }
+    
     
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomePageViewController.dismissKeyboard))
