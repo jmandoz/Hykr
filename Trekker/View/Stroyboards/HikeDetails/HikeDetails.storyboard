@@ -200,6 +200,7 @@
                     <navigationItem key="navigationItem" title="Hike Details" id="QAg-8n-NIs"/>
                     <connections>
                         <outlet property="ascentLabel" destination="QfC-t6-2K9" id="kiK-6Y-jme"/>
+                        <outlet property="completeButton" destination="W20-St-iKq" id="KOY-v2-qPD"/>
                         <outlet property="currentWeatherLabel" destination="Hba-rs-GZS" id="CQe-CN-NGL"/>
                         <outlet property="difficultyLabel" destination="7YZ-VE-SFz" id="k9l-gu-7x5"/>
                         <outlet property="directionsButton" destination="O2B-a9-gCP" id="w02-Ur-h5f"/>
@@ -209,7 +210,6 @@
                         <outlet property="hikeNameLabel" destination="vW5-oj-h7e" id="caQ-y6-RbI"/>
                         <outlet property="imageView" destination="oCP-YV-Z66" id="mpd-oe-ko4"/>
                         <outlet property="ratingLabel" destination="BqP-n5-J6w" id="1ei-ti-0b0"/>
-                        <outlet property="saveButton" destination="W20-St-iKq" id="3bQ-y5-fIs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zr0-S0-osM" userLabel="First Responder" sceneMemberID="firstResponder"/>

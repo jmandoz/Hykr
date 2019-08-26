@@ -19,7 +19,7 @@ class HikeDetailsViewController: UIViewController {
     //Outlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var directionsButton: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var completeButton: UIButton!
     @IBOutlet weak var hikeMapButton: UIButton!
     @IBOutlet weak var heartButton: UIButton!
     @IBOutlet weak var hikeNameLabel: UILabel!
@@ -34,7 +34,8 @@ class HikeDetailsViewController: UIViewController {
         displayHikeInfo()
         fetchWeatherInfo()
         guard let user = UserController.sharedInstance.currentUser else {return}
-        checkHikesSavedHikes(Hikes: user.savedHikes)
+        checkSavedHikes(Hikes: user.savedHikes)
+        checkHikeLog(Hikes: user.hikeLog)
     }
     
     func fetchWeatherInfo() {
@@ -94,15 +95,24 @@ class HikeDetailsViewController: UIViewController {
         ascentLabel.text = "\(hike.ascent)"
     }
     
-    func fetchHikesForTempArray() {
-        
-    }
-    
-    func checkHikesSavedHikes(Hikes: [Hike]) {
+    func checkSavedHikes(Hikes: [Hike]) {
         guard let hike = self.hike else {return}
         for savedHike in Hikes {
             if savedHike.wackyUUID == hike.wackyUUID {
                 DispatchQueue.main.async {
+                    self.heartButton.alpha = 0
+                }
+            }
+        }
+    }
+    
+    func checkHikeLog(Hikes: [Hike]) {
+        guard let hike = self.hike else {return}
+        for loggedHikes in Hikes {
+            if loggedHikes.wackyUUID == hike.wackyUUID {
+                DispatchQueue.main.async {
+                    self.completeButton.setTitle("Completed", for: .normal)
+                    self.completeButton.backgroundColor = .green
                     self.heartButton.alpha = 0
                 }
             }
@@ -118,6 +128,60 @@ class HikeDetailsViewController: UIViewController {
     }
     
     @IBAction func completeButtonTapped(_ sender: Any) {
+        guard let hike = hike else {return}
+        completeHike(hike: hike)
+    }
+    
+    func completeHike(hike: HikeJSON) {
+        guard let user = UserController.sharedInstance.currentUser,
+            let hikeLat = hike.latitude,
+            let hikeLong = hike.longitude,
+            let hikeRating = hike.hikeRating,
+            let hikeImage = hikeImage else {return}
+        for savedHike in user.savedHikes {
+            if savedHike.wackyUUID == hike.wackyUUID {
+                user.hikeLog.append(savedHike)
+                let index = user.savedHikes.firstIndex(of: savedHike)
+                user.savedHikes.remove(at: index!)
+                savedHike.isCompleted = true
+                HikeController.sharedInstance.update(hike: savedHike) { (success) in
+                    if success {
+                        print("successfully updated hike to complete and removed it from saved hikes")
+                    }
+                }
+            } else {
+                HikeController.sharedInstance.createHikeWith(longitude: hikeLong, latitude: hikeLat, hikeName: hike.hikeName, hikeRating: hikeRating, apiID: hike.apiID, hikeAscent: hike.ascent, hikeDifficulty: hike.difficulty, hikeDistance: hike.distance, hikeApiImage: hikeImage, user: user) { (hike) in
+                    if let hike = hike {
+                        user.hikeLog.append(hike)
+                        hike.isCompleted = true
+                        HikeController.sharedInstance.update(hike: hike, completion: { (success) in
+                            if success {
+                                print("successfully updated record")
+                            }
+                        })
+                        print("Hike Saved to hike log")
+                    }
+                }
+            }
+        }
+        if user.savedHikes.count == 0 {
+        HikeController.sharedInstance.createHikeWith(longitude: hikeLong, latitude: hikeLat, hikeName: hike.hikeName, hikeRating: hikeRating, apiID: hike.apiID, hikeAscent: hike.ascent, hikeDifficulty: hike.difficulty, hikeDistance: hike.distance, hikeApiImage: hikeImage, user: user) { (hike) in
+                    if let hike = hike {
+                        user.hikeLog.append(hike)
+                        hike.isCompleted = true
+                        HikeController.sharedInstance.update(hike: hike, completion: { (success) in
+                            if success {
+                                print("successfully updated record")
+                            }
+                        })
+                        print("Hike Saved to hike log")
+                    }
+                }
+            }
+        DispatchQueue.main.async {
+            self.completeButton.setTitle("Completed", for: .normal)
+            self.completeButton.backgroundColor = .green
+        }
     }
     
     @IBAction func heartButtonTapped(_ sender: Any) {
@@ -129,38 +193,10 @@ class HikeDetailsViewController: UIViewController {
             let hikeRating = hike.hikeRating else { return }
         HikeController.sharedInstance.createHikeWith(longitude: longitude, latitude: latitude, hikeName: hike.hikeName, hikeRating: hikeRating, apiID: hike.apiID, hikeAscent: hike.ascent, hikeDifficulty: hike.difficulty, hikeDistance: hike.distance, hikeApiImage: hikeImage, user: user) { (hike) in
             if let hike = hike {
-              //  user.savedHikes.append(hike)
-                //UserController.sharedInstance.updateUserInfo(user: user)
+                user.savedHikes.append(hike)
                 print ("Succesfully created hike")
             }
         }
-
-        
-//        HikeController.sharedInstance.checkHikeStatus(apiID: hike.apiID) { (success) in
-//            if success {
-//                UserController.sharedInstance.updateUserInfo(user: user)
-//            } else {
-//                guard let longitude = hike.longitude,
-//                    let latitude = hike.latitude,
-//                    let hikeRating = hike.hikeRating else { return }
-//                HikeController.sharedInstance.createHikeWith(longitude: longitude, latitude: latitude, hikeName: hike.hikeName, hikeRating: hikeRating, apiID: hike.apiID, hikeAscent: hike.ascent, hikeDifficulty: hike.difficulty, hikeDistance: hike.distance, hikeApiImage: hikeImage, completion: { (hike) in
-//                    if let hike = hike {
-//                        user.savedHikes.append(hike)
-//                        UserController.sharedInstance.updateUserInfo(user: user)
-//                    }
-//                })
-//            }
-//        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 

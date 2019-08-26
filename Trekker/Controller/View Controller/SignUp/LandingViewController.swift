@@ -23,7 +23,13 @@ class LandingViewController: UIViewController {
                 let compPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate])
                 HikeController.sharedInstance.fetchHikes(user: user, predicate: compPredicate, completion: { (hikes) in
                     if let hikes = hikes {
-                        UserController.sharedInstance.currentUser?.savedHikes = hikes
+                        for hike in hikes {
+                            if hike.isCompleted == false {
+                                UserController.sharedInstance.currentUser?.savedHikes.append(hike)
+                            } else {
+                                UserController.sharedInstance.currentUser?.hikeLog.append(hike)
+                            }
+                        }
                     }
                 })
                 DispatchQueue.main.async {
