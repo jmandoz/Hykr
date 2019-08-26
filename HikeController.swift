@@ -32,7 +32,6 @@ class HikeController {
         CloudKitController.shared.save(record: record, database: database) { (record) in
             if let record = record {
                 guard let savedHike = Hike(record: record, user: user) else {return}
-                user.savedHikes.append(savedHike)
                 completion(savedHike)
             } else {
                 completion(nil)
@@ -41,45 +40,12 @@ class HikeController {
         }
     }
     
-//    func checkHikeStatus(apiID: Int, completion: @escaping (Bool) -> Void) {
-//        guard let user = UserController.sharedInstance.currentUser else { completion(false) ; return }
-//       // let predicate = NSPredicate(format: "apiID == %@", apiID)
-//        let predicate = NSPredicate(value: true)
-//        CloudKitController.shared.fetchRecords(ofType: HikeConstants.typeKey, withPredicate: predicate, database: self.publicDB) { (records) in
-//            if let records = records {
-//                let hike = Hike(record: records.first!)
-//                if let hike = hike {
-//                    let reference = CKRecord.Reference(recordID: user.recordID, action: .none)
-//                    hike.references.append(reference)
-//                    user.savedHikes.append(hike)
-//                    // Update the hike here
-//                    self.update(hike: hike, completion: { (success) in
-//                        if success {
-//                            completion(true)
-//                        }
-//                    })
-//                }
-//            } else {
-//                completion(false)
-//                return
-//                // if completion false call the save function
-//            }
-//        }
-//    }
-    
     // Read
     
     func fetchHikes(user: User, predicate: NSCompoundPredicate, completion: @escaping ([Hike]?) -> Void) {
         
         CloudKitController.shared.fetchRecords(ofType: HikeConstants.typeKey, withPredicate: predicate, database: self.publicDB) { (foundRecords) in
             guard let foundRecords = foundRecords else { completion(nil) ; return }
-            // Loops through array of records and inits a hike from each, appends it to the temp array.
-//            var hikeRecords: [Hike] = []
-//            for record in foundRecords {
-//                guard let hike = Hike(record: record) else { continue }
-//                hikeRecords.append(hike)
-//            }
-            // Same as above just using .compactMap
             let hikes = foundRecords.compactMap({ Hike(record: $0, user: user) })
             completion(hikes)
         }
