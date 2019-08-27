@@ -25,6 +25,10 @@ class SavedHikesViewController: UIViewController, UITableViewDelegate, UITableVi
         self.savedHikesTableView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 125
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let user = UserController.sharedInstance.currentUser else { return 1 }
         return user.savedHikes.count
