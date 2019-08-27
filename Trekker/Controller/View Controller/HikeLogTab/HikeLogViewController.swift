@@ -23,6 +23,10 @@ class HikeLogViewController: UIViewController {
         super.viewDidAppear(animated)
         self.hikeLogTableView.reloadData()
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 125
+    }
     /*
     // MARK: - Navigation
 
