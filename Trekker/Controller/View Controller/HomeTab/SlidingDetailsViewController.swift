@@ -13,11 +13,11 @@ class SlidingDetailsViewController: UIViewController {
     
     var selectedHikeLanding: HikeJSON? {
         didSet {
-            guard let hike = selectedHikeLanding else {return}
+            guard let hike = selectedHikeLanding, let user = UserController.sharedInstance.currentUser else {return}
             hikeNameLabel.text = hike.hikeName
             hikeRatingLabel.text = "\(String(describing: hike.hikeRating))"
             hikeDistanceLabel.alpha = 0
-            checkHikes(selectedHike: hike)
+            checkHikeArrays(savedArray: user.savedHikes, hikeLogArray: user.hikeLog, hike: hike)
         }
     }
     
@@ -78,56 +78,29 @@ class SlidingDetailsViewController: UIViewController {
         }
     }
     
-    func checkHikes(selectedHike: HikeJSON) {
-        guard let user = UserController.sharedInstance.currentUser else {return}
-        checkHikeLogs(selectedHike: selectedHike) { (success) in
-            if success == true {
-                return
-            } else if user.savedHikes.count == 0 {
-                DispatchQueue.main.async {
-                    self.saveButton.setTitle("Save", for: .normal)
-                    self.saveButton.backgroundColor = .white
-                    self.saveButton.isEnabled = true
-                }
-            } else {
-                for hike in user.savedHikes {
-                    if hike.wackyUUID == selectedHike.wackyUUID {
-                        DispatchQueue.main.async {
-                            self.saveButton.setTitle("Saved", for: .normal)
-                            self.saveButton.backgroundColor = .green
-                            self.saveButton.isEnabled = false
-                        }
-                    } else {
-                        DispatchQueue.main.async {
-                            self.saveButton.setTitle("Save", for: .normal)
-                            self.saveButton.backgroundColor = .white
-                            self.saveButton.isEnabled = true
-                        }
-                    }
-                }
+    func checkHikeArrays(savedArray: [Hike], hikeLogArray: [Hike], hike: HikeJSON) {
+        let savedUuids = savedArray.map({ $0.wackyUUID })
+        let logsUuids = hikeLogArray.map({ $0.wackyUUID })
+        if logsUuids.contains(hike.wackyUUID) {
+            DispatchQueue.main.async {
+                self.saveButton.setTitle("Completed", for: .normal)
+                self.saveButton.backgroundColor = .red
+                self.saveButton.isEnabled = false
+            }
+        } else if savedUuids.contains(hike.wackyUUID) {
+            DispatchQueue.main.async {
+                self.saveButton.setTitle("Saved", for: .normal)
+                self.saveButton.backgroundColor = .green
+                self.saveButton.isEnabled = false
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.saveButton.setTitle("Save", for: .normal)
+                self.saveButton.backgroundColor = .white
+                self.saveButton.isEnabled = true
             }
         }
     }
-    
-    func checkHikeLogs(selectedHike: HikeJSON, completion: @escaping (Bool) -> Void) {
-        guard let user = UserController.sharedInstance.currentUser else {return}
-        for hike in user.hikeLog {
-            if hike.wackyUUID == selectedHike.wackyUUID {
-                DispatchQueue.main.async {
-                    self.saveButton.setTitle("Completed", for: .normal)
-                    self.saveButton.backgroundColor = .red
-                    self.saveButton.isEnabled = false
-                }
-                completion(true)
-            } else {
-                completion(false)
-            }
-        }
-        if user.hikeLog.count == 0 {
-            completion(false)
-        }
-    }
-    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -136,7 +109,6 @@ class SlidingDetailsViewController: UIViewController {
             destinationsVC?.hike = selectedHikeLanding
         }
     }
-    
 }
 
 protocol HikeDetailsViewControllerDelegate: class {

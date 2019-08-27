@@ -128,59 +128,54 @@ class HikeDetailsViewController: UIViewController {
     }
     
     @IBAction func completeButtonTapped(_ sender: Any) {
-        guard let hike = hike else {return}
-        completeHike(hike: hike)
+        checkUserHikes()
     }
     
-    func completeHike(hike: HikeJSON) {
+    func checkUserHikes() {
         guard let user = UserController.sharedInstance.currentUser,
-            let hikeLat = hike.latitude,
-            let hikeLong = hike.longitude,
-            let hikeRating = hike.hikeRating,
-            let hikeImage = hikeImage else {return}
-        for savedHike in user.savedHikes {
-            if savedHike.wackyUUID == hike.wackyUUID {
-                user.hikeLog.append(savedHike)
-                let index = user.savedHikes.firstIndex(of: savedHike)
-                user.savedHikes.remove(at: index!)
-                savedHike.isCompleted = true
-                HikeController.sharedInstance.update(hike: savedHike) { (success) in
-                    if success {
-                        print("successfully updated hike to complete and removed it from saved hikes")
-                    }
+            let hike = hike
+            else { return }
+        let uuids = user.savedHikes.map({ $0.wackyUUID })
+        if uuids.contains(hike.wackyUUID) {
+            moveSavedHike(user: user, hikeJSON: hike)
+        } else {
+            createAndSaveCompletedHike(user: user, hike: hike)
+        }
+    }
+    
+    func moveSavedHike(user: User, hikeJSON: HikeJSON) {
+        for hike in user.savedHikes {
+            if hike.wackyUUID == hikeJSON.wackyUUID {
+                if let index = user.savedHikes.firstIndex(of: hike) {
+                    user.savedHikes.remove(at: index)
                 }
-            } else {
-                HikeController.sharedInstance.createHikeWith(longitude: hikeLong, latitude: hikeLat, hikeName: hike.hikeName, hikeRating: hikeRating, apiID: hike.apiID, hikeAscent: hike.ascent, hikeDifficulty: hike.difficulty, hikeDistance: hike.distance, hikeApiImage: hikeImage, user: user) { (hike) in
-                    if let hike = hike {
-                        user.hikeLog.append(hike)
-                        hike.isCompleted = true
-                        HikeController.sharedInstance.update(hike: hike, completion: { (success) in
-                            if success {
-                                print("successfully updated record")
-                            }
-                        })
-                        print("Hike Saved to hike log")
+                hike.isCompleted = true
+                user.hikeLog.append(hike)
+                HikeController.sharedInstance.update(hike: hike) { (success) in
+                    if success {
+                        DispatchQueue.main.async {
+                            self.completeButton.setTitle("Completed", for: .normal)
+                            self.completeButton.backgroundColor = .green
+                        }
                     }
                 }
             }
         }
-        if user.savedHikes.count == 0 {
+    }
+    
+    func createAndSaveCompletedHike(user: User, hike: HikeJSON) {
+        guard let hikeLat = hike.latitude,
+            let hikeLong = hike.longitude,
+            let hikeRating = hike.hikeRating,
+        let hikeImage = hikeImage else {return}
         HikeController.sharedInstance.createHikeWith(longitude: hikeLong, latitude: hikeLat, hikeName: hike.hikeName, hikeRating: hikeRating, apiID: hike.apiID, hikeAscent: hike.ascent, hikeDifficulty: hike.difficulty, hikeDistance: hike.distance, hikeApiImage: hikeImage, user: user) { (hike) in
-                    if let hike = hike {
-                        user.hikeLog.append(hike)
-                        hike.isCompleted = true
-                        HikeController.sharedInstance.update(hike: hike, completion: { (success) in
-                            if success {
-                                print("successfully updated record")
-                            }
-                        })
-                        print("Hike Saved to hike log")
-                    }
+            if let hike = hike {
+                user.hikeLog.append(hike)
+                DispatchQueue.main.async {
+                    self.completeButton.setTitle("Completed", for: .normal)
+                    self.completeButton.backgroundColor = .green
                 }
             }
-        DispatchQueue.main.async {
-            self.completeButton.setTitle("Completed", for: .normal)
-            self.completeButton.backgroundColor = .green
         }
     }
     
