@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SignUpInfoViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class SignUpInfoViewController: UIViewController {
     var lastNameLanding: String?
     var gender: String?
     var hikeDistance: Int?
+    var profileImage: UIImage?
     
     //TextField Outlet
     @IBOutlet weak var ageTextField: UITextField!
@@ -51,6 +53,11 @@ class SignUpInfoViewController: UIViewController {
     }
     
     
+    @IBAction func addProfilePicButtonTapped(_ sender: Any) {
+        presentImagePickerActionSheet()
+    }
+    
+    
     //Actions
     @IBAction func submitButtonTapped(_ sender: Any) {
         guard let email = emailLanding,
@@ -59,8 +66,7 @@ class SignUpInfoViewController: UIViewController {
             let age = ageTextField.text, !age.isEmpty, let ageAsInt = Int(age),
             let genderValue = gender,
             let hikeDist = hikeDistance,
-            //TODO: Update profile image to actually provide an image
-            let profileImage = UIImage(named: "profile no pic")
+            let profileImage = profileImage ?? UIImage(named: "profile no pic")
             else {return}
         
         UserController.sharedInstance.createUserWith(email: email, firstName: firstName, lastName: lastName, gender: genderValue, age: ageAsInt, hikeDistance: hikeDist, profileImage: profileImage) { (user) in
@@ -186,4 +192,59 @@ extension SignUpInfoViewController {
         view.endEditing(true)
     }
     
+}
+
+// MARK: Image picker extension
+
+extension SignUpInfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func presentImagePickerActionSheet(){
+        //creating an instance of UIImagePickerController initialized
+        let imagePickerController = UIImagePickerController()
+        //setting the ImagePickerController delegate
+        imagePickerController.delegate = self
+        //creating the action sheet that let's the user select either select a photo or use the camera
+        let actionSheet = UIAlertController(title: "Select a photo or take a picture", message: nil, preferredStyle: .actionSheet)
+        //MARK: - Select a photo from the Library
+        //Here we check if the photoLibrary is available as a source type
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            //if it is available, we add an action to the action sheet titled "Photo" and if it is selected, than the code below will run
+            actionSheet.addAction(UIAlertAction(title: "Photo", style: .default, handler: { (_) in
+                //we set our instance of imagePickerController and set it equal the source type we want: in this case photoLibrary
+                imagePickerController.sourceType = .photoLibrary
+                //we present imagePicker Controller
+                self.present(imagePickerController, animated: true, completion:  nil)
+            }))
+        }
+        //MARK: - Select your camera
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
+            self.requestCameraPermission()
+            //Here we check if the camera source type is available
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            } else {
+                let alertController = UIAlertController(title: "Camera access not allowed", message: "To use your camera in this app, please go to your phone's settings and allow us camera access.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .default)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+            }
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(actionSheet, animated: true)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.profileImage = photo
+        }
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func requestCameraPermission() {
+        AVCaptureDevice.requestAccess(for: .video, completionHandler: { accessGranted in
+            guard accessGranted == true else { return }
+        })
+    }
 }
