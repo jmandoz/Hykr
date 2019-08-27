@@ -75,9 +75,9 @@
                                     <segue destination="Zdw-Nc-kws" kind="show" id="UNa-VM-ux7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHs-FM-mJu">
-                                <rect key="frame" x="281" y="181" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHs-FM-mJu">
+                                <rect key="frame" x="311" y="181" width="16" height="22"/>
+                                <state key="normal" image="change photo icon"/>
                                 <connections>
                                     <action selector="changeProfilePicButtonTapped:" destination="WT4-Km-Ah3" eventType="touchUpInside" id="aIL-I1-c2l"/>
                                 </connections>
@@ -248,6 +248,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="change photo icon" width="22" height="22"/>
         <image name="profile no pic" width="506" height="350"/>
     </resources>
 </document>

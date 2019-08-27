@@ -58,10 +58,12 @@ class SignUpInfoViewController: UIViewController {
             let lastName = lastNameLanding,
             let age = ageTextField.text, !age.isEmpty, let ageAsInt = Int(age),
             let genderValue = gender,
-            let hikeDist = hikeDistance
+            let hikeDist = hikeDistance,
+            //TODO: Update profile image to actually provide an image
+            let profileImage = UIImage(named: "profile no pic")
             else {return}
         
-        UserController.sharedInstance.createUserWith(email: email, firstName: firstName, lastName: lastName, gender: genderValue, age: ageAsInt, hikeDistance: hikeDist) { (user) in
+        UserController.sharedInstance.createUserWith(email: email, firstName: firstName, lastName: lastName, gender: genderValue, age: ageAsInt, hikeDistance: hikeDist, profileImage: profileImage) { (user) in
             if user != nil {
                 self.presentHomePageView()
             }
