@@ -127,13 +127,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCv-IW-cGx">
-                                <rect key="frame" x="177" y="100.33333333333333" width="60.333333333333343" height="20.333333333333329"/>
+                                <rect key="frame" x="177" y="45" width="60.333333333333343" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Hfx-c7-dMJ">
-                                <rect key="frame" x="60.666666666666657" y="143.66666666666663" width="293" height="449"/>
+                                <rect key="frame" x="60.666666666666657" y="83.666666666666686" width="293" height="569"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tk-8J-eF1">
                                         <rect key="frame" x="0.0" y="0.0" width="56.666666666666664" height="20.333333333333332"/>
@@ -142,7 +142,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="I2z-Na-B5f">
-                                        <rect key="frame" x="0.0" y="56.333333333333343" width="183" height="30"/>
+                                        <rect key="frame" x="0.0" y="56.333333333333329" width="183" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBw-L8-1BL">
                                                 <rect key="frame" x="0.0" y="0.0" width="33" height="30"/>
@@ -174,13 +174,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Dw-ZW-6Eq">
-                                        <rect key="frame" x="0.0" y="178.66666666666666" width="25" height="30"/>
+                                        <rect key="frame" x="0.0" y="178.66666666666663" width="25" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your prefered hiking distance?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXV-ge-m9B">
-                                        <rect key="frame" x="0.0" y="244.66666666666666" width="293" height="20.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="244.66666666666663" width="293" height="20.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -206,7 +206,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgG-Hh-AsT">
-                                                        <rect key="frame" x="0.0" y="117.99999999999994" width="49" height="30"/>
+                                                        <rect key="frame" x="0.0" y="118" width="49" height="30"/>
                                                         <state key="normal" title="5 Miles"/>
                                                         <connections>
                                                             <action selector="hikeDistanceButtonTaooedWithSender:" destination="9Z3-Cg-jGO" eventType="touchUpInside" id="wQP-Nq-YAl"/>
@@ -232,7 +232,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XhW-NU-iKK">
-                                                        <rect key="frame" x="0.0" y="117.99999999999994" width="68" height="30"/>
+                                                        <rect key="frame" x="0.0" y="118" width="68" height="30"/>
                                                         <state key="normal" title="20+ Miles"/>
                                                         <connections>
                                                             <action selector="hikeDistanceButtonTaooedWithSender:" destination="9Z3-Cg-jGO" eventType="touchUpInside" id="Ru9-ZB-A7A"/>
@@ -242,10 +242,28 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="zWg-Si-ibw">
+                                        <rect key="frame" x="0.0" y="485" width="259.33333333333331" height="84"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Profile Picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vda-5g-nHm">
+                                                <rect key="frame" x="0.0" y="0.0" width="142.33333333333334" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wb-1N-unD">
+                                                <rect key="frame" x="177.33333333333334" y="0.0" width="82.000000000000028" height="84"/>
+                                                <state key="normal" image="Add Profile Pic icon"/>
+                                                <connections>
+                                                    <action selector="addProfilePicButtonTapped:" destination="9Z3-Cg-jGO" eventType="touchUpInside" id="0ug-Uo-9Dy"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DX-fE-amY">
-                                <rect key="frame" x="182.66666666666666" y="610.66666666666663" width="49" height="30"/>
+                                <rect key="frame" x="182.66666666666666" y="684.33333333333337" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitButtonTapped:" destination="9Z3-Cg-jGO" eventType="touchUpInside" id="MtX-3Z-yNT"/>
@@ -255,10 +273,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Hfx-c7-dMJ" firstAttribute="centerX" secondItem="9XO-py-nan" secondAttribute="centerX" id="17D-GU-lyK"/>
-                            <constraint firstItem="8DX-fE-amY" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" multiplier="1.7" id="C6e-93-ZCj"/>
+                            <constraint firstItem="8DX-fE-amY" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" multiplier="1.9" id="C6e-93-ZCj"/>
                             <constraint firstItem="Hfx-c7-dMJ" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" id="T9e-1p-8Ae"/>
                             <constraint firstItem="8DX-fE-amY" firstAttribute="centerX" secondItem="9XO-py-nan" secondAttribute="centerX" id="bh4-ly-xuI"/>
-                            <constraint firstItem="LCv-IW-cGx" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" multiplier="0.3" id="jkC-Od-1Ge"/>
+                            <constraint firstItem="LCv-IW-cGx" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" multiplier="0.15" id="jkC-Od-1Ge"/>
                             <constraint firstItem="LCv-IW-cGx" firstAttribute="centerX" secondItem="9XO-py-nan" secondAttribute="centerX" id="qJa-VI-chx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ppX-GU-ciC"/>
@@ -282,4 +300,7 @@
             <point key="canvasLocation" x="1534.7826086956522" y="-79.017857142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Add Profile Pic icon" width="82" height="84"/>
+    </resources>
 </document>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class AccountViewController: UIViewController {
     
@@ -109,14 +110,20 @@ extension AccountViewController: UIImagePickerControllerDelegate, UINavigationCo
             }))
         }
         //MARK: - Select your camera
-        //Here we check if the camera source type is available
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            //same as above, we are adding an action called "Camera"
-            actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
+            self.requestCameraPermission()
+            //Here we check if the camera source type is available
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 imagePickerController.sourceType = .camera
                 self.present(imagePickerController, animated: true, completion: nil)
-            }))
-        }
+            } else {
+                let alertController = UIAlertController(title: "Camera access not allowed", message: "To use your camera in this app, please go to your phone's settings and allow us camera access.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .default)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+            }
+        }))
+        
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(actionSheet, animated: true)
     }
@@ -135,5 +142,10 @@ extension AccountViewController: UIImagePickerControllerDelegate, UINavigationCo
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+    func requestCameraPermission() {
+        AVCaptureDevice.requestAccess(for: .video, completionHandler: { accessGranted in
+            guard accessGranted == true else { return }
+        })
     }
 }
