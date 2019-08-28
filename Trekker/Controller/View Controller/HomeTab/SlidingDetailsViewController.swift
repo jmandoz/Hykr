@@ -18,6 +18,11 @@ class SlidingDetailsViewController: UIViewController {
             hikeRatingLabel.text = "\(String(describing: hike.hikeRating))"
             hikeDistanceLabel.alpha = 0
             checkHikeArrays(savedArray: user.savedHikes, hikeLogArray: user.hikeLog, hike: hike)
+            fetchHikeImage(hike: hike) { (image) in
+                if let image = image {
+                    self.hikeImage = image
+                }
+            }
         }
     }
     
@@ -105,8 +110,9 @@ class SlidingDetailsViewController: UIViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toHikeDetailsVC" {
+            guard let hikelat = selectedHikeLanding?.latitude, let hikeLong = selectedHikeLanding?.longitude, let user = UserController.sharedInstance.currentUser, let hikeName = selectedHikeLanding?.hikeName, let hikeRating = selectedHikeLanding?.hikeRating, let apiID = selectedHikeLanding?.apiID, let ascent = selectedHikeLanding?.ascent, let diff = selectedHikeLanding?.difficulty, let dist = selectedHikeLanding?.distance, let image = hikeImage else {return}
             let destinationsVC = segue.destination as? HikeDetailsViewController
-            destinationsVC?.hike = selectedHikeLanding
+            destinationsVC?.hike = Hike(longitude: hikeLong, latitude: hikelat, hikeName: hikeName, hikeRating: hikeRating, apiID: apiID, hikeAscent: ascent, hikeDifficulty: diff, hikeDistance: dist, hikeApiImage: image, user: user)
         }
     }
 }
