@@ -59,15 +59,22 @@ class SavedHikesViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let user = UserController.sharedInstance.currentUser else {return}
+        if segue.identifier == "toHikeDetailsVC" {
+            guard let index = savedHikesTableView.indexPathForSelectedRow?.row else {return}
+            let destinationVC = segue.destination as? HikeDetailsViewController
+            let selectedHike = user.savedHikes[index]
+            destinationVC?.hike = selectedHike
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
 

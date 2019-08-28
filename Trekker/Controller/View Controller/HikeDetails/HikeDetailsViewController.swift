@@ -10,10 +10,8 @@ import UIKit
 
 class HikeDetailsViewController: UIViewController {
     
-    var hike: HikeJSON?
-    
+    var hike: Hike?
     var savedHikesTempArray: [Hike]?
-    
     var hikeImage: UIImage?
     
     //Outlets
@@ -28,7 +26,7 @@ class HikeDetailsViewController: UIViewController {
     @IBOutlet weak var ascentLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var currentWeatherLabel: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         displayHikeInfo()
@@ -40,7 +38,7 @@ class HikeDetailsViewController: UIViewController {
     
     func fetchWeatherInfo() {
         guard let hike = hike else { return }
-        let queryItems = [WeatherAPIStrings.latitudeQuery : "\(hike.latitude ?? 0)", WeatherAPIStrings.longitudeQuery : "\(hike.longitude ?? 0)", WeatherAPIStrings.unitsQuery : WeatherAPIStrings.unitsQueryValue, WeatherAPIStrings.apiKey : WeatherAPIStrings.apiKeyValue]
+        let queryItems = [WeatherAPIStrings.latitudeQuery : "\(hike.latitude)", WeatherAPIStrings.longitudeQuery : "\(hike.longitude)", WeatherAPIStrings.unitsQuery : WeatherAPIStrings.unitsQueryValue, WeatherAPIStrings.apiKey : WeatherAPIStrings.apiKeyValue]
         guard let url = NetworkController.sharedInstance.buildURL(baseURL: WeatherAPIStrings.baseURL, components: [WeatherAPIStrings.components], queryItems: queryItems) else { return }
         print (url)
         NetworkController.sharedInstance.getDataFromURL(url: url) { (data) in
@@ -65,7 +63,7 @@ class HikeDetailsViewController: UIViewController {
     func fetchHikeImage(hike: HikeJSON, completion: @escaping (UIImage?) -> Void) {
         
         guard let imageURLAsString = hike.hikeImageURLAsString,
-        let url = URL(string: imageURLAsString)
+            let url = URL(string: imageURLAsString)
             else { completion(nil); return }
         
         NetworkController.sharedInstance.getDataFromURL(url: url) { (data) in
@@ -79,20 +77,13 @@ class HikeDetailsViewController: UIViewController {
     
     func displayHikeInfo() {
         guard let hike = hike else { return }
-        fetchHikeImage(hike: hike) { (image) in
-            if image != nil{
-                DispatchQueue.main.async {
-                    self.hikeImage = image
-                    self.imageView.image = image
-                }
-            }
-        }
         hikeNameLabel.text = hike.hikeName
         // TODO: Figure out way to make rating not default to zero if rating is absent
-        ratingLabel.text = "\(hike.hikeRating ?? 0)"
-        difficultyLabel.text = hike.difficulty
-        distanceLabel.text = "\(hike.distance)"
-        ascentLabel.text = "\(hike.ascent)"
+        ratingLabel.text = "\(hike.hikeRating)"
+        difficultyLabel.text = hike.hikeDifficulty
+        distanceLabel.text = "\(hike.hikeDistance)"
+        ascentLabel.text = "\(hike.hikeAscent)"
+        imageView.image = hike.hikeApiImage
     }
     
     func checkSavedHikes(Hikes: [Hike]) {
@@ -143,7 +134,7 @@ class HikeDetailsViewController: UIViewController {
         }
     }
     
-    func moveSavedHike(user: User, hikeJSON: HikeJSON) {
+    func moveSavedHike(user: User, hikeJSON: Hike) {
         for hike in user.savedHikes {
             if hike.wackyUUID == hikeJSON.wackyUUID {
                 if let index = user.savedHikes.firstIndex(of: hike) {
@@ -163,12 +154,9 @@ class HikeDetailsViewController: UIViewController {
         }
     }
     
-    func createAndSaveCompletedHike(user: User, hike: HikeJSON) {
-        guard let hikeLat = hike.latitude,
-            let hikeLong = hike.longitude,
-            let hikeRating = hike.hikeRating,
-        let hikeImage = hikeImage else {return}
-        HikeController.sharedInstance.createHikeWith(longitude: hikeLong, latitude: hikeLat, hikeName: hike.hikeName, hikeRating: hikeRating, apiID: hike.apiID, hikeAscent: hike.ascent, hikeDifficulty: hike.difficulty, hikeDistance: hike.distance, hikeApiImage: hikeImage, user: user) { (hike) in
+    func createAndSaveCompletedHike(user: User, hike: Hike) {
+        guard let hikeImage = hike.hikeApiImage else {return}
+        HikeController.sharedInstance.createHikeWith(longitude: hike.longitude, latitude: hike.longitude, hikeName: hike.hikeName, hikeRating: hike.hikeRating, apiID: hike.apiID, hikeAscent: hike.hikeAscent, hikeDifficulty: hike.hikeDifficulty, hikeDistance: hike.hikeDistance, hikeApiImage: hikeImage, user: user) { (hike) in
             if let hike = hike {
                 user.hikeLog.append(hike)
                 DispatchQueue.main.async {
@@ -180,16 +168,15 @@ class HikeDetailsViewController: UIViewController {
     }
     
     @IBAction func heartButtonTapped(_ sender: Any) {
-        guard let hikeImage = hikeImage else { return }
-        guard let user = UserController.sharedInstance.currentUser,
-            let hike = hike else { return }
-        guard let longitude = hike.longitude,
-            let latitude = hike.latitude,
-            let hikeRating = hike.hikeRating else { return }
-        HikeController.sharedInstance.createHikeWith(longitude: longitude, latitude: latitude, hikeName: hike.hikeName, hikeRating: hikeRating, apiID: hike.apiID, hikeAscent: hike.ascent, hikeDifficulty: hike.difficulty, hikeDistance: hike.distance, hikeApiImage: hikeImage, user: user) { (hike) in
+        guard let hike = hike,
+            let user = UserController.sharedInstance.currentUser, let hikeImage = hike.hikeApiImage else {return}
+        HikeController.sharedInstance.createHikeWith(longitude: hike.longitude, latitude: hike.latitude, hikeName: hike.hikeName, hikeRating: hike.hikeRating, apiID: hike.apiID, hikeAscent: hike.hikeAscent, hikeDifficulty: hike.hikeDifficulty, hikeDistance: hike.hikeDistance, hikeApiImage: hikeImage, user: user) { (hike) in
             if let hike = hike {
                 user.savedHikes.append(hike)
-                print ("Succesfully created hike")
+                DispatchQueue.main.async {
+                    self.heartButton.setTitle("Saved", for: .normal)
+                    self.heartButton.isEnabled = false
+                }
             }
         }
     }
