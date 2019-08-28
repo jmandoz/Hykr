@@ -33,11 +33,16 @@ class EditAccountViewController: UIViewController {
         
         if let email = changeEmailTextField.text, let firstName = editNameTextField.text, let lastName = editLastNameTextField.text, let age = editAgeTextField.text {
             if email.isEmpty && firstName.isEmpty && lastName.isEmpty && age.isEmpty == true {
-                let alertController = UIAlertController(title: "All fields were empty", message: "Please edit a field to save changes.", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Ok", style: .default)
-                alertController.addAction(okAction)
+                DispatchQueue.main.async {
+                    
+                    let alertController = UIAlertController(title: "All fields were empty", message: "Please edit a field to save changes.", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Ok", style: .default)
+                    alertController.addAction(okAction)
+                    
+                    self.present(alertController, animated: true)
+                }
+                return
                 
-                self.present(alertController, animated: true)
             }
             
             if email != "" {
@@ -52,34 +57,22 @@ class EditAccountViewController: UIViewController {
             if age != "" {
                 user.age = Int(age)!
             }
-        }
-//        if changeEmailTextField.text != "" {
-//            user.email = changeEmailTextField.text!
-//        }
-//        if editNameTextField.text != "" {
-//            user.firstName = editNameTextField.text!
-//        }
-//        if editLastNameTextField.text != "" {
-//            user.lastName = editLastNameTextField.text!
-//        }
-//        if editAgeTextField.text != "" {
-//            user.age = Int(editAgeTextField.text!)!
-//        }
-        UserController.sharedInstance.updateUserInfo(user: user) { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    let alertController = UIAlertController(title: "Changes saved!", message: "", preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "Ok", style: .default)
-                    alertController.addAction(okAction)
-                    self.present(alertController, animated: true)
-                }
-                
-            } else {
-                DispatchQueue.main.async {
-                    let alertController = UIAlertController(title: "Error, changes failed to save", message: "", preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "Ok", style: .default)
-                    alertController.addAction(okAction)
-                    self.present(alertController, animated: true)
+            UserController.sharedInstance.updateUserInfo(user: user) { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        let alertController = UIAlertController(title: "Changes saved!", message: "", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "Ok", style: .default)
+                        alertController.addAction(okAction)
+                        self.present(alertController, animated: true)
+                    }
+                    
+                } else {
+                    DispatchQueue.main.async {
+                        let alertController = UIAlertController(title: "Error, changes failed to save", message: "", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "Ok", style: .default)
+                        alertController.addAction(okAction)
+                        self.present(alertController, animated: true)
+                    }
                 }
             }
         }
