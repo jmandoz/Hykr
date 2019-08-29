@@ -32,11 +32,14 @@ class HikeLogViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let user = UserController.sharedInstance.currentUser else {return}
+        if segue.identifier == "toHikeDetailsVC" {
+            guard let index = hikeLogTableView.indexPathForSelectedRow?.row else {return}
+            let destinationVC = segue.destination as? HikeDetailsViewController
+            let selectedHike = user.hikeLog[index]
+            destinationVC?.hike = selectedHike
+        }
     }
-    
-
 }
 
 extension HikeLogViewController: UITableViewDelegate, UITableViewDataSource {
@@ -54,6 +57,4 @@ extension HikeLogViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
         
     }
-    
-    
 }

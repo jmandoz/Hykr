@@ -53,7 +53,7 @@
                                         <connections>
                                             <outlet property="hikeImageView" destination="uyt-K5-T5v" id="v3b-8g-9NE"/>
                                             <outlet property="hikeNameLabel" destination="5D8-16-bhU" id="I3Y-WE-hcn"/>
-                                            <segue destination="iBT-vQ-9Av" kind="show" id="QN4-ec-fAh"/>
+                                            <segue destination="iBT-vQ-9Av" kind="show" identifier="toHikeDetailsVC" id="QN4-ec-fAh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

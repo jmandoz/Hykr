@@ -76,6 +76,8 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
         self.navigationItem.searchController?.searchBar.tintColor = .white
         self.searchBar = searchController.searchBar
         self.searchBar?.delegate = self
+        self.searchBar?.tintColor = .white
+        self.searchBar?.placeholder = "Search any location"
     }
     
     override func viewWillAppear(_ animated: Bool) {
