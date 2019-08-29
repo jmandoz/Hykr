@@ -178,16 +178,22 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top bar" translatesAutoresizingMaskIntoConstraints="NO" id="eKF-dP-har">
+                                <rect key="frame" x="0.0" y="798" width="414" height="69"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="eKF-dP-har" firstAttribute="trailing" secondItem="afj-uh-N0j" secondAttribute="trailing" id="0vX-ma-xY8"/>
                             <constraint firstItem="Lcx-FJ-R8a" firstAttribute="centerY" secondItem="xe1-Xj-ssg" secondAttribute="centerY" multiplier="0.9" id="3NC-CG-gJH"/>
                             <constraint firstItem="g5R-kT-iZT" firstAttribute="centerY" secondItem="xe1-Xj-ssg" secondAttribute="centerY" multiplier="1.15" id="3sO-eM-5xS"/>
                             <constraint firstItem="afj-uh-N0j" firstAttribute="trailing" secondItem="Lcx-FJ-R8a" secondAttribute="trailing" constant="10" id="IRg-49-gqD"/>
                             <constraint firstItem="afj-uh-N0j" firstAttribute="trailing" secondItem="g5R-kT-iZT" secondAttribute="trailing" constant="20" id="O1K-Hq-Jk6"/>
                             <constraint firstItem="Lcx-FJ-R8a" firstAttribute="leading" secondItem="afj-uh-N0j" secondAttribute="leading" constant="10" id="Piw-UY-oKk"/>
+                            <constraint firstItem="eKF-dP-har" firstAttribute="leading" secondItem="afj-uh-N0j" secondAttribute="leading" id="Q3J-II-wRc"/>
                             <constraint firstItem="oCP-YV-Z66" firstAttribute="centerY" secondItem="xe1-Xj-ssg" secondAttribute="centerY" multiplier="0.5" id="SpE-bi-t08"/>
                             <constraint firstAttribute="trailing" secondItem="oCP-YV-Z66" secondAttribute="trailing" id="U7Q-rf-IXh"/>
+                            <constraint firstItem="eKF-dP-har" firstAttribute="bottom" secondItem="afj-uh-N0j" secondAttribute="bottom" constant="5" id="Vrb-vQ-Nki"/>
                             <constraint firstItem="oCP-YV-Z66" firstAttribute="top" secondItem="afj-uh-N0j" secondAttribute="top" id="aJm-jE-l2h"/>
                             <constraint firstItem="afj-uh-N0j" firstAttribute="trailing" secondItem="br2-HK-hbV" secondAttribute="trailing" constant="20" id="b10-PV-ss4"/>
                             <constraint firstItem="br2-HK-hbV" firstAttribute="leading" secondItem="afj-uh-N0j" secondAttribute="leading" constant="20" id="eiv-vS-qQa"/>
@@ -270,4 +276,7 @@
             <point key="canvasLocation" x="4726.0869565217399" y="-978.34821428571422"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="top bar" width="414" height="69"/>
+    </resources>
 </document>

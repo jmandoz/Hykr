@@ -14,18 +14,18 @@
         <scene sceneID="Q9l-Vz-BP1">
             <objects>
                 <viewController id="WT4-Km-Ah3" customClass="AccountViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="zQH-Z0-40N">
+                    <view key="view" contentMode="scaleToFill" id="zQH-Z0-40N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile no pic" translatesAutoresizingMaskIntoConstraints="NO" id="AxS-3X-aKH">
-                                <rect key="frame" x="87" y="160" width="240" height="240"/>
+                                <rect key="frame" x="87" y="171" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="AxS-3X-aKH" secondAttribute="height" multiplier="1:1" id="CtB-SF-7Oz"/>
                                     <constraint firstAttribute="height" constant="240" id="kXv-Wj-uop"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="siL-mI-GL7">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="siL-mI-GL7">
                                 <rect key="frame" x="184.5" y="449.5" width="45" height="87"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqU-0O-wsB">
@@ -42,14 +42,14 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qR7-2v-jiq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qR7-2v-jiq">
                                 <rect key="frame" x="160.5" y="612" width="93" height="30"/>
                                 <state key="normal" title="Change Units"/>
                                 <connections>
                                     <action selector="changeUnitsButtonTapped:" destination="WT4-Km-Ah3" eventType="touchUpInside" id="qW8-p9-ioQ"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="SDf-bp-Kkc">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="SDf-bp-Kkc">
                                 <rect key="frame" x="99" y="667" width="216" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOY-m3-YUL">
@@ -68,7 +68,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMa-TL-EU5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMa-TL-EU5">
                                 <rect key="frame" x="169.5" y="746.5" width="75" height="30"/>
                                 <state key="normal" title="Edit Profile"/>
                                 <connections>
@@ -76,12 +76,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHs-FM-mJu">
-                                <rect key="frame" x="311" y="170" width="16" height="22"/>
+                                <rect key="frame" x="311" y="181" width="16" height="22"/>
                                 <state key="normal" image="change photo icon"/>
                                 <connections>
                                     <action selector="changeProfilePicButtonTapped:" destination="WT4-Km-Ah3" eventType="touchUpInside" id="aIL-I1-c2l"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top bar" translatesAutoresizingMaskIntoConstraints="NO" id="awc-n2-UGN">
+                                <rect key="frame" x="0.0" y="851" width="414" height="16"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -92,12 +95,14 @@
                             <constraint firstItem="AxS-3X-aKH" firstAttribute="centerY" secondItem="zQH-Z0-40N" secondAttribute="centerY" multiplier="0.65" id="PA0-X3-WGa"/>
                             <constraint firstItem="YHs-FM-mJu" firstAttribute="top" secondItem="AxS-3X-aKH" secondAttribute="top" constant="10" id="ZAF-5v-Ygr"/>
                             <constraint firstItem="SDf-bp-Kkc" firstAttribute="centerX" secondItem="zQH-Z0-40N" secondAttribute="centerX" id="ZVw-Pk-fHr"/>
-                            <constraint firstItem="AxS-3X-aKH" firstAttribute="top" secondItem="7Yr-3a-Fup" secondAttribute="top" constant="20" id="aEi-W4-Qhj"/>
+                            <constraint firstItem="awc-n2-UGN" firstAttribute="trailing" secondItem="7Yr-3a-Fup" secondAttribute="trailing" id="b2l-Ew-6yD"/>
                             <constraint firstItem="siL-mI-GL7" firstAttribute="centerX" secondItem="zQH-Z0-40N" secondAttribute="centerX" id="bIT-4Y-5OK"/>
                             <constraint firstItem="siL-mI-GL7" firstAttribute="centerY" secondItem="zQH-Z0-40N" secondAttribute="centerY" multiplier="1.1" id="dNk-zc-Ug4"/>
                             <constraint firstItem="YHs-FM-mJu" firstAttribute="trailing" secondItem="AxS-3X-aKH" secondAttribute="trailing" id="dSA-Q0-Jxw"/>
+                            <constraint firstItem="awc-n2-UGN" firstAttribute="leading" secondItem="7Yr-3a-Fup" secondAttribute="leading" id="gAX-XT-q2e"/>
                             <constraint firstItem="SDf-bp-Kkc" firstAttribute="top" secondItem="qR7-2v-jiq" secondAttribute="bottom" constant="25" id="gRw-b5-xzm"/>
                             <constraint firstItem="AxS-3X-aKH" firstAttribute="centerX" secondItem="zQH-Z0-40N" secondAttribute="centerX" id="rsJ-Lr-715"/>
+                            <constraint firstItem="7Yr-3a-Fup" firstAttribute="bottom" secondItem="awc-n2-UGN" secondAttribute="bottom" constant="-5" id="sX7-gv-1Ef"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Yr-3a-Fup"/>
                     </view>
@@ -202,15 +207,21 @@
                                     <action selector="deleteButtonTapped:" destination="Zdw-Nc-kws" eventType="touchUpInside" id="bsm-FI-Uqc"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top bar" translatesAutoresizingMaskIntoConstraints="NO" id="iQB-GF-pYk">
+                                <rect key="frame" x="0.0" y="798" width="414" height="69"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RCx-FO-mcX" firstAttribute="centerX" secondItem="koV-4C-ex4" secondAttribute="centerX" id="FzM-Gt-Z1q"/>
                             <constraint firstItem="T95-Ji-uTj" firstAttribute="centerY" secondItem="koV-4C-ex4" secondAttribute="centerY" multiplier="0.85" id="GRV-nL-P02"/>
+                            <constraint firstItem="rRF-4b-Sm7" firstAttribute="bottom" secondItem="iQB-GF-pYk" secondAttribute="bottom" constant="-5" id="Ov0-nO-Ypz"/>
                             <constraint firstItem="T95-Ji-uTj" firstAttribute="centerX" secondItem="koV-4C-ex4" secondAttribute="centerX" id="SCb-O6-2WB"/>
                             <constraint firstItem="rUa-5P-pcC" firstAttribute="centerY" secondItem="koV-4C-ex4" secondAttribute="centerY" multiplier="1.5" id="Wzo-e2-On3"/>
+                            <constraint firstItem="iQB-GF-pYk" firstAttribute="trailing" secondItem="rRF-4b-Sm7" secondAttribute="trailing" id="Yxy-dA-EPl"/>
                             <constraint firstItem="RCx-FO-mcX" firstAttribute="centerY" secondItem="koV-4C-ex4" secondAttribute="centerY" multiplier="1.7" id="Z6K-8w-gdh"/>
                             <constraint firstItem="rUa-5P-pcC" firstAttribute="centerX" secondItem="koV-4C-ex4" secondAttribute="centerX" id="dVI-gn-JgQ"/>
+                            <constraint firstItem="iQB-GF-pYk" firstAttribute="leading" secondItem="rRF-4b-Sm7" secondAttribute="leading" id="wy9-eT-kYe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rRF-4b-Sm7"/>
                     </view>
@@ -228,11 +239,11 @@
             </objects>
             <point key="canvasLocation" x="634.78260869565224" y="1382.8125"/>
         </scene>
-        <!--Profile-->
+        <!--Navigation Controller-->
         <scene sceneID="2mo-G5-i5A">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Ea-E8-bbe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="Tlg-D1-MC8"/>
+                    <tabBarItem key="tabBarItem" title="" image="Group" id="Tlg-D1-MC8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="0ye-fL-IZh">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -249,7 +260,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Group" width="24" height="27"/>
         <image name="change photo icon" width="22" height="22"/>
         <image name="profile no pic" width="506" height="350"/>
+        <image name="top bar" width="414" height="69"/>
     </resources>
 </document>
