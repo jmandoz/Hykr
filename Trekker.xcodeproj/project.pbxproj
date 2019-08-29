@@ -14,6 +14,7 @@
 		3A14B67B230C5DD800DE2DCE /* HikeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B67A230C5DD800DE2DCE /* HikeController.swift */; };
 		3A14B683230C87B100DE2DCE /* HikeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B682230C87B100DE2DCE /* HikeAPI.swift */; };
 		3A14B685230C88F400DE2DCE /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B684230C88F300DE2DCE /* NetworkController.swift */; };
+		3AD8C3FE23184E89008642A3 /* UserPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8C3FD23184E89008642A3 /* UserPhoto.swift */; };
 		A42C6380230D9D7E0023D7CE /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42C637F230D9D7E0023D7CE /* CloudKit.framework */; };
 		A42C6382230DEB880023D7CE /* CoreLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C6381230DEB880023D7CE /* CoreLocationController.swift */; };
 		A42C6384230E397A0023D7CE /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C6383230E397A0023D7CE /* UIViewExtension.swift */; };
@@ -57,6 +58,7 @@
 		3A14B67A230C5DD800DE2DCE /* HikeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeController.swift; sourceTree = SOURCE_ROOT; };
 		3A14B682230C87B100DE2DCE /* HikeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HikeAPI.swift; sourceTree = "<group>"; };
 		3A14B684230C88F300DE2DCE /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		3AD8C3FD23184E89008642A3 /* UserPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhoto.swift; sourceTree = "<group>"; };
 		A42C637D230D9D7B0023D7CE /* Trekker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Trekker.entitlements; sourceTree = "<group>"; };
 		A42C637F230D9D7E0023D7CE /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A42C6381230DEB880023D7CE /* CoreLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				3A14B672230B04B300DE2DCE /* Hike.swift */,
 				3A14B676230B47FF00DE2DCE /* Weather.swift */,
 				3A14B682230C87B100DE2DCE /* HikeAPI.swift */,
+				3AD8C3FD23184E89008642A3 /* UserPhoto.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				A4EF0573230F907400729B0E /* CustomNavigationController.swift in Sources */,
 				3A14B685230C88F400DE2DCE /* NetworkController.swift in Sources */,
 				3A14B67B230C5DD800DE2DCE /* HikeController.swift in Sources */,
+				3AD8C3FE23184E89008642A3 /* UserPhoto.swift in Sources */,
 				A4508A74230B3D12002ED843 /* SavedHikesTableViewCell.swift in Sources */,
 				3A14B683230C87B100DE2DCE /* HikeAPI.swift in Sources */,
 				A4E7E824230C82BF00805E31 /* PhotosTableViewController.swift in Sources */,
