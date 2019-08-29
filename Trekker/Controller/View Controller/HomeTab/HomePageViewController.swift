@@ -10,7 +10,8 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegate {
+class HomePageViewController: UIViewController, SlidingDetailsViewControllerDelegate {
+    
     
     @IBOutlet weak var centerLocationButton: UIButton!
     
@@ -18,11 +19,9 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
     //Properties
     var selectedHike: HikeJSON?
     var searchResults: [HikeJSON] = []
-    var routeDistance = CLLocationDistance() {
-        didSet {
-            
-        }
-    }
+    var routeDistance = CLLocationDistance()
+    var distanceToHike: String?
+    var expectedTimeToHike: String?
     var travelTimeToHike = TimeInterval()
     var sourceLocation = CLLocationCoordinate2D()
     var destinationLocation = CLLocationCoordinate2D()
@@ -145,24 +144,15 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
     }
     
     func directionsButtonTapped(view: SlidingDetailsViewController) {
-        let directions = getDirections()
-        DispatchQueue.main.async {
-            let distance = MKDistanceFormatter()
-            let timeFormatter = DateComponentsFormatter()
-            timeFormatter.allowedUnits = [.day, .hour, .minute, .second]
-            timeFormatter.unitsStyle = .abbreviated
-            timeFormatter.maximumUnitCount = 1
-            view.hikeDistanceLabel.alpha = 1
-            view.hikeDistanceLabel.text = "\(distance.string(fromDistance: directions.1)) - Expected Travel Time: \(timeFormatter.string(from: directions.0) ?? "0")"
-        }
+        getDirections(view)
     }
     
-    func getDirections() -> (TimeInterval, CLLocationDistance) {
+    func getDirections(_ view: SlidingDetailsViewController) {
         guard let hikeLat = selectedHike?.latitude,
             let hikeLong = selectedHike?.longitude,
             let userLat = CoreLocationController.shared.locationManager.location?.coordinate.latitude,
             let userLong = CoreLocationController.shared.locationManager.location?.coordinate.longitude
-            else {return (0.0, 0.0)}
+            else {return}
         let sourceCoordinate = CLLocationCoordinate2DMake(userLat, userLong)
         let destinationCoordinate = CLLocationCoordinate2DMake(hikeLat, hikeLong)
         sourceLocation = sourceCoordinate
@@ -185,8 +175,17 @@ class HomePageViewController: UIViewController, HikeDetailsViewControllerDelegat
             self.mapView.setVisibleMapRect(route.polyline.boundingMapRect,
                                            edgePadding: UIEdgeInsets(top: 20.0, left: 10.0, bottom: self.screenSize.height / 3, right: 10.0),
                                            animated: false)
+            let distanceFormatter = MKDistanceFormatter()
+            let timeFormatter = DateComponentsFormatter()
+            timeFormatter.allowedUnits = [.day, .hour, .minute, .second]
+            timeFormatter.unitsStyle = .abbreviated
+            timeFormatter.maximumUnitCount = 1
+            self.distanceToHike = distanceFormatter.string(fromDistance: distance)
+            self.expectedTimeToHike = timeFormatter.string(from: self.travelTimeToHike)
+            view.hikeDistanceLabel.text = "\(self.distanceToHike ?? "0") - Expected Travel Time: \(self.expectedTimeToHike ?? "0")"
+            view.hikeDistanceLabel.alpha = 1
+            
         }
-        return (travelTimeToHike, routeDistance)
     }
     
     func resetMapWithNew(directions: MKDirections) {
