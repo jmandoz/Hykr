@@ -28,7 +28,7 @@ class SlidingDetailsViewController: UIViewController {
     
     var hikeImage: UIImage?
     
-    weak var delegate: HikeDetailsViewControllerDelegate?
+    weak var delegate: SlidingDetailsViewControllerDelegate?
     
     @IBOutlet weak var hikeNameLabel: UILabel!
     @IBOutlet weak var hikeRatingLabel: UILabel!
@@ -39,6 +39,7 @@ class SlidingDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     @IBAction func directionsButtonTapped(_ sender: Any) {
@@ -117,6 +118,6 @@ class SlidingDetailsViewController: UIViewController {
     }
 }
 
-protocol HikeDetailsViewControllerDelegate: class {
+protocol SlidingDetailsViewControllerDelegate: class {
     func directionsButtonTapped(view: SlidingDetailsViewController)
 }
