@@ -53,7 +53,7 @@ class SlidingDetailsViewController: UIViewController {
         guard let user = UserController.sharedInstance.currentUser, let selectedHike = selectedHikeLanding, let hikeLong = selectedHikeLanding?.longitude, let hikeLat = selectedHikeLanding?.latitude, let rating = selectedHikeLanding?.hikeRating else {return}
         fetchHikeImage(hike: selectedHike) { (image) in
             if let image = image {
-                HikeController.sharedInstance.createHikeWith(longitude: hikeLong, latitude: hikeLat, hikeName: selectedHike.hikeName, hikeRating: rating, apiID: selectedHike.apiID, hikeAscent: selectedHike.ascent, hikeDifficulty: selectedHike.difficulty, hikeDistance: selectedHike.distance, hikeApiImage: image, user: user, completion: { (hike) in
+                HikeController.sharedInstance.createHikeWith(longitude: hikeLong, latitude: hikeLat, hikeName: selectedHike.hikeName, hikeRating: rating, apiID: selectedHike.apiID, hikeAscent: selectedHike.ascent, hikeDifficulty: selectedHike.difficulty, hikeDistance: selectedHike.distance, isCompleted: false, hikeApiImage: image, user: user, completion: { (hike) in
                     if let hike = hike {
                         user.savedHikes.append(hike)
                         DispatchQueue.main.async {

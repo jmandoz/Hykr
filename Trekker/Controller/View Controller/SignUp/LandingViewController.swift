@@ -17,7 +17,7 @@ class LandingViewController: UIViewController {
         super.viewDidLoad()
         setUpUI()
         UserController.sharedInstance.fetchUser { (success) in
-            if success {
+            if success == true {
                 guard let user = UserController.sharedInstance.currentUser else { return }
                 let predicate = NSPredicate(format: "userReference == %@", user.recordID)
                 let compPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate])

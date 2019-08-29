@@ -149,7 +149,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Photos"/>
                                         <connections>
-                                            <segue destination="aDz-lh-TZr" kind="show" id="z4e-SD-tjP"/>
+                                            <segue destination="aDz-lh-TZr" kind="show" identifier="toPhotosVC" id="z4e-SD-tjP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2B-a9-gCP">

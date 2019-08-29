@@ -156,7 +156,7 @@ class HikeDetailsViewController: UIViewController {
     
     func createAndSaveCompletedHike(user: User, hike: Hike) {
         guard let hikeImage = hike.hikeApiImage else {return}
-        HikeController.sharedInstance.createHikeWith(longitude: hike.longitude, latitude: hike.longitude, hikeName: hike.hikeName, hikeRating: hike.hikeRating, apiID: hike.apiID, hikeAscent: hike.hikeAscent, hikeDifficulty: hike.hikeDifficulty, hikeDistance: hike.hikeDistance, hikeApiImage: hikeImage, user: user) { (hike) in
+        HikeController.sharedInstance.createHikeWith(longitude: hike.longitude, latitude: hike.longitude, hikeName: hike.hikeName, hikeRating: hike.hikeRating, apiID: hike.apiID, hikeAscent: hike.hikeAscent, hikeDifficulty: hike.hikeDifficulty, hikeDistance: hike.hikeDistance, isCompleted: true, hikeApiImage: hikeImage, user: user) { (hike) in
             if let hike = hike {
                 user.hikeLog.append(hike)
                 DispatchQueue.main.async {
@@ -170,7 +170,7 @@ class HikeDetailsViewController: UIViewController {
     @IBAction func heartButtonTapped(_ sender: Any) {
         guard let hike = hike,
             let user = UserController.sharedInstance.currentUser, let hikeImage = hike.hikeApiImage else {return}
-        HikeController.sharedInstance.createHikeWith(longitude: hike.longitude, latitude: hike.latitude, hikeName: hike.hikeName, hikeRating: hike.hikeRating, apiID: hike.apiID, hikeAscent: hike.hikeAscent, hikeDifficulty: hike.hikeDifficulty, hikeDistance: hike.hikeDistance, hikeApiImage: hikeImage, user: user) { (hike) in
+        HikeController.sharedInstance.createHikeWith(longitude: hike.longitude, latitude: hike.latitude, hikeName: hike.hikeName, hikeRating: hike.hikeRating, apiID: hike.apiID, hikeAscent: hike.hikeAscent, hikeDifficulty: hike.hikeDifficulty, hikeDistance: hike.hikeDistance, isCompleted: false, hikeApiImage: hikeImage, user: user) { (hike) in
             if let hike = hike {
                 user.savedHikes.append(hike)
                 DispatchQueue.main.async {
@@ -178,6 +178,14 @@ class HikeDetailsViewController: UIViewController {
                     self.heartButton.isEnabled = false
                 }
             }
+        }
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPhotosVC" {
+            let destinationVC = segue.destination as? PhotosTableViewController
+            destinationVC?.hike = hike
         }
     }
 }
