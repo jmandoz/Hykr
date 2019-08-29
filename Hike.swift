@@ -85,6 +85,7 @@ class Hike {
         }
     }
     weak var user: User?
+    var hikePhotos: [UserPhoto]
     // Cloudkit Properties
     var recordID: CKRecord.ID
     var userReference: CKRecord.Reference? {
@@ -93,7 +94,7 @@ class Hike {
     }
     
     init(longitude: Double, latitude: Double, hikeName: String, hikeRating: Double, numberOfRatings: Int = 0, userPhotos: [UIImage] = [],
-         apiID: Int, hikeAscent: Int, hikeDifficulty: String, hikeDistance: Double, isCompleted: Bool = false, hikeApiImage: UIImage, user: User?, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+         apiID: Int, hikeAscent: Int, hikeDifficulty: String, hikeDistance: Double, isCompleted: Bool = false, hikeApiImage: UIImage, user: User?, hikePhotos: [UserPhoto] = [], recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         
         self.longitude = longitude
         self.latitude = latitude
@@ -106,6 +107,7 @@ class Hike {
         self.hikeDistance = hikeDistance
         self.isCompleted = isCompleted
         self.user = user
+        self.hikePhotos = hikePhotos
         self.recordID = recordID
         self.userPhotos = userPhotos
         self.hikeApiImage = hikeApiImage
@@ -146,8 +148,9 @@ extension Hike {
         
         guard let hikeApiImageData = try? Data(contentsOf: hikeApiImageAsset.fileURL!) else { return nil }
         guard let photo = UIImage(data: hikeApiImageData) else { return nil }
+        let hikePhotos = record[HikeConstants.hikePhotosKey] as? [UserPhoto] ?? []
         
-        self.init(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, numberOfRatings: numberOfRatings, userPhotos: images, apiID: apiID, hikeAscent: hikeAscent, hikeDifficulty: hikeDifficulty, hikeDistance: hikeDistance, isCompleted: isCompleted, hikeApiImage: photo, user: user, recordID: record.recordID)
+        self.init(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, numberOfRatings: numberOfRatings, userPhotos: images, apiID: apiID, hikeAscent: hikeAscent, hikeDifficulty: hikeDifficulty, hikeDistance: hikeDistance, isCompleted: isCompleted, hikeApiImage: photo, user: user, hikePhotos: hikePhotos, recordID: record.recordID)
     }
     
     
@@ -177,6 +180,10 @@ extension CKRecord {
         self.setValue(hike.isCompleted, forKey: HikeConstants.isCompletedKey)
         self.setValue(hike.hikeApiImageAsset, forKey: HikeConstants.hikeApiImageKey)
         self.setValue(hike.userReference, forKey: HikeConstants.userReferenceKey)
+        // Checks if hike has any photos, if it doesn't then it's not initialized with the hikePhotos property
+        if !hike.hikePhotos.isEmpty {
+            self.setValue(hike.hikePhotos, forKey: HikeConstants.hikePhotosKey)
+        }
         if hike.userPhotos.count >= 1 {
             self.setValue(hike.userPhotosAsset, forKey: HikeConstants.userPhotosKey)
         }
@@ -198,5 +205,6 @@ struct HikeConstants {
     fileprivate static let isCompletedKey = "isCompleted"
     fileprivate static let hikeApiImageDataKey = "hikeApiImageData"
     fileprivate static let hikeApiImageKey = "hikeApiImage"
+    fileprivate static let hikePhotosKey = "hikePhotos"
     fileprivate static let userReferenceKey = "userReference"
 }
