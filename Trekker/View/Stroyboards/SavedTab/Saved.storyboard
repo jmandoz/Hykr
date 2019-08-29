@@ -56,12 +56,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top bar" translatesAutoresizingMaskIntoConstraints="NO" id="jcE-YM-yHh">
+                                <rect key="frame" x="0.0" y="832" width="414" height="69"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hVY-kt-UHJ" firstAttribute="trailing" secondItem="261-vM-eDP" secondAttribute="trailing" id="4t1-NS-3st"/>
+                            <constraint firstAttribute="bottom" secondItem="jcE-YM-yHh" secondAttribute="bottom" constant="-5" id="5vY-Rs-a86"/>
                             <constraint firstItem="hVY-kt-UHJ" firstAttribute="top" secondItem="261-vM-eDP" secondAttribute="top" id="6Gy-ve-i2f"/>
                             <constraint firstItem="hVY-kt-UHJ" firstAttribute="bottom" secondItem="261-vM-eDP" secondAttribute="bottom" id="DbG-zH-0E5"/>
+                            <constraint firstItem="jcE-YM-yHh" firstAttribute="leading" secondItem="261-vM-eDP" secondAttribute="leading" id="S1t-V4-vz4"/>
+                            <constraint firstItem="jcE-YM-yHh" firstAttribute="leading" secondItem="261-vM-eDP" secondAttribute="leading" id="UjL-Fd-ISX"/>
+                            <constraint firstItem="jcE-YM-yHh" firstAttribute="trailing" secondItem="261-vM-eDP" secondAttribute="trailing" id="cAE-qd-A53"/>
+                            <constraint firstItem="jcE-YM-yHh" firstAttribute="trailing" secondItem="261-vM-eDP" secondAttribute="trailing" id="gue-hY-qc7"/>
                             <constraint firstItem="hVY-kt-UHJ" firstAttribute="leading" secondItem="261-vM-eDP" secondAttribute="leading" id="sDt-lM-QCf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="261-vM-eDP"/>
@@ -83,11 +91,11 @@
             </objects>
             <point key="canvasLocation" x="2863.04347826087" y="-575.22321428571422"/>
         </scene>
-        <!--Saved-->
+        <!--Navigation Controller-->
         <scene sceneID="uQd-in-ERp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o8w-RQ-UHy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Saved" id="0um-bt-AnY"/>
+                    <tabBarItem key="tabBarItem" title="" image="favorite-outline" id="0um-bt-AnY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="lYR-2w-jUd">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -103,4 +111,8 @@
             <point key="canvasLocation" x="1298.5507246376812" y="-575.22321428571422"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="favorite-outline" width="24" height="22"/>
+        <image name="top bar" width="414" height="69"/>
+    </resources>
 </document>

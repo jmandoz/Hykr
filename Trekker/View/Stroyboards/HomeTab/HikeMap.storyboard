@@ -34,6 +34,9 @@
                                     <action selector="centerLocationButtonTapped:" destination="Sux-N7-rO9" eventType="touchUpInside" id="fRD-2U-nUv"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top bar" translatesAutoresizingMaskIntoConstraints="NO" id="3yt-JZ-Uu7">
+                                <rect key="frame" x="0.0" y="749" width="414" height="69"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -43,8 +46,11 @@
                             <constraint firstItem="lNr-er-lXK" firstAttribute="bottom" secondItem="fZ3-tl-MSX" secondAttribute="bottom" id="CYd-Ut-oJE"/>
                             <constraint firstItem="hvd-Cm-IvJ" firstAttribute="width" secondItem="lNr-er-lXK" secondAttribute="width" id="DKC-es-43s"/>
                             <constraint firstItem="hvd-Cm-IvJ" firstAttribute="height" secondItem="lNr-er-lXK" secondAttribute="height" multiplier="0.3" id="FWf-QD-Gwl"/>
+                            <constraint firstItem="3yt-JZ-Uu7" firstAttribute="trailing" secondItem="fZ3-tl-MSX" secondAttribute="trailing" id="b1q-4o-V1s"/>
                             <constraint firstItem="hvd-Cm-IvJ" firstAttribute="centerX" secondItem="d0e-Nn-QlE" secondAttribute="centerX" id="hBd-G2-4BN"/>
                             <constraint firstItem="fJZ-gP-vVN" firstAttribute="top" secondItem="fZ3-tl-MSX" secondAttribute="top" constant="10" id="jIm-EX-p8B"/>
+                            <constraint firstItem="3yt-JZ-Uu7" firstAttribute="leading" secondItem="fZ3-tl-MSX" secondAttribute="leading" id="m85-nP-uxY"/>
+                            <constraint firstItem="3yt-JZ-Uu7" firstAttribute="bottom" secondItem="fZ3-tl-MSX" secondAttribute="bottom" constant="5" id="q2L-Su-LB7"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="leading" secondItem="fZ3-tl-MSX" secondAttribute="leading" id="qlL-9o-1S8"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="top" secondItem="d0e-Nn-QlE" secondAttribute="top" id="yoO-Ua-nBS"/>
                         </constraints>
@@ -159,11 +165,11 @@
             </objects>
             <point key="canvasLocation" x="3796" y="-891"/>
         </scene>
-        <!--Home-->
+        <!--Custom Navigation Controller-->
         <scene sceneID="DzE-S1-4t5">
             <objects>
                 <navigationController storyboardIdentifier="HikeMap" automaticallyAdjustsScrollViewInsets="NO" id="h6L-7o-flx" customClass="CustomNavigationController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="SKs-s5-50s"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="homeDeselected" id="SKs-s5-50s"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="M4V-GA-6TM">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -181,6 +187,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="home" width="26" height="22"/>
+        <image name="homeDeselected" width="26" height="22"/>
         <image name="target home" width="48" height="48"/>
+        <image name="top bar" width="414" height="69"/>
     </resources>
 </document>

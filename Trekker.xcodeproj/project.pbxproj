@@ -43,6 +43,7 @@
 		A4508A8A230C5027002ED843 /* HikeLog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4508A89230C5027002ED843 /* HikeLog.storyboard */; };
 		A4508A8C230C5069002ED843 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4508A8B230C5069002ED843 /* Account.storyboard */; };
 		A4508A97230C54CA002ED843 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4508A96230C54CA002ED843 /* AccountViewController.swift */; };
+		A47F08DF231873E000E92992 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47F08DE231873E000E92992 /* CustomTabBarController.swift */; };
 		A4E7E824230C82BF00805E31 /* PhotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E7E823230C82BF00805E31 /* PhotosTableViewController.swift */; };
 		A4E7E826230C837600805E31 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E7E825230C837600805E31 /* PhotoTableViewCell.swift */; };
 		A4E7E829230C8E6300805E31 /* CloudKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E7E828230C8E6300805E31 /* CloudKitController.swift */; };
@@ -90,6 +91,7 @@
 		A4508A89230C5027002ED843 /* HikeLog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HikeLog.storyboard; sourceTree = "<group>"; };
 		A4508A8B230C5069002ED843 /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		A4508A96230C54CA002ED843 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		A47F08DE231873E000E92992 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		A4E7E823230C82BF00805E31 /* PhotosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewController.swift; sourceTree = "<group>"; };
 		A4E7E825230C837600805E31 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		A4E7E828230C8E6300805E31 /* CloudKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitController.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				A4508A6B230B082D002ED843 /* HomePageViewController.swift */,
 				A42C6387230EF5350023D7CE /* SlidingDetailsViewController.swift */,
 				A4EF0572230F907400729B0E /* CustomNavigationController.swift */,
+				A47F08DE231873E000E92992 /* CustomTabBarController.swift */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				A4E7E826230C837600805E31 /* PhotoTableViewCell.swift in Sources */,
 				A4508A4F230AEF80002ED843 /* Trekker.xcdatamodeld in Sources */,
 				A4E7E829230C8E6300805E31 /* CloudKitController.swift in Sources */,
+				A47F08DF231873E000E92992 /* CustomTabBarController.swift in Sources */,
 				A4E7E82B230C966600805E31 /* EditAccountViewController.swift in Sources */,
 				A42C6388230EF5350023D7CE /* SlidingDetailsViewController.swift in Sources */,
 				A4508A63230B011C002ED843 /* LandingViewController.swift in Sources */,
