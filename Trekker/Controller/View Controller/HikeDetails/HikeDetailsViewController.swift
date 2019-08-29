@@ -156,7 +156,7 @@ class HikeDetailsViewController: UIViewController {
     
     func createAndSaveCompletedHike(user: User, hike: Hike) {
         guard let hikeImage = hike.hikeApiImage else {return}
-        HikeController.sharedInstance.createHikeWith(longitude: hike.longitude, latitude: hike.longitude, hikeName: hike.hikeName, hikeRating: hike.hikeRating, apiID: hike.apiID, hikeAscent: hike.hikeAscent, hikeDifficulty: hike.hikeDifficulty, hikeDistance: hike.hikeDistance, isCompleted: true, hikeApiImage: hikeImage, user: user) { (hike) in
+        HikeController.sharedInstance.createHikeWith(longitude: hike.longitude, latitude: hike.latitude, hikeName: hike.hikeName, hikeRating: hike.hikeRating, apiID: hike.apiID, hikeAscent: hike.hikeAscent, hikeDifficulty: hike.hikeDifficulty, hikeDistance: hike.hikeDistance, isCompleted: true, hikeApiImage: hikeImage, user: user) { (hike) in
             if let hike = hike {
                 user.hikeLog.append(hike)
                 DispatchQueue.main.async {
