@@ -180,7 +180,6 @@ extension CKRecord {
         if hike.userPhotos.count >= 1 {
             self.setValue(hike.userPhotosAsset, forKey: HikeConstants.userPhotosKey)
         }
-        //TODO: Find out if we need userPhotos CKRecord
     }
 }
 
