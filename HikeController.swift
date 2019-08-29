@@ -22,16 +22,16 @@ class HikeController {
     //Create
     
     // After completion, append that hike to User's hike array
-    func createHikeWith(longitude: Double, latitude: Double, hikeName: String, hikeRating: Double, apiID: Int, hikeAscent: Int, hikeDifficulty: String, hikeDistance: Double, hikeApiImage: UIImage, user: User, completion: @escaping (Hike?) -> Void) {
+    func createHikeWith(longitude: Double, latitude: Double, hikeName: String, hikeRating: Double, apiID: Int, hikeAscent: Int, hikeDifficulty: String, hikeDistance: Double, isCompleted: Bool, hikeApiImage: UIImage, user: User, completion: @escaping (Hike?) -> Void) {
         
         guard let user = UserController.sharedInstance.currentUser else { completion(nil) ; return }
-        let hike = Hike(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, apiID: apiID, hikeAscent: hikeAscent, hikeDifficulty: hikeDifficulty, hikeDistance: hikeDistance, hikeApiImage: hikeApiImage, user: user)
+        let hike = Hike(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, apiID: apiID, hikeAscent: hikeAscent, hikeDifficulty: hikeDifficulty, hikeDistance: hikeDistance, isCompleted: isCompleted, hikeApiImage: hikeApiImage, user: user)
         let record = CKRecord(hike: hike)
         let database = self.publicDB
         
         CloudKitController.shared.save(record: record, database: database) { (record) in
             if let record = record {
-                guard let savedHike = Hike(record: record, user: user) else {return}
+                guard let savedHike = Hike(record: record, user: user) else { completion(nil) ; return }
                 completion(savedHike)
             } else {
                 completion(nil)

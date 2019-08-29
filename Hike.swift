@@ -16,7 +16,44 @@ class Hike {
     var hikeName: String
     var hikeRating: Double
     var numberOfRatings: Int
-    var userPhotos: [UIImage]
+    
+    var userPhotos: [UIImage?] {
+        get {
+            var foundPhotos: [UIImage?] = []
+            print("User Photos Data: \(self.userPhotosData.count)")
+            for photo in userPhotosData {
+                guard let photo = photo else { return [] }
+                foundPhotos.append(UIImage(data: photo))
+            }
+            return foundPhotos
+        } set(photos) {
+            print("User Photos: \(self.userPhotos.count)")
+            
+            for photo in photos {
+                self.userPhotosData.append(photo?.jpegData(compressionQuality: 0.5))
+            }
+        }
+    }
+    
+    var userPhotosData: [Data?] = []
+    var userPhotosAsset: [CKAsset?] {
+        get {
+            var assets: [CKAsset] = []
+            for item in self.userPhotosData {
+                let tempDirectory = NSTemporaryDirectory()
+                let tempDirectoryURL = URL(fileURLWithPath: tempDirectory)
+                let fileURL = tempDirectoryURL.appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")
+                do {
+                    try item?.write(to: fileURL)
+                    assets.append(CKAsset(fileURL: fileURL))
+                } catch {
+                    print ("Error writing to temporary url \(error.localizedDescription)")
+                }
+            }
+            return assets
+        }
+    }
+    
     var apiID: Int
     var hikeAscent: Int
     var hikeDifficulty: String
@@ -63,7 +100,6 @@ class Hike {
         self.hikeName = hikeName
         self.hikeRating = hikeRating
         self.numberOfRatings = numberOfRatings
-        self.userPhotos = userPhotos
         self.apiID = apiID
         self.hikeAscent = hikeAscent
         self.hikeDifficulty = hikeDifficulty
@@ -71,6 +107,7 @@ class Hike {
         self.isCompleted = isCompleted
         self.user = user
         self.recordID = recordID
+        self.userPhotos = userPhotos
         self.hikeApiImage = hikeApiImage
     }
     
@@ -92,14 +129,25 @@ extension Hike {
         let hikeAscent = record[HikeConstants.hikeAscentKey] as? Int,
         let hikeDifficulty = record[HikeConstants.hikeDifficultyKey] as? String,
         let hikeDistance = record[HikeConstants.hikeDistanceKey] as? Double,
-            let isCompleted = record[HikeConstants.isCompletedKey] as? Bool,
+        let isCompleted = record[HikeConstants.isCompletedKey] as? Bool,
         let hikeApiImageAsset = record[HikeConstants.hikeApiImageKey] as? CKAsset
             else { return nil }
+        
+        var images: [UIImage] = []
+        if let userPhotosAsset = record[HikeConstants.userPhotosKey] as? [CKAsset] {
+            if userPhotosAsset.count != 0 {
+                for asset in userPhotosAsset {
+                    guard let photoData = try? Data(contentsOf: asset.fileURL!) else { return nil }
+                    guard let userPhoto = UIImage(data: photoData) else { return nil }
+                    images.append(userPhoto)
+                }
+            }
+        }
         
         guard let hikeApiImageData = try? Data(contentsOf: hikeApiImageAsset.fileURL!) else { return nil }
         guard let photo = UIImage(data: hikeApiImageData) else { return nil }
         
-        self.init(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, numberOfRatings: numberOfRatings, apiID: apiID, hikeAscent: hikeAscent, hikeDifficulty: hikeDifficulty, hikeDistance: hikeDistance, isCompleted: isCompleted, hikeApiImage: photo, user: user, recordID: record.recordID)
+        self.init(longitude: longitude, latitude: latitude, hikeName: hikeName, hikeRating: hikeRating, numberOfRatings: numberOfRatings, userPhotos: images, apiID: apiID, hikeAscent: hikeAscent, hikeDifficulty: hikeDifficulty, hikeDistance: hikeDistance, isCompleted: isCompleted, hikeApiImage: photo, user: user, recordID: record.recordID)
     }
     
     
@@ -121,6 +169,7 @@ extension CKRecord {
         self.setValue(hike.hikeName, forKey: HikeConstants.hikeNameKey)
         self.setValue(hike.hikeRating, forKey: HikeConstants.hikeRatingKey)
         self.setValue(hike.numberOfRatings, forKey: HikeConstants.numberOfRatingsKey)
+        
         self.setValue(hike.apiID, forKey: HikeConstants.apiIDKey)
         self.setValue(hike.hikeAscent, forKey: HikeConstants.hikeAscentKey)
         self.setValue(hike.hikeDifficulty, forKey: HikeConstants.hikeDifficultyKey)
@@ -128,6 +177,9 @@ extension CKRecord {
         self.setValue(hike.isCompleted, forKey: HikeConstants.isCompletedKey)
         self.setValue(hike.hikeApiImageAsset, forKey: HikeConstants.hikeApiImageKey)
         self.setValue(hike.userReference, forKey: HikeConstants.userReferenceKey)
+        if hike.userPhotos.count >= 1 {
+            self.setValue(hike.userPhotosAsset, forKey: HikeConstants.userPhotosKey)
+        }
         //TODO: Find out if we need userPhotos CKRecord
     }
 }

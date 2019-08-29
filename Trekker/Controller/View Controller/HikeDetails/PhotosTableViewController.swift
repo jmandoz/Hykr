@@ -10,7 +10,7 @@ import UIKit
 
 class PhotosTableViewController: UITableViewController {
 
-    var picArray: [UIImage] = [#imageLiteral(resourceName: "pic2"), #imageLiteral(resourceName: "pic1"), #imageLiteral(resourceName: "pic3")]
+    //var picArray: [UIImage] = [#imageLiteral(resourceName: "pic2"), #imageLiteral(resourceName: "pic1"), #imageLiteral(resourceName: "pic3")]
     
     let user = UserController.sharedInstance.currentUser
     
@@ -22,7 +22,33 @@ class PhotosTableViewController: UITableViewController {
     }
 
     @IBAction func addImageButtonTapped(_ sender: Any) {
-        presentImagePickerActionSheet()
+        guard let user = user else { return }
+        let endOfHikeLogArray = user.hikeLog.count
+        if endOfHikeLogArray != 0 {
+            // Checks if hike is in users hike log array, if it is, it lets them add a photo.
+            var hikeLogCounter = 1
+            for hike in user.hikeLog {
+                if hike.wackyUUID == self.hike?.wackyUUID {
+                    self.hike = hike
+                    presentImagePickerActionSheet()
+                    break
+                    
+                } else if hikeLogCounter == endOfHikeLogArray {
+                    let alertController = UIAlertController(title: "You haven't completed this hike yet.", message: "Complete this hike to save photos to it!", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Ok", style: .default)
+                    alertController.addAction(okAction)
+                    present(alertController, animated:  true)
+                } else {
+                    hikeLogCounter += 1
+                }
+            }
+            
+        } else {
+            let alertController = UIAlertController(title: "You haven't completed this hike yet.", message: "Complete this hike to save photos to it!", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            alertController.addAction(okAction)
+            present(alertController, animated:  true)
+        }
     }
     
     // MARK: - Table view data source
@@ -101,12 +127,15 @@ extension PhotosTableViewController: UIImagePickerControllerDelegate, UINavigati
             HikeController.sharedInstance.update(hike: hike) { (success) in
                 if success {
                     print("Hike photo saved successfully")
+                   // self.hike?.userPhotos.append(photo)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 } else {
                     print("Hike photo failed to save")
                 }
             }
         }
-        tableView.reloadData()
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
