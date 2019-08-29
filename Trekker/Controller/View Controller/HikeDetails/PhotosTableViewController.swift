@@ -16,38 +16,36 @@ class PhotosTableViewController: UITableViewController {
     
     var hike: Hike?
     
+    var hikeInUserHikeLog: Bool = false
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        guard let user = user else { return }
+        for hike in user.hikeLog {
+            if hike.wackyUUID == self.hike?.wackyUUID {
+                self.hike = hike
+                hikeInUserHikeLog = true
+                break
+            } else {
+                hikeInUserHikeLog = false
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
 
     }
 
     @IBAction func addImageButtonTapped(_ sender: Any) {
-        guard let user = user else { return }
-        let endOfHikeLogArray = user.hikeLog.count
-        if endOfHikeLogArray != 0 {
-            // Checks if hike is in users hike log array, if it is, it lets them add a photo.
-            var hikeLogCounter = 1
-            for hike in user.hikeLog {
-                if hike.wackyUUID == self.hike?.wackyUUID {
-                    self.hike = hike
-                    presentImagePickerActionSheet()
-                    break
-                    
-                } else if hikeLogCounter == endOfHikeLogArray {
-                    let alertController = UIAlertController(title: "You haven't completed this hike yet.", message: "Complete this hike to save photos to it!", preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "Ok", style: .default)
-                    alertController.addAction(okAction)
-                    present(alertController, animated:  true)
-                } else {
-                    hikeLogCounter += 1
-                }
-            }
-            
-        } else {
-            let alertController = UIAlertController(title: "You haven't completed this hike yet.", message: "Complete this hike to save photos to it!", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default)
-            alertController.addAction(okAction)
-            present(alertController, animated:  true)
+            if hikeInUserHikeLog == true {
+                presentImagePickerActionSheet()
+            } else {
+                let alertController = UIAlertController(title: "You haven't completed this hike yet.", message: "Complete this hike to save photos to it!", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .default)
+                alertController.addAction(okAction)
+                present(alertController, animated:  true)
         }
     }
     
