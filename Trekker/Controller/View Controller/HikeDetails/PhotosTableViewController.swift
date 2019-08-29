@@ -32,8 +32,42 @@ class PhotosTableViewController: UITableViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if hikeInUserHikeLog == true {
+            guard let hike = hike else { return }
+            let predicate = NSPredicate(format: "hikeReference == %@", hike.recordID)
+            let compPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate])
+            UserPhotoController.sharedInstance.fetchUserPhotos(hike: hike, predicate: compPredicate) { (photos) in
+                if let photos = photos {
+                    hike.hikePhotos = photos
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                } else {
+                    print("Failed to get photos")
+                }
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        if hikeInUserHikeLog == true {
+//            guard let hike = hike else { return }
+//            let predicate = NSPredicate(format: "hikeReference == %@", hike.recordID)
+//            let compPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate])
+//            UserPhotoController.sharedInstance.fetchUserPhotos(hike: hike, predicate: compPredicate) { (photos) in
+//                if let photos = photos {
+//                    hike.hikePhotos = photos
+//                    DispatchQueue.main.async {
+//                        self.tableView.reloadData()
+//                    }
+//                } else {
+//                    print("Failed to get photos")
+//                }
+//            }
+//        }
         tableView.reloadData()
 
     }
@@ -53,13 +87,13 @@ class PhotosTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return hike?.userPhotos.count ?? 0
+        return hike?.hikePhotos.count ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as? PhotoTableViewCell else {return UITableViewCell()}
-        let pic = hike?.userPhotos[indexPath.row]
+        let pic = hike?.hikePhotos[indexPath.row].userPhoto
         cell.photoImageView.contentMode = .scaleAspectFill
         cell.photoImageView.image = pic
         // Configure the cell...
@@ -80,8 +114,9 @@ class PhotosTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard let hike = hike else { return }
-            hike.userPhotos.remove(at: indexPath.row)
-            HikeController.sharedInstance.update(hike: hike) { (success) in
+            let photo = hike.hikePhotos[indexPath.row]
+            //hike.hikePhotos.remove(at: indexPath.row)
+            UserPhotoController.sharedInstance.deleteUserPhoto(userPhoto: photo, hike: hike) { (success) in
                 if success {
                     print("Image deleted successfully")
                 } else {
@@ -121,16 +156,14 @@ extension PhotosTableViewController: UIImagePickerControllerDelegate, UINavigati
         if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
            // proPicImageView.image = photo
             guard let hike = hike else { return }
-            hike.userPhotos.append(photo)
-            HikeController.sharedInstance.update(hike: hike) { (success) in
-                if success {
+            UserPhotoController.sharedInstance.createUserPhotoWith(userPhoto: photo, hike: hike) { (photo) in
+                if let photo = photo {
                     print("Hike photo saved successfully")
-                   // self.hike?.userPhotos.append(photo)
+                    // self.hike?.userPhotos.append(photo)
                     DispatchQueue.main.async {
+                        hike.hikePhotos.append(photo)
                         self.tableView.reloadData()
                     }
-                } else {
-                    print("Hike photo failed to save")
                 }
             }
         }

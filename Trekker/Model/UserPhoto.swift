@@ -10,6 +10,7 @@ import UIKit
 import CloudKit
 
 class UserPhoto {
+    var userPhotoData: Data?
     var userPhoto: UIImage? {
         get {
             guard let userPhotoData = userPhotoData else { return nil }
@@ -18,12 +19,11 @@ class UserPhoto {
             userPhotoData = newValue?.jpegData(compressionQuality: 0.5)
         }
     }
-    var userPhotoData: Data?
     var userPhotoAsset: CKAsset? {
         get {
             let tempDirectory = NSTemporaryDirectory()
             let tempDirectoryURL = URL(fileURLWithPath: tempDirectory)
-            let fileURL = tempDirectoryURL.appendingPathComponent(UUID().uuidString).appendingPathComponent("jpg")
+            let fileURL = tempDirectoryURL.appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")
             do {
                 try userPhotoData?.write(to: fileURL)
             } catch {
