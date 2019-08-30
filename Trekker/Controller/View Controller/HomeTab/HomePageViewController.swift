@@ -72,11 +72,13 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
         let searchController = UISearchController(searchResultsController: nil)
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
-        self.navigationItem.searchController?.searchBar.tintColor = .white
+        self.navigationItem.searchController?.searchBar.barTintColor = .white
         self.searchBar = searchController.searchBar
         self.searchBar?.delegate = self
         self.searchBar?.tintColor = .white
+        self.searchBar?.barTintColor = .white
         self.searchBar?.placeholder = "Search any location"
+        self.searchBar?.isTranslucent = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
