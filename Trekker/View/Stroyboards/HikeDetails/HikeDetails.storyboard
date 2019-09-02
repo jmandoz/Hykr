@@ -22,27 +22,26 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="360"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="g5R-kT-iZT">
-                                <rect key="frame" x="20" y="466" width="374" height="98"/>
+                                <rect key="frame" x="20" y="463" width="374" height="104"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name of Hike" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vW5-oj-h7e">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name of Hike" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vW5-oj-h7e" customClass="HykrHeaderLabel" customModule="Trekker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="134" height="27.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="lBS-6l-FuM">
-                                        <rect key="frame" x="0.0" y="37.5" width="114.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="37.5" width="136.5" height="36"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqP-n5-J6w">
-                                                <rect key="frame" x="0.0" y="0.0" width="68.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="68.5" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdy-vD-HNM">
-                                                <rect key="frame" x="84.5" y="0.0" width="30" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="♥︎"/>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdy-vD-HNM">
+                                                <rect key="frame" x="84.5" y="0.0" width="52" height="36"/>
+                                                <state key="normal" title="♥︎" image="saved button icon"/>
                                                 <connections>
                                                     <action selector="heartButtonTapped:" destination="0MI-Pa-N3g" eventType="touchUpInside" id="tet-fS-CwC"/>
                                                 </connections>
@@ -50,17 +49,17 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="KRg-du-lya">
-                                        <rect key="frame" x="0.0" y="77.5" width="126.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="83.5" width="124" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfV-S2-Tvc">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfV-S2-Tvc" customClass="HykrSubHeaderBoldLabel" customModule="Trekker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="68.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7YZ-VE-SFz">
-                                                <rect key="frame" x="84.5" y="0.0" width="42" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="84.5" y="0.0" width="39.5" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -72,23 +71,23 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="br2-HK-hbV">
-                                <rect key="frame" x="20" y="604" width="374" height="83.5"/>
+                                <rect key="frame" x="20" y="607" width="374" height="115"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="n9G-sA-uEC">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Ascent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3n-wM-SRM">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Ascent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3n-wM-SRM" customClass="HykrSubHeaderBoldLabel" customModule="Trekker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="258" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfC-t6-2K9">
-                                                <rect key="frame" x="274" y="0.0" width="100" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfC-t6-2K9" customClass="HykrSubHeaderLabel" customModule="Trekker" customModuleProvider="target">
+                                                <rect key="frame" x="274" y="0.0" width="100" height="19.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="IXu-Ni-a1f"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -97,18 +96,18 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3il-BN-9HH">
                                         <rect key="frame" x="0.0" y="31.5" width="374" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYu-UJ-2nV">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYu-UJ-2nV" customClass="HykrSubHeaderBoldLabel" customModule="Trekker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="258" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMm-ba-Rwd">
-                                                <rect key="frame" x="274" y="0.0" width="100" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMm-ba-Rwd" customClass="HykrSubHeaderLabel" customModule="Trekker" customModuleProvider="target">
+                                                <rect key="frame" x="274" y="0.0" width="100" height="19.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="nkG-Vn-eIM"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -117,23 +116,29 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="TRV-8H-VfN">
                                         <rect key="frame" x="0.0" y="63" width="374" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Current Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nof-6L-Hkp">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Current Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nof-6L-Hkp" customClass="HykrSubHeaderBoldLabel" customModule="Trekker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="258" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hba-rs-GZS">
-                                                <rect key="frame" x="274" y="0.0" width="100" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hba-rs-GZS" customClass="HykrSubHeaderLabel" customModule="Trekker" customModuleProvider="target">
+                                                <rect key="frame" x="274" y="0.0" width="100" height="19.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="pVM-Vd-pbW"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(weather description)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nv-k4-VwJ" customClass="HykrSubHeaderBoldLabel" customModule="Trekker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="94.5" width="164" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="3il-BN-9HH" secondAttribute="trailing" id="VTz-50-6SA"/>
@@ -142,36 +147,20 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Lcx-FJ-R8a">
-                                <rect key="frame" x="10" y="389.5" width="394" height="27"/>
+                                <rect key="frame" x="10" y="385" width="394" height="36"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yot-IQ-ehD">
-                                        <rect key="frame" x="0.0" y="0.0" width="92" height="27"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yot-IQ-ehD" customClass="HykrDetailButton" customModule="Trekker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="192.5" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Photos"/>
+                                        <state key="normal" title="Photos" image="camera icon"/>
                                         <connections>
                                             <segue destination="aDz-lh-TZr" kind="show" identifier="toPhotosVC" id="z4e-SD-tjP"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2B-a9-gCP">
-                                        <rect key="frame" x="101" y="0.0" width="91.5" height="27"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W20-St-iKq" customClass="HykrDetailButton" customModule="Trekker" customModuleProvider="target">
+                                        <rect key="frame" x="201.5" y="0.0" width="192.5" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Directions"/>
-                                        <connections>
-                                            <action selector="directionsButtonTapped:" destination="0MI-Pa-N3g" eventType="touchUpInside" id="4E8-1g-aUj"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWs-Yu-uWZ">
-                                        <rect key="frame" x="201.5" y="0.0" width="92" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Hike map"/>
-                                        <connections>
-                                            <action selector="hikeMapButtonTapped:" destination="0MI-Pa-N3g" eventType="touchUpInside" id="gt7-Ng-Jhr"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W20-St-iKq">
-                                        <rect key="frame" x="302.5" y="0.0" width="91.5" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Complete"/>
+                                        <state key="normal" title="Complete" image="check-box-outline"/>
                                         <connections>
                                             <action selector="completeButtonTapped:" destination="0MI-Pa-N3g" eventType="touchUpInside" id="YMn-em-7ny"/>
                                         </connections>
@@ -206,16 +195,20 @@
                     <navigationItem key="navigationItem" title="Hike Details" id="QAg-8n-NIs"/>
                     <connections>
                         <outlet property="ascentLabel" destination="QfC-t6-2K9" id="kiK-6Y-jme"/>
+                        <outlet property="ascentTitleLabel" destination="R3n-wM-SRM" id="6Ne-HM-F2E"/>
                         <outlet property="completeButton" destination="W20-St-iKq" id="KOY-v2-qPD"/>
                         <outlet property="currentWeatherLabel" destination="Hba-rs-GZS" id="CQe-CN-NGL"/>
+                        <outlet property="currentWeatherTitleLabel" destination="Nof-6L-Hkp" id="Sbp-4F-QYX"/>
                         <outlet property="difficultyLabel" destination="7YZ-VE-SFz" id="k9l-gu-7x5"/>
-                        <outlet property="directionsButton" destination="O2B-a9-gCP" id="w02-Ur-h5f"/>
+                        <outlet property="difficultyTitleLabel" destination="qfV-S2-Tvc" id="5Ow-W3-P16"/>
                         <outlet property="distanceLabel" destination="HMm-ba-Rwd" id="cvH-Qq-5Yo"/>
+                        <outlet property="distanceTitleLabel" destination="SYu-UJ-2nV" id="QFD-wB-txj"/>
                         <outlet property="heartButton" destination="bdy-vD-HNM" id="faN-Af-RCV"/>
-                        <outlet property="hikeMapButton" destination="vWs-Yu-uWZ" id="Lxl-BZ-bvy"/>
                         <outlet property="hikeNameLabel" destination="vW5-oj-h7e" id="caQ-y6-RbI"/>
                         <outlet property="imageView" destination="oCP-YV-Z66" id="mpd-oe-ko4"/>
+                        <outlet property="photosButton" destination="Yot-IQ-ehD" id="HHV-1p-Btf"/>
                         <outlet property="ratingLabel" destination="BqP-n5-J6w" id="1ei-ti-0b0"/>
+                        <outlet property="weatherDescriptionLabel" destination="5nv-k4-VwJ" id="Wfd-yK-sLN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zr0-S0-osM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -277,6 +270,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera icon" width="40" height="36"/>
+        <image name="check-box-outline" width="18" height="18"/>
+        <image name="saved button icon" width="38" height="36"/>
         <image name="top bar" width="414" height="69"/>
     </resources>
 </document>

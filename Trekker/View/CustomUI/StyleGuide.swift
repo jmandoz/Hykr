@@ -13,7 +13,7 @@ extension UIView {
         self.layer.cornerRadius = radius
     }
     
-    func addBorder(width: CGFloat = 1, color: UIColor = Colors.lightGrey.color()) {
+    func addBorder(width: CGFloat = 1, color: UIColor = Colors.ultraLightGrey.color()) {
         self.layer.borderColor = color.cgColor
         self.layer.borderWidth = width
     }
@@ -23,9 +23,10 @@ extension UIView {
 
 struct FontNames {
     /// Headers
-    static let arielBold = "Ariel-Bold"
+    static let arielBold = "Arial-BoldMT"
     /// Sub headers
     static let roboto = "Roboto-Regular"
+    static let robotoBold = "Roboto-Bold"
     /// Body Copy
     static let latoRegular = "Lato-Regular"
     static let latoBold = "Lato-Bold"
@@ -38,6 +39,7 @@ struct FontNames {
         case darkBrown
         case white
         case lightGrey
+        case ultraLightGrey
         
         func color() -> UIColor {
             switch self {
@@ -51,6 +53,8 @@ struct FontNames {
                 return UIColor(hexString: "FFFFFF")
             case .lightGrey:
                 return UIColor(hexString: "D3D3D3")
+            case .ultraLightGrey:
+                return UIColor(hexString: "E8E8E8")
             }
         }
     }

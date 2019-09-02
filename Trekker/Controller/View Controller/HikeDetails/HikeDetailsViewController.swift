@@ -14,18 +14,29 @@ class HikeDetailsViewController: UIViewController {
     var savedHikesTempArray: [Hike]?
     var hikeImage: UIImage?
     
-    //Outlets
+    //Non Data Label Outlets
+    
+    @IBOutlet weak var difficultyTitleLabel: HykrSubHeaderBoldLabel!
+    @IBOutlet weak var ascentTitleLabel: HykrSubHeaderBoldLabel!
+    @IBOutlet weak var distanceTitleLabel: HykrSubHeaderBoldLabel!
+    @IBOutlet weak var currentWeatherTitleLabel: HykrSubHeaderBoldLabel!
+    
+    //Data Outlets
+    
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var directionsButton: UIButton!
-    @IBOutlet weak var completeButton: UIButton!
-    @IBOutlet weak var hikeMapButton: UIButton!
-    @IBOutlet weak var heartButton: UIButton!
-    @IBOutlet weak var hikeNameLabel: UILabel!
+    @IBOutlet weak var hikeNameLabel: HykrHeaderLabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var difficultyLabel: UILabel!
     @IBOutlet weak var ascentLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var currentWeatherLabel: UILabel!
+    @IBOutlet weak var weatherDescriptionLabel: HykrSubHeaderBoldLabel!
+    
+    // Button Outlets
+    
+    @IBOutlet weak var completeButton: HykrDetailButton!
+    @IBOutlet weak var heartButton: UIButton!
+    @IBOutlet weak var photosButton: HykrDetailButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +102,8 @@ class HikeDetailsViewController: UIViewController {
         for savedHike in Hikes {
             if savedHike.wackyUUID == hike.wackyUUID {
                 DispatchQueue.main.async {
-                    self.heartButton.alpha = 0
+                    self.heartButton.setImage(UIImage(named: "saved hike icon"), for: .normal)
+                   // self.heartButton.alpha = 0
                 }
             }
         }
@@ -103,7 +115,9 @@ class HikeDetailsViewController: UIViewController {
             if loggedHikes.wackyUUID == hike.wackyUUID {
                 DispatchQueue.main.async {
                     self.completeButton.setTitle("Completed", for: .normal)
-                    self.completeButton.backgroundColor = .green
+                    self.completeButton.setImage(UIImage(named: "completed hike button"), for: .normal)
+                    self.completeButton.imageView?.sizeToFit()
+                    self.completeButton.backgroundColor = Colors.green.color()
                     self.heartButton.alpha = 0
                 }
             }
@@ -111,12 +125,6 @@ class HikeDetailsViewController: UIViewController {
     }
     
     //Actions
-    @IBAction func directionsButtonTapped(_ sender: Any) {
-        print("debug step")
-    }
-    
-    @IBAction func hikeMapButtonTapped(_ sender: Any) {
-    }
     
     @IBAction func completeButtonTapped(_ sender: Any) {
         checkUserHikes()
@@ -146,7 +154,8 @@ class HikeDetailsViewController: UIViewController {
                     if success {
                         DispatchQueue.main.async {
                             self.completeButton.setTitle("Completed", for: .normal)
-                            self.completeButton.backgroundColor = .green
+                            self.completeButton.setBackgroundImage(UIImage(named: "completed hike button")?.resizeImage(targetSize: self.completeButton.frame.size), for: .normal)
+                            self.completeButton.backgroundColor = Colors.green.color()
                         }
                     }
                 }
@@ -161,7 +170,8 @@ class HikeDetailsViewController: UIViewController {
                 user.hikeLog.append(hike)
                 DispatchQueue.main.async {
                     self.completeButton.setTitle("Completed", for: .normal)
-                    self.completeButton.backgroundColor = .green
+                    self.completeButton.setImage(UIImage(named: "completed hike button"), for: .normal)
+                    self.completeButton.backgroundColor = Colors.green.color()
                 }
             }
         }
@@ -174,6 +184,7 @@ class HikeDetailsViewController: UIViewController {
             if let hike = hike {
                 user.savedHikes.append(hike)
                 DispatchQueue.main.async {
+                    self.heartButton.setImage(UIImage(named: "saved hike icon"), for: .normal)
                     self.heartButton.setTitle("Saved", for: .normal)
                     self.heartButton.isEnabled = false
                 }

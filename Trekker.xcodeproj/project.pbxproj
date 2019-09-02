@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3A04FF00231D6C8100CB3744 /* HykrDetailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04FEFF231D6C8100CB3744 /* HykrDetailButton.swift */; };
+		3A04FF02231D716E00CB3744 /* HykrSubHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04FF01231D716E00CB3744 /* HykrSubHeaderLabel.swift */; };
+		3A04FF04231D719700CB3744 /* HykrSubHeaderWhiteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04FF03231D719700CB3744 /* HykrSubHeaderWhiteLabel.swift */; };
+		3A04FF06231D71AA00CB3744 /* HykrBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04FF05231D71AA00CB3744 /* HykrBodyLabel.swift */; };
+		3A04FF0B231D82BF00CB3744 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A04FF0A231D827700CB3744 /* Lato-Bold.ttf */; };
+		3A04FF0C231D82D600CB3744 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A04FF09231D827700CB3744 /* Lato-Regular.ttf */; };
+		3A04FF0E231D849F00CB3744 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A04FF0D231D848B00CB3744 /* Roboto-Regular.ttf */; };
+		3A04FF10231D911100CB3744 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A04FF0F231D910600CB3744 /* Roboto-Bold.ttf */; };
+		3A04FF12231D919600CB3744 /* HykrSubHeaderBoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04FF11231D919600CB3744 /* HykrSubHeaderBoldLabel.swift */; };
 		3A14B671230AFDE200DE2DCE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B670230AFDE200DE2DCE /* User.swift */; };
 		3A14B673230B04B300DE2DCE /* Hike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B672230B04B300DE2DCE /* Hike.swift */; };
 		3A14B677230B47FF00DE2DCE /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B676230B47FF00DE2DCE /* Weather.swift */; };
@@ -18,7 +26,7 @@
 		3AD8C3FE23184E89008642A3 /* UserPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8C3FD23184E89008642A3 /* UserPhoto.swift */; };
 		3AD8C40023186F7D008642A3 /* UserPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD8C3FF23186F7D008642A3 /* UserPhotoController.swift */; };
 		3AF87AA923198C9B006614FC /* HykrSliderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF87AA823198C9B006614FC /* HykrSliderButton.swift */; };
-		3AF87AAB23198CBA006614FC /* HykrLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF87AAA23198CBA006614FC /* HykrLabel.swift */; };
+		3AF87AAB23198CBA006614FC /* HykrHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF87AAA23198CBA006614FC /* HykrHeaderLabel.swift */; };
 		3AF87AAD23198D0F006614FC /* HykrTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF87AAC23198D0F006614FC /* HykrTextField.swift */; };
 		3AF87AAF23198D45006614FC /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF87AAE23198D45006614FC /* StyleGuide.swift */; };
 		A42C6380230D9D7E0023D7CE /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42C637F230D9D7E0023D7CE /* CloudKit.framework */; };
@@ -59,6 +67,14 @@
 
 /* Begin PBXFileReference section */
 		3A04FEFF231D6C8100CB3744 /* HykrDetailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrDetailButton.swift; sourceTree = "<group>"; };
+		3A04FF01231D716E00CB3744 /* HykrSubHeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrSubHeaderLabel.swift; sourceTree = "<group>"; };
+		3A04FF03231D719700CB3744 /* HykrSubHeaderWhiteLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrSubHeaderWhiteLabel.swift; sourceTree = "<group>"; };
+		3A04FF05231D71AA00CB3744 /* HykrBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrBodyLabel.swift; sourceTree = "<group>"; };
+		3A04FF09231D827700CB3744 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../../class stuff/Azoera/Azoera/Azoera/Resources/Fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		3A04FF0A231D827700CB3744 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Bold.ttf"; path = "../../../../../class stuff/Azoera/Azoera/Azoera/Resources/Fonts/Lato-Bold.ttf"; sourceTree = "<group>"; };
+		3A04FF0D231D848B00CB3744 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "../../../../../../hifi designs/fonts/Roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		3A04FF0F231D910600CB3744 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "../../../../../../hifi designs/fonts/Roboto/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		3A04FF11231D919600CB3744 /* HykrSubHeaderBoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrSubHeaderBoldLabel.swift; sourceTree = "<group>"; };
 		3A14B670230AFDE200DE2DCE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = SOURCE_ROOT; };
 		3A14B672230B04B300DE2DCE /* Hike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hike.swift; sourceTree = SOURCE_ROOT; };
 		3A14B676230B47FF00DE2DCE /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = SOURCE_ROOT; };
@@ -69,7 +85,7 @@
 		3AD8C3FD23184E89008642A3 /* UserPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhoto.swift; sourceTree = "<group>"; };
 		3AD8C3FF23186F7D008642A3 /* UserPhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPhotoController.swift; path = Trekker/Model/UserPhotoController.swift; sourceTree = SOURCE_ROOT; };
 		3AF87AA823198C9B006614FC /* HykrSliderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrSliderButton.swift; sourceTree = "<group>"; };
-		3AF87AAA23198CBA006614FC /* HykrLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrLabel.swift; sourceTree = "<group>"; };
+		3AF87AAA23198CBA006614FC /* HykrHeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrHeaderLabel.swift; sourceTree = "<group>"; };
 		3AF87AAC23198D0F006614FC /* HykrTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrTextField.swift; sourceTree = "<group>"; };
 		3AF87AAE23198D45006614FC /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		A42C637D230D9D7B0023D7CE /* Trekker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Trekker.entitlements; sourceTree = "<group>"; };
@@ -123,6 +139,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A04FF08231D81BA00CB3744 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3A04FF0D231D848B00CB3744 /* Roboto-Regular.ttf */,
+				3A04FF0F231D910600CB3744 /* Roboto-Bold.ttf */,
+				3A04FF0A231D827700CB3744 /* Lato-Bold.ttf */,
+				3A04FF09231D827700CB3744 /* Lato-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		3A14B686230C88FA00DE2DCE /* HelpersAndExtensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,9 +168,13 @@
 			children = (
 				3AF87AA823198C9B006614FC /* HykrSliderButton.swift */,
 				3A04FEFF231D6C8100CB3744 /* HykrDetailButton.swift */,
-				3AF87AAA23198CBA006614FC /* HykrLabel.swift */,
+				3AF87AAA23198CBA006614FC /* HykrHeaderLabel.swift */,
 				3AF87AAC23198D0F006614FC /* HykrTextField.swift */,
 				3AF87AAE23198D45006614FC /* StyleGuide.swift */,
+				3A04FF01231D716E00CB3744 /* HykrSubHeaderLabel.swift */,
+				3A04FF11231D919600CB3744 /* HykrSubHeaderBoldLabel.swift */,
+				3A04FF03231D719700CB3744 /* HykrSubHeaderWhiteLabel.swift */,
+				3A04FF05231D71AA00CB3744 /* HykrBodyLabel.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -189,6 +220,7 @@
 		A4508A5B230AF02B002ED843 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3A04FF08231D81BA00CB3744 /* Fonts */,
 				A4508A46230AEF80002ED843 /* AppDelegate.swift */,
 				A4508A50230AEF80002ED843 /* Assets.xcassets */,
 				A4508A52230AEF81002ED843 /* LaunchScreen.storyboard */,
@@ -454,6 +486,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A04FF10231D911100CB3744 /* Roboto-Bold.ttf in Resources */,
+				3A04FF0E231D849F00CB3744 /* Roboto-Regular.ttf in Resources */,
+				3A04FF0C231D82D600CB3744 /* Lato-Regular.ttf in Resources */,
+				3A04FF0B231D82BF00CB3744 /* Lato-Bold.ttf in Resources */,
 				A4508A77230B3ED0002ED843 /* HikeAnnotationView.xib in Resources */,
 				A4508A54230AEF81002ED843 /* LaunchScreen.storyboard in Resources */,
 				A4508A8C230C5069002ED843 /* Account.storyboard in Resources */,
@@ -482,6 +518,7 @@
 				A42C6388230EF5350023D7CE /* SlidingDetailsViewController.swift in Sources */,
 				A4508A63230B011C002ED843 /* LandingViewController.swift in Sources */,
 				A4508A6C230B082D002ED843 /* HomePageViewController.swift in Sources */,
+				3A04FF12231D919600CB3744 /* HykrSubHeaderBoldLabel.swift in Sources */,
 				A4508A67230B057A002ED843 /* SignUpInfoViewController.swift in Sources */,
 				A4EF0573230F907400729B0E /* CustomNavigationController.swift in Sources */,
 				3A14B685230C88F400DE2DCE /* NetworkController.swift in Sources */,
@@ -503,13 +540,16 @@
 				3AF87AAF23198D45006614FC /* StyleGuide.swift in Sources */,
 				A42C6384230E397A0023D7CE /* UIViewExtension.swift in Sources */,
 				3A14B679230C4C0C00DE2DCE /* UserController.swift in Sources */,
-				3AF87AAB23198CBA006614FC /* HykrLabel.swift in Sources */,
+				3AF87AAB23198CBA006614FC /* HykrHeaderLabel.swift in Sources */,
 				3A04FF00231D6C8100CB3744 /* HykrDetailButton.swift in Sources */,
 				3AF87AAD23198D0F006614FC /* HykrTextField.swift in Sources */,
 				A42C638C230F26C50023D7CE /* UIImageExtension.swift in Sources */,
 				A42C6382230DEB880023D7CE /* CoreLocationController.swift in Sources */,
+				3A04FF06231D71AA00CB3744 /* HykrBodyLabel.swift in Sources */,
 				A42C638A230F1CF50023D7CE /* MKAnnotationExtension.swift in Sources */,
 				3A14B673230B04B300DE2DCE /* Hike.swift in Sources */,
+				3A04FF02231D716E00CB3744 /* HykrSubHeaderLabel.swift in Sources */,
+				3A04FF04231D719700CB3744 /* HykrSubHeaderWhiteLabel.swift in Sources */,
 				3A14B671230AFDE200DE2DCE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
