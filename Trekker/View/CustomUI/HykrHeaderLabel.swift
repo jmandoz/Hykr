@@ -8,10 +8,11 @@
 
 import UIKit
 
-class HykrLabel: UILabel {
+class HykrHeaderLabel: UILabel {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        setUpUI()
     }
     
     func overrideFont(with fontName: String) {
@@ -19,24 +20,8 @@ class HykrLabel: UILabel {
         self.font = UIFont(name: fontName, size: size)!
     }
     
-    func setUpUIHeader() {
+    func setUpUI() {
         self.textColor = Colors.darkBrown.color()
         overrideFont(with: FontNames.arielBold)
     }
-    
-    func setUpUISubHeader() {
-        self.textColor = Colors.darkBrown.color()
-        overrideFont(with: FontNames.roboto)
-    }
-    
-    func setUpUISubHeaderWhite() {
-        self.textColor = Colors.white.color()
-        overrideFont(with: FontNames.roboto)
-    }
-    
-    func setUpUIBody() {
-        self.textColor = Colors.darkBrown.color()
-        overrideFont(with: FontNames.latoRegular)
-    }
-
 }

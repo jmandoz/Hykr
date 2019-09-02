@@ -14,18 +14,36 @@ class HikeDetailsViewController: UIViewController {
     var savedHikesTempArray: [Hike]?
     var hikeImage: UIImage?
     
-    //Outlets
+    //Non Data Label Outlets
+    
+    @IBOutlet weak var difficultyTitleLabel: HykrSubHeaderBoldLabel!
+    @IBOutlet weak var ascentTitleLabel: HykrSubHeaderBoldLabel!
+    @IBOutlet weak var distanceTitleLabel: HykrSubHeaderBoldLabel!
+    @IBOutlet weak var currentWeatherTitleLabel: HykrSubHeaderBoldLabel!
+    @IBOutlet weak var photosButtonLabel: HykrSubHeaderLabel!
+    @IBOutlet weak var completeButtonLabel: HykrSubHeaderLabel!
+    
+    // Button Views and images
+    @IBOutlet weak var photosButtonView: HykrDetailButtonView!
+    @IBOutlet weak var completeButtonView: HykrDetailButtonView!
+    @IBOutlet weak var completeButtonImageView: UIImageView!
+    
+    //Data Outlets
+    
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var directionsButton: UIButton!
-    @IBOutlet weak var completeButton: UIButton!
-    @IBOutlet weak var hikeMapButton: UIButton!
-    @IBOutlet weak var heartButton: UIButton!
-    @IBOutlet weak var hikeNameLabel: UILabel!
+    @IBOutlet weak var hikeNameLabel: HykrHeaderLabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var difficultyLabel: UILabel!
     @IBOutlet weak var ascentLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var currentWeatherLabel: UILabel!
+    @IBOutlet weak var weatherDescriptionLabel: HykrSubHeaderBoldLabel!
+    
+    // Button Outlets
+    
+    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var heartButton: UIButton!
+    @IBOutlet weak var photosButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,9 +67,11 @@ class HikeDetailsViewController: UIViewController {
                 let decoder = JSONDecoder()
                 let topLevelJSON = try decoder.decode(Weather.self, from: data)
                 let weatherConditions = topLevelJSON.conditions
-                
+                let temp = topLevelJSON.temperature.temp.rounded()
+    
                 DispatchQueue.main.async {
-                    self.currentWeatherLabel.text = weatherConditions[0].conditionsDescription
+                    self.currentWeatherLabel.text = "\(temp) F"
+                    self.weatherDescriptionLabel.text = weatherConditions[0].conditionsDescription
                 }
             } catch {
                 print ("Error decoding data: \(error.localizedDescription)")
@@ -91,7 +111,8 @@ class HikeDetailsViewController: UIViewController {
         for savedHike in Hikes {
             if savedHike.wackyUUID == hike.wackyUUID {
                 DispatchQueue.main.async {
-                    self.heartButton.alpha = 0
+                    self.heartButton.setImage(UIImage(named: "saved hike icon"), for: .normal)
+                   // self.heartButton.alpha = 0
                 }
             }
         }
@@ -101,9 +122,14 @@ class HikeDetailsViewController: UIViewController {
         guard let hike = self.hike else {return}
         for loggedHikes in Hikes {
             if loggedHikes.wackyUUID == hike.wackyUUID {
+                hike.isCompleted = true
                 DispatchQueue.main.async {
-                    self.completeButton.setTitle("Completed", for: .normal)
-                    self.completeButton.backgroundColor = .green
+                    self.completeButtonLabel.text = "Completed"
+                   // self.completeButton.setTitle("Completed", for: .normal)
+//                    self.completeButton.setImage(UIImage(named: "completed hike button"), for: .normal)
+//                    self.completeButton.imageView?.sizeToFit()
+//                    self.completeButton.backgroundColor = Colors.green.color()
+                    self.completeButtonImageView.image = UIImage(named: "checkmark")?.resizeImage(targetSize: CGSize(width: self.completeButtonView.frame.width / 4, height: self.completeButtonView.frame.width / 4))
                     self.heartButton.alpha = 0
                 }
             }
@@ -122,7 +148,12 @@ class HikeDetailsViewController: UIViewController {
     }
     
     @IBAction func completeButtonTapped(_ sender: Any) {
-        checkUserHikes()
+        guard let hike = hike else { return }
+        if hike.isCompleted == false {
+            checkUserHikes()
+        } else {
+            print ("It worked")
+        }
     }
     
     func presentMapView() {
@@ -154,8 +185,11 @@ class HikeDetailsViewController: UIViewController {
                 HikeController.sharedInstance.update(hike: hike) { (success) in
                     if success {
                         DispatchQueue.main.async {
-                            self.completeButton.setTitle("Completed", for: .normal)
-                            self.completeButton.backgroundColor = .green
+                            self.completeButtonLabel.text = "Completed"
+                         //   self.completeButton.setTitle("Completed", for: .normal)
+//                            self.completeButton.setBackgroundImage(UIImage(named: "completed hike button")?.resizeImage(targetSize: self.completeButton.frame.size), for: .normal)
+//                            self.completeButton.backgroundColor = Colors.green.color()
+                            self.completeButtonImageView.image = UIImage(named: "checkmark")?.resizeImage(targetSize: CGSize(width: self.completeButtonView.frame.width / 4, height: self.completeButtonView.frame.width / 4))
                         }
                     }
                 }
@@ -167,10 +201,14 @@ class HikeDetailsViewController: UIViewController {
         guard let hikeImage = hike.hikeApiImage else {return}
         HikeController.sharedInstance.createHikeWith(longitude: hike.longitude, latitude: hike.latitude, hikeName: hike.hikeName, hikeRating: hike.hikeRating, apiID: hike.apiID, hikeAscent: hike.hikeAscent, hikeDifficulty: hike.hikeDifficulty, hikeDistance: hike.hikeDistance, isCompleted: true, hikeApiImage: hikeImage, user: user) { (hike) in
             if let hike = hike {
+                self.hike?.isCompleted = true
                 user.hikeLog.append(hike)
                 DispatchQueue.main.async {
-                    self.completeButton.setTitle("Completed", for: .normal)
-                    self.completeButton.backgroundColor = .green
+                    self.completeButtonLabel.text = "Completed"
+                   // self.completeButton.setTitle("Completed", for: .normal)
+//                    self.completeButton.setImage(UIImage(named: "completed hike button"), for: .normal)
+//                    self.completeButton.backgroundColor = Colors.green.color()
+                    self.completeButtonImageView.image = UIImage(named: "checkmark")?.resizeImage(targetSize: CGSize(width: self.completeButtonView.frame.width / 4, height: self.completeButtonView.frame.width / 4))
                 }
             }
         }
@@ -183,6 +221,7 @@ class HikeDetailsViewController: UIViewController {
             if let hike = hike {
                 user.savedHikes.append(hike)
                 DispatchQueue.main.async {
+                    self.heartButton.setImage(UIImage(named: "saved hike icon"), for: .normal)
                     self.heartButton.setTitle("Saved", for: .normal)
                     self.heartButton.isEnabled = false
                 }
