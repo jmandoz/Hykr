@@ -11,12 +11,12 @@
 		3A04FF02231D716E00CB3744 /* HykrSubHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04FF01231D716E00CB3744 /* HykrSubHeaderLabel.swift */; };
 		3A04FF04231D719700CB3744 /* HykrSubHeaderWhiteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04FF03231D719700CB3744 /* HykrSubHeaderWhiteLabel.swift */; };
 		3A04FF06231D71AA00CB3744 /* HykrBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04FF05231D71AA00CB3744 /* HykrBodyLabel.swift */; };
-		3A04FF0B231D82BF00CB3744 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A04FF0A231D827700CB3744 /* Lato-Bold.ttf */; };
-		3A04FF0C231D82D600CB3744 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A04FF09231D827700CB3744 /* Lato-Regular.ttf */; };
-		3A04FF0E231D849F00CB3744 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A04FF0D231D848B00CB3744 /* Roboto-Regular.ttf */; };
-		3A04FF10231D911100CB3744 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A04FF0F231D910600CB3744 /* Roboto-Bold.ttf */; };
 		3A04FF12231D919600CB3744 /* HykrSubHeaderBoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04FF11231D919600CB3744 /* HykrSubHeaderBoldLabel.swift */; };
 		3A04FF14231DBDF000CB3744 /* HykrDetailButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A04FF13231DBDF000CB3744 /* HykrDetailButtonView.swift */; };
+		3A04FF1C231DD63300CB3744 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A04FF1B231DD63300CB3744 /* Lato-Bold.ttf */; };
+		3A04FF1E231DD64B00CB3744 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A04FF1D231DD64B00CB3744 /* Lato-Regular.ttf */; };
+		3A04FF21231DD68F00CB3744 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A04FF1F231DD68F00CB3744 /* Roboto-Bold.ttf */; };
+		3A04FF22231DD68F00CB3744 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A04FF20231DD68F00CB3744 /* Roboto-Regular.ttf */; };
 		3A14B671230AFDE200DE2DCE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B670230AFDE200DE2DCE /* User.swift */; };
 		3A14B673230B04B300DE2DCE /* Hike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B672230B04B300DE2DCE /* Hike.swift */; };
 		3A14B677230B47FF00DE2DCE /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14B676230B47FF00DE2DCE /* Weather.swift */; };
@@ -73,12 +73,12 @@
 		3A04FF01231D716E00CB3744 /* HykrSubHeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrSubHeaderLabel.swift; sourceTree = "<group>"; };
 		3A04FF03231D719700CB3744 /* HykrSubHeaderWhiteLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrSubHeaderWhiteLabel.swift; sourceTree = "<group>"; };
 		3A04FF05231D71AA00CB3744 /* HykrBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrBodyLabel.swift; sourceTree = "<group>"; };
-		3A04FF09231D827700CB3744 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Regular.ttf"; path = "../../../../../class stuff/Azoera/Azoera/Azoera/Resources/Fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
-		3A04FF0A231D827700CB3744 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Bold.ttf"; path = "../../../../../class stuff/Azoera/Azoera/Azoera/Resources/Fonts/Lato-Bold.ttf"; sourceTree = "<group>"; };
-		3A04FF0D231D848B00CB3744 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "../../../../../../hifi designs/fonts/Roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; };
-		3A04FF0F231D910600CB3744 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "../../../../../../hifi designs/fonts/Roboto/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		3A04FF11231D919600CB3744 /* HykrSubHeaderBoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrSubHeaderBoldLabel.swift; sourceTree = "<group>"; };
 		3A04FF13231DBDF000CB3744 /* HykrDetailButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrDetailButtonView.swift; sourceTree = "<group>"; };
+		3A04FF1B231DD63300CB3744 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		3A04FF1D231DD64B00CB3744 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		3A04FF1F231DD68F00CB3744 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		3A04FF20231DD68F00CB3744 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		3A14B670230AFDE200DE2DCE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = SOURCE_ROOT; };
 		3A14B672230B04B300DE2DCE /* Hike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hike.swift; sourceTree = SOURCE_ROOT; };
 		3A14B676230B47FF00DE2DCE /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = SOURCE_ROOT; };
@@ -148,10 +148,10 @@
 		3A04FF08231D81BA00CB3744 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				3A04FF0D231D848B00CB3744 /* Roboto-Regular.ttf */,
-				3A04FF0F231D910600CB3744 /* Roboto-Bold.ttf */,
-				3A04FF0A231D827700CB3744 /* Lato-Bold.ttf */,
-				3A04FF09231D827700CB3744 /* Lato-Regular.ttf */,
+				3A04FF1F231DD68F00CB3744 /* Roboto-Bold.ttf */,
+				3A04FF20231DD68F00CB3744 /* Roboto-Regular.ttf */,
+				3A04FF1D231DD64B00CB3744 /* Lato-Regular.ttf */,
+				3A04FF1B231DD63300CB3744 /* Lato-Bold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -495,16 +495,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A04FF10231D911100CB3744 /* Roboto-Bold.ttf in Resources */,
-				3A04FF0E231D849F00CB3744 /* Roboto-Regular.ttf in Resources */,
-				3A04FF0C231D82D600CB3744 /* Lato-Regular.ttf in Resources */,
-				3A04FF0B231D82BF00CB3744 /* Lato-Bold.ttf in Resources */,
+				3A04FF1C231DD63300CB3744 /* Lato-Bold.ttf in Resources */,
+				3A04FF21231DD68F00CB3744 /* Roboto-Bold.ttf in Resources */,
 				A4508A77230B3ED0002ED843 /* HikeAnnotationView.xib in Resources */,
 				A4508A54230AEF81002ED843 /* LaunchScreen.storyboard in Resources */,
 				A4508A8C230C5069002ED843 /* Account.storyboard in Resources */,
 				A4508A88230C4FFF002ED843 /* Saved.storyboard in Resources */,
 				A4508A51230AEF80002ED843 /* Assets.xcassets in Resources */,
 				A4508A4C230AEF80002ED843 /* SignUp.storyboard in Resources */,
+				3A04FF22231DD68F00CB3744 /* Roboto-Regular.ttf in Resources */,
+				3A04FF1E231DD64B00CB3744 /* Lato-Regular.ttf in Resources */,
 				A4508A8A230C5027002ED843 /* HikeLog.storyboard in Resources */,
 				A4508A84230C4DFA002ED843 /* HikeDetails.storyboard in Resources */,
 				A4508A86230C4FA5002ED843 /* HikeMap.storyboard in Resources */,
