@@ -27,41 +27,59 @@
                                     <segue destination="Gi1-jT-wLN" kind="embed" identifier="containerViewEmbedSegue" id="X2u-pI-z29"/>
                                 </connections>
                             </containerView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top bar" translatesAutoresizingMaskIntoConstraints="NO" id="3yt-JZ-Uu7">
-                                <rect key="frame" x="0.0" y="754" width="414" height="69"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJZ-gP-vVN">
-                                <rect key="frame" x="351" y="269.5" width="48" height="48"/>
+                                <rect key="frame" x="20" y="269.5" width="48" height="48"/>
                                 <state key="normal" image="target home"/>
                                 <connections>
                                     <action selector="centerLocationButtonTapped:" destination="Sux-N7-rO9" eventType="touchUpInside" id="fRD-2U-nUv"/>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phP-v8-yFI">
+                                <rect key="frame" x="265" y="140" width="149" height="673"/>
+                                <connections>
+                                    <segue destination="jvA-eh-sMU" kind="embed" id="SOl-3M-Efu"/>
+                                </connections>
+                            </containerView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top bar" translatesAutoresizingMaskIntoConstraints="NO" id="3yt-JZ-Uu7">
+                                <rect key="frame" x="0.0" y="754" width="414" height="69"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="phP-v8-yFI" firstAttribute="bottom" secondItem="fZ3-tl-MSX" secondAttribute="bottom" id="2Mr-b1-5wc"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="trailing" secondItem="fZ3-tl-MSX" secondAttribute="trailing" id="7cS-RZ-pZb"/>
                             <constraint firstItem="fZ3-tl-MSX" firstAttribute="bottom" secondItem="hvd-Cm-IvJ" secondAttribute="bottom" id="8H7-MH-AAF"/>
+                            <constraint firstItem="phP-v8-yFI" firstAttribute="top" secondItem="fZ3-tl-MSX" secondAttribute="top" id="AvP-9I-8tr"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="bottom" secondItem="fZ3-tl-MSX" secondAttribute="bottom" id="CYd-Ut-oJE"/>
                             <constraint firstItem="hvd-Cm-IvJ" firstAttribute="width" secondItem="lNr-er-lXK" secondAttribute="width" id="DKC-es-43s"/>
                             <constraint firstItem="hvd-Cm-IvJ" firstAttribute="height" secondItem="lNr-er-lXK" secondAttribute="height" multiplier="0.3" id="FWf-QD-Gwl"/>
+                            <constraint firstItem="phP-v8-yFI" firstAttribute="centerX" secondItem="d0e-Nn-QlE" secondAttribute="centerX" multiplier="1.64" id="Gdj-FE-Lrc"/>
+                            <constraint firstItem="phP-v8-yFI" firstAttribute="trailing" secondItem="fZ3-tl-MSX" secondAttribute="trailing" id="Pl0-64-HPX"/>
                             <constraint firstItem="3yt-JZ-Uu7" firstAttribute="trailing" secondItem="fZ3-tl-MSX" secondAttribute="trailing" id="b1q-4o-V1s"/>
                             <constraint firstItem="hvd-Cm-IvJ" firstAttribute="centerX" secondItem="d0e-Nn-QlE" secondAttribute="centerX" id="hBd-G2-4BN"/>
                             <constraint firstItem="fJZ-gP-vVN" firstAttribute="centerY" secondItem="d0e-Nn-QlE" secondAttribute="centerY" multiplier="0.65" constant="2.2000000000000002" id="hJT-xR-HIy"/>
                             <constraint firstItem="3yt-JZ-Uu7" firstAttribute="leading" secondItem="fZ3-tl-MSX" secondAttribute="leading" id="m85-nP-uxY"/>
                             <constraint firstItem="3yt-JZ-Uu7" firstAttribute="bottom" secondItem="fZ3-tl-MSX" secondAttribute="bottom" constant="10" id="q2L-Su-LB7"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="leading" secondItem="fZ3-tl-MSX" secondAttribute="leading" id="qlL-9o-1S8"/>
-                            <constraint firstItem="fJZ-gP-vVN" firstAttribute="centerX" secondItem="d0e-Nn-QlE" secondAttribute="centerX" multiplier="1.8" constant="2.3999999999999999" id="vU4-tQ-04F"/>
+                            <constraint firstItem="fJZ-gP-vVN" firstAttribute="centerX" secondItem="d0e-Nn-QlE" secondAttribute="centerX" multiplier="0.2" constant="2.3999999999999999" id="vU4-tQ-04F"/>
                             <constraint firstItem="lNr-er-lXK" firstAttribute="top" secondItem="d0e-Nn-QlE" secondAttribute="top" id="yoO-Ua-nBS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fZ3-tl-MSX"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Trekker" id="66F-Ri-0ZK"/>
+                    <navigationItem key="navigationItem" title="Trekker" id="66F-Ri-0ZK">
+                        <barButtonItem key="rightBarButtonItem" title="Show My Hikes" id="Abm-SS-iDA">
+                            <connections>
+                                <action selector="showMyHikesButtonTapped:" destination="Sux-N7-rO9" id="pzb-a3-i7L"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="centerLocationButton" destination="fJZ-gP-vVN" id="l8u-1E-p1x"/>
                         <outlet property="mapView" destination="lNr-er-lXK" id="wGd-lE-dtK"/>
+                        <outlet property="showHikesButton" destination="Abm-SS-iDA" id="ara-Ke-A88"/>
                         <outlet property="slidingDetailView" destination="hvd-Cm-IvJ" id="CWl-Bb-jCH"/>
+                        <outlet property="slidingSavedHikesView" destination="phP-v8-yFI" id="Z9N-oE-Eie"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wio-fL-ehr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -184,6 +202,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81E-Oa-ZTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2207.2463768115945" y="-1397.5446428571429"/>
+        </scene>
+        <!--Sliding Saved Hikes View Controller-->
+        <scene sceneID="ejM-9O-uHN">
+            <objects>
+                <viewController id="jvA-eh-sMU" customClass="SlidingSavedHikesViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J3x-mg-7eg">
+                        <rect key="frame" x="0.0" y="0.0" width="149" height="673"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uIf-Lq-hHy">
+                                <rect key="frame" x="0.0" y="0.0" width="149" height="673"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="slideSavedHikesCell" rowHeight="142" id="wMI-1k-BBU" customClass="SlidingSavedHikesTableViewCell" customModule="Trekker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="149" height="142"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wMI-1k-BBU" id="Su3-Ny-sCe">
+                                            <rect key="frame" x="0.0" y="0.0" width="149" height="141.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AeV-bU-jeO">
+                                                    <rect key="frame" x="0.0" y="15" width="148" height="126.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="148" id="SEW-2V-93D"/>
+                                                        <constraint firstAttribute="height" constant="126.5" id="fxb-f6-pDm"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hike Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XlK-hz-xU7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="116" height="15"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.43672410102739728" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="XlK-hz-xU7" firstAttribute="top" secondItem="Su3-Ny-sCe" secondAttribute="top" id="1we-6R-4Nf"/>
+                                                <constraint firstAttribute="bottom" secondItem="AeV-bU-jeO" secondAttribute="bottom" id="67J-GI-N8g"/>
+                                                <constraint firstItem="XlK-hz-xU7" firstAttribute="leading" secondItem="Su3-Ny-sCe" secondAttribute="leading" id="Bnu-ED-sD8"/>
+                                                <constraint firstAttribute="trailing" secondItem="AeV-bU-jeO" secondAttribute="trailing" id="Hs8-m0-rim"/>
+                                                <constraint firstItem="AeV-bU-jeO" firstAttribute="leading" secondItem="Su3-Ny-sCe" secondAttribute="leading" id="Lqw-K9-qHL"/>
+                                                <constraint firstAttribute="trailing" secondItem="XlK-hz-xU7" secondAttribute="trailing" id="Tib-aM-V4P"/>
+                                                <constraint firstItem="AeV-bU-jeO" firstAttribute="top" secondItem="Su3-Ny-sCe" secondAttribute="top" constant="15" id="j4m-8v-Hg9"/>
+                                                <constraint firstItem="AeV-bU-jeO" firstAttribute="top" secondItem="XlK-hz-xU7" secondAttribute="bottom" id="kHo-Uk-5fN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="hikeImageView" destination="AeV-bU-jeO" id="IhX-QZ-Dz0"/>
+                                            <outlet property="hikeNameLabel" destination="XlK-hz-xU7" id="uqO-Se-kvE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uIf-Lq-hHy" firstAttribute="top" secondItem="J3x-mg-7eg" secondAttribute="top" id="1z8-FE-tgY"/>
+                            <constraint firstAttribute="bottom" secondItem="uIf-Lq-hHy" secondAttribute="bottom" id="OGE-ik-VLh"/>
+                            <constraint firstItem="uIf-Lq-hHy" firstAttribute="leading" secondItem="J3x-mg-7eg" secondAttribute="leading" id="Qu7-bf-oT8"/>
+                            <constraint firstAttribute="trailing" secondItem="uIf-Lq-hHy" secondAttribute="trailing" id="Zvk-Mt-hCo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="slidingSavedHikesTableView" destination="uIf-Lq-hHy" id="w0Y-Je-AEV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PeP-3L-Z7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3782.608695652174" y="-1398.5491071428571"/>
         </scene>
     </scenes>
     <resources>

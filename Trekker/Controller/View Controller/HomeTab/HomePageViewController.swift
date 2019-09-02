@@ -14,6 +14,7 @@ let notificationKey = "com.jasonMandozzi.Trekker"
 
 class HomePageViewController: UIViewController, SlidingDetailsViewControllerDelegate {
     
+    @IBOutlet weak var slidingSavedHikesView: UIView!
     
     @IBOutlet weak var centerLocationButton: UIButton!
     
@@ -35,6 +36,9 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
     var currentLatitude = CoreLocationController.shared.locationManager.location?.coordinate.latitude
     let screenSize = UIScreen.main.bounds.size
     var searchBar: UISearchBar?
+    var savedSlideIsVisible = false
+    
+    
     
     let notifName = Notification.Name(notificationKey)
     
@@ -46,15 +50,19 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var slidingDetailView: UIView!
+    @IBOutlet weak var showHikesButton: UIBarButtonItem!
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        self.slidingSavedHikesView.frame = slidingSavedHikesView.frame.offsetBy(dx: slidingSavedHikesView.frame.width, dy: 0)
         if annotationSelected == false {
             let distance = self.slidingDetailView.frame.height
             slidingDetailView.frame = slidingDetailView.frame.offsetBy(dx: 0, dy: distance)
             self.reloadInputViews()
         }
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +75,19 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
         createObserver()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func showMyHikesButtonTapped(_ sender: Any) {
+        switch savedSlideIsVisible {
+        case true:
+            hideSavedSlideView()
+            showHikesButton.title = "Show My Hikes"
+        case false:
+            showSavedSlideView()
+            showHikesButton.title = "Close"
+        }
+    }
+    
+    
     
     @IBAction func centerLocationButtonTapped(_ sender: Any) {
         self.currentLongitude = CoreLocationController.shared.locationManager.location?.coordinate.longitude
@@ -122,6 +143,8 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
         self.searchBar?.placeholder = "Search any location"
         self.searchBar?.resignFirstResponder()
         self.searchBar?.endEditing(false)
+        self.showHikesButton.tintColor = .black
+        self.slidingSavedHikesView.backgroundColor = .clear
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -392,6 +415,28 @@ extension HomePageViewController: MKMapViewDelegate {
             mapView.removeOverlays(mapView.overlays)
             let _ = self.directionsArray.map {($0.cancel())}
             self.selectedHikeRegion()
+        }
+    }
+}
+
+extension HomePageViewController {
+    func showSavedSlideView() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseIn, animations: {
+                let distance = self.slidingSavedHikesView.frame.width
+                self.slidingSavedHikesView.frame = self.slidingSavedHikesView.frame.offsetBy(dx: -distance, dy: 0)
+            }, completion: nil)
+            self.savedSlideIsVisible = true
+        }
+    }
+    
+    func hideSavedSlideView() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseOut, animations: {
+                let distance = self.slidingSavedHikesView.frame.width
+                self.slidingSavedHikesView.frame = self.slidingSavedHikesView.frame.offsetBy(dx: distance, dy: 0)
+            }, completion: nil)
+            self.savedSlideIsVisible = false
         }
     }
 }
