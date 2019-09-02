@@ -10,6 +10,8 @@ import UIKit
 import MapKit
 import CoreLocation
 
+let notificationKey = "com.jasonMandozzi.Trekker"
+
 class HomePageViewController: UIViewController, SlidingDetailsViewControllerDelegate {
     
     
@@ -19,6 +21,7 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
     //Properties
     var selectedHike: HikeJSON?
     var searchResults: [HikeJSON] = []
+    var specificDirectionsSearch: [HikeJSON] = []
     var routeDistance = CLLocationDistance()
     var distanceToHike: String?
     var expectedTimeToHike: String?
@@ -32,6 +35,12 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
     var currentLatitude = CoreLocationController.shared.locationManager.location?.coordinate.latitude
     let screenSize = UIScreen.main.bounds.size
     var searchBar: UISearchBar?
+    
+    let notifName = Notification.Name(notificationKey)
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     //Outlets
     
@@ -55,7 +64,7 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
         CoreLocationController.shared.activateLocationServices()
         getMyRegion()
         setUpUI()
-        
+        createObserver()
         // Do any additional setup after loading the view.
     }
     
@@ -67,23 +76,71 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
         centerLocationButton.isHidden = true
     }
     
+    func createObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchAndMap(notification:)), name: notifName, object: nil)
+    }
+    
+    @objc func fetchAndMap(notification: NSNotification) {
+        let hikeID = notification.object
+        if let finalURL = NetworkController.sharedInstance.buildURL(baseURL: HikeAPIStrings.baseURL, components: ["get-trails-by-id"], queryItems: ["ids":"\(String(describing: hikeID))" , HikeAPIStrings.apiKey : HikeAPIStrings.apiKeyValue]) {
+            
+            NetworkController.sharedInstance.getDataFromURL(url: finalURL) { (data) in
+                if let data = data {
+                    do {
+                        let decoder = JSONDecoder()
+                        let topLevelJSON = try decoder.decode(TopLevelJSON.self, from: data)
+                        guard let trails = topLevelJSON.trails else { return }
+                        self.searchResults = trails
+                    } catch {
+                        print ("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
+                        return
+                    }
+                    self.createAnnotations(hikeArray: self.searchResults)
+                    self.selectedHike = self.specificDirectionsSearch.first
+                    DispatchQueue.main.async {
+                        self.showDetailView()
+                        self.selectedHikeRegion()
+                        self.getDirections(self.selectedHikeVC)
+                    }
+                }
+            }
+        }
+    }
+    
     func setUpUI() {
         slidingDetailView.cornerRadius(50)
         let searchController = UISearchController(searchResultsController: nil)
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
         self.navigationItem.searchController?.searchBar.barTintColor = .white
+        let textInsideSearchBar = searchBar?.value(forKey: "searchField") as? UITextField
+        textInsideSearchBar?.textColor = .white
         self.searchBar = searchController.searchBar
         self.searchBar?.delegate = self
-        self.searchBar?.tintColor = .white
+        self.searchBar?.barStyle = .black
         self.searchBar?.barTintColor = .white
         self.searchBar?.placeholder = "Search any location"
-        self.searchBar?.isTranslucent = false
+        self.searchBar?.resignFirstResponder()
+        self.searchBar?.endEditing(false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchHikes()
+        if selectedHike == nil {
+            fetchHikes()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.searchBar != nil {
+            self.definesPresentationContext = true
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.definesPresentationContext = false
     }
     
     func getMyRegion() {

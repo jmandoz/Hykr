@@ -18,6 +18,7 @@ class SavedHikesViewController: UIViewController, UITableViewDelegate, UITableVi
         savedHikesTableView.dataSource = self
         savedHikesTableView.delegate = self
         // Do any additional setup after loading the view.
+        // Post notification that will pass hike apiID back to the map view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
