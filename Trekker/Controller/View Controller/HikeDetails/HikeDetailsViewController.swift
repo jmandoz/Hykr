@@ -112,14 +112,23 @@ class HikeDetailsViewController: UIViewController {
     
     //Actions
     @IBAction func directionsButtonTapped(_ sender: Any) {
-        print("debug step")
+        let name = Notification.Name(rawValue: notificationKey)
+        NotificationCenter.default.post(name: name, object: hike?.apiID)
+        presentMapView()
     }
     
     @IBAction func hikeMapButtonTapped(_ sender: Any) {
+        
     }
     
     @IBAction func completeButtonTapped(_ sender: Any) {
         checkUserHikes()
+    }
+    
+    func presentMapView() {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+        self.present(viewController, animated: true)
     }
     
     func checkUserHikes() {

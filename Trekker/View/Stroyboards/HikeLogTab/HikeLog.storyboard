@@ -59,7 +59,7 @@
                                 </prototypes>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top bar" translatesAutoresizingMaskIntoConstraints="NO" id="gbK-yH-jDJ">
-                                <rect key="frame" x="0.0" y="798" width="414" height="69"/>
+                                <rect key="frame" x="0.0" y="803" width="414" height="69"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,7 +69,7 @@
                             <constraint firstItem="BCw-eD-7Lh" firstAttribute="top" secondItem="ves-sa-CpX" secondAttribute="top" id="OLL-aO-Hjn"/>
                             <constraint firstItem="BCw-eD-7Lh" firstAttribute="leading" secondItem="ves-sa-CpX" secondAttribute="leading" id="PoH-wA-ZVa"/>
                             <constraint firstItem="BCw-eD-7Lh" firstAttribute="bottom" secondItem="ves-sa-CpX" secondAttribute="bottom" id="bi7-uD-xeP"/>
-                            <constraint firstItem="ves-sa-CpX" firstAttribute="bottom" secondItem="gbK-yH-jDJ" secondAttribute="bottom" constant="-5" id="kU0-2H-jpg"/>
+                            <constraint firstItem="ves-sa-CpX" firstAttribute="bottom" secondItem="gbK-yH-jDJ" secondAttribute="bottom" constant="-10" id="kU0-2H-jpg"/>
                             <constraint firstItem="BCw-eD-7Lh" firstAttribute="trailing" secondItem="ves-sa-CpX" secondAttribute="trailing" id="yhQ-Py-L0z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ves-sa-CpX"/>
