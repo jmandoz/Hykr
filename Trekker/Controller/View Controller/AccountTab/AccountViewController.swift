@@ -15,9 +15,6 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var proPicImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var changeUnitsButton: UIButton!
-    @IBOutlet weak var milesButton: UIButton!
-    @IBOutlet weak var kiloButton: UIButton!
     @IBOutlet weak var changeProfilePicButton: UIButton!
     @IBOutlet weak var ageLabel: HykrBodyLabel!
     
@@ -41,39 +38,11 @@ class AccountViewController: UIViewController {
     }
     
     //Actions
-    @IBAction func changeUnitsButtonTapped(_ sender: Any) {
-        
-    }
+
     
-    @IBAction func milesButtonTapped(_ sender: Any) {
-        guard let user = UserController.sharedInstance.currentUser else { return }
-        if user.unitsInMiles != true {
-            user.unitsInMiles = false
-            UserController.sharedInstance.updateUserInfo(user: user) { (success) in
-                if success {
-                    print ("User units updated succesfully")
-                } else {
-                    print ("User units not updated for some reason")
-                }
-            }
-        }
-        
-    }
+
     
-    @IBAction func kiloButtonTapped(_ sender: Any) {
-        guard let user = UserController.sharedInstance.currentUser else { return }
-        if user.unitsInMiles == true {
-            user.unitsInMiles = false
-            UserController.sharedInstance.updateUserInfo(user: user) { (success) in
-                if success {
-                    print ("User units updated succesfully")
-                } else {
-                    print ("User units not updated for some reason")
-                }
-            }
-        }
-        
-    }
+
     
     
     
