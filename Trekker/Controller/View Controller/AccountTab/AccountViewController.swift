@@ -11,7 +11,7 @@ import AVFoundation
 
 class AccountViewController: UIViewController {
     
-    //Outlets
+    
     @IBOutlet weak var proPicImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -19,6 +19,7 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var milesButton: UIButton!
     @IBOutlet weak var kiloButton: UIButton!
     @IBOutlet weak var changeProfilePicButton: UIButton!
+    @IBOutlet weak var ageLabel: HykrBodyLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class AccountViewController: UIViewController {
         guard let user = UserController.sharedInstance.currentUser else { return }
         nameLabel.text = user.firstName + " " + user.lastName
         emailLabel.text = user.email
+        ageLabel.text = "\(user.age)"
     }
     
     //Actions

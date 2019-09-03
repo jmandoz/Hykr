@@ -31,13 +31,16 @@ class HikeDetailsViewController: UIViewController {
     //Data Outlets
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var hikeNameLabel: HykrHeaderLabel!
+    @IBOutlet weak var hikeNameLabel: HykrSubHeaderLabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var difficultyLabel: UILabel!
     @IBOutlet weak var ascentLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var currentWeatherLabel: UILabel!
     @IBOutlet weak var weatherDescriptionLabel: HykrSubHeaderBoldLabel!
+    
+    // Star Rating Outlet
+    @IBOutlet weak var ratingImageView: UIImageView!
     
     // Button Outlets
     
@@ -98,12 +101,15 @@ class HikeDetailsViewController: UIViewController {
     func displayHikeInfo() {
         guard let hike = hike else { return }
         hikeNameLabel.text = hike.hikeName
-        // TODO: Figure out way to make rating not default to zero if rating is absent
         ratingLabel.text = "\(hike.hikeRating)"
         difficultyLabel.text = hike.hikeDifficulty
         distanceLabel.text = "\(hike.hikeDistance)"
         ascentLabel.text = "\(hike.hikeAscent)"
         imageView.image = hike.hikeApiImage
+
+        DispatchQueue.main.async {
+            self.convertRatingNumberToStars(rating: hike.hikeRating)
+        }
     }
     
     func checkSavedHikes(Hikes: [Hike]) {
@@ -151,6 +157,7 @@ class HikeDetailsViewController: UIViewController {
         guard let hike = hike else { return }
         if hike.isCompleted == false {
             checkUserHikes()
+            //presentMapView()
         } else {
             print ("It worked")
         }
@@ -238,3 +245,78 @@ class HikeDetailsViewController: UIViewController {
     }
 }
 
+// MARK: - Star ratings
+
+extension HikeDetailsViewController {
+    
+    // TODO: Update func with correct images
+    func convertRatingNumberToStars(rating: Double) {
+        switch rating {
+        case _ where rating <= 0.24:
+            self.ratingImageView.image = UIImage(named: "stars0")
+            
+        case _ where rating >= 0.25 && rating < 1:
+            self.ratingImageView.image = UIImage(named: "starshalf")
+            
+        case _ where rating <= 1.24:
+            self.ratingImageView.image = UIImage(named: "stars1")
+            
+        case _ where rating >= 1.25 && rating < 1.75:
+            self.ratingImageView.image = UIImage(named: "stars1half")
+            
+        case _ where rating <= 2.24:
+            self.ratingImageView.image = UIImage(named: "stars2")
+            
+        case _ where rating >= 2.25 && rating < 2.75:
+            self.ratingImageView.image = UIImage(named: "stars2half")
+            
+        case _ where rating <= 3.24:
+            self.ratingImageView.image = UIImage(named: "stars3")
+            
+        case _ where rating >= 3.25 && rating < 3.75:
+            self.ratingImageView.image = UIImage(named: "stars3half")
+            
+        case _ where rating <= 4.24:
+            self.ratingImageView.image = UIImage(named: "stars4")
+            
+        case _ where rating >= 4.25 && rating < 4.75:
+               self.ratingImageView.image = UIImage(named: "stars4half")
+            
+        default:
+            self.ratingImageView.image = UIImage(named: "stars5")
+        }
+    }
+    //    func convertRatingNumberToStars(rating: Double) {
+    //        switch rating {
+    //        case _ where rating == 0:
+    //            self.ratingImageView.image = UIImage(named: "stars0")
+    //        case _ where rating < 1:
+    //            self.ratingImageView.image = UIImage(named: "stars0.5")
+    //        case _ where rating < 1.5:
+    //            self.ratingImageView.image = UIImage(named: "stars1")
+    //        case _ where rating < 2:
+    //            self.ratingImageView.image = UIImage(named: "stars1.5")
+    //
+    //        case _ where rating < 2.5:
+    //            self.ratingImageView.image = UIImage(named: "stars2")
+    //
+    //        case _ where rating < 3:
+    //            self.ratingImageView.image = UIImage(named: "stars2.5")
+    //
+    //        case _ where rating < 3.5:
+    //            self.ratingImageView.image = UIImage(named: "stars3")
+    //
+    //        case _ where rating < 4:
+    //            self.ratingImageView.image = UIImage(named: "stars3.5")
+    //
+    //        case _ where rating < 4.5:
+    //            self.ratingImageView.image = UIImage(named: "stars4")
+    //
+    //        case _ where rating < 5:
+    //            self.ratingImageView.image = UIImage(named: "stars4.5")
+    //
+    //        default:
+    //            self.ratingImageView.image = UIImage(named: "full star icon")
+    //        }
+    //    }
+}

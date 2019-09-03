@@ -57,4 +57,18 @@ extension HikeLogViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let loggedHike = UserController.sharedInstance.currentUser?.hikeLog[indexPath.row] else { return }
+            HikeController.sharedInstance.deleteHikeLogHike(hike: loggedHike) { (success) in
+                if success {
+                    print("Successfully deleted hike")
+                } else {
+                    print ("Failed to delete hike")
+                }
+            }
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }

@@ -30,6 +30,8 @@
 		3AF87AAB23198CBA006614FC /* HykrHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF87AAA23198CBA006614FC /* HykrHeaderLabel.swift */; };
 		3AF87AAD23198D0F006614FC /* HykrTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF87AAC23198D0F006614FC /* HykrTextField.swift */; };
 		3AF87AAF23198D45006614FC /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF87AAE23198D45006614FC /* StyleGuide.swift */; };
+		3AF9E4FB231ED99F00F7CE93 /* HykrOtherButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF9E4FA231ED99F00F7CE93 /* HykrOtherButton.swift */; };
+		3AF9E4FD231EE64600F7CE93 /* HykrSignUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF9E4FC231EE64600F7CE93 /* HykrSignUpButton.swift */; };
 		A42C6380230D9D7E0023D7CE /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42C637F230D9D7E0023D7CE /* CloudKit.framework */; };
 		A42C6382230DEB880023D7CE /* CoreLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C6381230DEB880023D7CE /* CoreLocationController.swift */; };
 		A42C6384230E397A0023D7CE /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C6383230E397A0023D7CE /* UIViewExtension.swift */; };
@@ -92,6 +94,8 @@
 		3AF87AAA23198CBA006614FC /* HykrHeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrHeaderLabel.swift; sourceTree = "<group>"; };
 		3AF87AAC23198D0F006614FC /* HykrTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrTextField.swift; sourceTree = "<group>"; };
 		3AF87AAE23198D45006614FC /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
+		3AF9E4FA231ED99F00F7CE93 /* HykrOtherButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrOtherButton.swift; sourceTree = "<group>"; };
+		3AF9E4FC231EE64600F7CE93 /* HykrSignUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrSignUpButton.swift; sourceTree = "<group>"; };
 		A42C637D230D9D7B0023D7CE /* Trekker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Trekker.entitlements; sourceTree = "<group>"; };
 		A42C637F230D9D7E0023D7CE /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A42C6381230DEB880023D7CE /* CoreLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationController.swift; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				3A04FF03231D719700CB3744 /* HykrSubHeaderWhiteLabel.swift */,
 				3A04FF05231D71AA00CB3744 /* HykrBodyLabel.swift */,
 				3A04FF13231DBDF000CB3744 /* HykrDetailButtonView.swift */,
+				3AF9E4FA231ED99F00F7CE93 /* HykrOtherButton.swift */,
+				3AF9E4FC231EE64600F7CE93 /* HykrSignUpButton.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -552,6 +558,7 @@
 				A42C6384230E397A0023D7CE /* UIViewExtension.swift in Sources */,
 				3A14B679230C4C0C00DE2DCE /* UserController.swift in Sources */,
 				A459553A231DBA1B004330B0 /* SlidingSavedHikesTableViewCell.swift in Sources */,
+				3AF9E4FD231EE64600F7CE93 /* HykrSignUpButton.swift in Sources */,
 				3AF87AAB23198CBA006614FC /* HykrHeaderLabel.swift in Sources */,
 				3A04FF00231D6C8100CB3744 /* HykrDetailButton.swift in Sources */,
 				3AF87AAD23198D0F006614FC /* HykrTextField.swift in Sources */,
@@ -559,6 +566,7 @@
 				A42C6382230DEB880023D7CE /* CoreLocationController.swift in Sources */,
 				3A04FF06231D71AA00CB3744 /* HykrBodyLabel.swift in Sources */,
 				A42C638A230F1CF50023D7CE /* MKAnnotationExtension.swift in Sources */,
+				3AF9E4FB231ED99F00F7CE93 /* HykrOtherButton.swift in Sources */,
 				3A14B673230B04B300DE2DCE /* Hike.swift in Sources */,
 				3A04FF02231D716E00CB3744 /* HykrSubHeaderLabel.swift in Sources */,
 				3A04FF04231D719700CB3744 /* HykrSubHeaderWhiteLabel.swift in Sources */,

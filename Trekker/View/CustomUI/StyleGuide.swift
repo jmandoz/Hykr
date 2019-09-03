@@ -13,7 +13,7 @@ extension UIView {
         self.layer.cornerRadius = radius
     }
     
-    func addBorder(width: CGFloat = 1, color: UIColor = Colors.ultraLightGrey.color()) {
+    func addBorder(width: CGFloat = 0.5, color: UIColor = Colors.ultraLightGrey.color()) {
         self.layer.borderColor = color.cgColor
         self.layer.borderWidth = width
     }
