@@ -52,10 +52,25 @@ class HikeDetailsViewController: UIViewController {
         super.viewDidLoad()
         displayHikeInfo()
         fetchWeatherInfo()
+//        guard let user = UserController.sharedInstance.currentUser else {return}
+//        checkSavedHikes(Hikes: user.savedHikes)
+//        checkHikeLog(Hikes: user.hikeLog)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         guard let user = UserController.sharedInstance.currentUser else {return}
         checkSavedHikes(Hikes: user.savedHikes)
         checkHikeLog(Hikes: user.hikeLog)
+
     }
+    
+//    override func viewWillLayoutSubviews() {
+//        super.viewWillLayoutSubviews()
+//        guard let user = UserController.sharedInstance.currentUser else {return}
+//        checkSavedHikes(Hikes: user.savedHikes)
+//        checkHikeLog(Hikes: user.hikeLog)
+//    }
     
     func fetchWeatherInfo() {
         guard let hike = hike else { return }
@@ -114,11 +129,26 @@ class HikeDetailsViewController: UIViewController {
     
     func checkSavedHikes(Hikes: [Hike]) {
         guard let hike = self.hike else {return}
-        for savedHike in Hikes {
-            if savedHike.wackyUUID == hike.wackyUUID {
-                DispatchQueue.main.async {
-                    self.heartButton.setImage(UIImage(named: "saved hike icon"), for: .normal)
-                   // self.heartButton.alpha = 0
+        if Hikes.count == 0 {
+            DispatchQueue.main.async {
+                self.heartButton.setImage(UIImage(named: "saved button icon"), for: .normal)
+                self.heartButton.alpha = 1
+                self.heartButton.isEnabled = true
+            }
+        } else {
+            for savedHike in Hikes {
+                if savedHike.wackyUUID == hike.wackyUUID {
+                    DispatchQueue.main.async {
+                        self.heartButton.setImage(UIImage(named: "saved hike icon"), for: .normal)
+                         //self.heartButton.alpha = 1
+                    }
+                    break
+                } else {
+                    DispatchQueue.main.async {
+                        self.heartButton.setImage(UIImage(named: "saved button icon"), for: .normal)
+                        self.heartButton.alpha = 1
+                        self.heartButton.isEnabled = true
+                    }
                 }
             }
         }
@@ -126,20 +156,38 @@ class HikeDetailsViewController: UIViewController {
     
     func checkHikeLog(Hikes: [Hike]) {
         guard let hike = self.hike else {return}
-        for loggedHikes in Hikes {
-            if loggedHikes.wackyUUID == hike.wackyUUID {
-                hike.isCompleted = true
-                DispatchQueue.main.async {
-                    self.completeButtonLabel.text = "Completed"
-                   // self.completeButton.setTitle("Completed", for: .normal)
-//                    self.completeButton.setImage(UIImage(named: "completed hike button"), for: .normal)
-//                    self.completeButton.imageView?.sizeToFit()
-//                    self.completeButton.backgroundColor = Colors.green.color()
-                    self.completeButtonImageView.image = UIImage(named: "checkmark")?.resizeImage(targetSize: CGSize(width: self.completeButtonView.frame.width / 4, height: self.completeButtonView.frame.width / 4))
-                    self.heartButton.alpha = 0
+        if Hikes.count == 0 {
+            hike.isCompleted = false
+            DispatchQueue.main.async {
+                self.completeButtonLabel.text = "Complete"
+                self.completeButtonImageView.image = UIImage(named: "check-box-outline")
+                self.heartButton.alpha = 1
+            }
+        } else {
+            for loggedHikes in Hikes {
+                if loggedHikes.wackyUUID == hike.wackyUUID {
+                    hike.isCompleted = true
+                    DispatchQueue.main.async {
+                        self.completeButtonLabel.text = "Completed"
+                        // self.completeButton.setTitle("Completed", for: .normal)
+                        //                    self.completeButton.setImage(UIImage(named: "completed hike button"), for: .normal)
+                        //                    self.completeButton.imageView?.sizeToFit()
+                        //                    self.completeButton.backgroundColor = Colors.green.color()
+                        self.completeButtonImageView.image = UIImage(named: "checkmark")?.resizeImage(targetSize: CGSize(width: self.completeButtonView.frame.width / 4, height: self.completeButtonView.frame.width / 4))
+                        self.heartButton.alpha = 0
+                    }
+                    break
+                } else {
+                    hike.isCompleted = false
+                    DispatchQueue.main.async {
+                        self.completeButtonLabel.text = "Complete"
+                        self.completeButtonImageView.image = UIImage(named: "check-box-outline")
+                        self.heartButton.alpha = 1
+                    }
                 }
             }
         }
+        
     }
     
     //Actions
@@ -249,7 +297,6 @@ class HikeDetailsViewController: UIViewController {
 
 extension HikeDetailsViewController {
     
-    // TODO: Update func with correct images
     func convertRatingNumberToStars(rating: Double) {
         switch rating {
         case _ where rating <= 0.24:

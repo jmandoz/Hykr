@@ -132,7 +132,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place" translatesAutoresizingMaskIntoConstraints="NO" id="Xuu-qa-8Wp">
-                                <rect key="frame" x="88.666666666666657" y="48" width="325.33333333333337" height="51"/>
+                                <rect key="frame" x="100.66666666666666" y="48" width="325.33333333333337" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="325.5" id="exC-ku-28i"/>
                                     <constraint firstAttribute="height" constant="51" id="f6u-kX-Dmd"/>
@@ -144,7 +144,7 @@
                             <constraint firstItem="hb8-ve-gw9" firstAttribute="centerY" secondItem="0Pb-he-er2" secondAttribute="centerY" multiplier="0.45" id="2eW-Xb-TYF"/>
                             <constraint firstItem="QGJ-X2-qdE" firstAttribute="centerY" secondItem="0Pb-he-er2" secondAttribute="centerY" multiplier="1.2" id="6tS-gM-dg1"/>
                             <constraint firstItem="IIx-Sy-WHX" firstAttribute="centerX" secondItem="0Pb-he-er2" secondAttribute="centerX" id="DTM-CW-DRO"/>
-                            <constraint firstAttribute="trailing" secondItem="Xuu-qa-8Wp" secondAttribute="trailing" id="HFZ-j0-CUP"/>
+                            <constraint firstAttribute="trailing" secondItem="Xuu-qa-8Wp" secondAttribute="trailing" constant="-12" id="HFZ-j0-CUP"/>
                             <constraint firstItem="IIx-Sy-WHX" firstAttribute="centerY" secondItem="0Pb-he-er2" secondAttribute="centerY" multiplier="0.7" id="asX-iE-wtD"/>
                             <constraint firstItem="QGJ-X2-qdE" firstAttribute="centerX" secondItem="0Pb-he-er2" secondAttribute="centerX" id="bPz-qX-rXt"/>
                             <constraint firstItem="wDh-Bt-Ivj" firstAttribute="trailing" secondItem="QGJ-X2-qdE" secondAttribute="trailing" constant="95" id="eKx-nA-gpX"/>
@@ -341,7 +341,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place" translatesAutoresizingMaskIntoConstraints="NO" id="NKf-hh-rTh">
-                                <rect key="frame" x="100" y="48" width="314" height="51"/>
+                                <rect key="frame" x="112" y="48" width="314" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="314" id="Q3l-DE-OjV"/>
                                     <constraint firstAttribute="height" constant="51" id="Slf-RF-lpT"/>
@@ -351,7 +351,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Hfx-c7-dMJ" firstAttribute="centerX" secondItem="9XO-py-nan" secondAttribute="centerX" id="17D-GU-lyK"/>
-                            <constraint firstItem="ppX-GU-ciC" firstAttribute="trailing" secondItem="NKf-hh-rTh" secondAttribute="trailing" id="3wd-Cd-nfe"/>
+                            <constraint firstItem="ppX-GU-ciC" firstAttribute="trailing" secondItem="NKf-hh-rTh" secondAttribute="trailing" constant="-12" id="3wd-Cd-nfe"/>
                             <constraint firstItem="NKf-hh-rTh" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" multiplier="0.2" id="Qk2-T9-hma"/>
                             <constraint firstItem="Hfx-c7-dMJ" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" multiplier="1.1" id="T9e-1p-8Ae"/>
                             <constraint firstItem="neQ-oG-X71" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" multiplier="1.9" id="hv8-1C-KaI"/>

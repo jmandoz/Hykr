@@ -63,6 +63,7 @@ extension HikeLogViewController: UITableViewDelegate, UITableViewDataSource {
             guard let loggedHike = UserController.sharedInstance.currentUser?.hikeLog[indexPath.row] else { return }
             HikeController.sharedInstance.deleteHikeLogHike(hike: loggedHike) { (success) in
                 if success {
+                    //UserController.sharedInstance.currentUser?.hikeLog.remove(at: indexPath.row)
                     print("Successfully deleted hike")
                 } else {
                     print ("Failed to delete hike")
