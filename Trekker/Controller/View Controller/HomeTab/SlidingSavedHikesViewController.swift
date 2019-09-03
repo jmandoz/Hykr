@@ -27,6 +27,7 @@ class SlidingSavedHikesViewController: UIViewController, UITableViewDelegate, UI
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         slidingSavedHikesTableView.reloadData()
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
