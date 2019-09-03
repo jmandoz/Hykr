@@ -49,6 +49,7 @@ class SavedHikesViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard let savedHike = UserController.sharedInstance.currentUser?.savedHikes[indexPath.row] else { return }
+            UserController.sharedInstance.currentUser?.savedHikes.remove(at: indexPath.row)
             HikeController.sharedInstance.deleteSavedHike(hike: savedHike) { (success) in
                 if success {
                     print ("Succesfully deleted hike")
