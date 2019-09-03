@@ -14,15 +14,12 @@ let notificationKey = "com.jasonMandozzi.Trekker"
 
 class HomePageViewController: UIViewController, SlidingDetailsViewControllerDelegate {
     
-    @IBOutlet weak var slidingSavedHikesView: UIView!
-    
-    @IBOutlet weak var centerLocationButton: UIButton!
     
     
     //Properties
     var selectedHike: HikeJSON?
     var searchResults: [HikeJSON] = []
-    var specificDirectionsSearch: [HikeJSON] = []
+    var savedHikeSelected: Hike?
     var routeDistance = CLLocationDistance()
     var distanceToHike: String?
     var expectedTimeToHike: String?
@@ -48,6 +45,8 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
     
     //Outlets
     
+    @IBOutlet weak var slidingSavedHikesView: UIView!
+    @IBOutlet weak var centerLocationButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var slidingDetailView: UIView!
     @IBOutlet weak var showHikesButton: UIBarButtonItem!
@@ -62,8 +61,6 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
         }
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
        // CoreLocationController.shared.locationManager.delegate = self
@@ -73,7 +70,6 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
         getMyRegion()
         setUpUI()
         createObserver()
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func showMyHikesButtonTapped(_ sender: Any) {
@@ -92,6 +88,8 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
     @IBAction func centerLocationButtonTapped(_ sender: Any) {
         self.currentLongitude = CoreLocationController.shared.locationManager.location?.coordinate.longitude
         self.currentLatitude = CoreLocationController.shared.locationManager.location?.coordinate.latitude
+        let _ = directionsArray.map({$0.cancel()})
+        self.mapView.removeOverlays(mapView.overlays)
         getMyRegion()
         fetchHikes()
         centerLocationButton.isHidden = true
@@ -102,8 +100,9 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
     }
     
     @objc func fetchAndMap(notification: NSNotification) {
-        let hikeID = notification.object
-        if let finalURL = NetworkController.sharedInstance.buildURL(baseURL: HikeAPIStrings.baseURL, components: ["get-trails-by-id"], queryItems: ["ids":"\(String(describing: hikeID))" , HikeAPIStrings.apiKey : HikeAPIStrings.apiKeyValue]) {
+        let hike = notification.object
+        centerLocationButton.isHidden = false
+        if let finalURL = NetworkController.sharedInstance.buildURL(baseURL: HikeAPIStrings.baseURL, components: ["get-trails-by-id"], queryItems: ["ids":"\(String(describing: hike))" , HikeAPIStrings.apiKey : HikeAPIStrings.apiKeyValue]) {
             
             NetworkController.sharedInstance.getDataFromURL(url: finalURL) { (data) in
                 if let data = data {
@@ -112,16 +111,16 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
                         let topLevelJSON = try decoder.decode(TopLevelJSON.self, from: data)
                         guard let trails = topLevelJSON.trails else { return }
                         self.searchResults = trails
+                        self.selectedHike = self.searchResults.first
                     } catch {
                         print ("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
                         return
                     }
                     self.createAnnotations(hikeArray: self.searchResults)
-                    self.selectedHike = self.specificDirectionsSearch.first
+                    self.hideSavedSlideView()
                     DispatchQueue.main.async {
-                        self.showDetailView()
                         self.selectedHikeRegion()
-                        self.getDirections(self.selectedHikeVC)
+                        self.showHikesButton.title = "Show My Hikes"
                     }
                 }
             }
@@ -143,7 +142,7 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
         self.searchBar?.placeholder = "Search any location"
         self.searchBar?.resignFirstResponder()
         self.searchBar?.endEditing(false)
-        self.showHikesButton.tintColor = .black
+        self.showHikesButton.tintColor = .white
         self.slidingSavedHikesView.backgroundColor = .clear
     }
     
@@ -362,6 +361,7 @@ extension HomePageViewController: MKMapViewDelegate {
             self.slidingDetailView.frame = self.slidingDetailView.frame.offsetBy(dx: 0, dy: -distance)
             self.selectedHikeVC.selectedHikeLanding = self.selectedHike
             self.annotationSelected = true
+            self.showHikesButton.isEnabled = false
         }, completion: nil)
     }
     
@@ -371,6 +371,7 @@ extension HomePageViewController: MKMapViewDelegate {
             self.slidingDetailView.frame = self.slidingDetailView.frame.offsetBy(dx: 0, dy: distance)
             self.selectedHikeVC.selectedHikeLanding = nil
             self.annotationSelected = false
+            self.showHikesButton.isEnabled = true
         }, completion: nil)
     }
     
@@ -427,6 +428,8 @@ extension HomePageViewController {
                 self.slidingSavedHikesView.frame = self.slidingSavedHikesView.frame.offsetBy(dx: -distance, dy: 0)
             }, completion: nil)
             self.savedSlideIsVisible = true
+            self.mapView.isUserInteractionEnabled = false
+            self.searchBar?.isUserInteractionEnabled = false
         }
     }
     
@@ -437,6 +440,8 @@ extension HomePageViewController {
                 self.slidingSavedHikesView.frame = self.slidingSavedHikesView.frame.offsetBy(dx: distance, dy: 0)
             }, completion: nil)
             self.savedSlideIsVisible = false
+            self.mapView.isUserInteractionEnabled = true
+            self.searchBar?.isUserInteractionEnabled = true
         }
     }
 }

@@ -215,7 +215,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="149" height="673"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="slideSavedHikesCell" rowHeight="142" id="wMI-1k-BBU" customClass="SlidingSavedHikesTableViewCell" customModule="Trekker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="slideSavedHikesCell" rowHeight="142" id="wMI-1k-BBU" customClass="SlidingSavedHikesTableViewCell" customModule="Trekker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="149" height="142"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wMI-1k-BBU" id="Su3-Ny-sCe">
@@ -264,6 +264,7 @@
                             <constraint firstItem="uIf-Lq-hHy" firstAttribute="leading" secondItem="J3x-mg-7eg" secondAttribute="leading" id="Qu7-bf-oT8"/>
                             <constraint firstAttribute="trailing" secondItem="uIf-Lq-hHy" secondAttribute="trailing" id="Zvk-Mt-hCo"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="eUR-3g-81S"/>
                     </view>
                     <connections>
                         <outlet property="slidingSavedHikesTableView" destination="uIf-Lq-hHy" id="w0Y-Je-AEV"/>
