@@ -134,4 +134,14 @@ class HikeController {
             }
         }
     }
+    
+    func deleteHikeLogHike(hike: Hike, completion: @escaping (Bool) -> Void) {
+        guard let index = UserController.sharedInstance.currentUser?.hikeLog.firstIndex(of: hike) else { return }
+        UserController.sharedInstance.currentUser?.hikeLog.remove(at: index)
+        
+        let database = self.publicDB
+        CloudKitController.shared.delete(recordID: hike.recordID, database: database) { (success) in
+            completion(success ? true : false)
+        }
+    }
 }
