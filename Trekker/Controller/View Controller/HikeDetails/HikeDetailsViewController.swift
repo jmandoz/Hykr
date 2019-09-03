@@ -129,11 +129,26 @@ class HikeDetailsViewController: UIViewController {
     
     func checkSavedHikes(Hikes: [Hike]) {
         guard let hike = self.hike else {return}
-        for savedHike in Hikes {
-            if savedHike.wackyUUID == hike.wackyUUID {
-                DispatchQueue.main.async {
-                    self.heartButton.setImage(UIImage(named: "saved hike icon"), for: .normal)
-                   // self.heartButton.alpha = 0
+        if Hikes.count == 0 {
+            DispatchQueue.main.async {
+                self.heartButton.setImage(UIImage(named: "saved button icon"), for: .normal)
+                self.heartButton.alpha = 1
+                self.heartButton.isEnabled = true
+            }
+        } else {
+            for savedHike in Hikes {
+                if savedHike.wackyUUID == hike.wackyUUID {
+                    DispatchQueue.main.async {
+                        self.heartButton.setImage(UIImage(named: "saved hike icon"), for: .normal)
+                         //self.heartButton.alpha = 1
+                    }
+                    break
+                } else {
+                    DispatchQueue.main.async {
+                        self.heartButton.setImage(UIImage(named: "saved button icon"), for: .normal)
+                        self.heartButton.alpha = 1
+                        self.heartButton.isEnabled = true
+                    }
                 }
             }
         }
@@ -161,6 +176,7 @@ class HikeDetailsViewController: UIViewController {
                         self.completeButtonImageView.image = UIImage(named: "checkmark")?.resizeImage(targetSize: CGSize(width: self.completeButtonView.frame.width / 4, height: self.completeButtonView.frame.width / 4))
                         self.heartButton.alpha = 0
                     }
+                    break
                 } else {
                     hike.isCompleted = false
                     DispatchQueue.main.async {
