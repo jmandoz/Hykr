@@ -10,7 +10,7 @@ import UIKit
 
 class SlidingSavedHikesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
+    var selectedSavedHike: Hike?
     
     @IBOutlet weak var slidingSavedHikesTableView: UITableView!
     
@@ -45,15 +45,14 @@ class SlidingSavedHikesViewController: UIViewController, UITableViewDelegate, UI
         
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let name = Notification.Name(rawValue: notificationKey)
+        
+        let savedHike = UserController.sharedInstance.currentUser?.savedHikes[indexPath.row]
+        
+        NotificationCenter.default.post(name: name, object: savedHike?.apiID)
+        
+        
     }
-    */
-
 }
