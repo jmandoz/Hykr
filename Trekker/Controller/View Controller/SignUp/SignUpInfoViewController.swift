@@ -34,6 +34,8 @@ class SignUpInfoViewController: UIViewController {
     @IBOutlet weak var twentyPlusMileButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
     
+    // Image Button outlet
+    @IBOutlet weak var profilePictureButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -237,6 +239,7 @@ extension SignUpInfoViewController: UIImagePickerControllerDelegate, UINavigatio
         picker.dismiss(animated: true, completion: nil)
         if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             self.profileImage = photo
+            self.profilePictureButton.setImage(photo, for: .normal)
         }
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

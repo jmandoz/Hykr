@@ -18,26 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trekker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBE-yH-Qkw">
-                                <rect key="frame" x="178.66666666666666" y="100" width="57" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8c-me-1KB">
                                 <rect key="frame" x="180" y="573.66666666666663" width="54" height="30"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
-                                    <segue destination="hg3-Ke-O5p" kind="show" id="IZF-pN-v1J"/>
+                                    <segue destination="hg3-Ke-O5p" kind="show" identifier="toSignUpVC" id="IZF-pN-v1J"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hykr logo" translatesAutoresizingMaskIntoConstraints="NO" id="oiu-0r-qXt">
+                                <rect key="frame" x="47" y="189.66666666666663" width="320" height="136"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="136" id="aMp-91-6ZJ"/>
+                                    <constraint firstAttribute="width" constant="320" id="bBk-dS-DcT"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="oiu-0r-qXt" firstAttribute="centerX" secondItem="wRY-u7-Npf" secondAttribute="centerX" id="BNs-CA-IwI"/>
                             <constraint firstItem="D8c-me-1KB" firstAttribute="centerY" secondItem="wRY-u7-Npf" secondAttribute="centerY" multiplier="1.6" id="HJm-Qy-ZSa"/>
                             <constraint firstItem="D8c-me-1KB" firstAttribute="centerX" secondItem="wRY-u7-Npf" secondAttribute="centerX" id="PLx-jS-mEE"/>
-                            <constraint firstItem="dBE-yH-Qkw" firstAttribute="centerX" secondItem="wRY-u7-Npf" secondAttribute="centerX" id="f8i-gL-WPg"/>
-                            <constraint firstItem="dBE-yH-Qkw" firstAttribute="centerY" secondItem="wRY-u7-Npf" secondAttribute="centerY" multiplier="0.3" id="wwK-Op-cYP"/>
+                            <constraint firstItem="oiu-0r-qXt" firstAttribute="centerY" secondItem="wRY-u7-Npf" secondAttribute="centerY" multiplier="0.7" id="S1k-mH-t3a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OaX-J4-d1r"/>
                     </view>
@@ -52,7 +53,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="g2L-v1-0XA">
             <objects>
-                <viewController id="hg3-Ke-O5p" customClass="SignUpViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC" id="hg3-Ke-O5p" customClass="SignUpViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Pb-he-er2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -369,6 +370,7 @@
                         <outlet property="maleButton" destination="EBw-L8-1BL" id="rpJ-pm-bHK"/>
                         <outlet property="oneMileButton" destination="sem-3f-BWf" id="wel-Qa-MaS"/>
                         <outlet property="otherButton" destination="p31-Sb-BtQ" id="KzS-Ap-QNM"/>
+                        <outlet property="profilePictureButton" destination="0wb-1N-unD" id="ELf-yT-PhY"/>
                         <outlet property="submitButton" destination="8DX-fE-amY" id="fvH-it-KrT"/>
                         <outlet property="tenMileButton" destination="aDN-iX-SHI" id="mV7-lu-tNn"/>
                         <outlet property="twentyPlusMileButton" destination="XhW-NU-iKK" id="r3s-or-vxG"/>
