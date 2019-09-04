@@ -15,11 +15,18 @@ class HykrSignUpButton: UIButton {
         setUpUI()
     }
     
-    override open var isHighlighted: Bool {
+//    override open var isHighlighted: Bool {
+//        didSet {
+//            backgroundColor = isHighlighted ? Colors.green.color() : Colors.white.color()
+//        }
+//    }
+    
+    override open var isEnabled: Bool {
         didSet {
             backgroundColor = isHighlighted ? Colors.green.color() : Colors.white.color()
         }
     }
+    
     
     func updateFont(to fontName: String) {
         guard let size = self.titleLabel?.font.pointSize,
@@ -38,8 +45,11 @@ class HykrSignUpButton: UIButton {
         self.layer.shadowOpacity = 0.3
         self.setTitleColor(Colors.darkBrown.color(), for: .normal)
         self.setTitleColor(Colors.white.color(), for: .highlighted)
+        self.tintColor = Colors.green.color()
         self.addCornerRadius(4)
         self.addBorder()
     }
 
 }
+
+

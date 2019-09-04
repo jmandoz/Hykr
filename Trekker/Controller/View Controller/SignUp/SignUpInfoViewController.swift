@@ -104,19 +104,19 @@ extension SignUpInfoViewController {
         switch buttonTag {
         //Male Button
         case 0:
-            maleButton.setTitleColor(.green, for: .selected)
+            maleButton.setTitleColor(.white, for: .selected)
             gender = "Male"
             femaleButton.isSelected = false
             otherButton.isSelected = false
         //Female Button
         case 1:
-            femaleButton.setTitleColor(.green, for: .selected)
+            femaleButton.setTitleColor(.white, for: .selected)
             gender = "Female"
             maleButton.isSelected = false
             otherButton.isSelected = false
         //Other Button
         case 2:
-            otherButton.setTitleColor(.green, for: .selected)
+            otherButton.setTitleColor(.white, for: .selected)
             gender = "other"
             maleButton.isSelected = false
             femaleButton.isSelected = false
@@ -129,7 +129,7 @@ extension SignUpInfoViewController {
     func setHikeDistanceValue(buttonTag: Int) {
         switch buttonTag {
         case 0:
-            oneMileButton.setTitleColor(.green, for: .selected)
+            oneMileButton.setTitleColor(.white, for: .selected)
             hikeDistance = 1
             twoMileButton.isSelected = false
             fiveMileButton.isSelected = false
@@ -137,7 +137,7 @@ extension SignUpInfoViewController {
             fifteenMileButton.isSelected = false
             twentyPlusMileButton.isSelected = false
         case 1:
-            twoMileButton.setTitleColor(.green, for: .selected)
+            twoMileButton.setTitleColor(.white, for: .selected)
             hikeDistance = 2
             oneMileButton.isSelected = false
             fiveMileButton.isSelected = false
@@ -145,7 +145,7 @@ extension SignUpInfoViewController {
             fifteenMileButton.isSelected = false
             twentyPlusMileButton.isSelected = false
         case 2:
-            fiveMileButton.setTitleColor(.green, for: .selected)
+            fiveMileButton.setTitleColor(.white, for: .selected)
             hikeDistance = 5
             oneMileButton.isSelected = false
             twoMileButton.isSelected = false
@@ -153,7 +153,7 @@ extension SignUpInfoViewController {
             fifteenMileButton.isSelected = false
             twentyPlusMileButton.isSelected = false
         case 3:
-            tenMileButton.setTitleColor(.green, for: .selected)
+            tenMileButton.setTitleColor(.white, for: .selected)
             hikeDistance = 10
             oneMileButton.isSelected = false
             twoMileButton.isSelected = false
@@ -161,7 +161,7 @@ extension SignUpInfoViewController {
             fifteenMileButton.isSelected = false
             twentyPlusMileButton.isSelected = false
         case 4:
-            fifteenMileButton.setTitleColor(.green, for: .selected)
+            fifteenMileButton.setTitleColor(.white, for: .selected)
             hikeDistance = 15
             oneMileButton.isSelected = false
             twoMileButton.isSelected = false
@@ -169,7 +169,7 @@ extension SignUpInfoViewController {
             tenMileButton.isSelected = false
             twentyPlusMileButton.isSelected = false
         case 5:
-            twentyPlusMileButton.setTitleColor(.green, for: .selected)
+            twentyPlusMileButton.setTitleColor(.white, for: .selected)
             hikeDistance = 25
             oneMileButton.isSelected = false
             twoMileButton.isSelected = false
