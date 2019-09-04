@@ -32,22 +32,21 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uyt-K5-T5v">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="114.5"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hike Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5D8-16-bhU">
-                                                    <rect key="frame" x="20" y="11" width="374" height="93"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hike Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5D8-16-bhU" customClass="HykrSubHeaderWhiteLabel" customModule="Trekker" customModuleProvider="target">
+                                                    <rect key="frame" x="152.5" y="43.5" width="109" height="27.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="5D8-16-bhU" firstAttribute="leading" secondItem="wEO-c3-HeI" secondAttribute="leadingMargin" id="Dd4-iQ-Ja0"/>
+                                                <constraint firstItem="5D8-16-bhU" firstAttribute="centerX" secondItem="wEO-c3-HeI" secondAttribute="centerX" id="RXI-Xl-S17"/>
                                                 <constraint firstAttribute="trailing" secondItem="uyt-K5-T5v" secondAttribute="trailing" id="Tq3-0T-UI1"/>
-                                                <constraint firstItem="5D8-16-bhU" firstAttribute="top" secondItem="wEO-c3-HeI" secondAttribute="topMargin" id="W3H-uA-Q0f"/>
                                                 <constraint firstItem="uyt-K5-T5v" firstAttribute="leading" secondItem="wEO-c3-HeI" secondAttribute="leading" id="YoA-Yw-QbI"/>
+                                                <constraint firstItem="5D8-16-bhU" firstAttribute="centerY" secondItem="wEO-c3-HeI" secondAttribute="centerY" id="a3o-da-7Ey"/>
                                                 <constraint firstItem="uyt-K5-T5v" firstAttribute="top" secondItem="wEO-c3-HeI" secondAttribute="top" id="bss-lx-dES"/>
                                                 <constraint firstAttribute="bottom" secondItem="uyt-K5-T5v" secondAttribute="bottom" id="foC-vk-vvC"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="5D8-16-bhU" secondAttribute="trailing" id="qCq-ob-XXG"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="5D8-16-bhU" secondAttribute="bottom" id="sbD-WJ-fJ0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

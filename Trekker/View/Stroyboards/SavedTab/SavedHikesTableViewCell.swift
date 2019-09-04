@@ -10,7 +10,7 @@ import UIKit
 
 class SavedHikesTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var hikeNameLabel: UILabel!
+    @IBOutlet weak var hikeNameLabel: HykrSubHeaderWhiteLabel!
     @IBOutlet weak var hikeImageView: UIImageView!
     
     override func awakeFromNib() {
