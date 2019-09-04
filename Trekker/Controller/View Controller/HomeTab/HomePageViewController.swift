@@ -78,6 +78,7 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
             showHikesButton.title = "Show My Hikes"
         case false:
             showSavedSlideView()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadTV"), object: nil)
             showHikesButton.title = "Close"
         }
     }
@@ -361,6 +362,7 @@ extension HomePageViewController: MKMapViewDelegate {
             self.selectedHikeVC.selectedHikeLanding = self.selectedHike
             self.annotationSelected = true
             self.showHikesButton.isEnabled = false
+            self.centerLocationButton.isEnabled = false
         }, completion: nil)
     }
     
@@ -371,6 +373,7 @@ extension HomePageViewController: MKMapViewDelegate {
             self.selectedHikeVC.selectedHikeLanding = nil
             self.annotationSelected = false
             self.showHikesButton.isEnabled = true
+            self.centerLocationButton.isEnabled = true
         }, completion: nil)
     }
     

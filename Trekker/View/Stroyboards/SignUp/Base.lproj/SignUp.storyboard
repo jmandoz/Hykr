@@ -106,7 +106,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAk-V9-K5X" customClass="HykrBodyLabel" customModule="Trekker" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAk-V9-K5X" customClass="HykrBodyLabel" customModule="Trekker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="158.66666666666669" width="224" height="19.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
@@ -370,6 +370,9 @@
                                     <constraint firstAttribute="height" constant="51" id="Slf-RF-lpT"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hNS-Cc-EYj">
+                                <rect key="frame" x="262.66666666666669" y="689" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -377,6 +380,8 @@
                             <constraint firstItem="ppX-GU-ciC" firstAttribute="trailing" secondItem="NKf-hh-rTh" secondAttribute="trailing" constant="-12" id="3wd-Cd-nfe"/>
                             <constraint firstItem="NKf-hh-rTh" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" multiplier="0.2" id="Qk2-T9-hma"/>
                             <constraint firstItem="Hfx-c7-dMJ" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" multiplier="1.1" id="T9e-1p-8Ae"/>
+                            <constraint firstItem="ppX-GU-ciC" firstAttribute="bottom" secondItem="hNS-Cc-EYj" secondAttribute="bottom" constant="27" id="VQb-AN-WgY"/>
+                            <constraint firstItem="hNS-Cc-EYj" firstAttribute="leading" secondItem="neQ-oG-X71" secondAttribute="trailing" constant="7.3300000000000001" id="Ys8-0S-UM6"/>
                             <constraint firstItem="neQ-oG-X71" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" multiplier="1.9" id="hv8-1C-KaI"/>
                             <constraint firstItem="LCv-IW-cGx" firstAttribute="centerY" secondItem="9XO-py-nan" secondAttribute="centerY" multiplier="0.4" id="jkC-Od-1Ge"/>
                             <constraint firstItem="neQ-oG-X71" firstAttribute="centerX" secondItem="9XO-py-nan" secondAttribute="centerX" id="nem-0L-MpL"/>
@@ -385,6 +390,7 @@
                         <viewLayoutGuide key="safeArea" id="ppX-GU-ciC"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="hNS-Cc-EYj" id="ArD-33-oxn"/>
                         <outlet property="ageTextField" destination="3Dw-ZW-6Eq" id="pJZ-fX-2dT"/>
                         <outlet property="femaleButton" destination="gqO-zq-ofM" id="BjT-7N-fWg"/>
                         <outlet property="fifteenMileButton" destination="nWJ-mz-GQU" id="Hef-EE-xum"/>
