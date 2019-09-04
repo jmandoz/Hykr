@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="360"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="g5R-kT-iZT">
-                                <rect key="frame" x="20" y="476" width="374" height="78.5"/>
+                                <rect key="frame" x="20" y="478.5" width="374" height="73.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name of Hike" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vW5-oj-h7e" customClass="HykrSubHeaderLabel" customModule="Trekker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="184.5" height="38.5"/>
@@ -31,22 +31,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="lBS-6l-FuM">
-                                        <rect key="frame" x="0.0" y="48.5" width="327" height="30"/>
+                                        <rect key="frame" x="0.0" y="48.5" width="306" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqP-n5-J6w">
-                                                <rect key="frame" x="0.0" y="0.0" width="49" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="25"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stars0" translatesAutoresizingMaskIntoConstraints="NO" id="hAx-rB-HN9">
-                                                <rect key="frame" x="65" y="0.0" width="216" height="30"/>
+                                                <rect key="frame" x="65" y="0.0" width="200" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="JPw-UV-RH3"/>
+                                                    <constraint firstAttribute="height" constant="25" id="p9y-yS-HoD"/>
+                                                </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdy-vD-HNM">
-                                                <rect key="frame" x="297" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="281" y="0.0" width="25" height="25"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="1UM-0x-Z4n"/>
-                                                    <constraint firstAttribute="height" constant="30" id="m69-Na-wnE"/>
+                                                    <constraint firstAttribute="width" constant="25" id="1UM-0x-Z4n"/>
                                                 </constraints>
                                                 <state key="normal" image="saved button icon"/>
                                                 <connections>
@@ -58,7 +61,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="br2-HK-hbV">
-                                <rect key="frame" x="20" y="594.5" width="374" height="146.5"/>
+                                <rect key="frame" x="20" y="592" width="374" height="146.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="KRg-du-lya">
                                         <rect key="frame" x="0.0" y="0.0" width="124" height="20.5"/>

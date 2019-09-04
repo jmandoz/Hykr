@@ -33,6 +33,7 @@ class SignUpInfoViewController: UIViewController {
     @IBOutlet weak var fifteenMileButton: UIButton!
     @IBOutlet weak var twentyPlusMileButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // Image Button outlet
     @IBOutlet weak var profilePictureButton: UIButton!
@@ -41,6 +42,7 @@ class SignUpInfoViewController: UIViewController {
         super.viewDidLoad()
         CoreLocationController.shared.activateLocationServices()
         hideKeyboardWhenTappedAround()
+        activityIndicator.alpha = 0
         // Do any additional setup after loading the view.
     }
     
@@ -71,8 +73,8 @@ class SignUpInfoViewController: UIViewController {
             let hikeDist = hikeDistance,
             let profileImage = profileImage ?? UIImage(named: "profile no pic")
             else {return}
-        
-        
+        activityIndicator.startAnimating()
+        activityIndicator.alpha = 1
         UserController.sharedInstance.createUserWith(email: email, firstName: firstName, lastName: lastName, gender: genderValue, age: ageAsInt, hikeDistance: hikeDist, profileImage: profileImage) { (user) in
             if user != nil {
                 self.presentHomePageView()

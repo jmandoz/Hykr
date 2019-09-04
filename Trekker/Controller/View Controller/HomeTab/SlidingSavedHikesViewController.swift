@@ -18,10 +18,14 @@ class SlidingSavedHikesViewController: UIViewController, UITableViewDelegate, UI
         super.viewDidLoad()
         slidingSavedHikesTableView.delegate = self
         slidingSavedHikesTableView.dataSource = self
-        slidingSavedHikesTableView.reloadData()
+//        slidingSavedHikesTableView.reloadData()
         slidingSavedHikesTableView.backgroundColor = .clear
         self.view.backgroundColor = .clear
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name(rawValue: "reloadTV"), object: nil)
+    }
+    
+    @objc func reloadTableView() {
+        self.slidingSavedHikesTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +35,7 @@ class SlidingSavedHikesViewController: UIViewController, UITableViewDelegate, UI
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        slidingSavedHikesTableView.reloadData()
+//        slidingSavedHikesTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
