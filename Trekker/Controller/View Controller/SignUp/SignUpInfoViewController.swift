@@ -39,6 +39,7 @@ class SignUpInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        CoreLocationController.shared.activateLocationServices()
         hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
     }
@@ -71,6 +72,7 @@ class SignUpInfoViewController: UIViewController {
             let profileImage = profileImage ?? UIImage(named: "profile no pic")
             else {return}
         
+        
         UserController.sharedInstance.createUserWith(email: email, firstName: firstName, lastName: lastName, gender: genderValue, age: ageAsInt, hikeDistance: hikeDist, profileImage: profileImage) { (user) in
             if user != nil {
                 self.presentHomePageView()
@@ -87,15 +89,6 @@ class SignUpInfoViewController: UIViewController {
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -104,7 +97,7 @@ extension SignUpInfoViewController {
         switch buttonTag {
         //Male Button
         case 0:
-            maleButton.setTitleColor(.white, for: .selected)
+           // maleButton.setTitleColor(.white, for: .selected)
             gender = "Male"
             femaleButton.isSelected = false
             otherButton.isSelected = false
