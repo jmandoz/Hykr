@@ -13,6 +13,7 @@ class LandingViewController: UIViewController {
     
     //Button Outlet
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,5 +63,6 @@ class LandingViewController: UIViewController {
 extension LandingViewController {
     func setUpUI() {
        self.signUpButton.alpha = 0
+        self.activityIndicator.startAnimating()
     }
 }

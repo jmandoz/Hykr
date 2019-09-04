@@ -45,7 +45,9 @@ class HykrSignUpButton: UIButton {
         self.layer.shadowOpacity = 0.3
         self.setTitleColor(Colors.darkBrown.color(), for: .normal)
         self.setTitleColor(Colors.white.color(), for: .highlighted)
+        self.setTitleColor(Colors.white.color(), for: .selected)
         self.tintColor = Colors.green.color()
+       // self.setBackgroundImage(UIImage(named: "greensquare"), for: .selected)
         self.addCornerRadius(4)
         self.addBorder()
     }

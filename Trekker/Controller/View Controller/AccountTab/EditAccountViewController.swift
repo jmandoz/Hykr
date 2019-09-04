@@ -22,10 +22,11 @@ class EditAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.changeEmailTextField.delegate = self
-        self.editNameTextField.delegate = self
-        self.editLastNameTextField.delegate = self
-        self.editAgeTextField.delegate = self
+        hideKeyboardWhenTappedAround()
+//        self.changeEmailTextField.delegate = self
+//        self.editNameTextField.delegate = self
+//        self.editLastNameTextField.delegate = self
+//        self.editAgeTextField.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -90,19 +91,15 @@ class EditAccountViewController: UIViewController {
         
     }
     
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomePageViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
-    */
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 
 }
 
@@ -134,8 +131,8 @@ extension EditAccountViewController {
     }
 }
 
-extension EditAccountViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        resignFirstResponder()
-    }
-}
+//extension EditAccountViewController: UITextFieldDelegate {
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        resignFirstResponder()
+//    }
+//}
