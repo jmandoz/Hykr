@@ -22,6 +22,10 @@ class EditAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.changeEmailTextField.delegate = self
+        self.editNameTextField.delegate = self
+        self.editLastNameTextField.delegate = self
+        self.editAgeTextField.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -127,5 +131,11 @@ extension EditAccountViewController {
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true)
+    }
+}
+
+extension EditAccountViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        resignFirstResponder()
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class LandingViewController: UIViewController {
     
+    
     //Button Outlet
     @IBOutlet weak var signUpButton: UIButton!
     
@@ -37,10 +38,11 @@ class LandingViewController: UIViewController {
                 }
             } else {
                 DispatchQueue.main.async {
-                    self.signUpButton.alpha = 1
+                    self.presentSignUpView()
+                   // self.signUpButton.alpha = 1
                 }
             }
-        }
+        }        
         // Do any additional setup after loading the view.
     }
     
@@ -49,10 +51,16 @@ class LandingViewController: UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeVC")
         self.present(viewController, animated: true)
     }
+    
+    func presentSignUpView() {
+        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "SignUpVC")
+        self.present(viewController, animated: true)
+    }
 }
 
 extension LandingViewController {
     func setUpUI() {
-        signUpButton.alpha = 0
+       self.signUpButton.alpha = 0
     }
 }
