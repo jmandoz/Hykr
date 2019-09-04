@@ -24,18 +24,19 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func submitButtonTapped(_ sender: Any) {
+        guard let email = emailTextField.text, !email.isEmpty, let firstName = firstNameTextField.text, !firstName.isEmpty, let lastName = lastNameTextField.text, !lastName.isEmpty else { return }
+        DispatchQueue.main.async {
+            self.presentSignUpDetailsVC(email: email, firstName: firstName, lastName: lastName)
+        }
+        
+    }
     
     // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toSignUpInfoVC" {
-            let destinationVC = segue.destination as? SignUpInfoViewController
-            guard let email = emailTextField.text, !email.isEmpty, let firstName = firstNameTextField.text, !firstName.isEmpty, let lastName = lastNameTextField.text, !lastName.isEmpty else {return}
-            destinationVC?.emailLanding = email
-            destinationVC?.firstNameLanding = firstName
-            destinationVC?.lastNameLanding = lastName
-        }
+    
+    
+
     }
-}
 
 extension SignUpViewController {
     
@@ -47,6 +48,15 @@ extension SignUpViewController {
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    func presentSignUpDetailsVC(email: String, firstName: String, lastName: String) {
+        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "signUpDetailVC") as? SignUpInfoViewController else { return }
+        viewController.emailLanding = email
+        viewController.firstNameLanding = firstName
+        viewController.lastNameLanding = lastName
+        self.present(viewController, animated: true)
     }
     
 }
