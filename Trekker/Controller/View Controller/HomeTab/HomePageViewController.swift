@@ -63,7 +63,6 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // CoreLocationController.shared.locationManager.delegate = self
         mapView.delegate = self
         centerLocationButton.isHidden = true
         CoreLocationController.shared.activateLocationServices()
@@ -142,7 +141,7 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
         self.searchBar?.placeholder = "Search any location"
         self.searchBar?.resignFirstResponder()
         self.searchBar?.endEditing(false)
-        self.showHikesButton.tintColor = .white
+//        self.showHikesButton.tintColor = .white
         self.slidingSavedHikesView.backgroundColor = .clear
     }
     
