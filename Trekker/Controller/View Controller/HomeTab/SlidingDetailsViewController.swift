@@ -13,9 +13,9 @@ class SlidingDetailsViewController: UIViewController {
     
     var selectedHikeLanding: HikeJSON? {
         didSet {
-            guard let hike = selectedHikeLanding, let user = UserController.sharedInstance.currentUser else {return}
+            guard let hike = selectedHikeLanding, let user = UserController.sharedInstance.currentUser, let rating = selectedHikeLanding?.hikeRating else {return}
             hikeNameLabel.text = hike.hikeName
-            hikeRatingLabel.text = "\(String(describing: hike.hikeRating))"
+            hikeRatingLabel.text = "Rating: \(rating)"
             hikeDistanceLabel.alpha = 0
             checkHikeArrays(savedArray: user.savedHikes, hikeLogArray: user.hikeLog, hike: hike)
             fetchHikeImage(hike: hike) { (image) in
@@ -30,12 +30,12 @@ class SlidingDetailsViewController: UIViewController {
     
     weak var delegate: SlidingDetailsViewControllerDelegate?
     
-    @IBOutlet weak var hikeNameLabel: UILabel!
-    @IBOutlet weak var hikeRatingLabel: UILabel!
-    @IBOutlet weak var hikeDistanceLabel: UILabel!
-    @IBOutlet weak var directionsButton: UIButton!
-    @IBOutlet weak var hikeDetailsButton: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var hikeNameLabel: HykrSubHeaderLabel!
+    @IBOutlet weak var hikeRatingLabel: HykrSubHeaderLabel!
+    @IBOutlet weak var hikeDistanceLabel: HykrSubHeaderLabel!
+    @IBOutlet weak var directionsButton: HykrSliderButton!
+    @IBOutlet weak var hikeDetailsButton: HykrSliderButton!
+    @IBOutlet weak var saveButton: HykrSliderButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +59,8 @@ class SlidingDetailsViewController: UIViewController {
                         user.savedHikes.append(hike)
                         DispatchQueue.main.async {
                             self.saveButton.setTitle("Saved", for: .normal)
-                            self.saveButton.backgroundColor = .green
+                            self.saveButton.setTitleColor(.white, for: .normal)
+                            self.saveButton.backgroundColor = #colorLiteral(red: 0.6274509804, green: 0.7137254902, blue: 0.6470588235, alpha: 1)
                             self.saveButton.isEnabled = false
                         }
                         print("succesfully create hike")
@@ -90,18 +91,21 @@ class SlidingDetailsViewController: UIViewController {
         if logsUuids.contains(hike.wackyUUID) {
             DispatchQueue.main.async {
                 self.saveButton.setTitle("Completed", for: .normal)
-                self.saveButton.backgroundColor = .red
+                self.saveButton.setTitleColor(.white, for: .normal)
+                self.saveButton.backgroundColor = #colorLiteral(red: 0.6274509804, green: 0.7137254902, blue: 0.6470588235, alpha: 1)
                 self.saveButton.isEnabled = false
             }
         } else if savedUuids.contains(hike.wackyUUID) {
             DispatchQueue.main.async {
                 self.saveButton.setTitle("Saved", for: .normal)
-                self.saveButton.backgroundColor = .green
+                self.saveButton.setTitleColor(.white, for: .normal)
+                self.saveButton.backgroundColor = #colorLiteral(red: 0.6274509804, green: 0.7137254902, blue: 0.6470588235, alpha: 1)
                 self.saveButton.isEnabled = false
             }
         } else {
             DispatchQueue.main.async {
                 self.saveButton.setTitle("Save", for: .normal)
+                self.saveButton.setTitleColor(Colors.green.color(), for: .normal)
                 self.saveButton.backgroundColor = .white
                 self.saveButton.isEnabled = true
             }

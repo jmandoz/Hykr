@@ -180,7 +180,7 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
         guard let latitude = selectedHike?.latitude,
             let longitude = selectedHike?.longitude else {return}
         let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        let mySpan = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+        let mySpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let myRegion = MKCoordinateRegion(center: coordinates, span: mySpan)
         self.mapView.setRegion(myRegion, animated: true)
     }
@@ -189,7 +189,7 @@ class HomePageViewController: UIViewController, SlidingDetailsViewControllerDele
         guard let latitude = selectedHike?.latitude,
             let longitude = selectedHike?.longitude else {return}
         let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        let mySpan = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+        let mySpan = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
         let myRegion = MKCoordinateRegion(center: coordinates, span: mySpan)
         self.mapView.setRegion(myRegion, animated: true)
     }
