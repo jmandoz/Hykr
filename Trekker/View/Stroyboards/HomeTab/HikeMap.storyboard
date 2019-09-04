@@ -67,7 +67,8 @@
                         <viewLayoutGuide key="safeArea" id="fZ3-tl-MSX"/>
                     </view>
                     <navigationItem key="navigationItem" id="66F-Ri-0ZK">
-                        <barButtonItem key="rightBarButtonItem" title="Show My Hikes" id="Abm-SS-iDA">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="favorite" style="plain" id="Abm-SS-iDA" customClass="HykrBarButton" customModule="Trekker" customModuleProvider="target">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="showMyHikesButtonTapped:" destination="Sux-N7-rO9" id="pzb-a3-i7L"/>
                             </connections>
@@ -196,6 +197,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -279,6 +281,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="favorite" width="24" height="23"/>
         <image name="home" width="26" height="22"/>
         <image name="homeDeselected" width="26" height="22"/>
         <image name="target home" width="48" height="48"/>
