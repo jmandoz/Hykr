@@ -34,7 +34,7 @@
                                 </constraints>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="439-VD-e0B">
-                                <rect key="frame" x="197" y="358" width="20" height="20"/>
+                                <rect key="frame" x="197" y="431.66666666666669" width="20" height="20"/>
                                 <color key="color" name="MainGreen"/>
                             </activityIndicatorView>
                         </subviews>
@@ -43,7 +43,7 @@
                             <constraint firstItem="oiu-0r-qXt" firstAttribute="centerX" secondItem="wRY-u7-Npf" secondAttribute="centerX" id="BNs-CA-IwI"/>
                             <constraint firstItem="439-VD-e0B" firstAttribute="centerX" secondItem="wRY-u7-Npf" secondAttribute="centerX" id="F9L-Z3-DE3"/>
                             <constraint firstItem="D8c-me-1KB" firstAttribute="centerY" secondItem="wRY-u7-Npf" secondAttribute="centerY" multiplier="1.6" id="HJm-Qy-ZSa"/>
-                            <constraint firstItem="439-VD-e0B" firstAttribute="centerY" secondItem="wRY-u7-Npf" secondAttribute="centerY" id="L06-kN-Ke0"/>
+                            <constraint firstItem="439-VD-e0B" firstAttribute="centerY" secondItem="wRY-u7-Npf" secondAttribute="centerY" multiplier="1.2" id="L06-kN-Ke0"/>
                             <constraint firstItem="D8c-me-1KB" firstAttribute="centerX" secondItem="wRY-u7-Npf" secondAttribute="centerX" id="PLx-jS-mEE"/>
                             <constraint firstItem="oiu-0r-qXt" firstAttribute="centerY" secondItem="wRY-u7-Npf" secondAttribute="centerY" multiplier="0.7" id="S1k-mH-t3a"/>
                         </constraints>
@@ -245,7 +245,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
