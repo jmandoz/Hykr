@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Ea-E8-bbe">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile-->
+        <scene sceneID="Q9l-Vz-BP1">
+            <objects>
+                <viewController id="WT4-Km-Ah3" customClass="AccountViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zQH-Z0-40N">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile no pic" translatesAutoresizingMaskIntoConstraints="NO" id="AxS-3X-aKH">
+                                <rect key="frame" x="87" y="193.5" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AxS-3X-aKH" secondAttribute="height" multiplier="1:1" id="CtB-SF-7Oz"/>
+                                    <constraint firstAttribute="height" constant="240" id="kXv-Wj-uop"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="15" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QT0-b0-zXF">
+                                <rect key="frame" x="10" y="508" width="394" height="148.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="hnI-yP-BK0">
+                                        <rect key="frame" x="0.0" y="0.0" width="140.5" height="19.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAw-Ct-LfS" customClass="HykrBodyLabel" customModule="Trekker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="39" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="(Email)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djb-Ww-SHB" customClass="HykrBodyLabel" customModule="Trekker" customModuleProvider="target">
+                                                <rect key="frame" x="90" y="0.0" width="50.5" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="249" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="ZnS-5c-AKh">
+                                        <rect key="frame" x="0.0" y="30" width="16" height="19.5"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="k2X-7Z-478">
+                                        <rect key="frame" x="0.0" y="49.5" width="131.5" height="19.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4c-hQ-6H7" customClass="HykrBodyLabel" customModule="Trekker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="43" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="(Name)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqU-0O-wsB" customClass="HykrBodyLabel" customModule="Trekker" customModuleProvider="target">
+                                                <rect key="frame" x="77" y="0.0" width="54.5" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="3Sj-E8-Yaz">
+                                        <rect key="frame" x="0.0" y="79.5" width="16" height="19.5"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="63" translatesAutoresizingMaskIntoConstraints="NO" id="an2-Nw-HCj">
+                                        <rect key="frame" x="0.0" y="99" width="130" height="19.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Cv0-PG-UC1">
+                                                <rect key="frame" x="0.0" y="0.0" width="28.5" height="19.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8z-Ya-jAe" customClass="HykrBodyLabel" customModule="Trekker" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="28.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="(age)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7c-Jh-nqa" customClass="HykrBodyLabel" customModule="Trekker" customModuleProvider="target">
+                                                <rect key="frame" x="91.5" y="0.0" width="38.5" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="POE-Vi-zIl">
+                                        <rect key="frame" x="0.0" y="129" width="16" height="19.5"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="zEa-7B-G7y">
+                                <rect key="frame" x="141" y="786" width="132" height="41"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMa-TL-EU5" customClass="HykrOtherButton" customModule="Trekker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="111" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Edit Profile"/>
+                                        <connections>
+                                            <segue destination="Zdw-Nc-kws" kind="show" id="UNa-VM-ux7"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="nO3-m2-Q5B">
+                                        <rect key="frame" x="125" y="13" width="7" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="7" id="Lph-Q8-EwI"/>
+                                            <constraint firstAttribute="height" constant="15" id="gA4-NK-ThS"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="YHs-FM-mJu">
+                                <rect key="frame" x="311" y="203.5" width="16" height="22"/>
+                                <state key="normal" image="change photo icon"/>
+                                <connections>
+                                    <action selector="changeProfilePicButtonTapped:" destination="WT4-Km-Ah3" eventType="touchUpInside" id="aIL-I1-c2l"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top bar" translatesAutoresizingMaskIntoConstraints="NO" id="awc-n2-UGN">
+                                <rect key="frame" x="0.0" y="856" width="414" height="16"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAl-pY-Zlx" customClass="HykrHeaderLabel" customModule="Trekker" customModuleProvider="target">
+                                <rect key="frame" x="151" y="109" width="112.5" height="50.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zEa-7B-G7y" firstAttribute="centerX" secondItem="zQH-Z0-40N" secondAttribute="centerX" id="4dM-UQ-z9C"/>
+                            <constraint firstItem="QT0-b0-zXF" firstAttribute="centerY" secondItem="zQH-Z0-40N" secondAttribute="centerY" multiplier="1.3" id="73F-6q-Xeu"/>
+                            <constraint firstItem="QT0-b0-zXF" firstAttribute="leading" secondItem="zQH-Z0-40N" secondAttribute="leading" constant="10" id="Gcb-E0-wBG"/>
+                            <constraint firstItem="CAl-pY-Zlx" firstAttribute="centerY" secondItem="zQH-Z0-40N" secondAttribute="centerY" multiplier="0.3" id="JTH-jS-XCM"/>
+                            <constraint firstItem="AxS-3X-aKH" firstAttribute="centerY" secondItem="zQH-Z0-40N" secondAttribute="centerY" multiplier="0.7" id="PA0-X3-WGa"/>
+                            <constraint firstItem="zEa-7B-G7y" firstAttribute="centerY" secondItem="zQH-Z0-40N" secondAttribute="centerY" multiplier="1.8" id="PLr-bF-bHV"/>
+                            <constraint firstItem="YHs-FM-mJu" firstAttribute="top" secondItem="AxS-3X-aKH" secondAttribute="top" constant="10" id="ZAF-5v-Ygr"/>
+                            <constraint firstItem="awc-n2-UGN" firstAttribute="trailing" secondItem="7Yr-3a-Fup" secondAttribute="trailing" id="b2l-Ew-6yD"/>
+                            <constraint firstItem="YHs-FM-mJu" firstAttribute="trailing" secondItem="AxS-3X-aKH" secondAttribute="trailing" id="dSA-Q0-Jxw"/>
+                            <constraint firstItem="awc-n2-UGN" firstAttribute="leading" secondItem="7Yr-3a-Fup" secondAttribute="leading" id="gAX-XT-q2e"/>
+                            <constraint firstItem="CAl-pY-Zlx" firstAttribute="centerX" secondItem="zQH-Z0-40N" secondAttribute="centerX" id="jeM-KQ-5LD"/>
+                            <constraint firstAttribute="trailing" secondItem="QT0-b0-zXF" secondAttribute="trailing" constant="10" id="mTw-V7-Hfi"/>
+                            <constraint firstItem="AxS-3X-aKH" firstAttribute="centerX" secondItem="zQH-Z0-40N" secondAttribute="centerX" id="rsJ-Lr-715"/>
+                            <constraint firstItem="7Yr-3a-Fup" firstAttribute="bottom" secondItem="awc-n2-UGN" secondAttribute="bottom" constant="-10" id="sX7-gv-1Ef"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7Yr-3a-Fup"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="Fm1-ni-0Vh"/>
+                    <connections>
+                        <outlet property="ageLabel" destination="K7c-Jh-nqa" id="ZqC-zH-7KO"/>
+                        <outlet property="changeProfilePicButton" destination="YHs-FM-mJu" id="75N-Qb-YqM"/>
+                        <outlet property="emailLabel" destination="djb-Ww-SHB" id="Eq8-x6-XsD"/>
+                        <outlet property="nameLabel" destination="vqU-0O-wsB" id="VG3-ay-Jk9"/>
+                        <outlet property="proPicImageView" destination="AxS-3X-aKH" id="izk-0R-pwH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LTo-L2-4E5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-152.17391304347828" y="1382.8125"/>
+        </scene>
+        <!--Edit Profile-->
+        <scene sceneID="Ipr-au-3e3">
+            <objects>
+                <viewController id="Zdw-Nc-kws" customClass="EditAccountViewController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="koV-4C-ex4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" axis="vertical" distribution="equalSpacing" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="T95-Ji-uTj">
+                                <rect key="frame" x="32" y="261.5" width="350" height="373"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqX-C8-eNk" customClass="HykrBodyLabel" customModule="Trekker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yVr-Eh-80j">
+                                        <rect key="frame" x="0.0" y="44.5" width="350" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWj-MU-b3N" customClass="HykrBodyLabel" customModule="Trekker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="99.5" width="350" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Hg-t5-dTx">
+                                        <rect key="frame" x="0.0" y="144" width="350" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qb-qU-d19" customClass="HykrBodyLabel" customModule="Trekker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="199" width="350" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fuy-SG-3wX">
+                                        <rect key="frame" x="0.0" y="243.5" width="350" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xt-qC-gIV" customClass="HykrBodyLabel" customModule="Trekker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="298.5" width="350" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A6f-OX-rtM">
+                                        <rect key="frame" x="0.0" y="343" width="350" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6Xt-qC-gIV" secondAttribute="trailing" id="0w8-bB-3bD"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fuy-SG-3wX" secondAttribute="trailing" id="2HB-3P-Trb"/>
+                                    <constraint firstAttribute="trailing" secondItem="yVr-Eh-80j" secondAttribute="trailing" id="9oK-fw-nTY"/>
+                                    <constraint firstAttribute="width" constant="350" id="Oty-gW-gxg"/>
+                                    <constraint firstAttribute="trailing" secondItem="A6f-OX-rtM" secondAttribute="trailing" id="Q9m-Yh-nef"/>
+                                    <constraint firstAttribute="trailing" secondItem="UWj-MU-b3N" secondAttribute="trailing" id="cqr-wG-uvQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Hg-t5-dTx" secondAttribute="trailing" id="dJe-6w-WMH"/>
+                                    <constraint firstAttribute="trailing" secondItem="0qb-qU-d19" secondAttribute="trailing" id="gIp-w4-tLB"/>
+                                    <constraint firstAttribute="trailing" secondItem="GqX-C8-eNk" secondAttribute="trailing" id="hg6-61-WGP"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="dH4-we-i51">
+                                <rect key="frame" x="151" y="732.5" width="112" height="103"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UlE-6c-XVy">
+                                        <rect key="frame" x="18.5" y="0.0" width="75" height="41"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUa-5P-pcC" customClass="HykrOtherButton" customModule="Trekker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="52" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="submitButtonTapped:" destination="Zdw-Nc-kws" eventType="touchUpInside" id="0ex-Jz-5a6"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron-right" translatesAutoresizingMaskIntoConstraints="NO" id="IQc-ii-JsI">
+                                                <rect key="frame" x="68" y="13" width="7" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="4nv-Yh-Efv"/>
+                                                    <constraint firstAttribute="width" constant="7" id="SJ7-Z7-St6"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCx-FO-mcX" customClass="HykrOtherButton" customModule="Trekker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="71" width="112" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Delete Account"/>
+                                        <connections>
+                                            <action selector="deleteButtonTapped:" destination="Zdw-Nc-kws" eventType="touchUpInside" id="bsm-FI-Uqc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top bar" translatesAutoresizingMaskIntoConstraints="NO" id="iQB-GF-pYk">
+                                <rect key="frame" x="0.0" y="798" width="414" height="69"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ME-3o-ro9" customClass="HykrHeaderLabel" customModule="Trekker" customModuleProvider="target">
+                                <rect key="frame" x="111.5" y="109" width="191" height="50.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="T95-Ji-uTj" firstAttribute="centerY" secondItem="koV-4C-ex4" secondAttribute="centerY" id="GRV-nL-P02"/>
+                            <constraint firstItem="2ME-3o-ro9" firstAttribute="centerX" secondItem="koV-4C-ex4" secondAttribute="centerX" id="MkM-wk-lDe"/>
+                            <constraint firstItem="dH4-we-i51" firstAttribute="centerX" secondItem="koV-4C-ex4" secondAttribute="centerX" id="Nvy-C9-jPv"/>
+                            <constraint firstItem="rRF-4b-Sm7" firstAttribute="bottom" secondItem="iQB-GF-pYk" secondAttribute="bottom" constant="-5" id="Ov0-nO-Ypz"/>
+                            <constraint firstItem="T95-Ji-uTj" firstAttribute="centerX" secondItem="koV-4C-ex4" secondAttribute="centerX" id="SCb-O6-2WB"/>
+                            <constraint firstItem="2ME-3o-ro9" firstAttribute="centerY" secondItem="koV-4C-ex4" secondAttribute="centerY" multiplier="0.3" id="Ssl-kg-guF"/>
+                            <constraint firstItem="iQB-GF-pYk" firstAttribute="trailing" secondItem="rRF-4b-Sm7" secondAttribute="trailing" id="Yxy-dA-EPl"/>
+                            <constraint firstItem="dH4-we-i51" firstAttribute="centerY" secondItem="koV-4C-ex4" secondAttribute="centerY" multiplier="1.75" id="lfR-gQ-DaP"/>
+                            <constraint firstItem="iQB-GF-pYk" firstAttribute="leading" secondItem="rRF-4b-Sm7" secondAttribute="leading" id="wy9-eT-kYe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rRF-4b-Sm7"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="fE4-Wi-ffP"/>
+                    <connections>
+                        <outlet property="changeEmailTextField" destination="yVr-Eh-80j" id="ZJQ-QR-Zyl"/>
+                        <outlet property="deleteAccountButton" destination="RCx-FO-mcX" id="NIn-S1-hAu"/>
+                        <outlet property="editAgeTextField" destination="A6f-OX-rtM" id="XaB-Ai-nxc"/>
+                        <outlet property="editLastNameTextField" destination="Fuy-SG-3wX" id="g21-km-6VX"/>
+                        <outlet property="editNameTextField" destination="3Hg-t5-dTx" id="9LY-My-OaT"/>
+                        <outlet property="submitButton" destination="rUa-5P-pcC" id="nZm-zk-JyB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OUP-iH-I6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="634.78260869565224" y="1382.8125"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2mo-G5-i5A">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Ea-E8-bbe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="Group" id="Tlg-D1-MC8"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0ye-fL-IZh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WT4-Km-Ah3" kind="relationship" relationship="rootViewController" id="3j0-RQ-hdc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AHy-4s-Frf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1062.3188405797102" y="1382.8125"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Group" width="24" height="27"/>
+        <image name="change photo icon" width="22" height="22"/>
+        <image name="chevron-right" width="16" height="30"/>
+        <image name="line" width="524" height="2"/>
+        <image name="profile no pic" width="506" height="350"/>
+        <image name="top bar" width="414" height="69"/>
+    </resources>
+</document>

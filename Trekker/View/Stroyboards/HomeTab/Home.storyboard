@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GNe-mX-MQP">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Custom Tab Bar Controller-->
+        <scene sceneID="e5N-Ky-0cP">
+            <objects>
+                <tabBarController storyboardIdentifier="HomeVC" id="GNe-mX-MQP" customClass="CustomTabBarController" customModule="Trekker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="N40-Nw-ih6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="MainGreen"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="MainGreen"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="eOf-kC-vWS" kind="relationship" relationship="viewControllers" id="haZ-de-Ybf"/>
+                        <segue destination="AxU-9N-iC8" kind="relationship" relationship="viewControllers" id="2SS-KP-goH"/>
+                        <segue destination="21X-V8-JxO" kind="relationship" relationship="viewControllers" id="Hpj-0d-SSE"/>
+                        <segue destination="Rdl-0f-0DY" kind="relationship" relationship="viewControllers" id="mDH-N3-wRf"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Heg-zb-D5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1544" y="83"/>
+        </scene>
+        <!--HikeMap-->
+        <scene sceneID="OO2-J2-Cxa">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="HikeMap" storyboardName="HikeMap" referencedIdentifier="HikeMap" id="eOf-kC-vWS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="UEE-m3-liJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RlL-BK-BJz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1009" y="-31"/>
+        </scene>
+        <!--Saved-->
+        <scene sceneID="b2w-SP-KPl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Saved" id="AxU-9N-iC8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Saved" id="ll1-tv-bwf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Abn-hL-ALY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1021" y="38"/>
+        </scene>
+        <!--HikeLog-->
+        <scene sceneID="uve-zD-Nka">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HikeLog" id="21X-V8-JxO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Log" id="inp-O6-tva"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N0x-7Z-exW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1012" y="117"/>
+        </scene>
+        <!--Account-->
+        <scene sceneID="08O-am-X3n">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Account" id="Rdl-0f-0DY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Account" id="oPj-UD-3Xj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Yt-x8-nHN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1015" y="176"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="MainGreen">
+            <color red="0.62745098039215685" green="0.71372549019607845" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
