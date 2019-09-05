@@ -16,7 +16,6 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var changeProfilePicButton: UIButton!
-    @IBOutlet weak var ageLabel: HykrBodyLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,29 +33,7 @@ class AccountViewController: UIViewController {
         guard let user = UserController.sharedInstance.currentUser else { return }
         nameLabel.text = user.firstName + " " + user.lastName
         emailLabel.text = user.email
-        ageLabel.text = "\(user.age)"
     }
-    
-    //Actions
-
-    
-
-    
-
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 

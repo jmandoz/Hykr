@@ -15,17 +15,10 @@ class SignUpInfoViewController: UIViewController {
     var emailLanding: String?
     var firstNameLanding: String?
     var lastNameLanding: String?
-    var gender: String?
     var hikeDistance: Int?
     var profileImage: UIImage?
     
-    //TextField Outlet
-    @IBOutlet weak var ageTextField: UITextField!
-    
     //Button Outlets
-    @IBOutlet weak var maleButton: UIButton!
-    @IBOutlet weak var femaleButton: UIButton!
-    @IBOutlet weak var otherButton: UIButton!
     @IBOutlet weak var oneMileButton: UIButton!
     @IBOutlet weak var twoMileButton: UIButton!
     @IBOutlet weak var fiveMileButton: UIButton!
@@ -47,11 +40,6 @@ class SignUpInfoViewController: UIViewController {
     }
     
     //Button Action
-    @IBAction func genderButtonTapped(sender: UIButton) {
-        sender.isSelected = true
-        setGenderValue(buttonTag: sender.tag)
-    }
-    
     @IBAction func hikeDistanceButtonTaooed(sender: UIButton) {
         sender.isSelected = true
         setHikeDistanceValue(buttonTag: sender.tag)
@@ -68,14 +56,12 @@ class SignUpInfoViewController: UIViewController {
         guard let email = emailLanding,
             let firstName = firstNameLanding,
             let lastName = lastNameLanding,
-            let age = ageTextField.text, !age.isEmpty, let ageAsInt = Int(age),
-            let genderValue = gender,
             let hikeDist = hikeDistance,
             let profileImage = profileImage ?? UIImage(named: "profile no pic")
             else {return}
         activityIndicator.startAnimating()
         activityIndicator.alpha = 1
-        UserController.sharedInstance.createUserWith(email: email, firstName: firstName, lastName: lastName, gender: genderValue, age: ageAsInt, hikeDistance: hikeDist, profileImage: profileImage) { (user) in
+        UserController.sharedInstance.createUserWith(email: email, firstName: firstName, lastName: lastName, hikeDistance: hikeDist, profileImage: profileImage) { (user) in
             if user != nil {
                 self.presentHomePageView()
             }
@@ -95,31 +81,6 @@ class SignUpInfoViewController: UIViewController {
 }
 
 extension SignUpInfoViewController {
-    func setGenderValue(buttonTag: Int) {
-        switch buttonTag {
-        //Male Button
-        case 0:
-           // maleButton.setTitleColor(.white, for: .selected)
-            gender = "Male"
-            femaleButton.isSelected = false
-            otherButton.isSelected = false
-        //Female Button
-        case 1:
-            femaleButton.setTitleColor(.white, for: .selected)
-            gender = "Female"
-            maleButton.isSelected = false
-            otherButton.isSelected = false
-        //Other Button
-        case 2:
-            otherButton.setTitleColor(.white, for: .selected)
-            gender = "other"
-            maleButton.isSelected = false
-            femaleButton.isSelected = false
-        default:
-            print("Error with buttons")
-            
-        }
-    }
     
     func setHikeDistanceValue(buttonTag: Int) {
         switch buttonTag {
