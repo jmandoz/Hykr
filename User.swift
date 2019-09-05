@@ -14,8 +14,6 @@ class User {
     var email: String
     var firstName: String
     var lastName: String
-    var gender: String
-    var age: Int
     var hikeDistance: Int
     var savedHikes: [Hike]
     var hikeLog: [Hike]
@@ -46,12 +44,10 @@ class User {
     let recordID: CKRecord.ID
     let appleUserReference: CKRecord.Reference
     
-    init(email: String, firstName: String, lastName: String, gender: String, age: Int, hikeDistance: Int, savedHikes: [Hike] = [], hikeLog: [Hike] = [], unitsInMiles: Bool = true, profileImage: UIImage, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), appleUserReference: CKRecord.Reference) {
+    init(email: String, firstName: String, lastName: String, hikeDistance: Int, savedHikes: [Hike] = [], hikeLog: [Hike] = [], unitsInMiles: Bool = true, profileImage: UIImage, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), appleUserReference: CKRecord.Reference) {
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
-        self.gender = gender
-        self.age = age
         self.hikeDistance = hikeDistance
         self.savedHikes = savedHikes
         self.hikeLog = hikeLog
@@ -68,8 +64,6 @@ extension User {
         guard let email = record[UserConstants.emailKey] as? String,
         let firstName = record[UserConstants.firstNameKey] as? String,
         let lastName = record[UserConstants.lastNameKey] as? String,
-        let gender = record[UserConstants.genderKey] as? String,
-        let age = record[UserConstants.ageKey] as? Int,
         let hikeDistance = record[UserConstants.hikeDistanceKey] as? Int,
         let unitsInMiles = record[UserConstants.unitsInMilesKey] as? Bool,
             let profileImageAsset = record[UserConstants.profileImageKey] as? CKAsset,
@@ -81,7 +75,7 @@ extension User {
         let savedHikes = record[UserConstants.savedHikesKey] as? [Hike] ?? []
         let hikeLog = record[UserConstants.hikeLogKey] as? [Hike] ?? []
         
-        self.init(email: email, firstName: firstName, lastName: lastName, gender: gender, age: age, hikeDistance: hikeDistance, savedHikes: savedHikes, hikeLog: hikeLog, unitsInMiles: unitsInMiles, profileImage: photo, recordID: record.recordID, appleUserReference: appleUserReference)
+        self.init(email: email, firstName: firstName, lastName: lastName, hikeDistance: hikeDistance, savedHikes: savedHikes, hikeLog: hikeLog, unitsInMiles: unitsInMiles, profileImage: photo, recordID: record.recordID, appleUserReference: appleUserReference)
     }
 }
 
@@ -93,8 +87,6 @@ extension CKRecord {
         self.setValue(user.email, forKey: UserConstants.emailKey)
         self.setValue(user.firstName, forKey: UserConstants.firstNameKey)
         self.setValue(user.lastName, forKey: UserConstants.lastNameKey)
-        self.setValue(user.gender, forKey: UserConstants.genderKey)
-        self.setValue(user.age, forKey: UserConstants.ageKey)
         self.setValue(user.hikeDistance, forKey: UserConstants.hikeDistanceKey)
         //self.setValue(user.savedHikes, forKey: UserConstants.savedHikesKey)
         //self.setValue(user.hikeLog, forKey: UserConstants.hikeLogKey)
@@ -116,8 +108,6 @@ struct UserConstants {
     fileprivate static let emailKey = "email"
     fileprivate static let firstNameKey = "firstName"
     fileprivate static let lastNameKey = "lastName"
-    fileprivate static let genderKey = "gender"
-    fileprivate static let ageKey = "age"
     fileprivate static let hikeDistanceKey = "hikeDistance"
     fileprivate static let savedHikesKey = "savedHikes"
     fileprivate static let hikeLogKey = "hikeLog"

@@ -32,6 +32,7 @@
 		3AF87AAF23198D45006614FC /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF87AAE23198D45006614FC /* StyleGuide.swift */; };
 		3AF9E4FB231ED99F00F7CE93 /* HykrOtherButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF9E4FA231ED99F00F7CE93 /* HykrOtherButton.swift */; };
 		3AF9E4FD231EE64600F7CE93 /* HykrSignUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF9E4FC231EE64600F7CE93 /* HykrSignUpButton.swift */; };
+		A40F388E2321804A0083C753 /* NoIcloudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40F388D2321804A0083C753 /* NoIcloudViewController.swift */; };
 		A42C6380230D9D7E0023D7CE /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42C637F230D9D7E0023D7CE /* CloudKit.framework */; };
 		A42C6382230DEB880023D7CE /* CoreLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C6381230DEB880023D7CE /* CoreLocationController.swift */; };
 		A42C6384230E397A0023D7CE /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C6383230E397A0023D7CE /* UIViewExtension.swift */; };
@@ -96,6 +97,7 @@
 		3AF87AAE23198D45006614FC /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		3AF9E4FA231ED99F00F7CE93 /* HykrOtherButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrOtherButton.swift; sourceTree = "<group>"; };
 		3AF9E4FC231EE64600F7CE93 /* HykrSignUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HykrSignUpButton.swift; sourceTree = "<group>"; };
+		A40F388D2321804A0083C753 /* NoIcloudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoIcloudViewController.swift; sourceTree = "<group>"; };
 		A42C637D230D9D7B0023D7CE /* Trekker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Trekker.entitlements; sourceTree = "<group>"; };
 		A42C637F230D9D7E0023D7CE /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A42C6381230DEB880023D7CE /* CoreLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationController.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				A4508A62230B011C002ED843 /* LandingViewController.swift */,
 				A4508A64230B026F002ED843 /* SignUpViewController.swift */,
 				A4508A66230B057A002ED843 /* SignUpInfoViewController.swift */,
+				A40F388D2321804A0083C753 /* NoIcloudViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				A4E7E82B230C966600805E31 /* EditAccountViewController.swift in Sources */,
 				A42C6388230EF5350023D7CE /* SlidingDetailsViewController.swift in Sources */,
 				A4508A63230B011C002ED843 /* LandingViewController.swift in Sources */,
+				A40F388E2321804A0083C753 /* NoIcloudViewController.swift in Sources */,
 				A4508A6C230B082D002ED843 /* HomePageViewController.swift in Sources */,
 				3A04FF12231D919600CB3744 /* HykrSubHeaderBoldLabel.swift in Sources */,
 				3A04FF14231DBDF000CB3744 /* HykrDetailButtonView.swift in Sources */,
